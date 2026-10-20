@@ -59,3 +59,32 @@ En el ERP, conviene guardar cada observación con estos campos:
 
 La distinción más importante es separar **hechos observados, declaraciones del competidor e hipótesis propias**. Así el análisis servirá para tomar decisiones sin convertir suposiciones en datos.
 
+
+---
+$$$$
+
+Bueno, primo, en cuanto a la materia prima, conseguirla es bastante difícil. Como te explicaba, no es que sea ilegal, sino que se trata de subproductos que, aunque no se destinan al consumo humano o no se comercializan habitualmente en ese mercado, pueden aprovecharse para nuestro proceso productivo.
+
+¿Qué utilizamos? Principalmente, cabezas de pollo, barriga de salmón —que tiene un sabor un poco amargo y, por eso, la gente no suele consumirla—, huesos de cerdo, específicamente la canilla, y vísceras de cerdo.
+
+Trabajamos con varios proveedores, cada uno de los cuales nos suministra diferentes materias primas. Todo llega congelado a la planta y el suministro no es constante, porque depende de la disponibilidad de cada proveedor. Hay ocasiones en las que algunos tienen producto y otros no, por lo que debemos adaptarnos continuamente a esa disponibilidad.
+
+Precisamente por eso contamos con un cuarto frío de gran capacidad. Cuando hay disponibilidad, recibimos cantidades importantes y las almacenamos para tener reservas que nos permitan mantener la operación cuando escasea la materia prima.
+
+Estamos buscando proveedores y recibiendo materia prima permanentemente. Por ejemplo, en el caso del hueso de cerdo, se trata de un subproducto que, de no aprovecharse, podría terminar desechándose. Los establecimientos tendrían que gestionar su disposición y asumir los costos correspondientes. Nosotros, en cambio, lo recibimos y también les pagamos por él a un precio que les resulta favorable.
+
+Así logramos aprovechar materiales que, de otra manera, podrían convertirse en residuos, al tiempo que generamos un beneficio económico para nuestros proveedores y aseguramos, en la medida de lo posible, el abastecimiento de nuestra planta.
+
+
+
+Bueno, primo, en cuanto a la materia prima, conseguirla es bastante difícil. Como te explicaba, no es que sea ilegal, sino que se trata de subproductos que, aunque no se destinan al consumo humano o no se comercializan habitualmente en ese mercado, pueden aprovecharse para nuestro proceso productivo.
+
+¿Qué utilizamos? Principalmente, cabezas de pollo, barriga de salmón —que tiene un sabor un poco amargo y, por eso, la gente no suele consumirla—, huesos de cerdo, específicamente la canilla, y vísceras de cerdo.
+
+Trabajamos con varios proveedores, cada uno de los cuales nos suministra diferentes materias primas. Todo llega congelado a la planta y el suministro no es constante, porque depende de la disponibilidad de cada proveedor. Hay ocasiones en las que algunos tienen producto y otros no, por lo que debemos adaptarnos continuamente a esa disponibilidad.
+
+Precisamente por eso contamos con un cuarto frío de gran capacidad. Sin embargo, no manejamos lotes antiguos ni almacenamos la materia prima durante largos periodos. En la práctica, todo lo que llega un viernes se procesa durante la semana siguiente y, a más tardar, el viernes siguiente ya no queda materia prima de ese ingreso. Es decir, la materia prima se consume prácticamente de inmediato y no trabajamos con producto viejo.
+
+Estamos buscando proveedores y recibiendo materia prima permanentemente. Por ejemplo, en el caso del hueso de cerdo, se trata de un subproducto que, de no aprovecharse, podría terminar desechándose. Los establecimientos tendrían que gestionar su disposición y asumir los costos correspondientes. Nosotros, en cambio, lo recibimos y también les pagamos por él a un precio que les resulta favorable.
+
+Así logramos aprovechar materiales que, de otra manera, podrían convertirse en residuos, al tiempo que generamos un beneficio económico para nuestros proveedores y aseguramos, en la medida de lo posible, el abastecimiento de nuestra planta.
