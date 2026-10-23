@@ -83,7 +83,7 @@ A ideia central da fala é: **pesquisar → definir o problema → explorar e pr
 ---
 $$$$
 
-que es un Growth Partner?
+# que es un Growth Partner?
 
 Un **Growth Partner** es un **socio estratégico que ayuda a una empresa a crecer**, trabajando en áreas como marketing, ventas y retención de clientes.
 
@@ -232,7 +232,7 @@ As frases à direita explicam a lógica comercial: a implantação inicia a rela
 ---
 $$$$
 
-Um **Growth Partner (parceiro de crescimento)** é um profissional ou empresa que trabalha junto de um negócio para **identificar oportunidades de crescimento, implementar melhorias e acompanhar os resultados**.
+# Um **Growth Partner (parceiro de crescimento)** é um profissional ou empresa que trabalha junto de um negócio para **identificar oportunidades de crescimento, implementar melhorias e acompanhar os resultados**.
 
 Relacionando com os quadros que você mostrou, ele pode atuar em todo o caminho do cliente:
 
@@ -266,7 +266,7 @@ Esses serviços podem se sobrepor. **Para entender uma proposta, o mais útil é
 ---
 $$$$
 
-me diga quais são os principais diferenciais entre eles:
+# me diga quais são os principais diferenciais entre eles:
 
 Growth Partner
 Consultoria de crescimento
