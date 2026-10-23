@@ -308,3 +308,20 @@ As diferenças que mais costumam gerar confusão são:
 **Aplicando aos quadros que você mostrou:** agentes de WhatsApp, recepcionistas de voz e fluxos automáticos se aproximam de uma **agência de IA e automação**. A oferta se aproxima de um **Growth Partner** quando também inclui diagnóstico do negócio, escolha das prioridades e acompanhamento de como essas soluções afetam vendas e retenção.
 
 Esses nomes não definem sozinhos o contrato: uma mesma empresa pode oferecer vários desses serviços, com equipes e responsabilidades diferentes.
+
+
+---
+$$$$
+
+# Problemas que tempos para trabalhar
+
+ter dados
+gerar dados
+estrategias para obter dados 
+
+analisar o mercado
+estrategias para analisar o mercado
+ferramentas para analisar o mercado
+
+
+
