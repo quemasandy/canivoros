@@ -118,11 +118,356 @@ También aparece una diferencia importante con el documento anterior: allí se m
 
 1 se compra lo que nos vendan el acuerdo con los proveedores es traiganos lo que tengan hay que tener en cuenta que es un subproducto por lo tanto no es ilimitado si necesitamos mas hay que traer mas proveedores
 
+---
+$$$$
+
+# Canívoros — Información del audio
+
+## Organización de la empresa
+
+Canívoros cuenta con tres operarios que se encargan de la producción. La responsable de la empresa se ocupa de facturar, procurar que haya materia prima disponible y recibir los pedidos que le transmite el área comercial.
+
+La empresa funciona con un equipo reducido y no considera viable incorporar más empleados en este momento. Organizar y sistematizar la información permitiría reducir la carga administrativa.
+
+La responsable manifiesta interés en recopilar los datos y dejar organizada la empresa. Explica que muchas de las preguntas sobre el negocio ya las ha respondido a publicistas, profesionales relacionados con el ICA, ingenieros industriales e ingenieros de alimentos, pero la información está repartida y necesita organizarse.
+
+## Información de producción que desea organizar
+
+La responsable quiere registrar y sistematizar información sobre los productos, las recetas, los cambios de receta, las cantidades utilizadas por lote y la cantidad de producto terminado que espera obtener.
+
+En la producción se transforma materia prima, se genera merma y se hornea el producto.
+
+El mantenimiento de maquinaria ocupa una parte importante del tiempo. Es necesario conseguir repuestos, buscar técnicos, reparar equipos y, en ocasiones, fabricar piezas que se rompen.
+
+## Comercialización actual
+
+La empresa vende a través de aproximadamente tres o cuatro puntos de distribución y también mediante amigos, conocidos y contactos personales.
+
+La trayectoria en el mundo de los perros y la relación con perros campeones han contribuido a generar confianza y credibilidad entre los compradores.
+
+La responsable quiere identificar con claridad los productos que entregará a Santiago, sus presentaciones y sus gramajes.
+
+## Aspectos comerciales que la responsable quiere estudiar
+
+La responsable menciona interés en conocer:
+
+- La competencia.
+- Los productos similares que existen en el mercado.
+- Sus precios y beneficios.
+- La población a la que se dirigirán.
+- La conveniencia de las presentaciones y gramajes actuales.
+- Las presentaciones que podrían venderse mejor o dejar mayor ganancia.
+
+Como ejemplos, menciona estudiar presentaciones de 200, 350 o 700 gramos, en lugar de vender únicamente por libra.
+
+Explica que un paquete puede resultar demasiado grande para una mascota pequeña y que los productos en chorizo pueden deteriorarse después de abiertos.
+
+## Experiencia con el producto prémium para perros
+
+La responsable identifica la receta de pollo y salmón en chorizos como un producto prémium. En el audio menciona un precio aproximado de cinco dólares por libra y señala que llevan alrededor de tres años trabajando en su posicionamiento.
+
+Según su experiencia, son pocos los clientes dispuestos a consumir este tipo de producto y ha sido difícil aumentar sus ventas.
+
+Considera que el alimento para mascotas debe comercializarse de forma masiva. También expresa que algunos compradores reducen el presupuesto destinado a la alimentación del perro cuando tienen otros gastos.
+
+La responsable afirma que sus productos tienen una calidad superior a la de sus competidores y señala que dispone de información sobre proteína, grasa y humedad para realizar comparaciones. Relata haber observado cambios en el pelaje y el peso de los animales que consumen sus productos.
+
+## Distribuidores y objetivos de la empresa
+
+Santiago es mencionado como distribuidor de Canívoros. La responsable también hace referencia a otros distribuidores y expresa que desea que puedan vender de forma autónoma.
+
+Su interés principal es que la empresa produzca, esté organizada y pueda elaborar miles de kilos para cumplir con los pedidos de los distribuidores.
+
+## Propuesta de colaboración
+
+La responsable distingue dos trabajos:
+
+1. Organizar la empresa mediante un sistema para pedidos, materias primas, protocolos y registros. Expresa disposición a pagar de alguna manera por esta organización, que considera un ahorro de gastos operativos.
+2. Llevar clientes a Santiago. Propone que el resultado económico de esas ventas se comparta entre Santiago y la persona que consiga los clientes.
+
+También ofrece enviar formatos de Excel para mostrar cómo funciona actualmente la empresa.
+
+## Producto para gatos
+
+La responsable considera que el alimento para gatos podría ser un producto de alta rentabilidad.
+
+En el audio menciona una ganancia de cuatro millones ochocientos mil por la venta de una tonelada de este producto.
+
+Explica que los gatos consumen menos cantidad y que la aceptación varía: a algunos les gusta el alimento y a otros no.
+
+Considera que sería mejor ofrecer una presentación de 200 gramos, porque después de abrir el paquete el producto pierde frescura. Como ejemplo, relata que sus gatos pueden dejar de aceptarlo si lleva dos días abierto.
+
+Según su experiencia, el precio de dieciséis mil pesos por libra no genera tanta resistencia entre compradores de alimento para gatos, porque están acostumbrados a pagar precios elevados.
+
+La responsable considera difícil cambiar la alimentación de gatos acostumbrados desde pequeños al concentrado. Por eso propone dirigirse a personas que acaban de incorporar un gatito al hogar y promover el consumo del producto desde una edad temprana.
+
+En su explicación, destaca la humedad del alimento y relata beneficios que atribuye a su consumo, como cambios en el pelaje y menor cantidad y olor de las heces.
+
+## Inicio de la organización del sistema
+
+La responsable pregunta cómo se empezará a ingresar la información: si se recopilará mediante preguntas, si otra persona la cargará o si recibirá un usuario y una contraseña para hacerlo directamente.
+
+## Registro de ventas y cuentas pendientes
+
+Omar le pasa los clientes a la responsable, quien elabora la factura. Se recibe la consignación y, una vez realizada la entrega, la venta se registra en Excel.
+
+Algunos clientes habituales reciben el pedido y quedan debiendo. Esas cuentas pendientes se identifican en rojo en el archivo.
+
+La responsable explica que el cuadro de Excel contiene cantidades expresadas en kilos y libras. Los precios se manejan por separado en el programa de facturación.
 
 ---
 $$$$
 
-# Canívoros — levantamiento operativo para el ERP
+# Canívoros — Documento de referencia del negocio
+
+**Fecha de elaboración:** 26 de octubre de 2026  
+**Fuente:** transcripción y respuestas escritas proporcionadas por la empresa.  
+**Estado:** documento inicial para revisión con la responsable de Canívoros.
+
+> Los datos operativos se presentan según lo relatado; no constituyen una auditoría. Las propuestas, interpretaciones y dudas se identifican por separado. Los precios y condiciones deben confirmarse antes de utilizarlos en un sistema o catálogo comercial.
+
+## 1. Descripción de la empresa
+
+Canívoros elabora y comercializa alimentos para mascotas, principalmente perros, y cuenta también con una receta para gatos. Se mencionan productos en forma de chorizos y hamburguesas.
+
+La empresa combina ventas directas con ventas mediante distribuidores. Su responsable desea concentrarse en organizar la producción, aumentar el volumen y cumplir los pedidos de los canales comerciales.
+
+El crecimiento comercial actual se apoya en relaciones personales, recomendaciones y la credibilidad de Omar en el entorno de los perros. No se documenta todavía una investigación sistemática del mercado.
+
+## 2. Equipo y responsabilidades
+
+El equipo está compuesto por cinco personas: Omar, la responsable de la operación y tres operarios.
+
+| Persona o grupo | Responsabilidades relatadas |
+|---|---|
+| Omar | Atención por WhatsApp, recepción de pedidos, solicitud de datos de facturación y comunicación de facturas y fechas al cliente. |
+| Responsable de la operación — nombre por confirmar | Disponibilidad de materia prima, facturación, programación de producción, coordinación de pedidos y entregas, y registro de ventas y saldos. |
+| Tres operarios | Producción y preparación de pedidos. |
+| Operaria de enlace | Coordinación frecuente con la responsable para organizar los pedidos. No se confirma que tenga un cargo formal de supervisión. |
+| Distribuidores | Comercialización del producto. Santiago es mencionado expresamente como distribuidor. |
+
+La responsable considera que dispone de un excelente equipo humano, pero señala que la ausencia de una persona desorganiza la operación. La asignación exacta del transporte y las entregas debe aclararse: el relato menciona funciones de domiciliario, sin permitir atribuirlas con certeza.
+
+## 3. Herramientas y registros actuales
+
+| Herramienta | Uso actual |
+|---|---|
+| WhatsApp | Atención comercial y recepción de pedidos. |
+| Chat interno «Pedidos» | Transferencia de pedidos y datos de clientes; seguimiento informal de entregas. |
+| Programa de facturación — nombre por confirmar | Emisión de facturas y manejo de precios. |
+| Excel | Registro de ventas después de entregar; identificación en rojo de cuentas pendientes. Se mencionan otros formatos, aún no revisados. |
+| Memoria de la responsable | Consulta de inventario y evaluación de disponibilidad y fechas. |
+
+Existen registros digitales parciales. Lo que falta, según el relato, es consolidar y mantener la información operativa en un sistema integrado.
+
+## 4. Flujo actual de pedidos
+
+1. El cliente contacta a Omar por WhatsApp.
+2. Omar recibe el pedido y solicita nombre completo, número de cédula, teléfono y correo electrónico para facturación.
+3. Omar envía el pedido y los datos al chat interno «Pedidos».
+4. La responsable evalúa disponibilidad y cuándo se podrá entregar, apoyándose en su conocimiento del inventario y los pedidos pendientes.
+5. La responsable crea la factura y se la envía a Omar.
+6. Omar comparte la factura y comunica al cliente la fecha prevista de entrega.
+7. Se programa la producción necesaria según los pedidos en cola y se coordina la preparación con los operarios.
+8. Generalmente se recibe el pago antes del despacho. Algunos clientes antiguos pueden recibir primero y pagar después.
+9. Se entrega el pedido.
+10. La responsable marca la entrega con ✅ en el chat y registra la venta en Excel. Si existe saldo pendiente, lo identifica en rojo.
+
+**Criterio operativo de pedido terminado:** entrega al cliente. Esto no implica necesariamente que el pedido esté pagado.
+
+**Aspectos por precisar:** cuándo se confirma formalmente el pedido, cuándo se fija la fecha definitiva, cómo se comprueba el pago y quién registra cada cambio.
+
+## 5. Catálogo mencionado
+
+### 5.1. Presentaciones de 500 gramos
+
+Los importes se transcriben sin convertir moneda. El contexto apunta a pesos colombianos, pero debe confirmarse que todos los valores correspondan a COP y aclararse impuestos y transporte.
+
+| Receta | Destino indicado | Forma | Peso informado | Precio al público | Precio a distribuidor | Observación |
+|---|---|---|---|---:|---:|---|
+| Pollo y salmón | Perros | Chorizos | 500 g | 14.000 | 9.800 | Producto descrito como prémium. |
+| Cerdo | Línea canina, por confirmar en ficha | Hamburguesas | 500 g | 5.000 | 35.000 **por confirmar** | El valor a distribuidor parece inconsistente; no se corrige sin validación. |
+| Pollo | Línea canina, por confirmar en ficha | Hamburguesas | 500 g | 5.000 | 3.500 | Confirmar condiciones comerciales. |
+| Ternera | Línea canina, por confirmar en ficha | No especificada | 500 g | 6.000 | 4.500 | Confirmar forma del producto. |
+| Salmón y cerdo | Gatos | Chorizos | 500 g | 16.000 | 11.200 | Confirmar denominación oficial de la receta. |
+
+La fuente alterna «libra» y «500 gramos». Para el catálogo se conserva el peso explícito de 500 g, pendiente de contrastarlo con las etiquetas. La referencia aproximada a cinco dólares para pollo y salmón no se utiliza como precio vigente.
+
+### 5.2. Venta directa por volumen
+
+| Receta | Forma | Presentación informada | Precio informado | Canal |
+|---|---|---|---:|---|
+| Cerdo | Hamburguesas | 1,5 kg | 6.200 por kg | Directo, sin distribuidores para esta oferta. |
+| Pollo | Hamburguesas | 1,5 kg | 6.200 por kg | Directo, sin distribuidores para esta oferta. |
+
+Condiciones relatadas:
+
+- Compra mínima de 40 kg.
+- Entrega completa en un solo pedido.
+- Oferta disponible en cerdo y pollo; no en ternera.
+
+Pendiente de confirmar:
+
+- Si el mínimo se aplica por receta o al total combinado.
+- Si 1,5 kg corresponde al paquete comercial o a otra unidad de producción.
+- Cómo se combina el mínimo de 40 kg con paquetes de 1,5 kg: 40 no es múltiplo de 1,5; un mínimo puede superarse, pero la regla debe explicitarse.
+- Si esta oferta tiene diferencias de formulación respecto a la presentación de 500 g.
+
+**Recuento provisional:** se identifican cinco recetas en 500 g y dos ofertas en 1,5 kg. Esto no permite fijar todavía el número definitivo de productos o SKU.
+
+## 6. Producción, materias primas y maquinaria
+
+La responsable señala que programa la producción en función de los pedidos pendientes. Esto sugiere una operación orientada a la demanda recibida, aunque falta confirmar cuánto inventario terminado se mantiene.
+
+Se mencionan transformación de materias primas, merma y horneado. No se dispone de una descripción completa del proceso.
+
+La empresa desea organizar información sobre:
+
+- Recetas y sus modificaciones.
+- Materias primas y cantidades utilizadas por lote.
+- Cantidad de producto terminado esperada y obtenida.
+- Mermas del proceso.
+- Disponibilidad de insumos y productos.
+- Protocolos y formatos de operación.
+
+Las fallas de maquinaria consumen tiempo por búsqueda de técnicos y repuestos, reparación y fabricación de piezas. No se aportan datos de frecuencia, costos o capacidad perdida.
+
+No se conocen todavía capacidad productiva, costos por receta, tiempos de fabricación, vida útil, condiciones de almacenamiento ni trazabilidad actual por lote.
+
+## 7. Comercialización y posicionamiento
+
+### Situación relatada
+
+- Existen aproximadamente tres o cuatro puntos de distribución; confirmar cantidad y actividad actual.
+- Una parte de las ventas procede de amigos, conocidos y contactos del entorno canino.
+- La confianza y trayectoria de Omar son activos comerciales relevantes.
+- La receta de pollo y salmón lleva aproximadamente tres años de trabajo de posicionamiento, según la entrevistada; esto no establece la antigüedad de toda la empresa.
+- La responsable percibe dificultades para ampliar el mercado de la oferta prémium para perros y expresa interés en vender mayores volúmenes.
+
+### Preguntas comerciales que la empresa quiere resolver
+
+| Tema | Pregunta de trabajo |
+|---|---|
+| Competencia | ¿Qué productos son comparables y cómo se comercializan? |
+| Precio | ¿Qué paga el comprador por productos y cantidades equivalentes? |
+| Presentación | ¿Qué gramaje facilita compra, consumo y rentabilidad? |
+| Segmentación | ¿Qué tipos de compradores y mascotas encajan con cada producto? |
+| Distribución | ¿Cómo aumentar ventas mediante distribuidores? |
+| Recompra | ¿Qué favorece o dificulta que el cliente vuelva a comprar? |
+
+Estas preguntas son necesidades de investigación; el documento no contiene resultados de un estudio de mercado.
+
+## 8. Línea para gatos: oportunidad propuesta
+
+La responsable considera que la receta de salmón y cerdo podría tener alto potencial comercial. Relata que algunos gatos rechazan el alimento y que, tras abrir el paquete, puede perder aceptación conforme disminuye su frescura.
+
+| Propuesta o percepción | Estado |
+|---|---|
+| Ofrecer paquetes de aproximadamente 200 g. | Idea por evaluar; no es una presentación confirmada del catálogo. |
+| Dirigirse a hogares que incorporan un gatito. | Hipótesis de segmentación. |
+| Mayor disposición a pagar en compradores de alimento para gatos. | Percepción de la entrevistada; requiere validación. |
+| Reducir desperdicio mediante paquetes menores. | Beneficio esperado por medir. |
+
+Antes de decidir el cambio de empaque, conviene conocer consumo por hogar, conservación, aceptación, costo del envase y frecuencia de recompra. No se ha establecido la rentabilidad neta de la línea.
+
+### Aclaración del cálculo comercial
+
+Con los precios informados para el paquete de 500 g:
+
+- Diferencia entre precio público y precio a distribuidor: 16.000 − 11.200 = **4.800 por paquete**.
+- Paquetes por tonelada: 1.000 kg ÷ 0,5 kg = **2.000 paquetes**.
+- Diferencia comercial teórica por tonelada: 2.000 × 4.800 = **9.600.000**.
+
+Este cálculo supone vender todo al precio indicado y no incluye transporte, descuentos, pérdidas, comisiones ni otros gastos. No representa utilidad neta ni margen del fabricante. La cifra verbal de 4.800.000 por tonelada debe aclararse con la empresa.
+
+## 9. Dos frentes de colaboración
+
+### A. Organización y sistematización
+
+La empresa expresa interés en ordenar pedidos, materias primas, producción y registros. Espera reducir carga administrativa y mejorar la coordinación del equipo.
+
+Existe disposición verbal a remunerar este trabajo, sin monto, modalidad ni alcance acordados. También se plantea proporcionar formatos de Excel y definir cómo se ingresará la información: mediante preguntas, con apoyo del implementador o directamente por la responsable.
+
+### B. Desarrollo comercial con Santiago
+
+Se propone captar clientes para que Santiago comercialice el producto y compartir entre él y el colaborador parte del resultado de esas ventas.
+
+No se ha definido porcentaje, base del reparto, atribución de clientes, gastos, momento del pago ni tratamiento de la recompra. Las cifras de ingresos mencionadas verbalmente no constituyen una proyección validada ni una garantía.
+
+Estos dos frentes requieren alcances y acuerdos económicos propios.
+
+## 10. Necesidades de sistematización identificadas
+
+| Área | Necesidad identificada | Información mínima a organizar |
+|---|---|---|
+| Clientes | Evitar datos dispersos en conversaciones. | Identificación, contacto, dirección y condiciones de pago. |
+| Productos | Unificar recetas, formatos, unidades y precios. | Código, nombre, peso, presentación, canal y precio validado. |
+| Pedidos | Seguir compromisos y entregas. | Productos, cantidades, fechas, responsable y estado. |
+| Pagos | Distinguir cobro y entrega. | Importe, abonos, saldo y vencimiento. |
+| Producción | Coordinar pedidos con fabricación. | Cantidades pendientes, lotes y fechas previstas. |
+| Inventario | Sustituir dependencia de la memoria. | Existencias, entradas, salidas y cantidades comprometidas. |
+| Mantenimiento | Documentar fallas e intervenciones. | Equipo, incidencia, reparación y parada. |
+| Conocimiento | Reunir respuestas y documentos existentes. | Procedimientos, fichas, formatos y responsables. |
+
+Esta tabla es una síntesis analítica de necesidades, no una lista de funciones ya implementadas.
+
+## 11. Propuesta inicial de sistema
+
+El material adjunto incluye una propuesta de preparar un entorno local de **Odoo Community**, con un primer piloto de clientes, productos y pedidos de venta. El CRM se plantea para consultas que aún no se convierten en pedidos.
+
+**Estado:** propuesta de trabajo; no hay evidencia en la fuente de que el sistema esté instalado o configurado.
+
+Para representar la operación descrita, el piloto debería permitir distinguir:
+
+- Estado del pedido y fecha comprometida.
+- Estado de preparación y entrega.
+- Estado del pago y saldo pendiente.
+
+Recorrido habitual a documentar: **registrar cliente → crear y confirmar pedido → coordinar producción y pago previo al despacho → despachar → entregar → cerrar seguimiento**.
+
+Excepción: los clientes autorizados a crédito pueden recibir antes de pagar. La secuencia exacta entre producción y cobro debe confirmarse.
+
+La relación con el programa de facturación existente debe definirse antes de sustituir o duplicar registros.
+
+## 12. Afirmaciones y evidencia pendiente
+
+La entrevistada sostiene que sus productos tienen una calidad superior y relata beneficios observados en mascotas. También expresa opiniones sobre alimentos competidores, salud y comportamiento de compra.
+
+Estas declaraciones se registran como percepciones y testimonios. No se consideran demostradas la superioridad frente a todo el mercado, las comparaciones del tipo «tres veces mejor» ni las relaciones causales entre un alimento y enfermedades.
+
+Para evaluar posicionamiento y mensajes comerciales hacen falta fichas técnicas, análisis comparables y respaldo profesional pertinente. El documento no establece que las recetas sean alimentos completos ni confirma su adecuación para todas las etapas de vida.
+
+La transcripción menciona una autoridad como «lca», posiblemente el ICA; su identificación y los requisitos concretos deben confirmarse. No se aportan registros o permisos que permitan concluir el estado regulatorio de Canívoros.
+
+## 13. Información pendiente de confirmar
+
+- [ ] Nombre y cargo de la responsable; datos básicos y ubicación de la empresa.
+- [ ] Catálogo definitivo, recetas, presentaciones y códigos.
+- [ ] Precio a distribuidor de cerdo de 500 g.
+- [ ] Moneda, impuestos, transporte y vigencia de precios.
+- [ ] Correspondencia entre «libra» y peso declarado en etiqueta.
+- [ ] Regla de pedido mínimo y unidades de la oferta de 1,5 kg.
+- [ ] Nombre y funcionamiento del programa de facturación.
+- [ ] Contenido de los Excel mencionados y responsable de mantenerlos.
+- [ ] Existencias iniciales, capacidad, rendimientos, mermas y costos.
+- [ ] Conservación, vida útil y documentación técnica de los productos.
+- [ ] Número y condiciones de distribuidores activos.
+- [ ] Responsables de entrega y comprobación de pagos.
+- [ ] Clientes con crédito, plazos y saldos actuales.
+- [ ] Documentación y registros regulatorios disponibles.
+- [ ] Alcance y remuneración del trabajo de sistemas.
+- [ ] Condiciones del acuerdo comercial con Santiago.
+
+## 14. Cómo mantener esta referencia
+
+Actualizar cada dato cuando la empresa lo confirme y registrar su fecha y fuente. Mantener las propuestas separadas del catálogo y las condiciones vigentes. Usar este documento como base para entrevistas, revisión de archivos y definición del piloto, sin convertir los datos dudosos en configuración definitiva.
+
+---
+$$$$
+
+# Repitiendo análisis de la información arriba
+
+## Canívoros — levantamiento operativo para el ERP
 
 Este documento organiza las 13 respuestas transcritas de WhatsApp por proceso de la empresa. La fuente es la transcripción proporcionada, sin revisión de los audios originales. Los datos representan prácticas descritas, no procedimientos formalizados ni requisitos aprobados. Las cifras son aproximadas, salvo confirmación posterior.
 
@@ -340,3 +685,156 @@ Qué máquinas fallan; frecuencia y duración de las paradas; efectos sobre la p
 Todavía no están definidos los responsables y niveles de aprobación, los criterios técnicos de aceptación, las recetas, la vida útil, la conversión de libras, los precios, los proveedores identificados y los procedimientos de descarte. El ERP debe apoyar la formalización de estas decisiones sin presentar hipótesis como reglas existentes.
 
 La descripción operativa de los subproductos también debe conciliarse con la comunicación anterior de la marca, que mencionaba la ausencia de subproductos. El registro técnico debe representar los materiales realmente utilizados.
+
+---
+
+# aquí tenemos nuevas informaciones sobre la empresa
+
+La transcripción muestra que **Canívoros tiene una operación productiva y comercial en marcha, pero gran parte de su coordinación depende de la memoria, WhatsApp y registros manuales de sus responsables**. Sus necesidades principales son organizar la operación y desarrollar la comercialización, con alcances y acuerdos económicos separados.
+
+A continuación distingo los datos relatados, las oportunidades y lo que falta confirmar.
+
+## 1. Qué es Canívoros y cómo funciona
+
+| Aspecto | Información extraída |
+|---|---|
+| Actividad | Elaboración y venta de alimentos para mascotas, principalmente perros; también tiene un producto para gatos. |
+| Equipo | Cinco personas: Omar, la responsable de la operación y tres operarios. |
+| Omar | Atiende consultas y pedidos por WhatsApp y se encarga de las ventas. |
+| Responsable de la operación | Gestiona materia prima, facturación, programación de producción y coordinación de pedidos y entregas. |
+| Operarios | Elaboran los productos y preparan los pedidos. Una operaria mantiene comunicación directa con la responsable para organizarlos. |
+| Distribución | Se mencionan tres o cuatro puntos de distribución, además de ventas a conocidos y contactos. |
+| Fortaleza comercial actual | Confianza, credibilidad y trayectoria de Omar en el entorno de los perros. |
+| Fragilidad operativa | La ausencia de una sola persona altera considerablemente el funcionamiento. |
+
+**La empresa busca concentrarse en producir volumen y cumplirles a sus distribuidores**, mientras estos desarrollan sus propias ventas.
+
+## 2. Cómo se gestiona hoy una venta
+
+1. El cliente contacta a Omar por WhatsApp.
+2. Omar solicita nombre completo, número de identificación, teléfono y correo para facturación.
+3. Envía los datos y el pedido a un chat interno llamado **“Pedidos”**.
+4. La responsable evalúa disponibilidad y fecha de entrega, apoyándose en su conocimiento del inventario y la producción pendiente.
+5. Crea la factura en un programa de facturación y se la envía a Omar.
+6. Omar comparte la factura y comunica la fecha de entrega al cliente.
+7. Generalmente, el cliente paga **antes del despacho**. Algunos clientes antiguos reciben y pagan después.
+8. Los operarios preparan el pedido y se coordina su entrega.
+9. Una vez entregado, se marca con ✅ en el chat y se registra la venta en Excel.
+10. Los saldos pendientes se señalan en rojo en Excel.
+
+**Implicación para el sistema:** el pago y la entrega deben tener estados independientes. El recorrido habitual incluye pago antes del despacho, pero también existe venta a crédito.
+
+## 3. Catálogo y precios mencionados
+
+Los valores siguientes reproducen lo informado. **La moneda debe confirmarse**, aunque por el contexto parece tratarse de pesos colombianos.
+
+| Producto / receta | Forma | Presentación | Precio al público | Precio a distribuidor |
+|---|---|---:|---:|---:|
+| Pollo y salmón, para perros | Chorizos | 500 g | 14.000 | 9.800 |
+| Cerdo | Hamburguesas | 500 g | 5.000* | 35.000* |
+| Pollo | Hamburguesas | 500 g | 5.000 | 3.500 |
+| Ternera | No queda explícita | 500 g | 6.000 | 4.500 |
+| Salmón y cerdo, para gatos | Chorizos | 500 g | 16.000 | 11.200 |
+| Cerdo, venta directa por volumen | Hamburguesas | 1,5 kg | 6.200 por kg | No aplica según el relato |
+| Pollo, venta directa por volumen | Hamburguesas | 1,5 kg | 6.200 por kg | No aplica según el relato |
+
+\* **El precio de cerdo requiere corrección:** se transcribió “5.000 la libra” al público y “35.000” al distribuidor. No conviene cargar ese dato sin confirmación.
+
+Para las ventas por volumen se indican estas condiciones:
+
+- Pedido mínimo de **40 kg**.
+- Entrega completa en un solo pedido.
+- Solo pollo y cerdo; **no ternera**.
+- Comercialización directa, sin distribuidores.
+
+Hay otra inconsistencia que resolver: **40 kg no equivalen a un número entero de paquetes de 1,5 kg**. Debe aclararse cómo se completa el mínimo y si se pueden combinar recetas.
+
+También conviene unificar unidades: en el relato se alternan **“libra” y “500 gramos”**.
+
+## 4. Necesidades operativas identificadas
+
+| Necesidad | Evidencia del relato | Qué convendría registrar |
+|---|---|---|
+| Centralizar pedidos | Se coordinan en un chat interno. | Cliente, productos, cantidades, fecha prometida y estado. |
+| Controlar inventario | La disponibilidad se consulta “en la mente”. | Materia prima, producto terminado y cantidades comprometidas. |
+| Programar producción | Se produce según los pedidos en cola. | Demanda pendiente, prioridad y fecha prevista. |
+| Documentar recetas y rendimientos | Se mencionan cantidades por lote, merma y producto esperado. | Receta, insumos consumidos, merma y resultado real por lote. |
+| Controlar cobros | Se usan marcas rojas en Excel. | Importe, pagos recibidos, saldo y vencimiento. |
+| Organizar mantenimiento | Las averías y la búsqueda de técnicos o repuestos consumen tiempo. | Equipos, incidencias, reparaciones y paradas. |
+| Consolidar conocimiento | Las respuestas existen, pero están repartidas entre conversaciones con distintos profesionales. | Documentación central y responsables de actualizarla. |
+
+**No parten de cero en conocimiento: necesitan convertir lo que ya saben en información organizada y utilizable.**
+
+## 5. Necesidades comerciales
+
+La empresa reconoce que todavía no ha estudiado de forma sistemática:
+
+- Competidores y productos comparables.
+- Precios y beneficios ofrecidos en el mercado.
+- Presentaciones y gramajes más adecuados.
+- Segmentos de compradores.
+- Rentabilidad por producto y canal.
+- Métodos para captar clientes fuera de la red de contactos actual.
+
+El producto de pollo y salmón lleva aproximadamente **tres años de posicionamiento**, según el relato. La responsable percibe que su crecimiento ha sido limitado por el tamaño del público dispuesto a pagar por esa propuesta.
+
+Esto sugiere una pregunta comercial central: **¿qué combinación de producto, presentación, público y canal permite vender de forma rentable y recurrente?**
+
+## 6. Oportunidad del producto para gatos
+
+La responsable identifica el alimento para gatos como una posible línea de mayor rentabilidad, pero también relata dificultades de aceptación y frescura después de abrir el empaque.
+
+| Dato u observación | Oportunidad por validar |
+|---|---|
+| Presentación actual de 500 g | Probar una presentación menor, por ejemplo de 200 g. |
+| Algunos gatos rechazan el producto después de abierto | Medir consumo por empaque, conservación y desperdicio. |
+| Se percibe menor resistencia al precio | Comprobar disposición de pago con compradores reales. |
+| Se propone captar hogares con gatitos | Evaluar ese segmento y la recompra, con orientación nutricional veterinaria. |
+
+**La presentación de 200 g es una propuesta, todavía no una decisión validada.**
+
+Además, la rentabilidad mencionada en el audio no coincide con los precios informados:
+
+- Diferencia por paquete: 16.000 − 11.200 = **4.800**.
+- Una tonelada contiene **2.000 paquetes de 500 g**.
+- Diferencia comercial teórica: **9.600.000 por tonelada**, antes de gastos y descuentos.
+
+El audio habla de 4.800.000 por tonelada. Debe confirmarse la unidad o el acuerdo utilizado. **La diferencia entre precio de compra y venta tampoco equivale a ganancia neta.**
+
+## 7. Dos servicios distintos que te están solicitando
+
+| Frente | Resultado esperado por Canívoros | Acuerdo pendiente |
+|---|---|---|
+| **Organización y sistemas** | Ordenar pedidos, producción, materias primas, inventario y registros; reducir carga administrativa. | Alcance, implementación, alimentación de datos, soporte y remuneración. |
+| **Desarrollo comercial** | Llevar clientes a Santiago y aumentar las ventas de distribución. | Cómo se atribuyen ventas y cómo se reparte el margen entre tú y Santiago. |
+
+**No hay un acuerdo económico cerrado en la transcripción.** Existe disposición a remunerar la organización de la empresa y una propuesta de compartir resultados comerciales, pero faltan condiciones concretas.
+
+## 8. Afirmaciones que requieren evidencia
+
+La responsable expresa convicción sobre la calidad del producto. Sin embargo, estas declaraciones deben conservarse como **afirmaciones de la entrevistada**, no como conclusiones demostradas:
+
+- “La mejor calidad del mercado” o “nadie en Colombia compite”.
+- Ser “casi el triple de buenos”.
+- Mejoras de salud, peso o pelaje atribuidas al alimento.
+- Relaciones causales entre otros alimentos y enfermedades.
+
+Para convertirlas en argumentos comerciales hacen falta fichas técnicas, análisis comparables y respaldo profesional pertinente. La transcripción tampoco permite confirmar el estado de los registros o permisos de la empresa.
+
+## 9. Primer paso recomendado
+
+**Documentar un pedido real completo y construir un piloto con clientes, productos, pedidos, pagos y entregas.** La producción bajo pedido y la existencia de clientes a crédito deben quedar reflejadas desde el inicio.
+
+Antes de cargar el catálogo, resolvería cinco puntos:
+
+1. Precios y unidades exactas de cada producto.
+2. Catálogo definitivo y presentaciones disponibles.
+3. Regla de venta mínima para los paquetes de 1,5 kg.
+4. Programa de facturación utilizado y datos que ya contiene.
+5. Responsables de registrar pedidos, pagos, producción y entregas.
+
+Con estos datos se puede definir el primer sistema alrededor de la operación real de Canívoros y, en paralelo, preparar una investigación comercial con preguntas concretas.
+
+
+---
+$$$$
