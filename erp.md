@@ -838,3 +838,9 @@ Con estos datos se puede definir el primer sistema alrededor de la operación re
 
 ---
 $$$$
+
+[10:50, 26/10/2026] Sary Crispina: Mas que decir forma seria mejor decir presentacion
+[10:52, 26/10/2026] Sary Crispina: En cuanto a destino indicado las recetas de cerdo pollo y ternera son para perros de todas las razas y todas las edades
+[10:52, 26/10/2026] Sary Crispina: Y claro en la de cerdo el precio a distribuidor es 3.500
+
+
