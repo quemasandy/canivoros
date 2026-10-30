@@ -74,8 +74,27 @@ Esfuerzo: S ≈ 1–2 h, M ≈ 3–6 h, L > 6 h. Estado inicial: Backlog.
 | [BL-033](BL-033-asistente-de-ia-local-con-notas.md) | Idea | Asistente de IA local con notas | Low | Sebastián | M | Backlog |
 | [BL-034](BL-034-extensiones-de-chrome-propias.md) | Idea | Extensiones de Chrome propias | Low | Sebastián | M | Backlog |
 
+## Nuevos desde documentos del repo (BL-035 en adelante)
+
+Ítems sacados de los documentos fuera de `backlog/`. La semana es una propuesta y encaja con las semanas de arriba.
+
+| Clave | Tipo | Título | Prioridad | Responsable | Semana | Esfuerzo | Estado |
+|---|---|---|---|---|---|---|---|
+| [BL-035](BL-035-validar-los-distribuidores-publicados-en-el-sitio.md) | Tarea | Validar los distribuidores publicados en el sitio | High | Omar/Canívoros | Semana 2 (9–15 nov) | S | Backlog |
+| [BL-036](BL-036-medir-la-capacidad-de-produccion-disponible.md) | Tarea | Medir la capacidad de producción disponible | Highest | Sebastián | Semana 2 (9–15 nov) | S | Backlog |
+| [BL-037](BL-037-registrar-proveedores-y-recepcion-de-materia-prima.md) | Historia | Registrar proveedores y recepción de materia prima | Medium | Sebastián | Semana 4 (23–29 nov) | M | Backlog |
+| [BL-038](BL-038-responder-las-12-preguntas-pendientes-de-compras-y.md) | Tarea | Responder las 12 preguntas pendientes de compras y recepción | Medium | Sebastián | Semana 3 (16–22 nov) | S | Backlog |
+| [BL-039](BL-039-buscar-nuevos-proveedores-de-subproductos.md) | Experimento | Buscar nuevos proveedores de subproductos | Medium | Omar/Canívoros + Andrés (investigación) | Semana 5 (30 nov–6 dic) | M | Backlog |
+| [BL-040](BL-040-ordenar-cobros-y-cartera.md) | Tarea | Ordenar cobros y cartera | High | Sebastián | Semana 3 (16–22 nov) | S | Backlog |
+| [BL-041](BL-041-confirmar-la-guia-de-raciones-por-peso-de-perro.md) | Tarea | Confirmar la guía de raciones por peso de perro | Medium | Omar/Canívoros | Semana 4 (23–29 nov) | S | Backlog |
+| [BL-042](BL-042-revisar-el-wordpress-y-decidir-si-sirve-como-tiend.md) | Tarea | Revisar el WordPress y decidir si sirve como tienda | Low | Sebastián | Semana 5 (30 nov–6 dic) | S | Backlog |
+| [BL-043](BL-043-programa-para-criadores-y-clientes-de-alto-volumen.md) | Experimento | Programa para criadores y clientes de alto volumen | Medium | Omar/Canívoros + Andrés (datos) | Semana 4 (23–29 nov) | M | Backlog |
+| [BL-044](BL-044-registrar-hipotesis-y-criterios-de-decision-antes.md) | Tarea | Registrar hipótesis y criterios de decisión antes de cada experimento | Medium | Andrés | Semana 3 (16–22 nov) | S | Backlog |
+| [BL-045](BL-045-plan-de-negocio-corto-de-la-agencia-growth-partner.md) | Historia | Plan de negocio corto de la agencia Growth Partner | Low | Sebastián + Andrés | Semana 6 (7–13 dic) | M | Backlog |
+| [BL-046](BL-046-explorar-el-cluster-de-bienestar-animal-de-la-ccb.md) | Idea | Explorar el Clúster de Bienestar Animal de la CCB | Low | Andrés | Semana 6 (7–13 dic) | S | Backlog |
+
 ## Fuentes
-- Rama `develop`: CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md, erp.md, pasos_sysmkt.md, metodologias_analisis_competitivo.md, Guía de desarrollo e investigación (ES), QFD.pdf, ventas_canivoros_2026.xlsx.
+- Rama `develop`: CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md, CANIVOROS-REFERENCIA-EMPRESA.md, erp.md, pasos_sysmkt.md, metodologias_analisis_competitivo.md, Guía de desarrollo e investigación (ES), QFD.pdf, ventas_canivoros_2026.xlsx.
 - canivoros-view `master`: problemas.md.
 - Informe ejecutivo del chat (29/10/2026), prospectos_bogota.xlsx, precios_competencia_bogota.xlsx.
 
