@@ -1,5 +1,9 @@
 # Backlog Canívoros / Growth Partner — orden de ejecución
 
+> 📄 Versión sin referencias (sin enlaces ni fuentes): [TODAS-LAS-TAREAS-SIN-REFERENCIAS.md](TODAS-LAS-TAREAS-SIN-REFERENCIAS.md)
+>
+> 📄 Contenido completo de todas las tareas (BL-001 a BL-058) en un solo archivo: [TODAS-LAS-TAREAS.md](TODAS-LAS-TAREAS.md)
+
 Ordenado por pasos lógicos: primero lo de mayor impacto y prioridad; cada ítem va después de sus dependencias. Las claves BL no cambian; el campo `order` del front-matter indica el paso. Responsables, semanas y esfuerzo son **propuestas** (Andrés ~4 h/semana; Sebastián la parte técnica).
 
 Esfuerzo: S ≈ 1–2 h, M ≈ 3–6 h, L > 6 h.
