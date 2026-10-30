@@ -2,10 +2,10 @@
 key: BL-018
 issue_type: Experimento
 summary: Ofrecer el diagnóstico a 5 pymes
-description: Mini ofrece el diagnóstico pagado a 5 negocios de su red. Medir cuántos aceptan una llamada y cuántos pagan.
+description: Andrés ofrece el diagnóstico pagado a 5 negocios (pymes) de su red de contactos. Medir cuántos aceptan una llamada y cuántos pagan.
 priority: High
 status: Backlog
-assignee: Mini (propuesta)
+assignee: Andrés (propuesta)
 effort: M
 impact: Alto
 sprint: Semana 5 (30 nov–6 dic)
@@ -24,10 +24,10 @@ order: 43
 
 # BL-018 · Ofrecer el diagnóstico a 5 pymes
 
-Mini ofrece el diagnóstico pagado a 5 negocios de su red. Medir cuántos aceptan una llamada y cuántos pagan.
+Andrés ofrece el diagnóstico pagado a 5 negocios (pymes) de su red de contactos. Medir cuántos aceptan una llamada y cuántos pagan.
 
 ## Hechos
 Ver fuentes.
 
 ## Supuestos
-Mini tiene contactos de pymes interesados.
+Existen al menos 5 pymes contactables dispuestas a escuchar la oferta (por validar).

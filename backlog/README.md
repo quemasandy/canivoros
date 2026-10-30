@@ -70,8 +70,8 @@ Esfuerzo: S ≈ 1–2 h, M ≈ 3–6 h, L > 6 h.
 
 | # | Clave | Tipo | Título | Prioridad | Impacto | Depende de | Responsable | Esfuerzo |
 |---|---|---|---|---|---|---|---|---|
-| 42 | [BL-017](BL-017-empaquetar-el-diagnostico-de-crecimiento-150300-us.md) | Historia | Empaquetar el Diagnóstico de crecimiento (150–300 USD) | High | Alto | BL-002, BL-008 | Andrés + Mini | M |
-| 43 | [BL-018](BL-018-ofrecer-el-diagnostico-a-5-pymes.md) | Experimento | Ofrecer el diagnóstico a 5 pymes | High | Alto | BL-017 | Mini | M |
+| 42 | [BL-017](BL-017-empaquetar-el-diagnostico-de-crecimiento-150300-us.md) | Historia | Empaquetar el Diagnóstico de crecimiento (150–300 USD) | High | Alto | BL-002, BL-008 | Andrés | M |
+| 43 | [BL-018](BL-018-ofrecer-el-diagnostico-a-5-pymes.md) | Experimento | Ofrecer el diagnóstico a 5 pymes | High | Alto | BL-017 | Andrés | M |
 | 44 | [BL-030](BL-030-definir-oferta-de-growth-partner-y-diferencial.md) | Tarea | Definir oferta de Growth Partner y diferencial | Medium | Medio | — | Andrés + Sebastián | S |
 | 45 | [BL-029](BL-029-nombre-provisorio-dominio-y-subdominio.md) | Tarea | Nombre provisorio, dominio y subdominio | Medium | Bajo | — | Sebastián | S |
 

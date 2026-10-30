@@ -5,7 +5,7 @@ summary: Empaquetar el Diagnóstico de crecimiento (150–300 USD)
 description: 'Convertir lo hecho con Canívoros en un producto: entrevista, revisión de datos, mapa del flujo, 3 problemas principales y roadmap priorizado. Precio de entrada 150–300 USD. Incluye 1 página de oferta y caso Canívoros.'
 priority: High
 status: Backlog
-assignee: Andrés + Mini (propuesta)
+assignee: Andrés (propuesta)
 effort: M
 impact: Alto
 sprint: Semana 5 (30 nov–6 dic)
