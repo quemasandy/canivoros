@@ -8,7 +8,7 @@ status: Backlog
 assignee: Sebastián (propuesta)
 effort: L
 impact: Medio
-sprint: Semana 6 (7–13 dic)
+sprint: Semana 7 (14–20 dic)
 labels:
 - produccion
 - iot
@@ -22,6 +22,7 @@ acceptance_criteria:
 sources:
 - chat 29/10
 - 'metodologias: FMEA'
+order: 52
 ---
 
 # BL-027 · Monitoreo de la máquina

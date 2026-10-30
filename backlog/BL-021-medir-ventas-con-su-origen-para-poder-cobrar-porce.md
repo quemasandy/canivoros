@@ -8,7 +8,7 @@ status: Backlog
 assignee: Sebastián (propuesta)
 effort: M
 impact: Alto
-sprint: Semana 5 (30 nov–6 dic)
+sprint: Semana 6 (7–13 dic)
 labels:
 - datos
 - cobro
@@ -16,12 +16,14 @@ labels:
 dependencies:
 - BL-004
 - BL-011
+- BL-049
 acceptance_criteria:
 - Más del 80% de las ventas del mes con origen registrado
 - Comparación mes actual vs línea base
 sources:
 - informe ejecutivo D3
 - 'plan Bogotá: Tablero'
+order: 46
 ---
 
 # BL-021 · Medir ventas con su origen para poder cobrar porcentaje

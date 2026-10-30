@@ -18,6 +18,7 @@ acceptance_criteria:
 - Al menos 4 semanas de registros antes de decidir inversiones
 sources:
 - problemas.md (máquinas y cuarto frío)
+order: 10
 ---
 
 # BL-009 · Registrar fallas de máquinas y cuarto frío

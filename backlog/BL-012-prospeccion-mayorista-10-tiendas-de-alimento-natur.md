@@ -8,7 +8,7 @@ status: Backlog
 assignee: Hermano de Sebastián + Omar (propuesta)
 effort: M
 impact: Alto
-sprint: Semana 3 (16–22 nov)
+sprint: Semana 4 (23–29 nov)
 labels:
 - ventas
 - b2b
@@ -17,6 +17,7 @@ labels:
 dependencies:
 - BL-010
 - BL-005
+- BL-035
 acceptance_criteria:
 - 10 tiendas contactadas y registradas en el CRM
 - Tasa de respuesta y de pedido medida
@@ -24,6 +25,7 @@ acceptance_criteria:
 sources:
 - prospectos_bogota.xlsx
 - 'plan Bogotá: Experimento 3 aliados locales'
+order: 34
 ---
 
 # BL-012 · Prospección mayorista: 10 tiendas de alimento natural

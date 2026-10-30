@@ -21,6 +21,7 @@ acceptance_criteria:
 sources:
 - chat 26/10 y 27/10
 - informe ejecutivo, sección E
+order: 1
 ---
 
 # BL-001 · Cambiar contraseñas expuestas y cerrar Odoo al público

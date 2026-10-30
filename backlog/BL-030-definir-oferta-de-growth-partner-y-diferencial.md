@@ -8,7 +8,7 @@ status: Backlog
 assignee: Andrés + Sebastián (propuesta)
 effort: S
 impact: Medio
-sprint: Semana 4 (23–29 nov)
+sprint: Semana 5 (30 nov–6 dic)
 labels:
 - growth-partner
 - oferta
@@ -18,6 +18,7 @@ acceptance_criteria:
 sources:
 - 'develop: pasos_sysmkt.md'
 - precios_competencia_bogota.xlsx
+order: 44
 ---
 
 # BL-030 · Definir oferta de Growth Partner y diferencial

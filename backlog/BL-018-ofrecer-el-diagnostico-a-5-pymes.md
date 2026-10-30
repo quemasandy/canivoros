@@ -8,7 +8,7 @@ status: Backlog
 assignee: Mini (propuesta)
 effort: M
 impact: Alto
-sprint: Semana 4 (23–29 nov)
+sprint: Semana 5 (30 nov–6 dic)
 labels:
 - ventas
 - growth-partner
@@ -19,6 +19,7 @@ acceptance_criteria:
 - 5 ofertas hechas
 - 'Resultado registrado: llamada sí/no, pago sí/no, objeción principal'
 sources: []
+order: 43
 ---
 
 # BL-018 · Ofrecer el diagnóstico a 5 pymes

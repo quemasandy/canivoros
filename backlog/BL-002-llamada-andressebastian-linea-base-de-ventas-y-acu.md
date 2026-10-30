@@ -21,6 +21,7 @@ acceptance_criteria:
 sources:
 - informe ejecutivo, F
 - erp.md §7 (acuerdo pendiente)
+order: 2
 ---
 
 # BL-002 · Llamada Andrés–Sebastián: línea base de ventas y acuerdo de cobro

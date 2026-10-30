@@ -8,7 +8,7 @@ status: Backlog
 assignee: Andrés + Mini (propuesta)
 effort: M
 impact: Alto
-sprint: Semana 4 (23–29 nov)
+sprint: Semana 5 (30 nov–6 dic)
 labels:
 - growth-partner
 - oferta
@@ -23,6 +23,7 @@ acceptance_criteria:
 sources:
 - informe ejecutivo D1
 - pasos_sysmkt.md (Diagnóstico de procesos y sistemas)
+order: 42
 ---
 
 # BL-017 · Empaquetar el Diagnóstico de crecimiento (150–300 USD)

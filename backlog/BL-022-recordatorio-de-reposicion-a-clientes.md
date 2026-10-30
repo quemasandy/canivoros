@@ -8,17 +8,20 @@ status: Backlog
 assignee: Sebastián (propuesta)
 effort: M
 impact: Medio
-sprint: Semana 5 (30 nov–6 dic)
+sprint: Semana 4 (23–29 nov)
 labels:
 - retencion
 - experimento
 dependencies:
 - BL-004
+- BL-058
+- BL-041
 acceptance_criteria:
 - Lista de clientes con permiso
 - Recordatorios enviados y recompra medida en 30 días
 sources:
 - 'plan Bogotá: Experimento 4'
+order: 40
 ---
 
 # BL-022 · Recordatorio de reposición a clientes

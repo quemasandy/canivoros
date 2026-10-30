@@ -8,7 +8,7 @@ status: Backlog
 assignee: Omar/Canívoros (propuesta)
 effort: M
 impact: Medio
-sprint: Semana 5 (30 nov–6 dic)
+sprint: Semana 4 (23–29 nov)
 labels:
 - producto
 - experimento
@@ -19,6 +19,7 @@ acceptance_criteria:
 - Resultados de 4 semanas
 sources:
 - 'plan Bogotá: Experimento 1'
+order: 41
 ---
 
 # BL-023 · Presentación de entrada

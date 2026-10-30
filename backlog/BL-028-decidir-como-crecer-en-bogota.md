@@ -8,7 +8,7 @@ status: Backlog
 assignee: Andrés + Sebastián (propuesta)
 effort: S
 impact: Alto
-sprint: Semana 6 (7–13 dic)
+sprint: Semana 7 (14–20 dic)
 labels:
 - estrategia
 - bogota
@@ -20,6 +20,7 @@ acceptance_criteria:
 - Siguiente ciclo de 6 semanas planeado
 sources:
 - 'plan Bogotá: Reglas para ampliar, ajustar o detener'
+order: 50
 ---
 
 # BL-028 · Decidir cómo crecer en Bogotá

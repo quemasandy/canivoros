@@ -20,6 +20,7 @@ acceptance_criteria:
 sources:
 - CANIVOROS-REFERENCIA-EMPRESA.md (Distribuidores publicados)
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (confirmar operación de distribuidores)
+order: 12
 ---
 
 # BL-035 · Validar los distribuidores publicados en el sitio

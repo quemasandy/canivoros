@@ -8,7 +8,7 @@ status: Backlog
 assignee: Sebastián (propuesta)
 effort: S
 impact: Medio
-sprint: Semana 5 (30 nov–6 dic)
+sprint: Semana 6 (7–13 dic)
 labels:
 - web
 - ecommerce
@@ -19,6 +19,7 @@ acceptance_criteria:
 - Decisión tomada y anotada
 sources:
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Primera implementación de software)
+order: 49
 ---
 
 # BL-042 · Revisar el WordPress y decidir si sirve como tienda

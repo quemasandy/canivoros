@@ -8,7 +8,7 @@ status: Backlog
 assignee: Andrés (propuesta)
 effort: S
 impact: Medio
-sprint: Semana 3 (16–22 nov)
+sprint: Semana 2 (9–15 nov)
 labels:
 - metodologia
 - experimentos
@@ -19,6 +19,7 @@ acceptance_criteria:
 sources:
 - GuiaPesquisaProdutosServicosES.md (§4 Registrar hipótesis y criterios de decisión)
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Control del gasto)
+order: 15
 ---
 
 # BL-044 · Registrar hipótesis y criterios de decisión antes de cada experimento

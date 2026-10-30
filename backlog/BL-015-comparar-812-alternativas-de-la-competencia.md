@@ -20,6 +20,7 @@ sources:
 - prospectos_bogota.xlsx hoja Competencia
 - 'plan Bogotá: Comparación de alternativas'
 - metodologias_analisis_competitivo.md
+order: 32
 ---
 
 # BL-015 · Comparar 8–12 alternativas de la competencia

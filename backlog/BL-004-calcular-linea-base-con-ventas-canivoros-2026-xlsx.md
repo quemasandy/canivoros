@@ -21,6 +21,7 @@ acceptance_criteria:
 - Se marca qué es dato y qué es estimado
 sources:
 - 'develop: ventas_canivoros_2026.xlsx'
+order: 4
 ---
 
 # BL-004 · Calcular línea base con ventas_canivoros_2026.xlsx

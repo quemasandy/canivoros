@@ -19,6 +19,7 @@ acceptance_criteria:
 - Cargados en el CRM con etapa 'Por contactar'
 sources:
 - prospectos_bogota.xlsx (25/10)
+order: 13
 ---
 
 # BL-010 · Verificar la lista de 134 prospectos de Bogotá

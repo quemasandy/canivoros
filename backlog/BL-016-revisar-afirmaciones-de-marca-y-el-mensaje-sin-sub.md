@@ -8,7 +8,7 @@ status: Backlog
 assignee: Sebastián (propuesta)
 effort: S
 impact: Alto
-sprint: Semana 3 (16–22 nov)
+sprint: Semana 4 (23–29 nov)
 labels:
 - marca
 - persuasion-etica
@@ -20,6 +20,7 @@ sources:
 - erp.md §8
 - CANIVOROS-REFERENCIA-EMPRESA.md
 - informe ejecutivo
+order: 33
 ---
 
 # BL-016 · Revisar afirmaciones de marca y el mensaje 'sin subproductos'

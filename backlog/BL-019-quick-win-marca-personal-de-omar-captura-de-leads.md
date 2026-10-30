@@ -17,6 +17,8 @@ labels:
 dependencies:
 - BL-011
 - BL-016
+- BL-058
+- BL-051
 acceptance_criteria:
 - Flujo activo con un número comercial único
 - Leads registrados con origen
@@ -24,6 +26,7 @@ acceptance_criteria:
 sources:
 - chat 29/10
 - 'plan Bogotá: definir número comercial principal'
+order: 38
 ---
 
 # BL-019 · Quick win: marca personal de Omar + captura de leads

@@ -8,7 +8,7 @@ status: Backlog
 assignee: Omar/Canívoros (propuesta)
 effort: S
 impact: Medio
-sprint: Semana 4 (23–29 nov)
+sprint: Semana 3 (16–22 nov)
 labels:
 - producto
 - retencion
@@ -19,6 +19,7 @@ acceptance_criteria:
 sources:
 - CANIVOROS-REFERENCIA-EMPRESA.md (Uso y conservación)
 - 'CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Experimento 4: sin inventar dosis)'
+order: 30
 ---
 
 # BL-041 · Confirmar la guía de raciones por peso de perro

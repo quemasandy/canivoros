@@ -17,6 +17,7 @@ acceptance_criteria:
 - Se retoma solo después del primer ingreso
 sources:
 - chat oct 2026
+order: 57
 ---
 
 # BL-033 · Asistente de IA local con notas

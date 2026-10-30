@@ -8,7 +8,7 @@ status: Backlog
 assignee: Omar/Canívoros + Andrés (investigación) (propuesta)
 effort: M
 impact: Alto
-sprint: Semana 5 (30 nov–6 dic)
+sprint: Semana 6 (7–13 dic)
 labels:
 - abastecimiento
 - experimento
@@ -21,6 +21,7 @@ acceptance_criteria:
 sources:
 - erp.md (relato de materia prima)
 - problemas.md (abastecimiento irregular)
+order: 47
 ---
 
 # BL-039 · Buscar nuevos proveedores de subproductos

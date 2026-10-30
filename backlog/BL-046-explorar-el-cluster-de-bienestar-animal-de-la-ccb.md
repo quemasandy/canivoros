@@ -8,7 +8,7 @@ status: Backlog
 assignee: Andrés (propuesta)
 effort: S
 impact: Bajo
-sprint: Semana 6 (7–13 dic)
+sprint: Semana 7 (14–20 dic)
 labels:
 - aliados
 - bogota
@@ -18,6 +18,7 @@ acceptance_criteria:
 - 'Si está activa: siguiente evento o contacto anotado'
 sources:
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Qué sabemos del mercado)
+order: 54
 ---
 
 # BL-046 · Explorar el Clúster de Bienestar Animal de la CCB

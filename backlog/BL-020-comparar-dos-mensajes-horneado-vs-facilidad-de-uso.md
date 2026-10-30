@@ -21,6 +21,7 @@ acceptance_criteria:
 - Resultado tratado como indicio si hay pocas compras
 sources:
 - 'plan Bogotá: Experimento 2'
+order: 39
 ---
 
 # BL-020 · Comparar dos mensajes: horneado vs facilidad de uso

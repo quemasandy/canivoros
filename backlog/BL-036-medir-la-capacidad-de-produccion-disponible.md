@@ -20,6 +20,7 @@ acceptance_criteria:
 sources:
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Datos pendientes)
 - problemas.md (abastecimiento irregular)
+order: 11
 ---
 
 # BL-036 · Medir la capacidad de producción disponible

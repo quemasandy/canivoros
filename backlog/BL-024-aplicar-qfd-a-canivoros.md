@@ -8,7 +8,7 @@ status: Backlog
 assignee: Sebastián (propuesta)
 effort: M
 impact: Medio
-sprint: Semana 5 (30 nov–6 dic)
+sprint: Semana 6 (7–13 dic)
 labels:
 - metodologia
 - producto
@@ -21,6 +21,7 @@ acceptance_criteria:
 sources:
 - 'develop: QFD.pdf (ejemplo BIOLAV)'
 - metodologias_analisis_competitivo.md
+order: 48
 ---
 
 # BL-024 · Aplicar QFD a Canívoros

@@ -8,7 +8,7 @@ status: Backlog
 assignee: Sebastián (propuesta)
 effort: S
 impact: Medio
-sprint: Semana 3 (16–22 nov)
+sprint: Semana 2 (9–15 nov)
 labels:
 - abastecimiento
 - entrevista
@@ -18,6 +18,7 @@ acceptance_criteria:
 - Respuestas guardadas en el repo
 sources:
 - erp.md (Preguntas que siguen pendientes)
+order: 14
 ---
 
 # BL-038 · Responder las 12 preguntas pendientes de compras y recepción

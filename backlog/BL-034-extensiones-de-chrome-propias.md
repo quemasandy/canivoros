@@ -17,6 +17,7 @@ acceptance_criteria:
 - Se retoma solo después del primer ingreso
 sources:
 - chat oct 2026
+order: 58
 ---
 
 # BL-034 · Extensiones de Chrome propias

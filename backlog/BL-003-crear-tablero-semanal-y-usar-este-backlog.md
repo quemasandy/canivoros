@@ -17,6 +17,7 @@ acceptance_criteria:
 - Hay una revisión semanal agendada
 sources:
 - chat 27–28/10 (Jira, Taiga, Plane, Kanboard)
+order: 6
 ---
 
 # BL-003 · Crear tablero semanal y usar este backlog

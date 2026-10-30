@@ -8,18 +8,20 @@ status: Backlog
 assignee: Sebastián (propuesta)
 effort: M
 impact: Alto
-sprint: Semana 5 (30 nov–6 dic)
+sprint: Semana 3 (16–22 nov)
 labels:
 - finanzas
 - produccion
 dependencies:
 - BL-005
+- BL-055
 acceptance_criteria:
 - Costo por kg de al menos 2 productos
 - Contribución por canal estimada y marcada como estimado
 sources:
 - problemas.md
 - erp.md §6
+order: 27
 ---
 
 # BL-025 · Costo y rentabilidad por producto

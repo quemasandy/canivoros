@@ -8,7 +8,7 @@ status: Backlog
 assignee: Sebastián (propuesta)
 effort: S
 impact: Bajo
-sprint: Semana 2 (9–15 nov)
+sprint: Semana 5 (30 nov–6 dic)
 labels:
 - marca
 - infra
@@ -18,6 +18,7 @@ acceptance_criteria:
 - Dominio con HTTPS activo
 sources:
 - chat 28–29/10
+order: 45
 ---
 
 # BL-029 · Nombre provisorio, dominio y subdominio

@@ -8,7 +8,7 @@ status: Backlog
 assignee: Sebastián (propuesta)
 effort: M
 impact: Alto
-sprint: Semana 4 (23–29 nov)
+sprint: Semana 3 (16–22 nov)
 labels:
 - odoo
 - abastecimiento
@@ -21,6 +21,7 @@ acceptance_criteria:
 - Se puede saber qué ingreso se usó en un lote de producción
 sources:
 - erp.md (Compras, recepción y almacenamiento)
+order: 24
 ---
 
 # BL-037 · Registrar proveedores y recepción de materia prima

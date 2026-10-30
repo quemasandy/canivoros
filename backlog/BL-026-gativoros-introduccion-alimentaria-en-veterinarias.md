@@ -8,7 +8,7 @@ status: Backlog
 assignee: Omar/Canívoros + Sebastián (propuesta)
 effort: M
 impact: Medio
-sprint: Semana 6 (7–13 dic)
+sprint: Semana 7 (14–20 dic)
 labels:
 - gatos
 - experimento
@@ -21,6 +21,7 @@ acceptance_criteria:
 sources:
 - chat 25/10
 - erp.md §6
+order: 51
 ---
 
 # BL-026 · Gatívoros: introducción alimentaria en veterinarias

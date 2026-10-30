@@ -21,6 +21,7 @@ acceptance_criteria:
 - Oferta probada y resultado medido en 4 semanas
 sources:
 - ventas_canivoros_2026.xlsx (columnas 'CRIADOR KG')
+order: 36
 ---
 
 # BL-043 · Programa para criadores y clientes de alto volumen

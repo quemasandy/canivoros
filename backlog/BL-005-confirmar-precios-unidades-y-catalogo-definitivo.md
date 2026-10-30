@@ -20,6 +20,7 @@ acceptance_criteria:
 - Catálogo cargado igual en Odoo
 sources:
 - 'develop: erp.md §3 y §9'
+order: 5
 ---
 
 # BL-005 · Confirmar precios, unidades y catálogo definitivo

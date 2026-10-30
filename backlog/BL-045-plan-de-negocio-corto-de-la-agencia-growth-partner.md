@@ -8,7 +8,7 @@ status: Backlog
 assignee: Sebastián + Andrés (propuesta)
 effort: M
 impact: Medio
-sprint: Semana 6 (7–13 dic)
+sprint: Semana 7 (14–20 dic)
 labels:
 - growth-partner
 - plan-de-negocio
@@ -21,6 +21,7 @@ acceptance_criteria:
 sources:
 - GuiaDesenvolverProdutosServicosES.md
 - pasos_sysmkt.md (Que sabemos hacer bien)
+order: 53
 ---
 
 # BL-045 · Plan de negocio corto de la agencia Growth Partner
