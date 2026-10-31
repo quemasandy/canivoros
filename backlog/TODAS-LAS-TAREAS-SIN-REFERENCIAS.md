@@ -1,4 +1,4 @@
-# Backlog Canívoros — todas las tareas sin referencias (BL-001 a BL-058)
+# Backlog Canívoros — todas las tareas sin referencias (BL-001 a BL-061)
 
 Contenido completo de cada tarea, en orden de clave, sin enlaces ni citas de fuentes. Responsables, semanas y esfuerzo son **propuestas**.
 
@@ -19,7 +19,7 @@ Contenido completo de cada tarea, en orden de clave, sin enlaces ni citas de fue
 - [BL-013 · Tablero semanal de indicadores](#bl-013)
 - [BL-014 · Matriz de microzonas para el piloto en Bogotá](#bl-014)
 - [BL-015 · Comparar 8–12 alternativas de la competencia](#bl-015)
-- [BL-016 · Revisar afirmaciones de marca y el mensaje 'sin subproductos](#bl-016)
+- [BL-016 · Revisar afirmaciones de marca y el mensaje 'sin subproductos'](#bl-016)
 - [BL-017 · Empaquetar el Diagnóstico de crecimiento (150–300 USD)](#bl-017)
 - [BL-018 · Ofrecer el diagnóstico a 5 pymes](#bl-018)
 - [BL-019 · Quick win: marca personal de Omar + captura de leads](#bl-019)
@@ -62,6 +62,9 @@ Contenido completo de cada tarea, en orden de clave, sin enlaces ni citas de fue
 - [BL-056 · Código de Odoo en Git y pruebas en local](#bl-056)
 - [BL-057 · Listas de precios por canal y unidad en Odoo](#bl-057)
 - [BL-058 · Permiso de datos y comunicaciones de clientes](#bl-058)
+- [BL-059 · Auditoría de consultas de WhatsApp (2 semanas)](#bl-059)
+- [BL-060 · Recuperar clientes que dejaron de comprar](#bl-060)
+- [BL-061 · Bitácora del caso Canívoros](#bl-061)
 
 ---
 
@@ -110,7 +113,7 @@ Responsable, plazo y esfuerzo son propuestas.
 key: BL-002
 issue_type: Acción
 summary: 'Llamada Andrés–Sebastián: línea base de ventas y acuerdo de cobro'
-description: 'Llamada de 60 min para fijar: (1) ventas actuales por mes de Canívoros, (2) cómo se cobra (porcentaje, tarifa fija o mixto) y desde cuándo, (3) reparto entre Andrés y Sebastián, (4) preguntas para Omar y distribuidores. Dejarlo por escrito en el repo (sin datos sensibles).'
+description: 'Llamada de 60 min para fijar: (1) ventas actuales por mes de Canívoros, (2) cómo se cobra (porcentaje, tarifa fija o mixto) y desde cuándo, (3) reparto entre Andrés y Sebastián, (4) preguntas para Omar y distribuidores. Dejarlo por escrito en el repo (sin datos sensibles). Incluir un anexo de atribución: línea base (BL-004), qué venta cuenta como atribuible (cliente nuevo con origen registrado, recompra recuperada por seguimiento, tienda nueva con su código/QR), periodo de medición y quién verifica. No se cobra porcentaje hasta que BL-021 tenga más del 80% de las ventas con origen registrado.'
 priority: Highest
 status: Backlog
 assignee: Andrés + Sebastián (propuesta)
@@ -126,18 +129,28 @@ acceptance_criteria:
 - Existe un documento de 1 página con el acuerdo propuesto
 - Se definió la línea base inicial (o se decide usar BL-004)
 - Queda acordado quién presenta la propuesta a la prima
+- 'Anexo de atribución escrito: línea base (BL-004), ventas atribuibles (nuevo con origen, recompra recuperada, tienda con código/QR), periodo y verificador'
+- 'Regla explícita: sin cobro porcentual hasta que BL-021 supere 80% de ventas con origen'
+- Acordado por Andrés y Sebastián antes de presentarlo a la prima
 - informe ejecutivo, F
 - erp.md §7 (acuerdo pendiente)
 order: 2
+hechos:
+- El acuerdo con la prima es solo verbal; no hay acuerdo económico cerrado.
+hipotesis:
+- La prima acepta un esquema por resultados medibles.
+- Las reglas de atribución propuestas son aceptables para ambas partes.
 ```
 
-Llamada de 60 min para fijar: (1) ventas actuales por mes de Canívoros, (2) cómo se cobra (porcentaje, tarifa fija o mixto) y desde cuándo, (3) reparto entre Andrés y Sebastián, (4) preguntas para Omar y distribuidores. Dejarlo por escrito en el repo (sin datos sensibles).
+Llamada de 60 min para fijar: (1) ventas actuales por mes de Canívoros, (2) cómo se cobra (porcentaje, tarifa fija o mixto) y desde cuándo, (3) reparto entre Andrés y Sebastián, (4) preguntas para Omar y distribuidores. Dejarlo por escrito en el repo (sin datos sensibles). Incluir un anexo de atribución: línea base (BL-004), qué venta cuenta como atribuible (cliente nuevo con origen registrado, recompra recuperada por seguimiento, tienda nueva con su código/QR), periodo de medición y quién verifica. No se cobra porcentaje hasta que BL-021 tenga más del 80% de las ventas con origen registrado.
 
 ### Hechos
 El acuerdo con la prima es solo verbal; erp.md dice que no hay acuerdo económico cerrado.
 
 ### Supuestos
 Que la prima acepte un esquema por resultados medibles.
+
+Hipótesis: las reglas de atribución propuestas son aceptables para la prima, Andrés y Sebastián.
 
 ---
 
@@ -180,7 +193,7 @@ Responsable, plazo y esfuerzo son propuestas.
 key: BL-004
 issue_type: Tarea
 summary: Calcular línea base con ventas_canivoros_2026.xlsx
-description: El repo ya tiene ventas de julio a octubre 2026 (hojas JULIO, AGOSTO, SEPT., OCT.) por cliente, fecha y producto. Limpiar nombres de cliente, unificar unidades (lb/kg), separar cliente final, almacén/distribuidor y criador, y sacar kilos por mes, por producto y por tipo de cliente, más recompra (clientes que repiten).
+description: El repo ya tiene ventas de julio a octubre 2026 (hojas JULIO, AGOSTO, SEPT., OCT.) por cliente, fecha y producto. Limpiar nombres de cliente, unificar unidades (lb/kg), separar cliente final, almacén/distribuidor y criador, y sacar kilos por mes, por producto y por tipo de cliente, más recompra (clientes que repiten). Convertir kilos a COP cuando BL-005 tenga precios confirmados; hasta entonces reportar kilos y número de clientes. Incluir el intervalo real entre compras por cliente (insumo de BL-022 y BL-060).
 priority: Highest
 status: Backlog
 assignee: Andrés (propuesta)
@@ -191,17 +204,24 @@ labels:
 - datos
 - linea-base
 - canivoros
-dependencies: []
+dependencies:
+- BL-005 (solo para la conversión a COP; kilos y clientes no dependen)
 acceptance_criteria:
 - Tabla resumen kilos/mes por producto y por tipo de cliente
 - Número de clientes únicos y % que repite en el periodo
 - Lista de dudas de datos (unidades, filas sin fecha) para Sara/la prima
 - Se marca qué es dato y qué es estimado
+- 'Ingreso estimado por mes, producto y tipo de cliente, con columna "precio confirmado: sí/no" (si no hay precio: desconocido, no se estima)'
+- Intervalo real entre compras por cliente y lista de clientes con una sola compra o sin compra reciente
 - 'develop: ventas_canivoros_2026.xlsx'
 order: 4
+hechos:
+- El archivo tiene registros jul–oct 2026 por cliente, fecha y producto, sin precios.
+hipotesis:
+- Los precios de BL-005 permitirán convertir los kilos históricos a COP.
 ```
 
-El repo ya tiene ventas de julio a octubre 2026 (hojas JULIO, AGOSTO, SEPT., OCT.) por cliente, fecha y producto. Limpiar nombres de cliente, unificar unidades (lb/kg), separar cliente final, almacén/distribuidor y criador, y sacar kilos por mes, por producto y por tipo de cliente, más recompra (clientes que repiten).
+El repo ya tiene ventas de julio a octubre 2026 (hojas JULIO, AGOSTO, SEPT., OCT.) por cliente, fecha y producto. Limpiar nombres de cliente, unificar unidades (lb/kg), separar cliente final, almacén/distribuidor y criador, y sacar kilos por mes, por producto y por tipo de cliente, más recompra (clientes que repiten). Convertir kilos a COP cuando BL-005 tenga precios confirmados; hasta entonces reportar kilos y número de clientes. Incluir el intervalo real entre compras por cliente (insumo de BL-022 y BL-060).
 
 ### Hechos
 El archivo tiene registros jul–oct 2026 sin precios.
@@ -218,7 +238,7 @@ Hacen falta precios por canal para convertir kilos a dinero (BL-005).
 key: BL-005
 issue_type: Tarea
 summary: Confirmar precios, unidades y catálogo definitivo
-description: 'Resolver con la prima o Sara Ramírez los 5 puntos de erp.md §9: precios y unidades por producto y canal, catálogo y presentaciones, regla de venta mínima (40 kg vs paquetes de 1,5 kg), programa de facturación usado y responsables de registrar.'
+description: 'Resolver con la prima o Sara Ramírez los 5 puntos de erp.md §9: precios y unidades por producto y canal, catálogo y presentaciones, regla de venta mínima (40 kg vs paquetes de 1,5 kg), programa de facturación usado y responsables de registrar. Es la entrada para convertir la línea base de BL-004 de kilos a COP.'
 priority: High
 status: Backlog
 assignee: Sebastián (propuesta)
@@ -234,11 +254,16 @@ acceptance_criteria:
 - Lista de precios por producto y canal (cliente, distribuidor, criador)
 - Unidades unificadas (kg o lb)
 - Catálogo cargado igual en Odoo
+- Cada precio indica unidad (kg o lb), canal y si está confirmado (sí/no)
+- Precios entregados a BL-004 para la conversión a COP
 - 'develop: erp.md §3 y §9'
 order: 5
+hechos:
+- El precio de cerdo a distribuidor fue corregido a 3.500 COP; la unidad está por confirmar.
+hipotesis: []
 ```
 
-Resolver con la prima o Sara Ramírez los 5 puntos de erp.md §9: precios y unidades por producto y canal, catálogo y presentaciones, regla de venta mínima (40 kg vs paquetes de 1,5 kg), programa de facturación usado y responsables de registrar.
+Resolver con la prima o Sara Ramírez los 5 puntos de erp.md §9: precios y unidades por producto y canal, catálogo y presentaciones, regla de venta mínima (40 kg vs paquetes de 1,5 kg), programa de facturación usado y responsables de registrar. Es la entrada para convertir la línea base de BL-004 de kilos a COP.
 
 ### Hechos
 El precio de cerdo a distribuidor ya fue corregido a 3.500 COP.
@@ -271,7 +296,7 @@ acceptance_criteria:
 - Plantilla para registrar respuestas (hoja o Odoo)
 - 'develop: GuiaPesquisaProdutosServicosES.md §9'
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (entrevistas)
-order: 7
+order: 13
 ```
 
 Preparar guion corto para Omar, 2–3 distribuidores y clientes, usando la guía de investigación del repo (guion de necesidad: qué compran, cuánto gastan, por qué eligen, qué les impide cambiar, recompra). Preguntar antes de mostrar Canívoros.
@@ -308,7 +333,7 @@ acceptance_criteria:
 - Hechos separados de opiniones
 - chat 29/10
 - 'plan Bogotá: entrevistas con establecimientos'
-order: 8
+order: 14
 ```
 
 Entrevistas con Omar (vende y distribuye) y distribuidores como Manimal, Sankatin o Terranova: rotación, pedido mínimo, margen requerido, quejas de clientes, reposición.
@@ -342,7 +367,7 @@ acceptance_criteria:
 - Lista de puntos donde se pierde información
 - 'canivoros-view: problemas.md ''Por dónde empezaría'' 2'
 - 'metodologias: Service Blueprint'
-order: 9
+order: 15
 ```
 
 Documentar un pedido real: qué se pidió, qué se prometió, qué se produjo, qué se entregó y qué se cobró, con fechas y responsables. Sirve como mapa del flujo actual (service blueprint simple).
@@ -375,7 +400,7 @@ acceptance_criteria:
 - Plantilla creada y entregada
 - Al menos 4 semanas de registros antes de decidir inversiones
 - problemas.md (máquinas y cuarto frío)
-order: 10
+order: 16
 ```
 
 Hoja simple para cada falla: fecha, equipo, duración, kilos afectados, costo y causa. Es el primer paso para decidir qué reparar primero.
@@ -411,7 +436,7 @@ acceptance_criteria:
 - Campos 'desconocido' reducidos en esos 30
 - Cargados en el CRM con etapa 'Por contactar'
 - prospectos_bogota.xlsx (25/10)
-order: 13
+order: 19
 ```
 
 Revisar a mano o con 1–2 IA los 20–30 prospectos de encaje 'Alto' más cercanos (Usaquén, Suba, Chapinero, noroccidente): que existan, teléfono, Instagram, marcas que venden.
@@ -451,7 +476,7 @@ acceptance_criteria:
 - Sara o la prima lo usan sin ayuda
 - 'plan Bogotá: Qué sistematizar primero'
 - erp.md §9
-order: 21
+order: 25
 ```
 
 Configurar solo lo que permita reconstruir un pedido: clientes, productos con precio por canal, pedidos, pagos y entregas. Nada de automatizaciones todavía.
@@ -482,21 +507,29 @@ labels:
 - bogota
 - experimento
 dependencies:
-- BL-010
 - BL-005
+- BL-010
 - BL-035
+- BL-044
 acceptance_criteria:
 - 10 tiendas contactadas y registradas en el CRM
 - Tasa de respuesta y de pedido medida
 - Al menos 1 reposición observada o razón de no compra registrada
+- Ingreso en COP atribuido al experimento (con precio confirmado sí/no)
+- Contribución en COP si se conoce el costo; si no, se registra como desconocido
+- Gasto máximo definido antes de empezar y gasto real registrado
+- Conversión de la etapa medida (p. ej. contactados→respuesta→compra)
+- Regla seguir/ajustar/parar escrita en la ficha BL-044 y aplicada al cierre
 - prospectos_bogota.xlsx
 - 'plan Bogotá: Experimento 3 aliados locales'
-order: 34
+order: 39
 ```
 
 Contactar 10 tiendas que ya venden Pixie o BARF con una oferta mayorista clara (precio distribuidor, pedido mínimo, material y QR por tienda). Medir respuesta, pedidos y reposición.
 
 ### Hechos
+Ajuste 31/10/2026 (auditoría Growth Partner): criterios en dinero añadidos; no hay precios, costos ni márgenes confirmados en el backlog.
+
 ### Supuestos
 Hipótesis: tiendas con clientes ya educados en natural compran más rápido que el consumidor final.
 
@@ -525,7 +558,7 @@ acceptance_criteria:
 - Se actualiza cada semana
 - Indicadores definidos como en el plan Bogotá
 - 'plan Bogotá: Tablero para tomar decisiones'
-order: 19
+order: 23
 ```
 
 Hoja o tablero con: ventas netas, kilos, clientes nuevos, recompra 30/60 días, entregas a tiempo, fallas de máquina. Origen del cliente separado del canal de cierre.
@@ -560,7 +593,7 @@ acceptance_criteria:
 - Tabla con puntaje 0–100 y evidencia por criterio
 - 2 zonas elegidas para el piloto
 - 'plan Bogotá: Selección de zonas'
-order: 31
+order: 35
 ```
 
 Puntuar 3–5 microzonas (p. ej. noroccidente/Manimal y sur/Bosa-Sankatin) con los criterios y pesos del plan: demanda, contribución, aliados, logística, competencia. Con evidencia, no intuición.
@@ -595,7 +628,7 @@ acceptance_criteria:
 - prospectos_bogota.xlsx hoja Competencia
 - 'plan Bogotá: Comparación de alternativas'
 - metodologias_analisis_competitivo.md
-order: 32
+order: 36
 ```
 
 Levantar precio por kg, presentación, entrega y mensaje de Pixie, Kanuto, VITA, BARF y premium secos. Base para precio y posicionamiento.
@@ -607,7 +640,7 @@ Responsable, plazo y esfuerzo son propuestas.
 ---
 
 <a id="bl-016"></a>
-## BL-016 · Revisar afirmaciones de marca y el mensaje 'sin subproductos
+## BL-016 · Revisar afirmaciones de marca y el mensaje 'sin subproductos'
 
 ```yaml
 key: BL-016
@@ -630,7 +663,7 @@ acceptance_criteria:
 - erp.md §8
 - CANIVOROS-REFERENCIA-EMPRESA.md
 - informe ejecutivo
-order: 33
+order: 38
 ```
 
 Listar afirmaciones del sitio y de la prima que requieren evidencia (salud, 'la mejor calidad', registro ICA, 'sin subproductos' vs materia prima de subproductos). Corregir antes de cualquier anuncio.
@@ -656,7 +689,7 @@ status: Backlog
 assignee: Andrés (propuesta)
 effort: M
 impact: Alto
-sprint: Semana 5 (30 nov–6 dic)
+sprint: Semana 7 (14–20 dic)
 labels:
 - growth-partner
 - oferta
@@ -664,13 +697,16 @@ labels:
 dependencies:
 - BL-002
 - BL-008
+- BL-021
+- BL-061
 acceptance_criteria:
 - Documento de oferta de 1 página
 - Plantilla de entregable (informe + roadmap)
 - Precio y condiciones definidos
+- Se ofrece con al menos un resultado medido de Canívoros (BL-061) frente a la línea base
 - informe ejecutivo D1
 - pasos_sysmkt.md (Diagnóstico de procesos y sistemas)
-order: 42
+order: 54
 ```
 
 Convertir lo hecho con Canívoros en un producto: entrevista, revisión de datos, mapa del flujo, 3 problemas principales y roadmap priorizado. Precio de entrada 150–300 USD. Incluye 1 página de oferta y caso Canívoros.
@@ -678,6 +714,8 @@ Convertir lo hecho con Canívoros en un producto: entrevista, revisión de datos
 ### Hechos
 ### Supuestos
 Precio tomado de la referencia compartida el 28/10, no validado con clientes.
+
+Ajuste 31/10/2026: se mueve a semana 7 y depende del caso Canívoros medido (BL-061, BL-021).
 
 ---
 
@@ -694,17 +732,20 @@ status: Backlog
 assignee: Andrés (propuesta)
 effort: M
 impact: Alto
-sprint: Semana 5 (30 nov–6 dic)
+sprint: Semana 7 (14–20 dic)
 labels:
 - ventas
 - growth-partner
 - experimento
 dependencies:
 - BL-017
+- BL-021
+- BL-061
 acceptance_criteria:
 - 5 ofertas hechas
 - 'Resultado registrado: llamada sí/no, pago sí/no, objeción principal'
-order: 43
+- Se ofrece con al menos un resultado medido de Canívoros (BL-061) frente a la línea base
+order: 55
 ```
 
 Andrés ofrece el diagnóstico pagado a 5 negocios (pymes) de su red de contactos. Medir cuántos aceptan una llamada y cuántos pagan.
@@ -712,6 +753,8 @@ Andrés ofrece el diagnóstico pagado a 5 negocios (pymes) de su red de contacto
 ### Hechos
 ### Supuestos
 Existen al menos 5 pymes contactables dispuestas a escuchar la oferta (por validar).
+
+Ajuste 31/10/2026: se mueve a semana 7 y depende del caso Canívoros medido (BL-061, BL-021).
 
 ---
 
@@ -722,7 +765,7 @@ Existen al menos 5 pymes contactables dispuestas a escuchar la oferta (por valid
 key: BL-019
 issue_type: Experimento
 summary: 'Quick win: marca personal de Omar + captura de leads'
-description: 'Optimizar Instagram/TikTok de Omar (perros de concurso) y conectar WhatsApp/IG a un flujo: saludo, pedir datos, 2–3 preguntas para filtrar, pasar a humano. Registrar todo en el CRM.'
+description: 'Optimizar Instagram/TikTok de Omar (perros de concurso) y conectar WhatsApp/IG a un flujo: saludo, pedir datos, 2–3 preguntas para filtrar, pasar a humano. Registrar todo en el CRM. Primero arreglar a mano la respuesta y el seguimiento (tiempo de respuesta y siguiente paso en cada conversación) según la auditoría BL-059; solo después automatizar.'
 priority: Medium
 status: Backlog
 assignee: Sebastián + Omar (propuesta)
@@ -737,20 +780,35 @@ labels:
 dependencies:
 - BL-011
 - BL-016
-- BL-058
+- BL-044
 - BL-051
+- BL-058
+- BL-059
 acceptance_criteria:
 - Flujo activo con un número comercial único
 - Leads registrados con origen
 - 'Medición de 4 semanas: leads, leads calificados, ventas'
+- 'Fase 1 manual medida antes de automatizar: % de consultas respondidas y tiempo de respuesta vs línea base BL-059'
+- Conversión consulta→compra vs línea base BL-059
+- Ventas en COP con origen "Omar" y costo (horas o anuncios) por venta
+- Ingreso en COP atribuido al experimento (con precio confirmado sí/no)
+- Contribución en COP si se conoce el costo; si no, se registra como desconocido
+- Gasto máximo definido antes de empezar y gasto real registrado
+- Conversión de la etapa medida (p. ej. contactados→respuesta→compra)
+- Regla seguir/ajustar/parar escrita en la ficha BL-044 y aplicada al cierre
 - chat 29/10
 - 'plan Bogotá: definir número comercial principal'
-order: 38
+order: 41
+hipotesis:
+- Mejorar respuesta y seguimiento a mano aumenta la conversión antes de automatizar.
+- Omar acepta mostrarse y tiene tiempo para responder consultas calificadas.
 ```
 
-Optimizar Instagram/TikTok de Omar (perros de concurso) y conectar WhatsApp/IG a un flujo: saludo, pedir datos, 2–3 preguntas para filtrar, pasar a humano. Registrar todo en el CRM.
+Optimizar Instagram/TikTok de Omar (perros de concurso) y conectar WhatsApp/IG a un flujo: saludo, pedir datos, 2–3 preguntas para filtrar, pasar a humano. Registrar todo en el CRM. Primero arreglar a mano la respuesta y el seguimiento (tiempo de respuesta y siguiente paso en cada conversación) según la auditoría BL-059; solo después automatizar.
 
 ### Hechos
+Ajuste 31/10/2026 (auditoría Growth Partner): criterios en dinero añadidos; no hay precios, costos ni márgenes confirmados en el backlog.
+
 ### Supuestos
 Omar acepta mostrarse y tiene tiempo para responder leads calificados.
 
@@ -776,17 +834,25 @@ labels:
 dependencies:
 - BL-016
 - BL-019
+- BL-044
 acceptance_criteria:
 - Dos variantes publicadas
 - Registro de variante por lead
 - Resultado tratado como indicio si hay pocas compras
+- Ingreso en COP atribuido al experimento (con precio confirmado sí/no)
+- Contribución en COP si se conoce el costo; si no, se registra como desconocido
+- Gasto máximo definido antes de empezar y gasto real registrado
+- Conversión de la etapa medida (p. ej. contactados→respuesta→compra)
+- Regla seguir/ajustar/parar escrita en la ficha BL-044 y aplicada al cierre
 - 'plan Bogotá: Experimento 2'
-order: 39
+order: 42
 ```
 
 Mismo producto, zona y precio; dos mensajes. Registrar variante por contacto y medir compras.
 
 ### Hechos
+Ajuste 31/10/2026 (auditoría Growth Partner): criterios en dinero añadidos; no hay precios, costos ni márgenes confirmados en el backlog.
+
 ### Supuestos
 Responsable, plazo y esfuerzo son propuestas.
 
@@ -799,7 +865,7 @@ Responsable, plazo y esfuerzo son propuestas.
 key: BL-021
 issue_type: Tarea
 summary: Medir ventas con su origen para poder cobrar porcentaje
-description: Asegurar que cada venta tenga origen (campaña, aliado, Omar, orgánico) y canal de cierre, comparable con la línea base. Es la condición para un cobro por resultados.
+description: Asegurar que cada venta tenga origen (campaña, aliado, Omar, orgánico) y canal de cierre, comparable con la línea base. Es la condición para un cobro por resultados. Los campos de origen se capturan desde la semana 2 en la plantilla de BL-047; este ítem queda en la semana 6 como verificación.
 priority: High
 status: Backlog
 assignee: Sebastián (propuesta)
@@ -813,16 +879,17 @@ labels:
 dependencies:
 - BL-004
 - BL-011
+- BL-047
 - BL-049
 acceptance_criteria:
 - Más del 80% de las ventas del mes con origen registrado
 - Comparación mes actual vs línea base
 - informe ejecutivo D3
 - 'plan Bogotá: Tablero'
-order: 46
+order: 47
 ```
 
-Asegurar que cada venta tenga origen (campaña, aliado, Omar, orgánico) y canal de cierre, comparable con la línea base. Es la condición para un cobro por resultados.
+Asegurar que cada venta tenga origen (campaña, aliado, Omar, orgánico) y canal de cierre, comparable con la línea base. Es la condición para un cobro por resultados. Los campos de origen se capturan desde la semana 2 en la plantilla de BL-047; este ítem queda en la semana 6 como verificación.
 
 ### Hechos
 ### Supuestos
@@ -837,7 +904,7 @@ Responsable, plazo y esfuerzo son propuestas.
 key: BL-022
 issue_type: Experimento
 summary: Recordatorio de reposición a clientes
-description: Con permiso del cliente, enviar recordatorio antes de que se acabe el empaque (según peso y ración confirmada). Medir recompra y bajas.
+description: 'Con permiso del cliente, enviar recordatorio antes de la siguiente compra esperada. V1: usar el intervalo real entre compras de cada cliente (BL-004). V2: ajustar con peso del empaque y ración confirmada (BL-041). Medir recompra y bajas.'
 priority: Medium
 status: Backlog
 assignee: Sebastián (propuesta)
@@ -849,18 +916,31 @@ labels:
 - experimento
 dependencies:
 - BL-004
+- BL-044
 - BL-058
-- BL-041
 acceptance_criteria:
 - Lista de clientes con permiso
 - Recordatorios enviados y recompra medida en 30 días
+- V1 basada en intervalo real de BL-004, sin depender de BL-041
+- Recompra a 30 días de quienes recibieron recordatorio vs quienes no
+- Solicitudes de baja registradas
+- Ingreso en COP atribuido al experimento (con precio confirmado sí/no)
+- Contribución en COP si se conoce el costo; si no, se registra como desconocido
+- Gasto máximo definido antes de empezar y gasto real registrado
+- Conversión de la etapa medida (p. ej. contactados→respuesta→compra)
+- Regla seguir/ajustar/parar escrita en la ficha BL-044 y aplicada al cierre
 - 'plan Bogotá: Experimento 4'
-order: 40
+order: 43
+hipotesis:
+- Un recordatorio antes de la fecha esperada aumenta la recompra.
+- Raciones (BL-041) quedan para la v2.
 ```
 
-Con permiso del cliente, enviar recordatorio antes de que se acabe el empaque (según peso y ración confirmada). Medir recompra y bajas.
+Con permiso del cliente, enviar recordatorio antes de la siguiente compra esperada. V1: usar el intervalo real entre compras de cada cliente (BL-004). V2: ajustar con peso del empaque y ración confirmada (BL-041). Medir recompra y bajas.
 
 ### Hechos
+Ajuste 31/10/2026 (auditoría Growth Partner): criterios en dinero añadidos; no hay precios, costos ni márgenes confirmados en el backlog.
+
 ### Supuestos
 Responsable, plazo y esfuerzo son propuestas.
 
@@ -885,16 +965,24 @@ labels:
 - experimento
 dependencies:
 - BL-005
+- BL-044
 acceptance_criteria:
 - Costo de la presentación confirmado
 - Resultados de 4 semanas
+- Ingreso en COP atribuido al experimento (con precio confirmado sí/no)
+- Contribución en COP si se conoce el costo; si no, se registra como desconocido
+- Gasto máximo definido antes de empezar y gasto real registrado
+- Conversión de la etapa medida (p. ej. contactados→respuesta→compra)
+- Regla seguir/ajustar/parar escrita en la ficha BL-044 y aplicada al cierre
 - 'plan Bogotá: Experimento 1'
-order: 41
+order: 44
 ```
 
 Probar una presentación o condición de entrada viable en costo frente a la habitual. Medir compra, contribución y recompra.
 
 ### Hechos
+Ajuste 31/10/2026 (auditoría Growth Partner): criterios en dinero añadidos; no hay precios, costos ni márgenes confirmados en el backlog.
+
 ### Supuestos
 Responsable, plazo y esfuerzo son propuestas.
 
@@ -925,7 +1013,7 @@ acceptance_criteria:
 - Top 3 características a priorizar
 - 'develop: QFD.pdf (ejemplo BIOLAV)'
 - metodologias_analisis_competitivo.md
-order: 48
+order: 49
 ```
 
 Con las entrevistas, construir una casa de la calidad simple en una hoja: necesidades del cliente (voz del cliente) vs características del producto/servicio, con pesos. Complementar con Kano para separar básicos de diferenciales.
@@ -961,7 +1049,7 @@ acceptance_criteria:
 - Contribución por canal estimada y marcada como estimado
 - problemas.md
 - erp.md §6
-order: 27
+order: 31
 ```
 
 Reconstruir un lote real: ingredientes, merma, producto obtenido y costo; calcular contribución por producto y canal. Aclarar el cálculo de 4,8 M vs 9,6 M por tonelada en gatos.
@@ -997,7 +1085,7 @@ acceptance_criteria:
 - 'Decisión: seguir, ajustar o pausar'
 - chat 25/10
 - erp.md §6
-order: 51
+order: 52
 ```
 
 Piloto con 2–3 veterinarias o tiendas de gatos (Cat Mania, Catkitten, Felicette) y fundaciones: muestras para gatitos, presentación pequeña (p. ej. 200 g, propuesta). Medir aceptación y recompra.
@@ -1036,7 +1124,7 @@ acceptance_criteria:
 - Propuesta de monitoreo con costo estimado
 - chat 29/10
 - 'metodologias: FMEA'
-order: 52
+order: 53
 ```
 
 Pedir modelo, ficha técnica y manual de la máquina. Con la IA, proponer un monitoreo simple (alertas, sensores o registro) y un análisis de fallas (FMEA).
@@ -1071,7 +1159,7 @@ acceptance_criteria:
 - Documento de decisión con datos
 - Siguiente ciclo de 6 semanas planeado
 - 'plan Bogotá: Reglas para ampliar, ajustar o detener'
-order: 50
+order: 51
 ```
 
 Con datos de 4–6 semanas, decidir ampliar, ajustar o detener según las reglas del plan (contribución, recompra, capacidad, servicio).
@@ -1104,7 +1192,7 @@ acceptance_criteria:
 - Nombre elegido
 - Dominio con HTTPS activo
 - chat 28–29/10
-order: 45
+order: 46
 ```
 
 Elegir nombre provisorio para la agencia, comprar dominio y apuntar un subdominio a Odoo con HTTPS.
@@ -1137,7 +1225,7 @@ acceptance_criteria:
 - Página de 1 hoja con oferta, precios y diferencial
 - 'develop: pasos_sysmkt.md'
 - precios_competencia_bogota.xlsx
-order: 44
+order: 45
 ```
 
 Usar pasos_sysmkt.md para definir las 5 líneas de servicio, qué se promete y qué no, y el diferencial: conectar captación con compra, entrega y recompra. Alinear con los precios de Bogotá.
@@ -1169,7 +1257,7 @@ dependencies: []
 acceptance_criteria:
 - Se retoma solo después del primer ingreso
 - chat oct 2026
-order: 55
+order: 58
 ```
 
 Hobby de Sebastián; sin cliente que pague ahora.
@@ -1201,7 +1289,7 @@ dependencies: []
 acceptance_criteria:
 - Se retoma solo después del primer ingreso
 - chat oct 2026
-order: 56
+order: 59
 ```
 
 Inscripción, fotos y transmisión; posible herramienta de marketing para Omar.
@@ -1233,7 +1321,7 @@ dependencies: []
 acceptance_criteria:
 - Se retoma solo después del primer ingreso
 - chat oct 2026
-order: 57
+order: 60
 ```
 
 Modelo offline que responde con notas propias.
@@ -1265,7 +1353,7 @@ dependencies: []
 acceptance_criteria:
 - Se retoma solo después del primer ingreso
 - chat oct 2026
-order: 58
+order: 61
 ```
 
 Transferir archivos celular–PC o raspar datos de competencia.
@@ -1300,7 +1388,7 @@ acceptance_criteria:
 - Lista corregida para el sitio web
 - CANIVOROS-REFERENCIA-EMPRESA.md (Distribuidores publicados)
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (confirmar operación de distribuidores)
-order: 12
+order: 18
 ```
 
 Llamar a los 6 distribuidores que publica el sitio (Manimal y Sankatin en Bogotá, Malcriados en Chía, Terranova en Sopó, Pets & Company en Zipaquirá, Club Canes en Villavicencio) y confirmar si siguen activos, qué venden, cada cuánto reponen y qué piden. Actualizar el sitio con los que sigan.
@@ -1337,7 +1425,7 @@ acceptance_criteria:
 - Kilos adicionales posibles por semana y qué los limita (máquina, personas o materia prima)
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Datos pendientes)
 - problemas.md (abastecimiento irregular)
-order: 11
+order: 17
 ```
 
 Calcular cuántos kilos adicionales por semana se pueden producir hoy, con la máquina, el personal y la materia prima actuales. Sin este dato no se puede prometer más ventas.
@@ -1375,7 +1463,7 @@ acceptance_criteria:
 - Cada ingreso tiene identificador, fecha, kilos aceptados y costo por kilo
 - Se puede saber qué ingreso se usó en un lote de producción
 - erp.md (Compras, recepción y almacenamiento)
-order: 24
+order: 28
 ```
 
 Aplicar el flujo de erp.md: disponibilidad del proveedor → compra → recepción → cuarto frío → salida a producción. Crear en Odoo o en una hoja el catálogo de materias primas (cabeza de pollo, barriga de salmón, canilla y vísceras de cerdo), los proveedores y un registro por cada ingreso, con fecha, kilos y costo.
@@ -1410,7 +1498,7 @@ acceptance_criteria:
 - Las 12 preguntas tienen respuesta o se marcan como 'no se sabe'
 - Respuestas guardadas en el repo
 - erp.md (Preguntas que siguen pendientes)
-order: 14
+order: 20
 ```
 
 Hacer a la responsable de compras las 12 preguntas que deja erp.md: quién compra y autoriza, unidades, precios por proveedor, transporte, pagos, criterios de rechazo, orden de uso, pérdidas y capacidad útil del cuarto frío.
@@ -1448,7 +1536,7 @@ acceptance_criteria:
 - Kilos extra por semana que se podrían conseguir
 - erp.md (relato de materia prima)
 - problemas.md (abastecimiento irregular)
-order: 47
+order: 48
 ```
 
 La materia prima limita el crecimiento: 'si necesitamos más hay que traer más proveedores'. Hacer una lista de 10 posibles proveedores (plantas de pollo, pescaderías, porcícolas) cerca de Sopó y contactar 5. Medir cuántos pueden entregar, cuánto y a qué precio.
@@ -1487,7 +1575,7 @@ acceptance_criteria:
 - Revisión semanal agendada
 - 'erp.md (Necesidades operativas: controlar cobros)'
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (pagos y entregas son estados distintos)
-order: 23
+order: 27
 ```
 
 Pasar las ventas a crédito, que hoy se marcan en rojo en Excel, a un registro con importe, pagos recibidos, saldo y fecha de vencimiento. Revisar cada semana quién debe.
@@ -1523,7 +1611,7 @@ acceptance_criteria:
 - Días que dura cada presentación según el peso del perro
 - CANIVOROS-REFERENCIA-EMPRESA.md (Uso y conservación)
 - 'CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Experimento 4: sin inventar dosis)'
-order: 30
+order: 34
 ```
 
 Conseguir o validar con la empresa la tabla de porciones por peso, edad y actividad que menciona el sitio. Se necesita para calcular cuánto dura un empaque y para el recordatorio de reposición.
@@ -1559,7 +1647,7 @@ acceptance_criteria:
 - 'Informe corto: qué funciona y qué no'
 - Decisión tomada y anotada
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Primera implementación de software)
-order: 49
+order: 50
 ```
 
 Revisar si el comercio electrónico del WordPress actual está configurado o solo tiene contenido de demostración. Decidir: catálogo con pedido por WhatsApp, tienda simple o nada por ahora.
@@ -1585,25 +1673,39 @@ status: Backlog
 assignee: Omar/Canívoros + Andrés (datos) (propuesta)
 effort: M
 impact: Alto
-sprint: Semana 4 (23–29 nov)
+sprint: Semana 3 (16–22 nov)
 labels:
 - ventas
 - criadores
 - experimento
 dependencies:
 - BL-004
+- BL-044
 acceptance_criteria:
 - Top 10 clientes por kilos de jul–oct
 - 3 conversaciones registradas
 - Oferta probada y resultado medido en 4 semanas
+- Kilos y COP del grupo en 4 semanas vs sus 4 semanas anteriores (COP solo con precio confirmado)
+- '% que acepta la condición y % que repite'
+- Ingreso en COP atribuido al experimento (con precio confirmado sí/no)
+- Contribución en COP si se conoce el costo; si no, se registra como desconocido
+- Gasto máximo definido antes de empezar y gasto real registrado
+- Conversión de la etapa medida (p. ej. contactados→respuesta→compra)
+- Regla seguir/ajustar/parar escrita en la ficha BL-044 y aplicada al cierre
 - ventas_canivoros_2026.xlsx (columnas 'CRIADOR KG')
-order: 36
+order: 37
+hechos:
+- El Excel separa ventas a cliente, almacén y criador; hay pedidos de criadores de 40 a 520 kg.
+hipotesis:
+- El segmento criadores es el más rentable (por validar).
 ```
 
 Las ventas de jul–oct muestran compras grandes de criadores (40–520 kg). Identificar los 10 clientes de más kilos, entrevistar a 3 y probar una condición para ellos (pedido programado, precio por volumen o referidos).
 
 ### Hechos
 El Excel separa ventas a cliente, almacén y criador; hay pedidos de criadores de 40 a 520 kg.
+
+Ajuste 31/10/2026 (auditoría Growth Partner): criterios en dinero añadidos; no hay precios, costos ni márgenes confirmados en el backlog.
 
 ### Supuestos
 Que el segmento criadores sea el más rentable es una hipótesis.
@@ -1618,7 +1720,7 @@ key: BL-044
 issue_type: Tarea
 summary: Registrar hipótesis y criterios de decisión antes de cada experimento
 description: 'Antes de lanzar BL-012, BL-019, BL-020 y los demás experimentos, escribir en 5 líneas: hipótesis, qué se mide, con cuántos casos, qué resultado lleva a seguir, ajustar o parar, y el gasto máximo.'
-priority: Medium
+priority: Highest
 status: Backlog
 assignee: Andrés (propuesta)
 effort: S
@@ -1631,9 +1733,10 @@ dependencies: []
 acceptance_criteria:
 - Plantilla de hipótesis en backlog/
 - Cada experimento activo la tiene llena antes de empezar
+- 'La ficha incluye: ingreso COP, contribución (o desconocido), gasto máximo, conversión de la etapa y regla seguir/ajustar/parar'
 - GuiaPesquisaProdutosServicosES.md (§4 Registrar hipótesis y criterios de decisión)
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Control del gasto)
-order: 15
+order: 7
 ```
 
 Antes de lanzar BL-012, BL-019, BL-020 y los demás experimentos, escribir en 5 líneas: hipótesis, qué se mide, con cuántos casos, qué resultado lleva a seguir, ajustar o parar, y el gasto máximo.
@@ -1671,7 +1774,7 @@ acceptance_criteria:
 - Revisado por Hosana
 - GuiaDesenvolverProdutosServicosES.md
 - pasos_sysmkt.md (Que sabemos hacer bien)
-order: 53
+order: 56
 ```
 
 Usar la Guía para desarrollar productos o servicios (oportunidad, público, competencia, propuesta de valor, viabilidad, marketing) para escribir un plan de negocio de 2–3 páginas de la agencia. Hosana ofreció ayudar si existe un plan.
@@ -1706,7 +1809,7 @@ acceptance_criteria:
 - Estado actual de la iniciativa confirmado
 - 'Si está activa: siguiente evento o contacto anotado'
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Qué sabemos del mercado)
-order: 54
+order: 57
 ```
 
 Consultar si la iniciativa del Clúster de Protección y Bienestar Animal de la Cámara de Comercio de Bogotá sigue activa y si ofrece contactos con distribuidores o ruedas de negocio.
@@ -1726,13 +1829,13 @@ Responsable, plazo y esfuerzo son propuestas.
 key: BL-047
 issue_type: Mejora
 summary: Plantilla única para registrar ventas
-description: El Excel de ventas cambia de columnas cada mes (julio 11 columnas, octubre 14), mezcla libras y kilos y tiene filas sin fecha. Definir una sola plantilla (o formulario) con cliente, fecha, producto, presentación, unidad, cantidad, precio y canal, hasta que todo pase a Odoo.
+description: El Excel de ventas cambia de columnas cada mes (julio 11 columnas, octubre 14), mezcla libras y kilos y tiene filas sin fecha. Definir una sola plantilla (o formulario) con cliente, fecha, producto, presentación, unidad, cantidad, precio y canal, hasta que todo pase a Odoo. Desde ya incluir los campos origen (campaña, aliado, Omar, orgánico, desconocido), canal de cierre (WhatsApp, tienda, distribuidor, otro) y código de aliado/QR, aunque sea en una hoja antes de Odoo.
 priority: High
 status: Backlog
 assignee: Sebastián (propuesta)
 effort: S
 impact: Alto
-sprint: Semana 3 (16–22 nov)
+sprint: Semana 2 (9–15 nov)
 labels:
 - mejora
 dependencies:
@@ -1741,11 +1844,17 @@ acceptance_criteria:
 - Plantilla con columnas fijas y listas desplegables
 - Unidad única por producto
 - Octubre migrado a la plantilla como prueba
+- Campos origen, canal de cierre y código de aliado/QR presentes en la plantilla
+- '% semanal de ventas con origen registrado medido desde la semana 2'
 - ventas_canivoros_2026.xlsx
-order: 17
+order: 12
+hechos:
+- Las hojas JULIO, AGOSTO, SEPT. y OCT. tienen columnas distintas y filas sin fecha.
+hipotesis:
+- Registrar el origen desde la semana 2 permite verificar atribución en BL-021 (semana 6).
 ```
 
-El Excel de ventas cambia de columnas cada mes (julio 11 columnas, octubre 14), mezcla libras y kilos y tiene filas sin fecha. Definir una sola plantilla (o formulario) con cliente, fecha, producto, presentación, unidad, cantidad, precio y canal, hasta que todo pase a Odoo.
+El Excel de ventas cambia de columnas cada mes (julio 11 columnas, octubre 14), mezcla libras y kilos y tiene filas sin fecha. Definir una sola plantilla (o formulario) con cliente, fecha, producto, presentación, unidad, cantidad, precio y canal, hasta que todo pase a Odoo. Desde ya incluir los campos origen (campaña, aliado, Omar, orgánico, desconocido), canal de cierre (WhatsApp, tienda, distribuidor, otro) y código de aliado/QR, aunque sea en una hoja antes de Odoo.
 
 ### Hechos
 Las hojas JULIO, AGOSTO, SEPT. y OCT. tienen columnas distintas; hay filas sin fecha (p. ej. un pedido de 520 kg en julio).
@@ -1776,7 +1885,7 @@ dependencies:
 acceptance_criteria:
 - Todos los productos del catálogo confirmado se ven y se pueden vender en Odoo
 - chat 27/10 ('como los productos no están activos no aparecen')
-order: 20
+order: 24
 ```
 
 En Odoo los productos cargados no se ven en ventas porque no están activos o publicados. Revisar y activar el catálogo confirmado.
@@ -1812,7 +1921,7 @@ acceptance_criteria:
 - Cambiar un precio no modifica ventas anteriores
 - Reporte de contribución por venta
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Datos mínimos)
-order: 22
+order: 26
 ```
 
 Cada línea de venta debe guardar el precio y el costo de ese momento, para que un cambio de catálogo no altere la rentabilidad histórica.
@@ -1848,7 +1957,7 @@ acceptance_criteria:
 - Ventas netas = ventas − devoluciones
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md
 - problemas.md (devoluciones al criadero)
-order: 28
+order: 32
 ```
 
 Registrar devoluciones y cancelaciones como movimientos con motivo (incluidas las que van al criadero), sin borrar la venta original.
@@ -1882,7 +1991,7 @@ dependencies:
 acceptance_criteria:
 - 'Prueba: enviar el mismo mensaje dos veces crea un solo registro'
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Primera implementación de software)
-order: 37
+order: 40
 ```
 
 Cuando WhatsApp, Instagram o formularios creen pedidos o leads automáticamente, un mismo evento no debe crear dos registros.
@@ -1954,7 +2063,7 @@ acceptance_criteria:
 - Permisos revisados por función
 - Historial de cambios activo
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (usuarios por función, historial)
-order: 18
+order: 22
 ```
 
 Crear usuarios para Sara, la prima y Omar con permisos según su trabajo (ventas, compras, producción). Nadie usa la cuenta de administrador para el día a día.
@@ -1992,7 +2101,7 @@ acceptance_criteria:
 - problemas.md (inventario de memoria)
 - erp.md
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md
-order: 26
+order: 30
 ```
 
 Registrar lotes con fecha de producción y vencimiento, ubicación, entradas y salidas, y cantidades comprometidas en pedidos.
@@ -2028,7 +2137,7 @@ acceptance_criteria:
 - Merma y rendimiento por receta calculados
 - erp.md (recetas y rendimientos)
 - problemas.md
-order: 25
+order: 29
 ```
 
 Por cada lote: receta, materia prima usada (por ingreso), cantidad producida, merma y costo.
@@ -2063,7 +2172,7 @@ acceptance_criteria:
 - Todo cambio en el servidor viene de un commit
 - Procedimiento corto documentado en el repo
 - chat 26/10 y 28/10 (repo canivorosodoo)
-order: 29
+order: 33
 ```
 
 Mantener la personalización de Odoo en el repo canivorosodoo y probar cada cambio en local antes de subirlo al servidor.
@@ -2099,7 +2208,7 @@ acceptance_criteria:
 - Un pedido de prueba por canal toma el precio correcto
 - chat audio 29/10 (precios por libra, kilo y tipo de cliente)
 - ventas_canivoros_2026.xlsx
-order: 16
+order: 21
 ```
 
 Configurar precios por cliente final, almacén/distribuidor y criador, y por libra o kilo, que hoy Sebastián no encuentra cómo modelar en Odoo.
@@ -2125,7 +2234,7 @@ status: Backlog
 assignee: Andrés (propuesta)
 effort: S
 impact: Medio
-sprint: Semana 4 (23–29 nov)
+sprint: Semana 2 (9–15 nov)
 labels:
 - requisito
 dependencies: []
@@ -2133,7 +2242,7 @@ acceptance_criteria:
 - Texto de autorización corto aprobado por la empresa
 - Campo de permiso en el registro del cliente
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (permiso de comunicaciones)
-order: 35
+order: 8
 ```
 
 Guardar el permiso de cada cliente para recibir mensajes y tratar sus datos (ley colombiana de protección de datos), antes de automatizar WhatsApp o recordatorios.
@@ -2143,3 +2252,138 @@ El plan pide registrar el permiso de comunicaciones.
 
 ### Supuestos
 Hay que confirmar los requisitos legales exactos con alguien que conozca la norma colombiana.
+
+---
+
+<a id="bl-059"></a>
+## BL-059 · Auditoría de consultas de WhatsApp (2 semanas)
+
+```yaml
+key: BL-059
+issue_type: Tarea
+summary: Auditoría de consultas de WhatsApp (2 semanas)
+description: 'Revisar 2 semanas de chats de los números comerciales (con Omar o Sara mostrando los chats, sin descargar datos personales) y registrar: consultas por semana, cuántas se respondieron, tiempo de respuesta, cuántas compraron y motivo de pérdida. Es la línea base de atención para BL-019.'
+priority: Highest
+status: Backlog
+assignee: Andrés + Omar/Canívoros (propuesta)
+effort: S
+impact: Alto
+sprint: Semana 2 (9–15 nov)
+labels:
+- auditoria
+- whatsapp
+- conversion
+dependencies:
+- BL-058
+acceptance_criteria:
+- 'Tabla por semana: consultas, respondidas (%), tiempo medio de respuesta, compraron (%), top 3 motivos de pérdida'
+- Dato faltante marcado como desconocido (no estimado)
+- Sin datos personales copiados al repo
+hechos:
+- Hay tres números de WhatsApp publicados; no está definido el número comercial principal.
+hipotesis:
+- Se pierden ventas por respuesta lenta o sin seguimiento.
+- auditoría Growth Partner 31/10/2026
+- 'plan Bogotá: diagnóstico inicial'
+order: 9
+```
+
+Revisar 2 semanas de chats de los números comerciales (con Omar o Sara mostrando los chats, sin descargar datos personales) y registrar: consultas por semana, cuántas se respondieron, tiempo de respuesta, cuántas compraron y motivo de pérdida. Es la línea base de atención para BL-019.
+
+### Hechos
+Hay tres números de WhatsApp publicados; no está definido el número comercial principal. No se conocen consultas, tasa de respuesta ni conversión actuales.
+
+### Supuestos
+Hipótesis: se pierden ventas por respuesta lenta o sin seguimiento.
+
+Responsable, plazo y esfuerzo son propuestas.
+
+---
+
+<a id="bl-060"></a>
+## BL-060 · Recuperar clientes que dejaron de comprar
+
+```yaml
+key: BL-060
+issue_type: Experimento
+summary: Recuperar clientes que dejaron de comprar
+description: Con la base de BL-004, listar clientes con una sola compra o sin compra desde hace más que su intervalo habitual. Contactar solo a quienes tengan permiso (BL-058) con un mensaje de reposición y precio real (BL-005). Medir quiénes compran.
+priority: High
+status: Backlog
+assignee: Andrés (lista y medición) + Omar/Canívoros (contacto) (propuesta)
+effort: S
+impact: Alto
+sprint: Semana 2 (9–15 nov)
+labels:
+- retencion
+- experimento
+- recompra
+dependencies:
+- BL-004
+- BL-005
+- BL-044
+- BL-058
+acceptance_criteria:
+- Lista de candidatos desde BL-004 con criterio documentado
+- Solo se contacta a clientes con permiso registrado
+- Compraron ÷ contactados en 14 días
+- COP recuperados (solo con precio confirmado; si no, desconocido)
+- Contribución en COP si se conoce el costo; si no, se registra como desconocido
+- Gasto máximo definido antes de empezar y gasto real registrado
+- Conversión de la etapa medida (p. ej. contactados→respuesta→compra)
+- Regla seguir/ajustar/parar escrita en la ficha BL-044 y aplicada al cierre
+hechos:
+- Existen ventas jul–oct 2026 por cliente y fecha (BL-004).
+hipotesis:
+- Parte de los clientes inactivos vuelve a comprar con un recordatorio y precio claro.
+- auditoría Growth Partner 31/10/2026
+order: 10
+```
+
+Con la base de BL-004, listar clientes con una sola compra o sin compra desde hace más que su intervalo habitual. Contactar solo a quienes tengan permiso (BL-058) con un mensaje de reposición y precio real (BL-005). Medir quiénes compran.
+
+### Hechos
+Existen ventas jul–oct 2026 por cliente y fecha (BL-004). No depende de BL-041.
+
+### Supuestos
+Hipótesis: parte de los clientes inactivos vuelve a comprar con un recordatorio y precio claro.
+
+---
+
+<a id="bl-061"></a>
+## BL-061 · Bitácora del caso Canívoros
+
+```yaml
+key: BL-061
+issue_type: Tarea
+summary: Bitácora del caso Canívoros
+description: 'Página viva del primer caso Growth Partner: línea base, diagnóstico, experimentos (con su ficha BL-044), resultados en COP frente a la línea base y aprendizajes. Se actualiza cada semana.'
+priority: High
+status: Backlog
+assignee: Andrés (propuesta)
+effort: S
+impact: Medio
+sprint: Semana 2 (9–15 nov)
+labels:
+- caso
+- documentacion
+- growth-partner
+dependencies:
+- BL-002
+- BL-004
+acceptance_criteria:
+- Actualizada cada semana
+- Hechos, hipótesis y desconocidos separados
+- Antes de BL-018 existe al menos un resultado medido vs línea base
+hechos: []
+hipotesis:
+- Un caso documentado con resultados en COP facilita vender el diagnóstico (BL-017, BL-018).
+- auditoría Growth Partner 31/10/2026
+order: 11
+```
+
+Página viva del primer caso Growth Partner: línea base, diagnóstico, experimentos (con su ficha BL-044), resultados en COP frente a la línea base y aprendizajes. Se actualiza cada semana.
+
+### Hechos
+### Supuestos
+Hipótesis: un caso documentado con resultados en COP facilita vender el diagnóstico.

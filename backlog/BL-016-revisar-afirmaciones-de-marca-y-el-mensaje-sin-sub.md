@@ -20,7 +20,7 @@ sources:
 - erp.md §8
 - CANIVOROS-REFERENCIA-EMPRESA.md
 - informe ejecutivo
-order: 33
+order: 38
 ---
 
 # BL-016 · Revisar afirmaciones de marca y el mensaje 'sin subproductos'

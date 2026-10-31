@@ -23,7 +23,7 @@ acceptance_criteria:
 sources:
 - 'plan Bogotá: Qué sistematizar primero'
 - erp.md §9
-order: 21
+order: 25
 ---
 
 # BL-011 · Definir el primer sistema mínimo de datos en Odoo

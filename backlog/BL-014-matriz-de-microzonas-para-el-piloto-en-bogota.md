@@ -20,7 +20,7 @@ acceptance_criteria:
 - 2 zonas elegidas para el piloto
 sources:
 - 'plan Bogotá: Selección de zonas'
-order: 31
+order: 35
 ---
 
 # BL-014 · Matriz de microzonas para el piloto en Bogotá

@@ -22,7 +22,7 @@ acceptance_criteria:
 sources:
 - 'erp.md (Necesidades operativas: controlar cobros)'
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (pagos y entregas son estados distintos)
-order: 23
+order: 27
 ---
 
 # BL-040 · Ordenar cobros y cartera

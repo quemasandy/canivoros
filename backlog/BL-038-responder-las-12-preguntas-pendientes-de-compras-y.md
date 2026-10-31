@@ -18,7 +18,7 @@ acceptance_criteria:
 - Respuestas guardadas en el repo
 sources:
 - erp.md (Preguntas que siguen pendientes)
-order: 14
+order: 20
 ---
 
 # BL-038 · Responder las 12 preguntas pendientes de compras y recepción

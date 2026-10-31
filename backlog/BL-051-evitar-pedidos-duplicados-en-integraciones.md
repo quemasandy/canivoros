@@ -17,7 +17,7 @@ acceptance_criteria:
 - 'Prueba: enviar el mismo mensaje dos veces crea un solo registro'
 sources:
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Primera implementación de software)
-order: 37
+order: 40
 ---
 
 # BL-051 · Evitar pedidos duplicados en integraciones

@@ -19,7 +19,7 @@ acceptance_criteria:
 sources:
 - 'develop: GuiaPesquisaProdutosServicosES.md §9'
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (entrevistas)
-order: 7
+order: 13
 ---
 
 # BL-006 · Guion de entrevistas: voz del cliente

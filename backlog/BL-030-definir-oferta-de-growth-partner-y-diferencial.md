@@ -18,7 +18,7 @@ acceptance_criteria:
 sources:
 - 'develop: pasos_sysmkt.md'
 - precios_competencia_bogota.xlsx
-order: 44
+order: 45
 ---
 
 # BL-030 · Definir oferta de Growth Partner y diferencial

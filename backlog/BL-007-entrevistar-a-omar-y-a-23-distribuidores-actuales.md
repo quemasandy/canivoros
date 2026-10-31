@@ -22,7 +22,7 @@ acceptance_criteria:
 sources:
 - chat 29/10
 - 'plan Bogotá: entrevistas con establecimientos'
-order: 8
+order: 14
 ---
 
 # BL-007 · Entrevistar a Omar y a 2–3 distribuidores actuales

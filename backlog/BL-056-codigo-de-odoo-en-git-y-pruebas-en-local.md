@@ -18,7 +18,7 @@ acceptance_criteria:
 - Procedimiento corto documentado en el repo
 sources:
 - chat 26/10 y 28/10 (repo canivorosodoo)
-order: 29
+order: 33
 ---
 
 # BL-056 · Código de Odoo en Git y pruebas en local

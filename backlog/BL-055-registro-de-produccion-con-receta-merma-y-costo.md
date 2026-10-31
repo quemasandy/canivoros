@@ -19,7 +19,7 @@ acceptance_criteria:
 sources:
 - erp.md (recetas y rendimientos)
 - problemas.md
-order: 25
+order: 29
 ---
 
 # BL-055 · Registro de producción con receta, merma y costo

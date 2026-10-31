@@ -19,7 +19,7 @@ acceptance_criteria:
 - Decisión tomada y anotada
 sources:
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Primera implementación de software)
-order: 49
+order: 50
 ---
 
 # BL-042 · Revisar el WordPress y decidir si sirve como tienda

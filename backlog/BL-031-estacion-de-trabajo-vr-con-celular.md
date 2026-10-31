@@ -17,7 +17,7 @@ acceptance_criteria:
 - Se retoma solo después del primer ingreso
 sources:
 - chat oct 2026
-order: 55
+order: 58
 ---
 
 # BL-031 · Estación de trabajo VR con celular

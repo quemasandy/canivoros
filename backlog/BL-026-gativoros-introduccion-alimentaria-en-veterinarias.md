@@ -21,7 +21,7 @@ acceptance_criteria:
 sources:
 - chat 25/10
 - erp.md §6
-order: 51
+order: 52
 ---
 
 # BL-026 · Gatívoros: introducción alimentaria en veterinarias

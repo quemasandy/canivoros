@@ -21,7 +21,7 @@ acceptance_criteria:
 - Se puede saber qué ingreso se usó en un lote de producción
 sources:
 - erp.md (Compras, recepción y almacenamiento)
-order: 24
+order: 28
 ---
 
 # BL-037 · Registrar proveedores y recepción de materia prima

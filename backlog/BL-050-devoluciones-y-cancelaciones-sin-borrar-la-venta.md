@@ -19,7 +19,7 @@ acceptance_criteria:
 sources:
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md
 - problemas.md (devoluciones al criadero)
-order: 28
+order: 32
 ---
 
 # BL-050 · Devoluciones y cancelaciones sin borrar la venta

@@ -18,7 +18,7 @@ acceptance_criteria:
 - 'Si está activa: siguiente evento o contacto anotado'
 sources:
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Qué sabemos del mercado)
-order: 54
+order: 57
 ---
 
 # BL-046 · Explorar el Clúster de Bienestar Animal de la CCB

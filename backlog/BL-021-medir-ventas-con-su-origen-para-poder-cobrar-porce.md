@@ -2,7 +2,7 @@
 key: BL-021
 issue_type: Tarea
 summary: Medir ventas con su origen para poder cobrar porcentaje
-description: Asegurar que cada venta tenga origen (campaña, aliado, Omar, orgánico) y canal de cierre, comparable con la línea base. Es la condición para un cobro por resultados.
+description: Asegurar que cada venta tenga origen (campaña, aliado, Omar, orgánico) y canal de cierre, comparable con la línea base. Es la condición para un cobro por resultados. Los campos de origen se capturan desde la semana 2 en la plantilla de BL-047; este ítem queda en la semana 6 como verificación.
 priority: High
 status: Backlog
 assignee: Sebastián (propuesta)
@@ -16,6 +16,7 @@ labels:
 dependencies:
 - BL-004
 - BL-011
+- BL-047
 - BL-049
 acceptance_criteria:
 - Más del 80% de las ventas del mes con origen registrado
@@ -23,12 +24,12 @@ acceptance_criteria:
 sources:
 - informe ejecutivo D3
 - 'plan Bogotá: Tablero'
-order: 46
+order: 47
 ---
 
 # BL-021 · Medir ventas con su origen para poder cobrar porcentaje
 
-Asegurar que cada venta tenga origen (campaña, aliado, Omar, orgánico) y canal de cierre, comparable con la línea base. Es la condición para un cobro por resultados.
+Asegurar que cada venta tenga origen (campaña, aliado, Omar, orgánico) y canal de cierre, comparable con la línea base. Es la condición para un cobro por resultados. Los campos de origen se capturan desde la semana 2 en la plantilla de BL-047; este ítem queda en la semana 6 como verificación.
 
 ## Hechos
 Ver fuentes.
