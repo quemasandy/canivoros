@@ -1,35 +1,103 @@
-# Prospectos B2B Canívoros / Gatívoros · Bogotá
+# Prospectos B2B de Canívoros · Bogotá
 
-> **Registro único de prospección B2B** (tiendas, veterinarias, pet shops, distribuidores). Instrucciones en [AGENTS.md](AGENTS.md).
-> Sembrado el 2 nov 2026 desde la lista inicial `prospectos_bogota.xlsx/csv` (hecha con ayuda de IA). **Nadie fue contactado.** Todos los datos están **por verificar**.
+> **Registro único de la prospección B2B** (tiendas, veterinarias, pet shops, centros de entrenamiento y distribuidores). Instrucciones en [AGENTS.md](AGENTS.md); reglas comunes en [../AGENTS.md](../AGENTS.md).
+> Sembrado el 2026-11-02 desde la lista inicial `prospectos_bogota.xlsx/csv`, hecha con ayuda de IA. **Nadie fue contactado.** Todos los datos están **por verificar**.
+> Alimenta BL-010 (verificar), BL-012 (10 tiendas), BL-014 (microzonas), BL-035 (aliados actuales) y BL-026 (gatos, más adelante).
 
 ## Cómo leer este archivo
 
-- **Estado `por_verificar`:** dato tomado de la lista inicial o de directorios de distribuidores de marcas; no re-verificado. No usar como gancho en un mensaje hasta verificar (AGENTS.md §5).
-- **Encaje:** Alto = ya vende alimento natural (Pixie, BARF u otra línea natural) según la fuente indicada; Medio, Bajo y Existente según AGENTS.md §2.
-- **Estados de Andy:** `contactado`, `respondio`, `muestra`, `pedido`, `reposicion`, `perdido` (los registra solo Andy).
+- **`por_verificar`:** dato de la lista inicial o de un directorio de distribuidores de una marca; nadie lo ha confirmado en una fuente del negocio. No se usa como gancho en un mensaje hasta verificarlo (AGENTS.md §5).
+- **Marcas (según fuente):** en la lista inicial salen casi siempre de los directorios de distribuidores de las marcas: Pixie aparece en 77 filas, Peluditos BARF en 23 y Vital Doggy en 17. Es una **declaración de la marca (D)**, no una observación de la tienda.
+- **Encaje:** Alto = vende alimento natural; Medio = premium sin natural observado; Bajo = masivo o dudoso; Existente = aliado actual. Reglas en AGENTS.md §2.3.
+- **Estados del equipo comercial** (`contactado`, `respondio`, `muestra`, `pedido`, `reposicion`, `perdido`): los registra solo Andrés o a quien él designe. Un agente nunca los cambia.
 
 ## Resumen
 
-- **135 negocios** en la lista inicial: 2 existentes (aliados actuales), 112 de encaje Alto, 17 Medio y 4 Bajo.
-- **0 verificados** con el protocolo. **0 contactados.**
+- **135 negocios** en la lista inicial: 2 aliados existentes, 112 de encaje Alto, 17 Medio y 4 Bajo. (BL-010 habla de 134; la diferencia de una fila está por revisar).
+- **0 verificados** con el protocolo. **0 listos para contactar. 0 contactados.**
+- 108 filas sin web ni Instagram, 10 sin teléfono y 7 sin dirección.
 
-**Qué hacer ahora (BL-010 → BL-012):**
+### Por localidad
 
-1. Confirmar si los aliados existentes siguen activos (BL-035).
-2. Verificar 20–30 prospectos de encaje Alto en las zonas prioritarias, con la mini auditoría de AGENTS.md §5.
-3. Elegir 10 para BL-012 y pasar sus borradores a Andy para aprobación.
+Clasificado por la primera localidad que aparece en la columna *Zona* (aproximado; las cadenas cuentan en una sola zona).
 
-## Métricas BL-012 (las registra Andy)
+| Localidad | Alto | Medio | Bajo | Existente | Total |
+|---|---|---|---|---|---|
+| Suba | 30 | 1 | 0 | 0 | 31 |
+| Usaquén | 20 | 6 | 0 | 0 | 26 |
+| Engativá | 14 | 1 | 0 | 0 | 15 |
+| Kennedy | 11 | 2 | 1 | 0 | 14 |
+| Chapinero | 7 | 2 | 1 | 0 | 10 |
+| Fontibón | 7 | 0 | 0 | 0 | 7 |
+| Puente Aranda | 6 | 0 | 0 | 0 | 6 |
+| Teusaquillo | 5 | 0 | 0 | 0 | 5 |
+| Barrios Unidos | 4 | 0 | 0 | 0 | 4 |
+| Bosa | 2 | 0 | 0 | 1 | 3 |
+| Antonio Nariño | 2 | 0 | 0 | 0 | 2 |
+| Otras (Los Mártires, Tenjo, Susa, noroccidente) | 2 | 0 | 1 | 1 | 4 |
+| Varias sedes (CEBA, Laika) | 2 | 0 | 0 | 0 | 2 |
+| Sin localidad (solo «Bogotá») | 0 | 5 | 1 | 0 | 6 |
+| **Total** | **112** | **17** | **4** | **2** | **135** |
+
+## Qué hacer ahora (BL-010 → BL-012)
+
+1. **BL-035:** confirmar si Manimal y Sankatin siguen activos (lo hace el equipo, no un agente). Pista (V): en `ventas_canivoros_2026.xlsx` aparece un cliente tipo almacén «MANIMALS» en octubre de 2026; confirmar si es la misma clínica.
+2. **BL-010:** verificar los lotes 1 y 2 de abajo (20 prospectos de encaje Alto) con la mini auditoría de AGENTS.md §5.
+3. **BL-012:** con los verificados, proponer a Andrés 10 tiendas `listo_para_contactar` con su borrador (variantes A/B). Antes, BL-005 debe definir precio a distribuidor y pedido mínimo, y BL-044 la ficha del experimento.
+
+## Candidatos para el próximo lote
+
+Propuesta (H) para empezar por las microzonas candidatas. Cada lote tiene 10 prospectos de una misma zona, como pide AGENTS.md §4.
+
+| Lote | Zona | Por qué | Prospectos |
+|---|---|---|---|
+| 1 | Suba, alrededor de Manimal (calles 127–153) | Microzona noroccidente; la de más prospectos | P032, P096, P091, P076, P107, P015, P090, P053, P020, P005 |
+| 2 | Usaquén / Cedritos (calles 134–165) | Vecina de la microzona noroccidente; segunda en densidad | P113, P097, P100, P025, P110, P067, P068, P051, P044, P108 |
+| 3 | Bosa y Kennedy, alrededor de Sankatin | Microzona sur | P070, P052, P011, P035, P034, P071, P026, P062, P040, P046 |
+
+**Aparte, para que decida Andrés:**
+- **Cadenas** (otro decisor y otro ciclo de venta): P003 Agrocampo, P019 CEBA, P059 Laika, P072 Movet, P083 Pet Gourmet.
+- **Tiendas de gatos** (reservadas para BL-026): P022 Cat Mania, P023 Catfood Colombia, P024 Catkitten, P043 Felicette.
+
+## Alertas de calidad
+
+Resuélvelas al verificar el prospecto (o antes, si entra en tu lote):
+
+| Alerta | Filas | Qué hacer |
+|---|---|---|
+| Mismo teléfono en dos negocios | P008 Animal Time y P015 Baratupet (315 916 1727) | Confirmar si es el mismo negocio, una cadena o un error |
+| Mismo teléfono en dos negocios | P053 Huellitas Petshop y Spa y P107 Waggers (320 840 2485) | Igual que arriba |
+| Mismo teléfono en dos negocios | P089 Pet Spot y P100 R&M Veterinaria (310 322 5955) | Igual que arriba |
+| Teléfono con 9 dígitos (formato inválido) | P110 Wow Pet (319 544 452) | Buscar el número correcto en una fuente del negocio |
+| Dirección residencial | P023 Catfood Colombia | La fuente indicaba un apartamento; se retiró la dirección (AGENTS.md §10) |
+| Fuente secundaria | 9 filas con fuente `exa.ai` | Es un índice de búsqueda: confirmar en Maps o en la web del negocio |
+
+## Red actual publicada (BL-035)
+
+Distribuidores que publica el sitio de Canívoros (`../CANIVOROS-REFERENCIA-EMPRESA.md`). Sirven para deduplicar y para BL-035. Los de fuera de Bogotá no son prospectos de esta carpeta.
+
+| Aliado | Ciudad / zona | Dirección comercial | Teléfono publicado | En el registro | Estado |
+|---|---|---|---|---|---|
+| Clínica Veterinaria Manimal | Bogotá, noroccidente | Calle 134d #45a-08 | 601 274 4806 | P001 | por_verificar |
+| Sankatin PetShop | Bogotá, Bosa (José Antonio Galán) | Carrera 78f #58m-11 Sur | 304 272 1381 | P002 | por_verificar |
+| Malcriados PetShop | Chía | Carrera 15a #12-08 | 302 570 2926 | — | por_verificar |
+| Clínica Veterinaria Terranova | Sopó | Calle 1 #3-57 | 302 304 4015 | — | por_verificar |
+| Pets & Company | Zipaquirá | Carrera 22 #7d-91 | 319 498 3473 | — | por_verificar |
+| Club Canes Centro de Entrenamiento Canino | Villavicencio, Meta | Carrera 33a #15-105 | 313 885 6095 | — | por_verificar |
+
+## Métricas BL-012 (las registra el equipo comercial)
 
 | Métrica | Valor |
 |---|---|
 | Prospectos verificados | 0 |
+| Listos para contactar | 0 |
 | Contactados | 0 |
 | Respondieron | desconocido |
+| Muestra entregada | desconocido |
 | Pedido inicial | desconocido |
 | Reposición | desconocido |
-| Ingreso COP de pedidos B2B | desconocido |
+| Ingreso COP de pedidos B2B (precio confirmado sí/no) | desconocido |
+| Motivos de no compra | desconocido |
 
 ## Fichas verificadas
 
@@ -37,10 +105,10 @@ _Aún no hay fichas. Usa el formato de AGENTS.md §9._
 
 ## Registro
 
-| ID | Nombre | Tipo | Zona | Dirección | Web / Instagram | Teléfono público | Marcas observadas | Encaje | Estado | Fuente |
+| ID | Nombre | Tipo | Zona | Dirección | Web / Instagram | Teléfono público | Marcas (según fuente) | Encaje | Estado | Fuente |
 |---|---|---|---|---|---|---|---|---|---|---|
-| P001 | Clínica Veterinaria Manimal | Veterinaria con tienda | Noroccidente | desconocido | desconocido | desconocido | Canívoros (aliado actual) | Existente | por_verificar | CANIVOROS-REFERENCIA-EMPRESA.md |
-| P002 | Sankatin PetShop | Pet shop | Bosa | desconocido | desconocido | desconocido | Canívoros (aliado actual) | Existente | por_verificar | CANIVOROS-REFERENCIA-EMPRESA.md |
+| P001 | Clínica Veterinaria Manimal | Veterinaria con tienda | Noroccidente | Calle 134d #45a-08 | desconocido | 601 274 4806 | Canívoros (aliado actual) | Existente | por_verificar | CANIVOROS-REFERENCIA-EMPRESA.md |
+| P002 | Sankatin PetShop | Pet shop | Bosa | Carrera 78f #58m-11 Sur (José Antonio Galán) | desconocido | 304 272 1381 | Canívoros (aliado actual) | Existente | por_verificar | CANIVOROS-REFERENCIA-EMPRESA.md |
 | P003 | Agrocampo | Cadena agro/veterinaria y mascotas | Chapinero (Cl. 73) | Cl. 73 #20-62 | https://www.agrocampo.com.co/ · @agrocampoco | 601 326 5999 | Pixie, Peluditos BARF + concentrados | Alto | por_verificar | https://pixie.net.co/contacto ; https://peluditosbarf.com.co/distribuidores/ ; https://www.agrocampo.com.co/ |
 | P004 | Aldan Pets | Pet shop | Antonio Nariño | Cl. 2 Bis #16-18 | desconocido | 300 207 5607 / 300 590 4895 | Vital Doggy BARF | Alto | por_verificar | https://vitaldoggy.co/distribuidores/ |
 | P005 | Animal Love | Pet shop | Suba | Cl. 146F #76-06 | desconocido | 320 263 4133 | Vital Doggy BARF | Alto | por_verificar | https://vitaldoggy.co/distribuidores/ |
@@ -61,7 +129,7 @@ _Aún no hay fichas. Usa el formato de AGENTS.md §9._
 | P020 | Capivet | Veterinaria con tienda | Suba | Cl. 153 #59-15 | desconocido | 310 563 9245 | Pixie | Alto | por_verificar | https://pixie.net.co/contacto |
 | P021 | Castell Pet Centro Veterinario | Veterinaria con tienda | Teusaquillo | Cra. 21 #53d-52 | desconocido | 601 347 0717 | Pixie | Alto | por_verificar | https://pixie.net.co/contacto |
 | P022 | Cat Mania | Pet shop (gatos) | Usaquén | Cra. 12 #118-45 | desconocido | 320 899 2536 | Pixie | Alto | por_verificar | https://pixie.net.co/contacto |
-| P023 | Catfood Colombia - Pet Shop | Tienda online/pet shop (gatos) | Usaquén | Cl. 146 #7b-90 Apto 702 | https://www.catfood.com.co/ | +57 317 725 9412 | Alimento de gato de difícil consecución/premium (reseñas) | Alto | por_verificar | https://exa.ai/library/places?q=da454bbc1e1741a3 ; Resultados WebSearch (índice Exa Places / Google Maps) 2026-10-25 |
+| P023 | Catfood Colombia - Pet Shop | Tienda online/pet shop (gatos) | Usaquén | desconocido (dirección residencial retirada) | https://www.catfood.com.co/ | +57 317 725 9412 | Alimento de gato de difícil consecución/premium (reseñas) | Alto | por_verificar | https://exa.ai/library/places?q=da454bbc1e1741a3 ; Resultados WebSearch (índice Exa Places / Google Maps) 2026-10-25 |
 | P024 | Catkitten | Pet shop (gatos) | Usaquén (Cedritos) | Cl. 140 #16A-59 | desconocido | 305 750 9363 | Pixie | Alto | por_verificar | https://pixie.net.co/contacto ; https://www.voofla.com/CO/Bogot%C3%A1/1073718719437329/Catkitten. |
 | P025 | Charming Pets & Co | Pet shop + grooming | Usaquén | CC Show Place, Cl. 147 #7-52 sótano local 10 | https://www.charmingpetsco.com/ · @charmingpetsco | 301 488 7004 / 317 290 5086 | Pixie, Peluditos BARF | Alto | por_verificar | https://pixie.net.co/contacto ; https://peluditosbarf.com.co/distribuidores/ ; https://www.charmingpetsco.com/contacto |
 | P026 | Chonino | Pet shop/veterinaria | Kennedy (Tintal) | Cra. 90C #6A-67 | desconocido | 312 300 1588 | Peluditos BARF | Alto | por_verificar | https://peluditosbarf.com.co/distribuidores/ |
@@ -176,6 +244,13 @@ _Aún no hay fichas. Usa el formato de AGENTS.md §9._
 | P135 | Trompas Pet Shop | Pet shop online | Chapinero | Cra. 14 #98-73 Of 403 | https://trompaspetshop.com/ | 304 375 2720 | desconocido | Bajo | por_verificar | https://exa.ai/library/places?q=f62bc2c237340c85 |
 
 ## Historial de lotes
+
+### Revisión 2026-11-02 · calidad del registro (sin verificación web)
+- Se agregaron el resumen por localidad, los candidatos para los lotes 1 a 3, las alertas de calidad y la red actual publicada.
+- P001 y P002: dirección y teléfono tomados de `../CANIVOROS-REFERENCIA-EMPRESA.md` (lo publica la marca; siguen `por_verificar`).
+- P023: se retiró la dirección porque correspondía a un apartamento.
+- La columna «Marcas observadas» pasa a llamarse «Marcas (según fuente)»: en la lista inicial son declaraciones de los directorios de las marcas.
+- Ninguna fila cambió de encaje ni de estado. Nadie fue contactado.
 
 ### Siembra 2026-11-02 · lista inicial
 - Origen: `prospectos_bogota.csv` (135 filas), generado con ayuda de IA a partir de directorios públicos de distribuidores (Pixie, Peluditos BARF, Vital Doggy y otros) y búsquedas.
