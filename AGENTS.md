@@ -48,8 +48,9 @@ Los responsables y fechas del backlog son **propuestas**, no compromisos.
 | `GuiaPesquisa*.md`, `GuiaDesenvolver*.md` | Guías de investigación y desarrollo de productos (ES y PT) | Método para entrevistas, hipótesis y pilotos |
 | `QFD.pdf` | Material de referencia de QFD | Insumo de BL-024 |
 | `backlog/` | Tareas BL-001 a BL-058 ordenadas por semanas, con dependencias | Fuente de prioridades: `backlog/README.md` |
-| `prospectos/` | Investigación de mercado y prospección de clientes en Bogotá: tiendas, veterinarias, criaderos, servicios caninos y distribuidores | `prospectos/AGENTS.md` (playbook) |
-| `competencia/` | Análisis competitivo (Pixie, Kanuto, VITA, BARF, premium) | `competencia/AGENTS.md` |
+| `prospectos/` | Solo instrucciones: playbook de investigación de mercado y prospección de clientes en Bogotá | `prospectos/AGENTS.md` |
+| `competencia/` | Solo instrucciones: playbook de inteligencia competitiva en Bogotá | `competencia/AGENTS.md` |
+| `resultados/` | Entregables de los agentes (`resultados/prospectos/`, `resultados/competencia/`). Se crea al trabajar | Lo definen los playbooks |
 
 Este repo **no** es la tienda online, ni el ERP, ni la contabilidad. El código y la configuración de Odoo viven en otros repositorios (`canivorosodoo`, `canivoros-view`). En la rama `backlog` hay propuestas BL-059 a BL-061 que aún no están en `develop`: no las cites como vigentes.
 

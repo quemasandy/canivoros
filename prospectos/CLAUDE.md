@@ -4,6 +4,11 @@
 
 `AGENTS.md` (importado arriba) es el playbook de investigación de mercado y prospección. Las reglas comunes están en `../AGENTS.md`; léelas también.
 
+## Antes de empezar
+
+- Lee los entregables anteriores en `../resultados/prospectos/` (`MERCADO.md` y `REGISTRO.md`) si existen. Si no existen, créalos con las estructuras de AGENTS.md §12.
+- Esta carpeta solo guarda instrucciones: no crees archivos de resultados dentro de `prospectos/`.
+
 ## Cómo investigar
 
 - Usa WebSearch y WebFetch con las búsquedas de AGENTS.md §5.2: Google Maps, la web del negocio, sus redes públicas, Rappi y los directorios de distribuidores de las marcas.
@@ -14,9 +19,9 @@
 
 ## Cómo registrar
 
-- Edita `PROSPECTOS.md` e `INVESTIGACION-MERCADO.md` con Edit, fila por fila. No regeneres tablas completas, no las reordenes y no cambies IDs.
+- Edita `../resultados/prospectos/REGISTRO.md` y `MERCADO.md` con Edit, fila por fila. No regeneres tablas completas, no las reordenes y no cambies IDs.
 - Calcula el puntaje con la tabla de AGENTS.md §7 y muestra el desglose (encaje, oportunidad, acceso) en la ficha.
-- Recalcula los conteos del *Resumen* y del *Embudo* al cerrar el lote.
+- Recalcula el *Resumen* y el *Embudo* al cerrar el lote.
 
 ## Lo que nunca haces
 
@@ -26,4 +31,4 @@
 ## Al cerrar un lote
 
 - Un commit por lote: `prospectos: lote AAAA-MM-DD <segmento> <zona> (N verificadas, A tier A, B tier B)`.
-- Responde a Andrés en 5 líneas (AGENTS.md §12): cuentas revisadas y verificadas, cuántas Tier A y B, las 3 mejores y por qué, alertas (por ejemplo, volúmenes que superan la capacidad conocida) y decisiones que necesita tomar.
+- Responde a Andrés en 5 líneas (AGENTS.md §12.4): cuentas revisadas y verificadas, cuántas Tier A y B, las 3 mejores y por qué, alertas (por ejemplo, volúmenes que superan la capacidad conocida) y decisiones que necesita tomar.

@@ -9,7 +9,7 @@
 
 ## 0. En 10 líneas
 
-1. Lee `../AGENTS.md`, este archivo, `INVESTIGACION-MERCADO.md` y `PROSPECTOS.md`, en ese orden.
+1. Lee `../AGENTS.md`, este archivo y, si existen, los entregables anteriores en `../resultados/prospectos/` (`MERCADO.md` y `REGISTRO.md`).
 2. Trabaja **por segmento y por zona**, en lotes de máximo 10 cuentas (S1 y S2 pueden ir juntos porque ambos revenden).
 3. Sigue las 5 fases (§4): mapa del mercado → lista → verificación → puntaje → plan de abordaje.
 4. Cada dato lleva etiqueta (E)/(D)/(H)/(V) y fuente con fecha. Lo que no sabes es `desconocido`.
@@ -17,8 +17,8 @@
 6. Los mensajes son **borradores**. **Tú nunca contactas a nadie.**
 7. No prometas precios, condiciones ni beneficios de salud: todavía no están confirmados (§2).
 8. Solo datos comerciales públicos de negocios. Nunca datos de personas (Ley 1581 de 2012).
-9. Cada hallazgo útil termina en una hipótesis con su prueba comercial (`INVESTIGACION-MERCADO.md` §7) y se mide con el embudo (§10).
-10. Al terminar, actualiza los registros y entrega un resumen corto para Andrés (§12).
+9. Cada hallazgo útil termina en una hipótesis con su prueba comercial y se mide con el embudo (§10).
+10. Guarda los resultados en `../resultados/prospectos/` y entrega un resumen corto para Andrés (§12).
 
 ## 1. Misión y alcance
 
@@ -72,12 +72,12 @@
 
 | ID | Segmento | Cómo compra | Por qué importa (evidencia) | Prioridad |
 |---|---|---|---|---|
-| **S1** | Tiendas de mascotas: pet shops, tiendas de alimento natural, cadenas y tiendas online | Reventa | 102 cuentas en la lista; el plan prueba aliados locales (experimento 3) | Alta |
+| **S1** | Tiendas de mascotas: pet shops, tiendas de alimento natural, cadenas y tiendas online | Reventa | Las marcas naturales publican listas de distribuidores en Bogotá; el plan prueba aliados locales (experimento 3) | Alta |
 | **S2** | Veterinarias con punto de venta | Reventa y recomendación | Manimal, un aliado actual, es veterinaria; el veterinario influye en la elección del alimento | Alta |
 | **S3** | Criaderos con presencia comercial | Consumo propio de alto volumen y recomendación a quienes compran cachorros | Pedidos de criadores de 40–520 kg en el Excel (BL-043); origen de la marca | Alta |
 | **S4** | Servicios caninos: entrenamiento y adiestramiento, guarderías, hoteles, colegios caninos, peluquerías y spas | Consumo propio, reventa y recomendación | Club Canes (Villavicencio), un aliado publicado, es centro de entrenamiento; segmento «perros activos» del plan | Media |
 | **S5** | Perros de trabajo y deporte: empresas de seguridad con guías caninos, clubes de deporte canino y de raza | Consumo propio de alto volumen y comunidad | (H) sin evidencia todavía; encaja con el origen de la marca | Exploratoria |
-| **S6** | Distribuidores mayoristas y almacenes agro | Reventa a otras tiendas | 7 cuentas en la lista; decisor difícil y márgenes `desconocido` | Baja |
+| **S6** | Distribuidores mayoristas y almacenes agro | Reventa a otras tiendas | Decisor difícil, ciclo largo y márgenes `desconocido` | Baja |
 
 Orden de trabajo sugerido (H): **S1 y S2 en las microzonas candidatas → S3 → S4 → S5 → S6.** Andrés puede cambiarlo.
 
@@ -97,10 +97,10 @@ Cada lote tiene máximo 10 cuentas de un mismo segmento y una misma zona; S1 y S
 
 ### Fase 1 · Mapa del mercado (desk research)
 
-Antes de buscar cuentas, entiende el terreno y documéntalo en `INVESTIGACION-MERCADO.md`:
-- **Tamaño de referencia:** datos oficiales de tenencia de perros en Bogotá (DANE), con año y enlace. Son referencia histórica, no demanda de Canívoros.
+Antes de buscar cuentas, entiende el terreno y documéntalo en `../resultados/prospectos/MERCADO.md` (estructura en §12.2):
+- **Tamaño de referencia:** datos oficiales de tenencia de perros en Bogotá (el plan cita la Encuesta Multipropósito 2021 del DANE), con año y enlace. Son referencia histórica, no demanda de Canívoros.
 - **Oferta por localidad:** cuántos puntos de venta de mascotas, veterinarias y servicios caninos hay en cada localidad (conteos de Maps con la búsqueda exacta y la fecha).
-- **Competencia por localidad:** dónde están los distribuidores publicados de Pixie, Peluditos BARF, Vital Doggy, Rawf y Kanuto (cruza con `../competencia/COMPETENCIA.md`).
+- **Competencia por localidad:** dónde están los distribuidores publicados de Pixie, Peluditos BARF, Vital Doggy, Rawf y Kanuto (cruza con `../resultados/competencia/` si existe).
 - **Microzonas candidatas:** evidencia para los 5 criterios del plan (demanda, contribución, aliados, logística, competencia). No puntúes por intuición ni uses el estrato como sustituto de la disposición a pagar.
 
 ### Fase 2 · Construcción de la lista (sourcing)
@@ -126,7 +126,7 @@ Aplica el modelo de §7. Ordena el lote de mayor a menor puntaje.
 
 ### Fase 5 · Plan de abordaje
 
-Para cada cuenta Tier A, escribe una ficha completa (§9.1) con la secuencia de 3 borradores (§9.2). Para Tier B, ficha corta y un borrador. Tier C queda en la lista sin borrador.
+Para cada cuenta Tier A, escribe una ficha completa (§9.1) con la secuencia de 3 borradores (§9.2). Para Tier B, ficha corta y un borrador. Tier C queda en el registro sin borrador.
 
 ### Fase transversal · Investigación del consumidor (siempre agregada)
 
@@ -215,10 +215,10 @@ Cerrado o sin presencia verificable · duplicado · ya es cliente o aliado (pasa
 |---|---|---|
 | **A** | 70 o más | Ficha completa y secuencia de 3 borradores personalizados. Candidata a visita |
 | **B** | 50 a 69 | Ficha corta y un borrador |
-| **C** | 30 a 49 | Queda en la lista, sin borrador |
+| **C** | 30 a 49 | Queda en el registro, sin borrador |
 | — | Menos de 30 | `descartado` con motivo, o en reserva si Andrés lo pide |
 
-**Calibración:** los pesos son una propuesta. Al cerrar las 4 semanas de BL-012, compara respuesta y pedido por tier. Si un tier bajo convierte igual que uno alto, ajusta los pesos y anótalo en el historial de `PROSPECTOS.md`.
+**Calibración:** los pesos son una propuesta. Al cerrar las 4 semanas de BL-012, compara respuesta y pedido por tier. Si un tier bajo convierte igual que uno alto, ajusta los pesos y anótalo en el historial de `../resultados/prospectos/REGISTRO.md`.
 
 ## 8. Calificación en la conversación (la hace el equipo, no el agente)
 
@@ -314,18 +314,48 @@ Reemplaza lo que está entre corchetes. **No se envían.**
 - **Afirmaciones de ausencia** («no vende natural») solo si revisaste web, Maps y redes, y lo dices.
 - **Normaliza:** zona = localidad oficial + barrio; teléfonos de Colombia (celular `3xx xxx xxxx`, fijo `601 xxx xxxx`); URLs completas; `place_id` de Maps cuando lo tengas.
 - **Deduplica** en este orden: `place_id` → dominio web → Instagram → teléfono (solo dígitos) → nombre + dirección. Las cadenas van en una sola fila con sus sedes listadas.
-- **Revisa que no sea ya cliente:** compara con la *Red actual publicada* de `PROSPECTOS.md` y con los clientes de tipo «almacén» y «criador» de `../ventas_canivoros_2026.xlsx` (solo nombres de negocios; no copies nombres de personas). Si coincide, márcalo `Existente` y avisa a Andrés.
+- **Revisa que no sea ya cliente:** compara con la red de distribuidores publicada en `../CANIVOROS-REFERENCIA-EMPRESA.md` (Manimal y Sankatin en Bogotá; cuatro más fuera de la ciudad), con el registro y con los clientes de tipo «almacén» y «criador» de `../ventas_canivoros_2026.xlsx` (solo nombres de negocios; no copies nombres de personas). Si coincide, márcalo `Existente` y avisa a Andrés.
 - **No inventes** precios, márgenes, volúmenes, ventas ni número de perros.
 
-## 12. Cómo actualizar los archivos
+## 12. Entregables y dónde guardarlos
 
-- **`INVESTIGACION-MERCADO.md`:** hallazgos de la fase 1 y de la investigación del consumidor, con fuente y fecha.
-- **`PROSPECTOS.md`:**
-  - **Registro:** una fila por cuenta, con ID `P` + tres dígitos (el siguiente libre; no se reutiliza), segmento, tipo, zona, dirección comercial, web/Instagram, teléfono público, marcas según fuente, encaje, puntaje, estado y fuente.
-  - **Fichas:** las de Tier A y B, en la sección *Fichas verificadas*.
-  - **Resumen, conteos por segmento y métricas:** recalcúlalos después de cada lote.
-  - **Historial:** agrega arriba `### Lote AAAA-MM-DD · <segmento> · <zona>` con búsquedas exactas, cuentas revisadas, nuevas, verificadas, descartadas y limitaciones.
-- **Estados:**
+La carpeta `prospectos/` solo contiene instrucciones (`AGENTS.md` y `CLAUDE.md`). **Los resultados se guardan en `../resultados/prospectos/`**; créala si no existe.
+
+| Archivo | Contenido |
+|---|---|
+| `../resultados/prospectos/REGISTRO.md` | Registro vivo de cuentas: resumen, embudo, tabla de cuentas, fichas e historial de lotes |
+| `../resultados/prospectos/MERCADO.md` | Mapa del mercado (fase 1) e investigación agregada del consumidor |
+
+**Primera vez:** el registro empieza vacío y los IDs empiezan en `P001`. La lista inicial hecha con IA (`prospectos_bogota.xlsx`) no está en el repo; si Andrés la entrega, impórtala con estado `por_verificar` y fuente «lista inicial (IA)».
+
+### 12.1 Estructura de `REGISTRO.md`
+
+1. **Resumen:** cuentas por segmento, por estado y por tier; fecha de la última actualización.
+2. **Embudo:** la tabla de §10 con una columna por segmento.
+3. **Registro:** una fila por cuenta, con ID `P` + tres dígitos (el siguiente libre; no se reutiliza ni se renumera):
+
+```markdown
+| ID | Nombre | Segmento | Tipo | Zona (localidad · barrio) | Dirección comercial | Web / Instagram | Teléfono público | Marcas o alimento (según fuente) | Encaje | Puntaje / tier | Estado | Fuente y fecha |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+```
+
+   - **Encaje:** filtro rápido. Alto = trabaja con alimento natural; Medio = premium sin natural observado; Bajo = masivo o dudoso; Existente = aliado o cliente actual.
+   - **Puntaje / tier:** según §7; `por calcular` hasta verificar; `no aplica` para cuentas existentes.
+4. **Fichas:** las de Tier A y B, con el formato de §9.1.
+5. **Historial de lotes:** arriba el más reciente, `### Lote AAAA-MM-DD · <segmento> · <zona>`, con búsquedas exactas, cuentas revisadas, nuevas, verificadas, descartadas (con motivo) y limitaciones.
+
+### 12.2 Estructura de `MERCADO.md`
+
+1. **Preguntas de investigación** del plan (`../CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md`): quién acepta un alimento horneado, cuánto paga hoy por alimentar a su perro, qué le impide cambiar, dónde prefiere comprar, qué presentación necesita y cada cuánto vuelve a comprar. Para cada una: estado y dónde se responde.
+2. **Lo que ya sabemos:** tabla de dato · etiqueta · fuente y fecha · qué implica.
+3. **Tamaño de referencia:** hogares, hogares con perro, puntos de venta, veterinarias, criaderos y servicios caninos por localidad, con fuente y fecha, o `desconocido`. El tamaño no es una proyección de ventas.
+4. **Cuentas por segmento y localidad** (resumen del registro).
+5. **Microzonas candidatas (BL-014):** los 5 criterios del plan con su peso (demanda observada 30 %, contribución después de entrega 25 %, calidad de aliados 20 %, facilidad logística 15 %, oportunidad frente a competidores 10 %), puntaje de 1 a 5 con evidencia y resultado = suma de (peso × puntaje) ÷ 5.
+6. **Voz del consumidor:** tema · menciones revisadas · fuentes y fechas · patrón · hipótesis.
+7. **Hallazgos → hipótesis → prueba:** hipótesis · base · prueba comercial · métrica · tarea BL.
+8. **Historial** de actualizaciones.
+
+### 12.3 Estados de una cuenta
 
 ```text
 Agente:           por_verificar → verificado → listo_para_contactar
@@ -334,10 +364,13 @@ Equipo comercial: contactado → respondio → muestra → pedido → reposicion
                         └──────────────────────────────→ perdido (con motivo)
 ```
 
-  - El agente pone `por_verificar`, `verificado`, `listo_para_contactar` y `descartado`.
-  - **Solo el equipo comercial** (Andrés o a quien él designe) pone `contactado`, `respondio`, `muestra`, `pedido`, `reposicion` y `perdido`. **Nunca** cambies esos estados ni sus notas.
-  - `listo_para_contactar` = Tier A o B, ficha completa, borradores y sin duplicados. Equivale a la etapa «Por contactar» del CRM en Odoo (BL-010). La carga al CRM la hacen Andrés o Sebastián.
-- **Resumen para Andrés** al cerrar un lote, en 5 líneas: cuentas revisadas y verificadas, cuántas Tier A y B, las 3 mejores y por qué, alertas (por ejemplo, volúmenes que superan la capacidad conocida) y decisiones que necesita tomar.
+- El agente pone `por_verificar`, `verificado`, `listo_para_contactar` y `descartado`.
+- **Solo el equipo comercial** (Andrés o a quien él designe) pone `contactado`, `respondio`, `muestra`, `pedido`, `reposicion` y `perdido`. **Nunca** cambies esos estados ni sus notas.
+- `listo_para_contactar` = Tier A o B, ficha completa, borradores y sin duplicados. Equivale a la etapa «Por contactar» del CRM en Odoo (BL-010). La carga al CRM la hacen Andrés o Sebastián.
+
+### 12.4 Resumen para Andrés
+
+Al cerrar un lote, en 5 líneas: cuentas revisadas y verificadas, cuántas Tier A y B, las 3 mejores y por qué, alertas (por ejemplo, volúmenes que superan la capacidad conocida) y decisiones que necesita tomar.
 
 ## 13. Límites (no negociables)
 
@@ -351,11 +384,11 @@ Equipo comercial: contactado → respondio → muestra → pedido → reposicion
 ## 14. Checklist antes de entregar un lote
 
 - [ ] Máximo 10 cuentas, de un mismo segmento (o S1/S2) y una misma zona.
-- [ ] Deduplicado contra `PROSPECTOS.md`, la red actual y los clientes actuales.
+- [ ] Deduplicado contra el registro, la red publicada y los clientes actuales.
 - [ ] Cada cuenta verificada tiene 3 hallazgos con URL y fecha.
 - [ ] Puntaje calculado con el peso de la evidencia; tier asignado.
 - [ ] Fichas Tier A con secuencia de 3 borradores; Tier B con 1 borrador.
 - [ ] Borradores sin precios, sin beneficios de salud, sin números de Canívoros, con variante A/B.
 - [ ] Ningún dato personal ni dirección de vivienda.
-- [ ] *Resumen*, conteos, *Historial* y, si aplica, `INVESTIGACION-MERCADO.md` actualizados.
+- [ ] `REGISTRO.md` (resumen, embudo, historial) y, si aplica, `MERCADO.md` actualizados en `../resultados/prospectos/`.
 - [ ] Resumen de 5 líneas para Andrés.
