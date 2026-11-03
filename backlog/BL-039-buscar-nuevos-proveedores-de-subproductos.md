@@ -21,7 +21,7 @@ acceptance_criteria:
 sources:
 - erp.md (relato de materia prima)
 - problemas.md (abastecimiento irregular)
-order: 47
+order: 48
 ---
 
 # BL-039 · Buscar nuevos proveedores de subproductos

@@ -19,7 +19,7 @@ acceptance_criteria:
 - Historial de cambios activo
 sources:
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (usuarios por función, historial)
-order: 18
+order: 22
 ---
 
 # BL-053 · Usuarios por función en Odoo

@@ -21,7 +21,7 @@ sources:
 - problemas.md (inventario de memoria)
 - erp.md
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md
-order: 26
+order: 30
 ---
 
 # BL-054 · Inventario de producto terminado por lote

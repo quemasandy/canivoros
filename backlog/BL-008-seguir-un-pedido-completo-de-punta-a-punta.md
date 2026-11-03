@@ -19,7 +19,7 @@ acceptance_criteria:
 sources:
 - 'canivoros-view: problemas.md ''Por dónde empezaría'' 2'
 - 'metodologias: Service Blueprint'
-order: 9
+order: 15
 ---
 
 # BL-008 · Seguir un pedido completo de punta a punta

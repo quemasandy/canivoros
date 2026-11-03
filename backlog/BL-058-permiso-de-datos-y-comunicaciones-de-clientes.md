@@ -8,7 +8,7 @@ status: Backlog
 assignee: Andrés (propuesta)
 effort: S
 impact: Medio
-sprint: Semana 4 (23–29 nov)
+sprint: Semana 2 (9–15 nov)
 labels:
 - requisito
 dependencies: []
@@ -17,7 +17,7 @@ acceptance_criteria:
 - Campo de permiso en el registro del cliente
 sources:
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (permiso de comunicaciones)
-order: 35
+order: 8
 ---
 
 # BL-058 · Permiso de datos y comunicaciones de clientes

@@ -22,7 +22,7 @@ acceptance_criteria:
 sources:
 - chat 29/10
 - 'metodologias: FMEA'
-order: 52
+order: 53
 ---
 
 # BL-027 · Monitoreo de la máquina

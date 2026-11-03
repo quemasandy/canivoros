@@ -21,7 +21,7 @@ acceptance_criteria:
 sources:
 - 'develop: QFD.pdf (ejemplo BIOLAV)'
 - metodologias_analisis_competitivo.md
-order: 48
+order: 49
 ---
 
 # BL-024 · Aplicar QFD a Canívoros

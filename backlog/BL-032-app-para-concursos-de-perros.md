@@ -17,7 +17,7 @@ acceptance_criteria:
 - Se retoma solo después del primer ingreso
 sources:
 - chat oct 2026
-order: 56
+order: 59
 ---
 
 # BL-032 · App para concursos de perros

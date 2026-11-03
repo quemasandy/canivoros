@@ -18,7 +18,7 @@ acceptance_criteria:
 - Dominio con HTTPS activo
 sources:
 - chat 28–29/10
-order: 45
+order: 46
 ---
 
 # BL-029 · Nombre provisorio, dominio y subdominio

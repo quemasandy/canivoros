@@ -19,7 +19,7 @@ acceptance_criteria:
 - Reporte de contribución por venta
 sources:
 - CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Datos mínimos)
-order: 22
+order: 26
 ---
 
 # BL-049 · Guardar precio y costo aplicados en cada venta
