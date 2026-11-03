@@ -1,0 +1,12 @@
+competidor,fuente,fecha,calificacion,temas,sentimiento,extracto,url
+Ejemplo A,Google Maps,2026-09-02,2,entrega|precio,negativo,"Llegó tarde y está caro (EJEMPLO)",
+Ejemplo A,Google Maps,2026-09-10,5,aceptación,positivo,"A mi perro le encanta (EJEMPLO)",
+Ejemplo A,marketplace,2026-08-21,1,entrega,negativo,"No llegó en la fecha (EJEMPLO)",
+Ejemplo A,marketplace,2026-10-01,4,aceptación:positivo|precio:negativo,mixto,"Le gusta pero subió el precio (EJEMPLO)",
+Ejemplo A,Instagram,2026-10-11,,entrega|atención,negativo,"Nadie responde el WhatsApp (EJEMPLO)",
+Ejemplo A,Google Maps,2026-10-15,5,digestión,positivo,"Heces más firmes (EJEMPLO)",
+Ejemplo C,marketplace,2026-07-03,4,precio,positivo,"Buen precio en promoción (EJEMPLO)",
+Ejemplo C,marketplace,2026-07-22,2,entrega,negativo,"Demoró una semana (EJEMPLO)",
+Ejemplo C,Google Maps,2026-08-30,1,entrega|empaque,negativo,"Bolsa rota y tarde (EJEMPLO)",
+Ejemplo C,Google Maps,2025-06-01,2,entrega,negativo,"Tarde otra vez (EJEMPLO)",
+Ejemplo C,Google Maps,2026-09-14,5,aceptación,positivo,"Se lo come todo (EJEMPLO)",

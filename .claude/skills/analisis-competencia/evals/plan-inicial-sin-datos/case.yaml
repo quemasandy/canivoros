@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: plan-inicial-sin-datos
+expected_outcome: |
+  Un plan de arranque que define la decisión y el alcance, propone alternativas agrupadas
+  (incluida al menos una alternativa no comercial), separa el trabajo de escritorio del de
+  campo con sus instrumentos, crea la carpeta del análisis con las plantillas y no presenta
+  precios, ventas ni márgenes de competidores como hechos.

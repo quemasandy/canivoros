@@ -1,0 +1,8 @@
+competidor,producto,categoria,presentacion,peso_g,precio_regular,precio_promocion,moneda,canal,vendedor,zona,fecha,fuente,tipo_evidencia,certeza,disponibilidad,costo_envio,tiempo_entrega,mensaje_principal,humedad_pct,racion_g_dia,perfil_racion,fuente_racion,observacion
+Marca Propia,Pollo y salmón (EJEMPLO),horneado,bolsa,500 g,14.000,,COP,WhatsApp,directo,Bogotá,2026-10-28,lista de precios interna (EJEMPLO),declarado,media,sí,,,horneado con carne real,,,,,DATOS FICTICIOS
+Ejemplo A,Croqueta horneada pollo,horneado,bolsa,2 kg,62.900,55.900,COP,tienda en línea,Ejemplo A,Bogotá,2026-10-30,https://www.ejemplo-a.test/pollo,observado,alta,sí,8.000,48 h,natural y horneado,10,120,perro adulto 10 kg actividad moderada,guía de la etiqueta (EJEMPLO),DATOS FICTICIOS
+Ejemplo B,Natural cordero,horneado,bolsa,1.5 kg,48.500,,COP,marketplace,Revendedor X,Bogotá,2026-10-29,https://marketplace.test/item/123,observado,media,sí,0,24 h,sin conservantes,9,,,,DATOS FICTICIOS
+Ejemplo C,Premium adulto razas medianas,seco premium,bolsa,15 kg,289.000,259.000,COP,petshop,Tienda Y,Chapinero,2026-10-25,visita a tienda,observado,alta,sí,,,nutrición científica,10,140,perro adulto 10 kg actividad moderada,tabla del fabricante (EJEMPLO),DATOS FICTICIOS
+Ejemplo D,BARF res,crudo/BARF,paquete,1 lb,12.000,,COP,Instagram,Ejemplo D,Suba,2026-10-20,https://instagram.test/ejemplo-d,declarado,media,bajo pedido,10.000,,alimentación biológica,70,,,,DATOS FICTICIOS
+Ejemplo E,Premium cachorro,seco premium,bolsa,3 kg,96.000,,COP,petshop,Tienda Z,Usaquén,2026-07-15,visita a tienda,observado,alta,sí,,,,10,,,,DATOS FICTICIOS
+Ejemplo F,Natural pavo,horneado,bolsa,2,59.000,,COP,tienda en línea,Ejemplo F,Bogotá,,https://ejemplo-f.test,declarado,baja,sí,,,,,,,,DATOS FICTICIOS
