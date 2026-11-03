@@ -1,6 +1,6 @@
 ---
 name: encontrar-prospectos
-description: Encuentra, verifica y prioriza negocios de Bogotá que puedan comprar y volver a comprar Canívoros (pet shops, tiendas de alimento natural o BARF, veterinarias con punto de venta, criaderos, adiestramiento, guarderías, hoteles y peluquerías caninas), por lotes de máximo 10, con fuente y fecha por dato, nivel A/B/C, registro en resultados/prospectos/REGISTRO.md y borradores de mensaje sin enviar. Úsala siempre que se pida buscar, encontrar, armar, verificar, depurar o priorizar prospectos, clientes potenciales, leads, aliados, distribuidores o puntos de venta para Canívoros; cuando se pregunte "¿qué tiendas venden BARF en Suba?", "¿qué criaderos podrían comprarnos?" o "¿a quién le escribimos primero?"; al trabajar prospectos_bogota.xlsx, REGISTRO.md, un lote de prospectos o las tareas BL-010, BL-012 o BL-043, aunque no se diga la palabra "prospecto".
+description: Encuentra, verifica y prioriza negocios de Bogotá que puedan comprar y volver a comprar Canívoros (pet shops, tiendas de alimento natural o BARF, veterinarias con punto de venta, criaderos, adiestramiento, guarderías, hoteles y peluquerías caninas), por lotes de máximo 10, con fuente y fecha por dato, nivel A/B/C, registro en prospectos/REGISTRO.md y borradores de mensaje sin enviar. Úsala siempre que se pida buscar, encontrar, armar, verificar, depurar o priorizar prospectos, clientes potenciales, leads, aliados, distribuidores o puntos de venta para Canívoros; cuando se pregunte "¿qué tiendas venden BARF en Suba?", "¿qué criaderos podrían comprarnos?" o "¿a quién le escribimos primero?"; al trabajar prospectos_bogota.xlsx, REGISTRO.md, un lote de prospectos o las tareas BL-010, BL-012 o BL-043, aunque no se diga la palabra "prospecto".
 ---
 
 # Encontrar prospectos
@@ -28,10 +28,10 @@ Si no dicen tipo o zona, empieza por tiendas de mascotas y de alimento natural e
 
 ## 2. Revisar lo que ya existe
 
-Los resultados viven en `resultados/prospectos/`. Si la carpeta no existe, créala y copia `assets/REGISTRO.md` como `resultados/prospectos/REGISTRO.md`. Luego ejecuta, desde la raíz del repositorio:
+Los resultados se guardan en la carpeta `prospectos/`, junto a la guía. Si `prospectos/REGISTRO.md` no existe, copia `assets/REGISTRO.md` ahí. Luego ejecuta, desde la raíz del repositorio:
 
 ```bash
-python3 .claude/skills/encontrar-prospectos/scripts/registro.py revisar resultados/prospectos/REGISTRO.md --excluir ventas_canivoros_2026.xlsx
+python3 .claude/skills/encontrar-prospectos/scripts/registro.py revisar prospectos/REGISTRO.md --excluir ventas_canivoros_2026.xlsx
 ```
 
 Te da el siguiente ID libre, lo que ya está registrado (para no repetirlo) y los problemas pendientes.
@@ -39,7 +39,7 @@ Te da el siguiente ID libre, lo que ya está registrado (para no repetirlo) y lo
 Para traer una lista externa (CSV o XLSX) al registro:
 
 ```bash
-python3 .claude/skills/encontrar-prospectos/scripts/registro.py importar prospectos_bogota.xlsx --registro resultados/prospectos/REGISTRO.md --excluir ventas_canivoros_2026.xlsx
+python3 .claude/skills/encontrar-prospectos/scripts/registro.py importar prospectos_bogota.xlsx --registro prospectos/REGISTRO.md --excluir ventas_canivoros_2026.xlsx
 ```
 
 Sin `--escribir` solo muestra las filas que agregaría. Con `--escribir` las agrega como nivel C, estado `por verificar` y fuente marcada (V). Omite duplicados del registro, distribuidores publicados y coincidencias con clientes del Excel de ventas. Una lista importada no está verificada: después hay que verificarla por lotes.
@@ -82,7 +82,7 @@ Los borradores no llevan precios, condiciones, beneficios de salud, "sin subprod
 
 ## 7. Cerrar el lote
 
-Guarda el lote en `resultados/prospectos/lote-AAAA-MM-DD.md` con la plantilla `assets/lote.md` (si ya hay uno ese día, agrega `-2`, `-3`). Responde en el chat con el resumen de 5 líneas que pide `prospectos/CLAUDE.md`:
+Guarda el lote en `prospectos/lote-AAAA-MM-DD.md` con la plantilla `assets/lote.md` (si ya hay uno ese día, agrega `-2`, `-3`). Responde en el chat con el resumen de 5 líneas que pide `prospectos/CLAUDE.md`:
 
 ```markdown
 1. Revisados: N negocios de <tipo> en <localidad> (P0xx–P0yy).

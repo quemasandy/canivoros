@@ -96,7 +96,7 @@ Para los **B**, solo el borrador. Los **C** quedan en la lista.
 
 ## Dónde guardar los resultados
 
-En `../resultados/prospectos/` (créala si no existe):
+En esta misma carpeta, `prospectos/`:
 
 - `REGISTRO.md`: una fila por negocio con ID `P001`, `P002`… (no se reutilizan): nombre, tipo, localidad, web o redes, canal público, encaje, nivel A/B/C, estado y fuentes.
 - `lote-AAAA-MM-DD.md`: búsquedas hechas, negocios revisados, fichas de los A y B, y borradores.

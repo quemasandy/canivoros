@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Revisa e importa el registro de prospectos (resultados/prospectos/REGISTRO.md).
+"""Revisa e importa el registro de prospectos (prospectos/REGISTRO.md).
 
 Subcomandos:
   revisar REGISTRO.md [--excluir ventas.xlsx ...] [--hoy AAAA-MM-DD]
