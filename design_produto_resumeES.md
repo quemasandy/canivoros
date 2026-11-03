@@ -35,9 +35,9 @@ Aunque se presenta en cuatro fases, puedes volver a una anterior cuando las prue
 
 ---
 
-# Framework JIP (PDLC)
+# Framework 
 
-El Framework JIP orienta cómo creamos y hacemos evolucionar los productos a partir de las necesidades de los clientes y los objetivos del negocio. Su columna vertebral es el PDLC (Product Development Life Cycle, o ciclo de vida del desarrollo de productos), que organiza el proceso de desarrollo de productos en espacios, etapas y capacidades.
+El Framework orienta cómo creamos y hacemos evolucionar los productos a partir de las necesidades de los clientes y los objetivos del negocio. Su columna vertebral es el PDLC (Product Development Life Cycle, o ciclo de vida del desarrollo de productos), que organiza el proceso de desarrollo de productos en espacios, etapas y capacidades.
 
 Este documento conserva las cinco etapas del material original. Las explicaciones y los pasos son una guía práctica general, no un manual oficial del framework. Los nombres de agentes y herramientas internas se mantienen como referencia; sus capacidades concretas requieren documentación propia.
 
