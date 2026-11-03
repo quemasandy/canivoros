@@ -34,6 +34,8 @@ Responsables, fechas y esfuerzos del backlog son **propuestas**, no compromisos.
 | `ventas_canivoros_2026.xlsx` | Registro de ventas jul–oct 2026 por cliente, fecha y producto (sin precios) |
 | [backlog/](backlog/README.md) | Backlog BL-001 a BL-058 y sus consolidados |
 | [.claude/skills/encontrar-prospectos/](.claude/skills/encontrar-prospectos/SKILL.md) | Skill de Claude Code `/encontrar-prospectos`: ejecuta la guía de `prospectos/AGENTS.md` por lotes, con plantillas de registro y lote, y un script que revisa `prospectos/REGISTRO.md` e importa listas. Guarda los resultados en `prospectos/` |
+| [embudos/](embudos/AGENTS.md) | Embudos de venta en borrador: guía (`AGENTS.md`), registro `EMBUDOS.md` y una carpeta por embudo (`E01-…/`) con el documento, las entradas y la salida de la calculadora |
+| [.claude/skills/embudos-de-venta/](.claude/skills/embudos-de-venta/SKILL.md) | Skill de Claude Code `/embudos-de-venta`: diseña, calcula y audita embudos de venta. Crea la carpeta de cada embudo con `nuevo_embudo.py`, hace las cuentas con `calcular_embudo.py` y guarda los resultados en `embudos/` |
 
 ## El backlog
 
@@ -66,7 +68,7 @@ Ningún documento del repo debe presentar como dato algo que todavía es hipóte
 
 ## Skills de Claude Code
 
-- [`embudos-de-venta`](.claude/skills/embudos-de-venta/SKILL.md): diseña, calcula y audita embudos de venta (WhatsApp, recompra, e-commerce, B2B, servicios). Incluye la calculadora `scripts/calcular_embudo.py`. Claude Code la usa sola cuando se le pide un embudo o funnel dentro de este repositorio. Los números que produce son supuestos hasta que se midan.
+- [`embudos-de-venta`](.claude/skills/embudos-de-venta/SKILL.md): diseña, calcula y audita embudos de venta (WhatsApp, recompra, e-commerce, B2B, servicios). Guarda cada embudo en `embudos/E01-…/` y lo registra en `embudos/EMBUDOS.md`. Claude Code la usa sola cuando se le pide un embudo o funnel en este repositorio. Los números que produce son supuestos hasta que se midan.
 
 ## Cómo contribuir
 

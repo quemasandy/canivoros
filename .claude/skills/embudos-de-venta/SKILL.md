@@ -1,6 +1,6 @@
 ---
 name: embudos-de-venta
-description: Diseña embudos de venta (sales funnels) listos para implementar — diagnóstico, tipo de embudo, oferta y escalera de valor, mapa con diagrama, textos reales por etapa (anuncios, landing, WhatsApp, email, guion de llamada), CRM y automatización, metas calculadas (leads, presupuesto, CAC, LTV, ROAS de equilibrio) y plan de lanzamiento con experimentos. También audita embudos existentes y encuentra dónde se pierden las ventas. Úsala siempre que pidan crear, mapear, auditar o mejorar un embudo, funil o funnel de ventas, una estrategia de captación y seguimiento de leads, un flujo de WhatsApp o DMs para vender, un lead magnet, una oferta de entrada o una secuencia de correos, o calcular cuántos leads o cuánto presupuesto necesitan para una meta — aunque no digan "embudo" (p. ej. "cómo consigo más clientes por WhatsApp", "quiero que mis clientes vuelvan a comprar", "tengo visitas pero no ventas"). Sirve para B2C, B2B, distribuidores, servicios, negocios locales y e-commerce.
+description: Diseña embudos de venta (sales funnels) listos para implementar — diagnóstico, tipo de embudo, oferta, mapa con diagrama, textos reales por etapa (anuncios, landing, WhatsApp, email, guion de llamada), CRM y automatización, metas calculadas (leads, presupuesto, CAC, LTV, ROAS de equilibrio) y plan de lanzamiento con experimentos. Guarda cada embudo en la carpeta embudos/ y lo registra en EMBUDOS.md. También audita embudos existentes. Úsala siempre que pidan crear, mapear, auditar o mejorar un embudo, funil o funnel de ventas, una estrategia de captación y seguimiento de leads, un flujo de WhatsApp o DMs para vender, un lead magnet, una oferta de entrada o una secuencia de correos, calcular cuántos leads o cuánto presupuesto necesitan para una meta, o trabajen en la carpeta embudos/ — aunque no digan "embudo" (p. ej. "cómo consigo más clientes por WhatsApp", "quiero que mis clientes vuelvan a comprar", "tengo visitas pero no ventas"). Sirve para B2C, B2B, distribuidores, servicios y e-commerce.
 ---
 
 # Embudos de venta
@@ -8,6 +8,30 @@ description: Diseña embudos de venta (sales funnels) listos para implementar �
 Un embudo de venta es el sistema que lleva a una persona concreta desde no conocer el negocio hasta comprar, volver a comprar y recomendar, **un paso medible a la vez**. Tiene forma de embudo porque en cada paso avanza solo una parte; el trabajo consiste en decidir qué paso pedir, con qué mensaje y oferta, y medir dónde se pierde la gente.
 
 El entregable de esta skill no es teoría: es un documento que un equipo pequeño pueda implementar en 1–3 semanas, con los textos escritos, las reglas de seguimiento, los números que debe alcanzar y los criterios para saber si funciona.
+
+## Dónde se guardan los resultados
+
+Todo se guarda en la carpeta `embudos/` de la raíz del proyecto; créala si no existe. En el repositorio de Canívoros, lee primero `AGENTS.md` de la raíz y `embudos/AGENTS.md`: **mandan sobre esta skill** (por ejemplo, el precio y el margen de Canívoros son `desconocido` hasta que se confirmen, y todo es borrador hasta que Andrés lo apruebe). Si esas guías cambian, sigue la versión vigente y avisa de la diferencia.
+
+```
+embudos/
+├── EMBUDOS.md                   # registro: una fila por embudo, con ID E01, E02… que no se reutiliza
+└── E01-<negocio>-<tipo>/
+    ├── embudo.md                # el entregable, hecho con assets/plantilla-embudo.md
+    ├── calculo.json             # entradas de la calculadora
+    ├── numeros.md               # salida de la calculadora
+    └── auditoria-AAAA-MM-DD.md  # revisiones posteriores con datos reales
+```
+
+- **Embudo nuevo.** Desde la raíz del proyecto (ajusta la ruta si la skill está instalada en otro lugar):
+
+  ```bash
+  python3 .claude/skills/embudos-de-venta/scripts/nuevo_embudo.py "<negocio> <tipo>" --negocio "<negocio>" --tipo "<tipo de embudo>" --objetivo "<meta y plazo>"
+  ```
+
+  Crea la carpeta con el siguiente ID, `embudo.md` desde la plantilla, un `calculo.json` para completar y la fila en `EMBUDOS.md` (crea el registro si no existe). No sobrescribe nada.
+- **Embudo que ya existe** (mismo negocio y tipo, o el usuario lo nombra): búscalo en `EMBUDOS.md`, actualiza los archivos de su carpeta, anota el cambio en la sección «Historial» de `embudo.md` y actualiza «Estado» y «Última revisión» en el registro. No crees una copia.
+- **Sin sistema de archivos:** entrega el documento en el chat con la misma estructura.
 
 ## Principios que guían todas las decisiones
 
@@ -106,11 +130,10 @@ Define las etapas del CRM como reflejo del embudo, los campos mínimos (con **or
 Calcula con el script en lugar de hacerlo a mano; evita errores y deja trazabilidad:
 
 ```bash
-python scripts/calcular_embudo.py --ejemplo > embudo.json   # plantilla de configuración
-python scripts/calcular_embudo.py embudo.json --escenarios --mermaid
+python3 .claude/skills/embudos-de-venta/scripts/calcular_embudo.py embudos/E01-<nombre>/calculo.json --escenarios --mermaid --guardar
 ```
 
-Edita el JSON con las etapas del embudo, la tasa de conversión de cada paso (`"fuente": "dato"` o `"supuesto"`), la meta (`modo: "meta"` con `meta_clientes` o `meta_ingresos`) o el volumen de entrada (`modo: "volumen"`), el costo de medios y la economía (precio, costo variable, compras por cliente). El reporte da volumen necesario por etapa, costo por lead y por cliente (CAC), contribución, LTV, ROAS de equilibrio y escenarios. Cópialo al entregable y explica las conclusiones: ¿cuánto se puede pagar por cliente?, ¿alcanza el presupuesto?, ¿qué etapa conviene mejorar primero?
+`--guardar` escribe `numeros.md` en la carpeta del embudo. Antes, completa `calculo.json` (lo creó `nuevo_embudo.py`; `--ejemplo` imprime uno completo de referencia) con las etapas del embudo, la tasa de conversión de cada paso (`"fuente": "dato"` o `"supuesto"`), la meta (`modo: "meta"` con `meta_clientes` o `meta_ingresos`) o el volumen de entrada (`modo: "volumen"`), el costo de medios y la economía (precio, costo variable, compras por cliente). Si el precio o el costo son `desconocido`, déjalos en `null`: el reporte calcula los volúmenes y deja el dinero pendiente. El reporte da volumen necesario por etapa, costo por lead y por cliente (CAC), contribución, LTV, ROAS de equilibrio y escenarios. Resume sus cifras clave en la sección «Números» de `embudo.md`, enlaza `numeros.md` y explica las conclusiones: ¿cuánto se puede pagar por cliente?, ¿alcanza el presupuesto?, ¿qué etapa conviene mejorar primero?
 
 Si no hay datos propios para las tasas, usa supuestos conservadores, márcalos como tales y explica que deben reemplazarse con 2–4 semanas de medición. Las definiciones y fórmulas están en `references/metricas.md`.
 
@@ -123,7 +146,9 @@ Si no hay datos propios para las tasas, usa supuestos conservadores, márcalos c
 
 ## Formato del entregable
 
-Usa la plantilla de `assets/plantilla-embudo.md`. Si trabajas en un repositorio o carpeta de proyecto, guarda el documento como Markdown (por ejemplo `embudos/<negocio>-<tipo-de-embudo>.md`) y resume en el chat las decisiones clave, los números principales y lo que falta confirmar. Si no hay sistema de archivos, entrégalo en el chat con la misma estructura.
+Completa `embudo.md` en la carpeta del embudo siguiendo la estructura de `assets/plantilla-embudo.md` (ya copiada por `nuevo_embudo.py`). No dejes corchetes sin rellenar: lo que no se sabe se escribe `desconocido`.
+
+Al terminar, responde en el chat en 5 líneas: embudo y objetivo, números clave, qué quedó `desconocido` o como supuesto, la carpeta donde quedó y qué debe decidir el responsable del negocio.
 
 Responde en el idioma del usuario (español por defecto; portugués si escribe en portugués) y con la moneda de su mercado.
 
@@ -137,6 +162,7 @@ Cuando el usuario ya tiene un embudo y quiere saber por qué no vende:
 4. Diagnostica con la tabla de síntomas de `references/metricas.md` (p. ej. muchos clics y pocos leads → desconexión entre anuncio y página u oferta; muchos leads y pocas ventas → calificación, oferta, precio o seguimiento).
 5. Prioriza 3–5 acciones por impacto, confianza y facilidad, empezando por las etapas más cercanas a la venta: mejorar el cierre suele ser más barato que comprar más tráfico.
 6. Si la economía unitaria no cierra (CAC mayor que la contribución y sin recompra que lo compense), dilo con claridad antes de recomendar más inversión.
+7. Guarda la auditoría en la carpeta del embudo: los datos observados en `auditoria-AAAA-MM-DD.json` y el informe en `auditoria-AAAA-MM-DD.md` (genera los números con `--salida` hacia ese archivo o pégalos en él). Si el embudo no estaba registrado, créalo antes con `nuevo_embudo.py`. Actualiza «Última revisión» en `EMBUDOS.md`.
 
 ## Errores comunes a evitar
 
@@ -156,5 +182,7 @@ Cuando el usuario ya tiene un embudo y quiere saber por qué no vende:
 | `references/copywriting.md` | Al escribir anuncios, landing, mensajes de WhatsApp, emails, guiones y objeciones |
 | `references/automatizacion.md` | Al definir CRM, campos, reglas de seguimiento, herramientas, atribución y permisos |
 | `references/metricas.md` | Al calcular metas, definir indicadores, armar el tablero o auditar un embudo |
-| `assets/plantilla-embudo.md` | Al redactar el entregable final |
+| `assets/plantilla-embudo.md` | Estructura de `embudo.md` |
+| `assets/EMBUDOS.md` | Plantilla del registro de embudos |
+| `scripts/nuevo_embudo.py` | Para crear y registrar la carpeta de un embudo nuevo |
 | `scripts/calcular_embudo.py` | Para todos los cálculos de volúmenes, costos y economía unitaria |

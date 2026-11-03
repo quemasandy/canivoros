@@ -11,7 +11,8 @@ Dos modos:
                y calcula hacia adelante cuántos clientes resultan.
 
 Uso:
-  python calcular_embudo.py config.json [--mermaid] [--escenarios] [--salida reporte.md]
+  python calcular_embudo.py embudos/E01-x/calculo.json --escenarios --mermaid --guardar
+      (--guardar escribe numeros.md junto al JSON; --salida <archivo.md> elige otra ruta)
   python calcular_embudo.py --ejemplo > config.json
 
 Solo usa la biblioteca estándar de Python 3.
@@ -20,6 +21,7 @@ Solo usa la biblioteca estándar de Python 3.
 import argparse
 import json
 import math
+import os
 import sys
 
 EJEMPLO = {
@@ -258,6 +260,9 @@ def reporte(config, res, con_mermaid=False, con_escenarios=False):
             "Reemplázalas con datos propios tras 2–4 semanas de medición."
         )
 
+    if "contrib" not in res:
+        lineas.append("Precio o costo variable: `desconocido`. Se calcularon solo volúmenes; la parte de dinero queda pendiente.")
+
     if res["costo_total"] is not None:
         lineas += ["", "### Inversión de adquisición", "",
                    f"- Medios: {dinero(res['medios'], moneda)}"]
@@ -337,6 +342,7 @@ def main(argv=None):
     parser.add_argument("--mermaid", action="store_true", help="Incluir diagrama Mermaid")
     parser.add_argument("--escenarios", action="store_true", help="Incluir escenarios pesimista/base/optimista")
     parser.add_argument("--salida", help="Guardar el reporte en este archivo .md")
+    parser.add_argument("--guardar", action="store_true", help="Guardar el reporte como numeros.md junto al JSON")
     parser.add_argument("--ejemplo", action="store_true", help="Imprimir una configuración de ejemplo")
     args = parser.parse_args(argv)
 
@@ -355,6 +361,8 @@ def main(argv=None):
         print(f"Error en la configuración: {exc}", file=sys.stderr)
         return 1
 
+    if args.guardar and not args.salida:
+        args.salida = os.path.join(os.path.dirname(os.path.abspath(args.config)), "numeros.md")
     if args.salida:
         with open(args.salida, "w", encoding="utf-8") as f:
             f.write(texto)

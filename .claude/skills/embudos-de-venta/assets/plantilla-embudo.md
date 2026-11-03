@@ -1,6 +1,6 @@
-# Embudo de venta: [negocio] — [tipo de embudo]
+# {{ID}} · Embudo de venta: {{NOMBRE}}
 
-Fecha: [fecha] · Estado: borrador para validar
+Creado: {{FECHA}} · Estado: borrador para validar · Registro: `EMBUDOS.md`
 
 > **Convención de números:** *dato* = medido por el negocio · *supuesto* = estimación a validar · *meta* = objetivo acordado.
 
@@ -69,7 +69,9 @@ flowchart LR
 
 ## 7. Números
 
-[Pegar aquí el reporte de `scripts/calcular_embudo.py` y explicar las conclusiones: presupuesto necesario, CAC máximo, qué etapa es crítica, qué pasa en el escenario pesimista.]
+Detalle completo en [numeros.md](numeros.md) (salida de `calcular_embudo.py`; entradas en `calculo.json`).
+
+[Cifras clave y conclusiones: volumen necesario por etapa, presupuesto, CAC máximo, qué etapa es crítica, qué pasa en el escenario pesimista. Lo que no se sabe: `desconocido`.]
 
 ## 8. Plan de lanzamiento
 
@@ -96,3 +98,9 @@ flowchart LR
 
 | Supuesto o pregunta | Cómo se valida | Responsable | Fecha |
 |---|---|---|---|
+
+## Historial
+
+| Fecha | Cambio | Motivo |
+|---|---|---|
+| {{FECHA}} | Creación del borrador | |
