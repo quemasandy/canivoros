@@ -1,0 +1,1216 @@
+<title>Embudo Canívoros</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: columna de lectura de ~70ch dentro de un lienzo de 1120px; las figuras usan el ancho completo.
+   Las secciones llevan número de dorsal de exposición porque la estrategia se ejecuta en ese orden. */
+:root {
+  --bg: #f7f7f3;
+  --surface: #ffffff;
+  --ink: #18201b;
+  --ink-2: #47524a;
+  --muted: #6b766e;
+  --line: #dde1d9;
+  --line-strong: #b9c0b6;
+  --accent: #2342b8;
+  --accent-soft: #e4e9fb;
+  --on-accent: #ffffff;
+  --bt-l: #dfe4dc;
+  --bt-r: #d6defa;
+  --good: #1d7a45;
+  --warn: #9a5b00;
+  --bad: #b3261e;
+  /* serie del gráfico (paleta validada, modo claro) */
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --ui: "Archivo", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121512; --surface: #1a1e1a; --ink: #eceee8; --ink-2: #b8c0b7; --muted: #8e988f;
+    --line: #2b322c; --line-strong: #46504a; --accent: #8aa2ff; --accent-soft: #1e264a; --on-accent: #0d1430;
+    --bt-l: #2a312b; --bt-r: #27325e; --good: #5cc98a; --warn: #e3a44a; --bad: #f0857c;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121512; --surface: #1a1e1a; --ink: #eceee8; --ink-2: #b8c0b7; --muted: #8e988f;
+  --line: #2b322c; --line-strong: #46504a; --accent: #8aa2ff; --accent-soft: #1e264a; --on-accent: #0d1430;
+  --bt-l: #2a312b; --bt-r: #27325e; --good: #5cc98a; --warn: #e3a44a; --bad: #f0857c;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 72px;
+}
+.prose { max-width: 70ch; }
+.prose p, .prose ul { margin: 0; }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+h1, h2, h3, h4 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h2 { font-size: clamp(26px, 3.4vw, 36px); line-height: 1.12; font-weight: 800; font-variation-settings: "wdth" 112; }
+h3 { font-size: 20px; line-height: 1.25; font-weight: 700; }
+h4 { font-size: 15px; font-weight: 700; }
+a { color: var(--accent); }
+strong { font-weight: 600; }
+.eyebrow {
+  font-family: var(--ui); font-size: 12.5px; font-weight: 600; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--muted);
+}
+.mono { font-family: var(--mono); font-size: 0.86em; }
+.small { font-size: 14.5px; color: var(--ink-2); }
+.tag {
+  display: inline-block; font-family: var(--ui); font-size: 12px; font-weight: 600;
+  padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent);
+  white-space: nowrap; align-self: flex-start;
+}
+.tag.neutral { background: var(--bt-l); color: var(--ink-2); }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: 56px 40px; display: grid; gap: 28px; border-bottom: 1px solid var(--line); }
+.hero h1 {
+  font-size: clamp(40px, 7.4vw, 88px); line-height: 0.95; font-weight: 900;
+  font-variation-settings: "wdth" 120; letter-spacing: -0.025em; max-width: 14ch;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lede { font-size: clamp(18px, 2vw, 21px); line-height: 1.55; max-width: 62ch; color: var(--ink-2); }
+.hero .lede strong { color: var(--ink); }
+.toc { display: flex; flex-wrap: wrap; gap: 8px 10px; padding: 0; margin: 0; list-style: none; }
+.toc a {
+  display: inline-flex; gap: 8px; align-items: baseline; text-decoration: none; color: var(--ink);
+  font-family: var(--ui); font-size: 14px; font-weight: 500; padding: 6px 12px 6px 8px;
+  border: 1px solid var(--line-strong); border-radius: 6px; background: var(--surface);
+}
+.toc a:hover { border-color: var(--accent); }
+.toc a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.toc b { font-family: var(--mono); font-weight: 500; font-size: 12px; color: var(--muted); }
+
+/* ---------- Secciones con dorsal ---------- */
+section.block { padding-block: 64px 8px; display: flex; flex-direction: column; gap: 28px; }
+.sec-head { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; }
+.bib {
+  width: 64px; height: 72px; border: 2px solid var(--ink); border-radius: 4px; background: var(--surface);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;
+}
+.bib::before, .bib::after {
+  content: ""; position: absolute; top: 6px; width: 6px; height: 6px; border-radius: 50%;
+  border: 1.5px solid var(--ink-2);
+}
+.bib::before { left: 6px; } .bib::after { right: 6px; }
+.bib span { font-family: var(--ui); font-size: 9px; letter-spacing: 0.12em; color: var(--muted); margin-top: 8px; }
+.bib b { font-family: var(--display); font-size: 30px; line-height: 1; font-weight: 900; font-variation-settings: "wdth" 80; }
+.sec-head .stack { gap: 10px; }
+.sec-head p { color: var(--ink-2); max-width: 66ch; margin: 0; }
+
+/* ---------- Stat tiles ---------- */
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+.tile .label { font-family: var(--ui); font-size: 13.5px; color: var(--ink-2); line-height: 1.35; }
+.tile .value { font-family: var(--display); font-size: 34px; font-weight: 800; line-height: 1.05; font-variant-numeric: tabular-nums; font-variation-settings: "wdth" 100; }
+.tile .note { font-family: var(--ui); font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+@media (max-width: 860px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------- Gráfico de barras apiladas ---------- */
+.chart { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 14px; position: relative; }
+.chart-title { font-family: var(--ui); font-size: 15px; font-weight: 700; }
+.chart-sub { font-family: var(--ui); font-size: 13px; color: var(--muted); margin-top: -10px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-family: var(--ui); font-size: 13px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.bars { display: grid; grid-template-columns: 56px minmax(0, 1fr); row-gap: 14px; column-gap: 12px; align-items: center; }
+.bars .m { font-family: var(--ui); font-size: 13px; color: var(--ink-2); }
+.bar-track { position: relative; height: 22px; margin-right: 64px; }
+.bar { display: flex; gap: 2px; height: 22px; align-items: stretch; }
+.seg { height: 100%; cursor: default; outline: none; }
+.seg:last-of-type { border-radius: 0 4px 4px 0; }
+.seg:hover, .seg:focus-visible { filter: brightness(1.08); box-shadow: 0 0 0 2px var(--surface), 0 0 0 3px var(--ink-2); }
+.bar-total { position: absolute; top: 2px; font-family: var(--ui); font-size: 12.5px; font-weight: 600; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; padding-left: 8px; }
+.axis { display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: 12px; }
+.axis-scale { position: relative; height: 18px; margin-right: 64px; border-top: 1px solid var(--line); font-family: var(--ui); font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.axis-scale span { position: absolute; top: 3px; transform: translateX(-50%); white-space: nowrap; }
+.axis-scale span:first-child { transform: none; }
+.grid-lines { position: absolute; inset: 0; pointer-events: none; }
+.grid-lines i { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); }
+.tooltip {
+  position: absolute; pointer-events: none; z-index: 5; background: var(--ink); color: var(--bg);
+  font-family: var(--ui); font-size: 12.5px; line-height: 1.4; padding: 8px 10px; border-radius: 6px; white-space: nowrap;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.18);
+}
+details.tableview summary { cursor: pointer; font-family: var(--ui); font-size: 13.5px; color: var(--accent); }
+details.tableview[open] summary { margin-bottom: 10px; }
+
+/* ---------- Tablas ---------- */
+.scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table { border-collapse: collapse; width: 100%; font-family: var(--ui); font-size: 14.5px; line-height: 1.45; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); font-weight: 600; border-bottom: 1.5px solid var(--line-strong); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+td .mono { color: var(--ink-2); }
+tr.zone td { background: var(--accent-soft); font-weight: 600; color: var(--accent); font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; padding-block: 6px; }
+
+/* ---------- Figuras SVG ---------- */
+figure { margin: 0; display: flex; flex-direction: column; gap: 12px; }
+figcaption { font-family: var(--ui); font-size: 14px; color: var(--ink-2); max-width: 80ch; line-height: 1.5; }
+.fig-box { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+.fig-box svg { display: block; width: 100%; height: auto; min-width: 820px; }
+.dg text { fill: var(--ink); font-family: var(--ui); }
+.dg .t-title { font-size: 15px; font-weight: 700; }
+.dg .t-body { font-size: 12px; fill: var(--ink-2); }
+.dg .t-mono { font-family: var(--mono); font-size: 10.5px; fill: var(--muted); }
+.dg .t-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; fill: var(--muted); }
+.dg .t-lab { font-size: 11px; fill: var(--ink-2); font-style: italic; }
+.dg .t-lab-acc { font-size: 11px; fill: var(--accent); font-weight: 600; }
+.dg .t-num { font-family: var(--display); font-size: 22px; font-weight: 800; }
+.dg .t-head { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; fill: var(--ink-2); }
+.dg .t-head-acc { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; fill: var(--accent); }
+.dg .on-acc { fill: var(--on-accent); }
+.dg .bt-l { fill: var(--bt-l); }
+.dg .bt-r { fill: var(--bt-r); }
+.dg .knot { fill: var(--accent); }
+.dg .node { fill: var(--surface); stroke: var(--line-strong); stroke-width: 1.2; }
+.dg .node-dec { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.dg .node-hub { fill: var(--accent); stroke: none; }
+.dg .edge { fill: none; stroke: var(--ink-2); stroke-width: 1.5; }
+.dg .loop { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 6 4; }
+.dg .ah { fill: var(--ink-2); }
+.dg .ah-acc { fill: var(--accent); }
+.dg .bgfill { fill: var(--surface); }
+
+/* ---------- Tarjetas de motores / escalera ---------- */
+.cols3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.card h3 { font-size: 18px; }
+.card p, .card ul { margin: 0; font-size: 15.5px; }
+.card ul { padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+.card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; font-family: var(--ui); font-size: 13.5px; }
+.card dt { color: var(--muted); }
+.card dd { margin: 0; color: var(--ink); }
+@media (max-width: 900px) { .cols3 { grid-template-columns: minmax(0, 1fr); } }
+
+.ladder { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; align-items: end; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.step .lvl { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.step h4 { font-size: 16px; }
+.step p { margin: 0; font-family: var(--ui); font-size: 13.5px; line-height: 1.45; color: var(--ink-2); }
+.step .price { font-family: var(--ui); font-size: 13.5px; font-weight: 700; color: var(--ink); border-top: 1px solid var(--line); padding-top: 8px; }
+.step .goal { font-family: var(--ui); font-size: 12.5px; color: var(--accent); font-weight: 600; }
+.step:nth-child(1) { min-height: 210px; }
+.step:nth-child(2) { min-height: 250px; }
+.step:nth-child(3) { min-height: 290px; }
+.step:nth-child(4) { min-height: 330px; border-color: var(--accent); }
+.step:nth-child(5) { min-height: 370px; background: var(--accent-soft); border-color: var(--accent); }
+@media (max-width: 900px) {
+  .ladder { grid-template-columns: minmax(0, 1fr); }
+  .step:nth-child(n) { min-height: 0; }
+}
+
+/* ---------- Guiones ---------- */
+.scripts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.script { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; display: flex; flex-direction: column; min-width: 0; }
+.script header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.script header div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.script header b { font-family: var(--ui); font-size: 14.5px; }
+.script header small { font-family: var(--ui); font-size: 12.5px; color: var(--muted); }
+.script pre {
+  margin: 0; padding: 14px; white-space: pre-wrap; word-wrap: break-word; font-family: var(--mono);
+  font-size: 13px; line-height: 1.55; color: var(--ink);
+}
+button.copy {
+  font-family: var(--ui); font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--line-strong); background: var(--bg); color: var(--ink); flex-shrink: 0;
+}
+button.copy:hover { border-color: var(--accent); color: var(--accent); }
+@media (max-width: 760px) { .scripts { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Claims ---------- */
+.claims { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.claim { border-top: 3px solid var(--line-strong); background: var(--surface); border-radius: 0 0 8px 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.claim.ok { border-top-color: var(--good); }
+.claim.wait { border-top-color: var(--warn); }
+.claim.no { border-top-color: var(--bad); }
+.claim h4 { display: flex; gap: 8px; align-items: center; }
+.claim h4 .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.claim.ok .dot { background: var(--good); } .claim.wait .dot { background: var(--warn); } .claim.no .dot { background: var(--bad); }
+.claim ul { margin: 0; padding-left: 18px; font-size: 15px; display: flex; flex-direction: column; gap: 4px; }
+@media (max-width: 900px) { .claims { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Código de origen ---------- */
+.code-anatomy { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 640px) { .code-anatomy { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.code-anatomy div { display: flex; flex-direction: column; gap: 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; min-width: 0; }
+.code-anatomy b { font-family: var(--mono); font-size: 18px; font-weight: 500; color: var(--accent); }
+.code-anatomy span { font-family: var(--ui); font-size: 12.5px; color: var(--ink-2); }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-family: var(--ui); font-size: 13.5px; }
+.pills span.p { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--surface); }
+.pills span.p.lost { border-style: dashed; color: var(--muted); }
+.pills i { color: var(--muted); font-style: normal; }
+
+/* ---------- Calculadora ---------- */
+.calc { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
+.calc-in { padding: 20px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 14px; }
+.calc-out { padding: 20px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.seg-ctl { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 8px; overflow: hidden; align-self: flex-start; flex-wrap: wrap; }
+.seg-ctl button { font-family: var(--ui); font-size: 13.5px; font-weight: 600; padding: 8px 14px; border: none; background: transparent; color: var(--ink-2); cursor: pointer; }
+.seg-ctl button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+.fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 14px; }
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.field label { font-family: var(--ui); font-size: 12.5px; color: var(--ink-2); line-height: 1.3; }
+.field input {
+  font-family: var(--mono); font-size: 14.5px; padding: 8px 10px; border-radius: 6px; width: 100%;
+  border: 1px solid var(--line-strong); background: var(--bg); color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.calc-note { font-family: var(--ui); font-size: 12.5px; color: var(--warn); line-height: 1.45; }
+.kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.kpi { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.kpi span { font-family: var(--ui); font-size: 12px; color: var(--muted); line-height: 1.3; }
+.kpi b { font-family: var(--display); font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.kpi.hl { border-color: var(--accent); background: var(--accent-soft); }
+.flow { display: flex; flex-direction: column; gap: 6px; }
+.flow-row { display: grid; grid-template-columns: 150px minmax(0, 1fr) 64px; gap: 10px; align-items: center; font-family: var(--ui); font-size: 13px; }
+.flow-row .lbl { color: var(--ink-2); }
+.flow-row .track { height: 14px; background: var(--bg); border-radius: 0 3px 3px 0; position: relative; }
+.flow-row .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); border-radius: 0 3px 3px 0; min-width: 2px; }
+.flow-row.post .fill { background: var(--s3); }
+.flow-row .v { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.readout { font-family: var(--ui); font-size: 14.5px; line-height: 1.5; color: var(--ink); background: var(--bg); border-radius: 8px; padding: 12px 14px; }
+@media (max-width: 900px) {
+  .calc { grid-template-columns: minmax(0, 1fr); }
+  .calc-in { border-right: none; border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 520px) {
+  .fields { grid-template-columns: minmax(0, 1fr); }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .flow-row { grid-template-columns: 110px minmax(0, 1fr) 54px; }
+}
+
+/* ---------- Gantt ---------- */
+.gantt { min-width: 760px; display: grid; grid-template-columns: 210px repeat(13, minmax(0, 1fr)); font-family: var(--ui); font-size: 13px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.gantt > div { border-bottom: 1px solid var(--line); padding: 8px 6px; min-width: 0; }
+.gantt .wk { text-align: center; color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; border-left: 1px solid var(--line); }
+.gantt .ph { padding-left: 12px; display: flex; flex-direction: column; gap: 2px; }
+.gantt .ph b { font-size: 13.5px; }
+.gantt .ph small { color: var(--muted); font-size: 12px; line-height: 1.35; }
+.gantt .cell { border-left: 1px solid var(--line); position: relative; }
+.gantt .run { display: flex; align-items: center; padding: 8px 4px; }
+.gantt .run i { display: block; height: 16px; width: 100%; border-radius: 4px; background: var(--accent); }
+.gantt .run.soft i { background: var(--bt-r); }
+.gantt .last { border-bottom: none; }
+
+.rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 900px) { .rules { grid-template-columns: minmax(0, 1fr); } }
+
+footer.sources { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--ui); font-size: 13.5px; color: var(--ink-2); display: flex; flex-direction: column; gap: 8px; max-width: 90ch; }
+footer.sources p { margin: 0; }
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .sec-head { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .bib { width: 52px; height: 58px; }
+  .bib b { font-size: 24px; }
+  section.block { padding-block: 48px 4px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .seg, .fill { transition: width 0.25s ease, filter 0.15s ease; }
+}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Canívoros · Embudo E01 · Borrador para aprobación · Bogotá y Sabana Centro · noviembre 2026</div>
+  <h1>De la pista de exposición <em>al plato de cada casa</em></h1>
+  <p class="lede">Hoy Canívoros vende como un club: <strong>la mitad del dinero viene de criadores que confían en Omar</strong>, y quienes repiten compra mueven casi todos los kilos. Este embudo convierte esa confianza en un sistema medible: <strong>tres motores de entrada, una sola conversación de WhatsApp con código de origen</strong> y un lado de recompra diseñado con el mismo rigor que la captación.</p>
+  <nav aria-label="Secciones">
+    <ol class="toc">
+      <li><a href="#diagnostico"><b>1</b>Punto de partida</a></li>
+      <li><a href="#arquitectura"><b>2</b>Tres motores</a></li>
+      <li><a href="#corbatin"><b>3</b>Embudo en corbatín</a></li>
+      <li><a href="#oferta"><b>4</b>Escalera de oferta</a></li>
+      <li><a href="#whatsapp"><b>5</b>La conversación</a></li>
+      <li><a href="#mensaje"><b>6</b>Mensaje y contenido</a></li>
+      <li><a href="#medicion"><b>7</b>Medición</a></li>
+      <li><a href="#calculadora"><b>8</b>Calculadora</a></li>
+      <li><a href="#plan"><b>9</b>Plan de 90 días</a></li>
+    </ol>
+  </nav>
+</header>
+
+<!-- ============ 1. DIAGNÓSTICO ============ -->
+<section class="block" id="diagnostico">
+  <div class="sec-head">
+    <div class="bib" aria-hidden="true"><span>Nº</span><b>1</b></div>
+    <div class="stack">
+      <h2>Punto de partida: el embudo que ya existe</h2>
+      <p>Antes de diseñar, medimos. Estas cifras salen de <span class="mono">ventas_canivoros_2026.xlsx</span> (julio a octubre de 2026). Son registros internos sin depurar: se tomó la libra como 500 g y se unificaron a mano nombres de cliente repetidos.</p>
+    </div>
+  </div>
+
+  <div class="tiles">
+    <div class="tile">
+      <div class="label">Ventas registradas por mes</div>
+      <div class="value">≈ 10,5 M</div>
+      <div class="note">COP, promedio jul–sep (totales escritos en el Excel)</div>
+    </div>
+    <div class="tile">
+      <div class="label">Ingresos de criadores</div>
+      <div class="value">52 %</div>
+      <div class="note">El cliente final directo aporta 11 %</div>
+    </div>
+    <div class="tile">
+      <div class="label">Kilos de clientes que repiten</div>
+      <div class="value">≈ 87 %</div>
+      <div class="note">27 de ≈ 55 clientes compraron más de una vez</div>
+    </div>
+    <div class="tile">
+      <div class="label">Kilos de un solo cliente</div>
+      <div class="value">≈ 24 %</div>
+      <div class="note">Los 10 más grandes suman ≈ 65 % de los kilos</div>
+    </div>
+  </div>
+
+  <div class="chart" id="mix-chart">
+    <div class="chart-title">Ingresos por tipo de cliente, millones de COP</div>
+    <div class="chart-sub">Suma de las columnas de precio del Excel. Octubre no tiene totales.</div>
+    <div class="legend" aria-hidden="true">
+      <span><i style="background:var(--s1)"></i>Criadores</span>
+      <span><i style="background:var(--s2)"></i>Tiendas y almacenes</span>
+      <span><i style="background:var(--s3)"></i>Cliente final</span>
+      <span><i style="background:var(--s4)"></i>Núcleos, orejas y otros</span>
+    </div>
+    <div class="bars" id="bars" role="img" aria-label="Barras apiladas de julio, agosto y septiembre: los criadores son el bloque más grande cada mes, alrededor de la mitad; el cliente final es el más pequeño."></div>
+    <div class="axis"><div></div><div class="axis-scale" id="axis"></div></div>
+    <details class="tableview">
+      <summary>Ver tabla de datos</summary>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Mes</th><th class="num">Criadores</th><th class="num">Tiendas</th><th class="num">Cliente final</th><th class="num">Otros</th><th class="num">Total</th></tr></thead>
+          <tbody id="mix-table"></tbody>
+        </table>
+      </div>
+      <p class="small">Agosto: la suma de columnas da 8.325.000 y el total escrito en la hoja es 8.305.000. Se muestra la suma.</p>
+    </details>
+    <div class="tooltip" id="tip" hidden></div>
+  </div>
+
+  <div class="prose stack">
+    <h3>Tres lecturas que cambian el diseño del embudo</h3>
+    <p><strong>1. El embudo que funciona hoy es de confianza y es B2B.</strong> Los criadores compran entre 40 y 110 kg por pedido, cada una a tres semanas, porque conocen a Omar y sus perros de exposición. No hay que inventar ese motor: hay que volverlo un programa con reglas, fechas y referidos.</p>
+    <p><strong>2. La recompra ya es el negocio.</strong> Casi nueve de cada diez kilos los compra alguien que vuelve. En alimento para mascotas, el valor está en el lado derecho del embudo: activación, reposición y plan programado. Por eso usamos un embudo en corbatín y no un embudo clásico que termina en la venta.</p>
+    <p><strong>3. Hay riesgo de concentración y una brecha en el consumidor final.</strong> Un cliente pesa cerca de la cuarta parte de los kilos, y el tutor que compra para su perro aporta apenas 11 % de los ingresos. El motor de tutores es la oportunidad más grande y también la más cara de construir, así que se enciende después de asegurar los motores que ya tienen tracción.</p>
+    <p class="small">La geografía de los pedidos (Sopó, Chía, La Calera, Cota, Tabio, Cedritos, Engativá) sugiere empezar por el norte de Bogotá y la Sabana Centro, cerca de la planta. Se valida con la matriz de microzonas (BL-014).</p>
+  </div>
+</section>
+
+<!-- ============ 2. ARQUITECTURA ============ -->
+<section class="block" id="arquitectura">
+  <div class="sec-head">
+    <div class="bib" aria-hidden="true"><span>Nº</span><b>2</b></div>
+    <div class="stack">
+      <h2>Tres motores de entrada, una sola conversación</h2>
+      <p>Cada tipo de cliente entra por un camino distinto, pero todos llegan al mismo WhatsApp comercial, con un código que dice de dónde vienen. Las líneas punteadas son los bucles: clientes nuevos que llegan sin pagar pauta.</p>
+    </div>
+  </div>
+
+  <figure>
+    <div class="fig-box scroll">
+      <svg class="dg" viewBox="0 0 1000 490" role="img" aria-label="Diagrama del sistema: criadores, tutores y aliados escriben al mismo WhatsApp comercial; de ahí pasan a oferta, pago y entrega, y a recompra. Tres bucles alimentan el motor de tutores: kit por camada desde criadores, QR desde tiendas y código de referido desde clientes recurrentes.">
+        <defs>
+          <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+          <marker id="a2acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-acc" d="M0,0 L10,5 L0,10 z"/></marker>
+        </defs>
+        <!-- motores -->
+        <rect class="node" x="40" y="24" width="230" height="96" rx="8"/>
+        <text class="t-tag" x="56" y="46">MOTOR 1</text>
+        <text class="t-title" x="56" y="68">Criadores</text>
+        <text class="t-body" x="56" y="88">52 % de los ingresos hoy</text>
+        <text class="t-body" x="56" y="106">exposiciones · clubes de raza</text>
+
+        <rect class="node" x="40" y="184" width="230" height="96" rx="8"/>
+        <text class="t-tag" x="56" y="206">MOTOR 2</text>
+        <text class="t-title" x="56" y="228">Tutores</text>
+        <text class="t-body" x="56" y="248">11 % de los ingresos hoy</text>
+        <text class="t-body" x="56" y="266">reels de Omar · anuncios a WA</text>
+
+        <rect class="node" x="40" y="344" width="230" height="96" rx="8"/>
+        <text class="t-tag" x="56" y="366">MOTOR 3</text>
+        <text class="t-title" x="56" y="388">Aliados</text>
+        <text class="t-body" x="56" y="408">18 % de los ingresos hoy</text>
+        <text class="t-body" x="56" y="426">tiendas y veterinarias</text>
+
+        <!-- bucles hacia tutores -->
+        <path class="loop" d="M155 120 L155 178" marker-end="url(#a2acc)"/>
+        <text class="t-lab-acc" x="165" y="154">kit por camada</text>
+        <path class="loop" d="M155 344 L155 286" marker-end="url(#a2acc)"/>
+        <text class="t-lab-acc" x="165" y="318">QR en tienda</text>
+
+        <!-- entradas al hub -->
+        <path class="edge" d="M270 72 C 306 72, 300 205, 334 205" marker-end="url(#a2)"/>
+        <text class="t-lab" x="278" y="62">pide condiciones</text>
+        <path class="edge" d="M270 232 L334 232" marker-end="url(#a2)"/>
+        <text class="t-lab" x="302" y="224" text-anchor="middle">escribe</text>
+        <path class="edge" d="M270 392 C 306 392, 300 259, 334 259" marker-end="url(#a2)"/>
+        <text class="t-lab" x="278" y="414">pide reposición</text>
+
+        <!-- hub -->
+        <rect class="node-hub" x="340" y="182" width="180" height="100" rx="10"/>
+        <text class="t-title on-acc" x="430" y="216" text-anchor="middle">WhatsApp comercial</text>
+        <text class="t-body on-acc" x="430" y="238" text-anchor="middle">número único</text>
+        <text class="t-body on-acc" x="430" y="258" text-anchor="middle">código de origen → Odoo</text>
+
+        <path class="edge" d="M520 232 L584 232" marker-end="url(#a2)"/>
+        <text class="t-lab" x="552" y="224" text-anchor="middle">califica</text>
+
+        <rect class="node" x="590" y="198" width="170" height="68" rx="8"/>
+        <text class="t-title" x="675" y="228" text-anchor="middle">Oferta por perfil</text>
+        <text class="t-body" x="675" y="248" text-anchor="middle">caja · plan · criador</text>
+
+        <path class="edge" d="M760 232 L814 232" marker-end="url(#a2)"/>
+        <text class="t-lab" x="788" y="224" text-anchor="middle">paga</text>
+
+        <rect class="node" x="820" y="198" width="160" height="68" rx="8"/>
+        <text class="t-title" x="900" y="228" text-anchor="middle">Pago y entrega</text>
+        <text class="t-body" x="900" y="248" text-anchor="middle">fecha fija por zona</text>
+
+        <path class="edge" d="M900 266 L900 344" marker-end="url(#a2)"/>
+        <text class="t-lab" x="892" y="310" text-anchor="end">día 3: check-in</text>
+
+        <rect class="node" x="820" y="350" width="160" height="68" rx="8"/>
+        <text class="t-title" x="900" y="380" text-anchor="middle">Recompra</text>
+        <text class="t-body" x="900" y="400" text-anchor="middle">Plan Manada</text>
+
+        <path class="edge" d="M820 384 L430 384 L430 288" marker-end="url(#a2)"/>
+        <text class="t-lab" x="625" y="376" text-anchor="middle">recordatorio antes de que se acabe</text>
+
+        <!-- bucle referido -->
+        <path class="loop" d="M900 418 L900 470 L20 470 L20 232 L34 232" marker-end="url(#a2acc)"/>
+        <rect class="bgfill" x="392" y="462" width="136" height="16"/>
+        <text class="t-lab-acc" x="460" y="474" text-anchor="middle">código de referido</text>
+      </svg>
+    </div>
+    <figcaption>Todo pasa por el WhatsApp comercial: ahí se califica, se registra el origen y se programa la recompra. Los tres bucles punteados entran al motor de tutores, que es el que más necesita crecer: los criadores entregan un kit con cada camada, las tiendas muestran un QR y los clientes recurrentes comparten su código.</figcaption>
+  </figure>
+
+  <div class="cols3">
+    <article class="card">
+      <span class="tag">Motor 1 · proteger y multiplicar</span>
+      <h3>Criadores y criaderos</h3>
+      <p>Ya traen la mitad de los ingresos. El trabajo es formalizar la relación y convertir cada camada en clientes nuevos.</p>
+      <dl>
+        <dt>Entra por</dt><dd>Omar, exposiciones, clubes de raza, grupos de WhatsApp de criadores</dd>
+        <dt>Oferta</dt><dd>Programa Criador: pedido programado desde 40 kg, entrega en fecha fija, kit para cada cachorro entregado</dd>
+        <dt>Métrica</dt><dd>Kilos programados al mes y tutores nuevos que llegan por camada</dd>
+      </dl>
+    </article>
+    <article class="card">
+      <span class="tag">Motor 2 · construir</span>
+      <h3>Tutores de perros</h3>
+      <p>El consumidor final de la Sabana y el norte de Bogotá. Es el motor más pequeño hoy y el de mayor potencial.</p>
+      <dl>
+        <dt>Entra por</dt><dd>Reels y lives de Omar, anuncios con clic a WhatsApp por microzona, QR de aliados, referidos</dd>
+        <dt>Oferta</dt><dd>Guía de cambio de alimento gratis, Caja de prueba y después Plan Manada</dd>
+        <dt>Métrica</dt><dd>CAC, recompra a 30 y 60 días, % de clientes en plan</dd>
+      </dl>
+    </article>
+    <article class="card">
+      <span class="tag">Motor 3 · ampliar cobertura</span>
+      <h3>Tiendas, veterinarias y adiestradores</h3>
+      <p>Llevan el producto a donde el tutor ya compra y aportan credibilidad local.</p>
+      <dl>
+        <dt>Entra por</dt><dd>Visita con degustación a tiendas que ya venden alimento natural (lista de 134 prospectos, BL-010)</dd>
+        <dt>Oferta</dt><dd>Precio de distribuidor, pedido inicial controlado, exhibidor y QR propio que le atribuye sus ventas directas</dd>
+        <dt>Métrica</dt><dd>Reposición cada 2 a 4 semanas y venta al consumidor cuando la compartan</dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 3. CORBATÍN ============ -->
+<section class="block" id="corbatin">
+  <div class="sec-head">
+    <div class="bib" aria-hidden="true"><span>Nº</span><b>3</b></div>
+    <div class="stack">
+      <h2>El embudo en corbatín: la venta está en el medio, no al final</h2>
+      <p>Un embudo clásico termina cuando alguien compra. En un alimento que se acaba cada pocas semanas, la primera compra es el nudo: a la izquierda se adquiere, a la derecha se retiene y se crece. Cada etapa tiene una sola métrica que la gobierna.</p>
+    </div>
+  </div>
+
+  <figure>
+    <div class="fig-box scroll">
+      <svg class="dg" viewBox="0 0 1000 410" role="img" aria-label="Embudo en forma de corbatín con once etapas. A la izquierda se estrecha: alcance, interés, conversación, calificado y prueba. En el centro, la primera compra. A la derecha se abre: activación, recompra, Plan Manada, más kilos y embajador. Una flecha devuelve los referidos al inicio.">
+        <defs>
+          <marker id="a3acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-acc" d="M0,0 L10,5 L0,10 z"/></marker>
+        </defs>
+        <text class="t-head" x="234" y="20" text-anchor="middle">ADQUIRIR</text>
+        <text class="t-head-acc" x="766" y="20" text-anchor="middle">RETENER Y CRECER</text>
+
+        <polygon class="bt-l" points="20,35 104,54.9 104,295.1 20,315"/>
+        <polygon class="bt-l" points="106,55.4 190,75.3 190,274.7 106,294.6"/>
+        <polygon class="bt-l" points="192,75.8 276,95.7 276,254.3 192,274.2"/>
+        <polygon class="bt-l" points="278,96.2 362,116.1 362,233.9 278,253.8"/>
+        <polygon class="bt-l" points="364,116.6 448,136.5 448,213.5 364,233.4"/>
+        <rect class="knot" x="452" y="141" width="96" height="68" rx="6"/>
+        <polygon class="bt-r" points="552,136.5 636,116.6 636,233.4 552,213.5"/>
+        <polygon class="bt-r" points="638,116.1 722,96.2 722,253.8 638,233.9"/>
+        <polygon class="bt-r" points="724,95.7 808,75.8 808,274.2 724,254.3"/>
+        <polygon class="bt-r" points="810,75.3 894,55.4 894,294.6 810,274.7"/>
+        <polygon class="bt-r" points="896,54.9 980,35 980,315 896,295.1"/>
+
+        <g text-anchor="middle">
+          <text class="t-num" x="62" y="183">1</text>
+          <text class="t-num" x="148" y="183">2</text>
+          <text class="t-num" x="234" y="183">3</text>
+          <text class="t-num" x="320" y="183">4</text>
+          <text class="t-num" x="406" y="183">5</text>
+          <text class="t-num on-acc" x="500" y="183">6</text>
+          <text class="t-num" x="594" y="183">7</text>
+          <text class="t-num" x="680" y="183">8</text>
+          <text class="t-num" x="766" y="183">9</text>
+          <text class="t-num" x="852" y="183">10</text>
+          <text class="t-num" x="938" y="183">11</text>
+
+          <text class="t-body" style="font-weight:600;fill:var(--ink)" x="62" y="340">Alcance</text>
+          <text class="t-body" style="font-weight:600;fill:var(--ink)" x="148" y="340">Interés</text>
+          <text class="t-body" style="font-weight:600;fill:var(--ink)" x="234" y="340">Conversación</text>
+          <text class="t-body" style="font-weight:600;fill:var(--ink)" x="320" y="340">Calificado</text>
+          <text class="t-body" style="font-weight:600;fill:var(--ink)" x="406" y="340">Prueba</text>
+          <text class="t-body" style="font-weight:700;fill:var(--accent)" x="500" y="340">1ª compra</text>
+          <text class="t-body" style="font-weight:600;fill:var(--ink)" x="594" y="340">Activación</text>
+          <text class="t-body" style="font-weight:600;fill:var(--ink)" x="680" y="340">Recompra</text>
+          <text class="t-body" style="font-weight:600;fill:var(--ink)" x="766" y="340">Plan Manada</text>
+          <text class="t-body" style="font-weight:600;fill:var(--ink)" x="852" y="340">Más kilos</text>
+          <text class="t-body" style="font-weight:600;fill:var(--ink)" x="938" y="340">Embajador</text>
+
+          <text class="t-mono" x="62" y="358">CPM</text>
+          <text class="t-mono" x="148" y="358">clics a WA</text>
+          <text class="t-mono" x="234" y="358">costo/chat</text>
+          <text class="t-mono" x="320" y="358">% calificado</text>
+          <text class="t-mono" x="406" y="358">% compra</text>
+          <text class="t-mono" x="500" y="358">CAC</text>
+          <text class="t-mono" x="594" y="358">% día 14</text>
+          <text class="t-mono" x="680" y="358">30/60 días</text>
+          <text class="t-mono" x="766" y="358">% en plan</text>
+          <text class="t-mono" x="852" y="358">kg/cliente</text>
+          <text class="t-mono" x="938" y="358">referidos</text>
+        </g>
+
+        <path class="loop" d="M938 368 L938 392 L62 392 L62 374" marker-end="url(#a3acc)"/>
+        <rect class="bgfill" x="350" y="384" width="300" height="16"/>
+        <text class="t-lab-acc" x="500" y="396" text-anchor="middle">los referidos vuelven a entrar por la izquierda</text>
+      </svg>
+    </div>
+    <figcaption>Once etapas, cada una con la métrica que la gobierna. El lado derecho se abre porque cada cliente que se queda compra más kilos, suma perros y trae referidos. En los datos de jul–oct, los clientes que repiten ya mueven cerca del 87 % de los kilos.</figcaption>
+  </figure>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>#</th><th>Etapa</th><th>Qué hacemos</th><th>Pieza o herramienta</th><th>Métrica que la gobierna</th></tr></thead>
+      <tbody>
+        <tr class="zone"><td colspan="5">Adquirir</td></tr>
+        <tr><td>1</td><td>Alcance</td><td>Mostrar a Omar y a los perros de exposición; mostrar la planta en Sopó</td><td>Reels, TikTok, presencia en exposiciones, anuncios geolocalizados por microzona</td><td>Alcance en la zona y CPM</td></tr>
+        <tr><td>2</td><td>Interés</td><td>Explicar qué es un alimento horneado y cómo se hace el cambio</td><td>Carruseles educativos, lives, perfil con enlace a WhatsApp</td><td>Clics a WhatsApp y guardados</td></tr>
+        <tr><td>3</td><td>Conversación</td><td>Abrir el chat con mensaje precargado que lleva el código de origen</td><td>Enlace <span class="mono">wa.me</span> con texto, QR, anuncio de clic a WhatsApp</td><td>Costo por conversación, por origen</td></tr>
+        <tr><td>4</td><td>Calificado</td><td>Tres preguntas: zona, perros (tamaño y edad) y comida actual</td><td>Guion de bienvenida y etiquetas de WhatsApp Business</td><td>% de chats con zona atendida y perfil completo</td></tr>
+        <tr><td>5</td><td>Prueba</td><td>Recomendar una cantidad para su perro y ofrecer la Caja de prueba</td><td>Guía de raciones confirmada (BL-041) y Caja de prueba (BL-023)</td><td>% de calificados que compran</td></tr>
+        <tr class="zone"><td colspan="5">Nudo</td></tr>
+        <tr><td>6</td><td>Primera compra</td><td>Cobrar, confirmar fecha fija de entrega y pedir permiso para recordatorios</td><td>Factura, pago, ruta por zona, autorización de datos (BL-058)</td><td>CAC por motor y entregas a tiempo</td></tr>
+        <tr class="zone"><td colspan="5">Retener y crecer</td></tr>
+        <tr><td>7</td><td>Activación</td><td>Acompañar el cambio de alimento los primeros 14 días</td><td>Mensaje del día 3 y del día 10, guía de transición</td><td>% que sigue comiendo Canívoros el día 14</td></tr>
+        <tr><td>8</td><td>Recompra</td><td>Avisar antes de que se acabe, con fecha calculada por peso y ración</td><td>Recordatorio con permiso (BL-022)</td><td>Recompra a 30 y 60 días por cohorte</td></tr>
+        <tr><td>9</td><td>Plan Manada</td><td>Convertir la reposición en un pedido fijo cada 2 o 4 semanas</td><td>Lista de clientes en plan y ruta fija por zona</td><td>% de clientes activos en plan</td></tr>
+        <tr><td>10</td><td>Más kilos</td><td>Segundo perro, otra receta, presentación mayor, Gatívoros para hogares con gato</td><td>Oferta cruzada en el chat de reposición</td><td>Kilos por cliente por mes</td></tr>
+        <tr><td>11</td><td>Embajador</td><td>Pedir el referido después de la segunda compra, no antes</td><td>Código personal de referido</td><td>Clientes nuevos por referido</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 4. OFERTA ============ -->
+<section class="block" id="oferta">
+  <div class="sec-head">
+    <div class="bib" aria-hidden="true"><span>Nº</span><b>4</b></div>
+    <div class="stack">
+      <h2>Escalera de oferta: un siguiente paso para cada etapa</h2>
+      <p>Cada escalón baja el riesgo de dar el siguiente. Los precios quedan por confirmar en BL-005: los valores de <span class="mono">erp.md</span> son informados, no confirmados.</p>
+    </div>
+  </div>
+
+  <div class="ladder">
+    <div class="step">
+      <span class="lvl">Escalón 1 · gratis</span>
+      <h4>Guía de cambio de alimento</h4>
+      <p>Pasos para hacer el cambio en 10 días y la porción para su perro, enviados por WhatsApp.</p>
+      <span class="price">COP 0</span>
+      <span class="goal">Abre el chat con permiso</span>
+    </div>
+    <div class="step">
+      <span class="lvl">Escalón 2 · entrada</span>
+      <h4>Caja de prueba</h4>
+      <p>Mezcla de hamburguesa y chorizo para una a dos semanas, con la guía impresa.</p>
+      <span class="price">Precio a definir (BL-023)</span>
+      <span class="goal">Primera compra pagada</span>
+    </div>
+    <div class="step">
+      <span class="lvl">Escalón 3 · núcleo</span>
+      <h4>Pedido de reposición</h4>
+      <p>Hamburguesas y chorizos en paquetes de 500 g, según el peso del perro.</p>
+      <span class="price">Precio por confirmar (BL-005)</span>
+      <span class="goal">Segunda compra</span>
+    </div>
+    <div class="step">
+      <span class="lvl">Escalón 4 · recurrente</span>
+      <h4>Plan Manada</h4>
+      <p>Pedido fijo cada 2 o 4 semanas, recordatorio previo y entrega en fecha fija por zona. Sin cobro automático al inicio.</p>
+      <span class="price">Precio regular + prioridad de entrega</span>
+      <span class="goal">Recompra predecible</span>
+    </div>
+    <div class="step">
+      <span class="lvl">Escalón 5 · volumen</span>
+      <h4>Programa Criador</h4>
+      <p>Desde 40 kg por pedido, calendario de entregas y un kit con QR para cada cachorro que entrega el criadero.</p>
+      <span class="price">Precio por confirmar (BL-005)</span>
+      <span class="goal">Kilos programados y referidos</span>
+    </div>
+  </div>
+  <p class="small prose">Para tiendas y veterinarias la escalera es otra: degustación en la visita, pedido inicial pequeño a precio de distribuidor, exhibidor con QR propio y reposición cada 2 a 4 semanas. Una compra inicial del aliado no prueba demanda; la prueba es la reposición.</p>
+</section>
+
+<!-- ============ 5. WHATSAPP ============ -->
+<section class="block" id="whatsapp">
+  <div class="sec-head">
+    <div class="bib" aria-hidden="true"><span>Nº</span><b>5</b></div>
+    <div class="stack">
+      <h2>La conversación que vende</h2>
+      <p>Hoy todos los pedidos pasan por WhatsApp y por Omar. Este flujo ordena esa conversación para que cualquier persona del equipo la pueda llevar, para que Omar atienda solo a criadores y casos especiales, y para que ningún chat se pierda sin registro.</p>
+    </div>
+  </div>
+
+  <figure>
+    <div class="fig-box scroll">
+      <svg class="dg" viewBox="0 0 1000 270" role="img" aria-label="Flujo de la conversación de WhatsApp: entra con código, saludo y permiso, pregunta de zona, pregunta de perros, recomendación con Caja de prueba, pago y fecha. Si no hay entrega en la zona se deriva a un aliado; si es un criadero lo atiende Omar; si no decide se hace seguimiento a las 24 y 72 horas y se vuelve a la recomendación.">
+        <defs>
+          <marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+        </defs>
+        <rect class="node" x="18" y="40" width="124" height="70" rx="8"/>
+        <text class="t-title" style="font-size:13px" x="80" y="70" text-anchor="middle">Entra con código</text>
+        <text class="t-body" style="font-size:11px" x="80" y="90" text-anchor="middle">anuncio · QR · referido</text>
+
+        <rect class="node" x="186" y="40" width="124" height="70" rx="8"/>
+        <text class="t-title" style="font-size:13px" x="248" y="70" text-anchor="middle">Saludo y permiso</text>
+        <text class="t-body" style="font-size:11px" x="248" y="90" text-anchor="middle">Ley 1581 de 2012</text>
+
+        <rect class="node-dec" x="354" y="40" width="124" height="70" rx="8"/>
+        <text class="t-title" style="font-size:13px" x="416" y="70" text-anchor="middle">¿Hay entrega?</text>
+        <text class="t-body" style="font-size:11px" x="416" y="90" text-anchor="middle">barrio o municipio</text>
+
+        <rect class="node-dec" x="522" y="40" width="124" height="70" rx="8"/>
+        <text class="t-title" style="font-size:13px" x="584" y="70" text-anchor="middle">¿Cuántos perros?</text>
+        <text class="t-body" style="font-size:11px" x="584" y="90" text-anchor="middle">tamaño, edad, comida</text>
+
+        <rect class="node" x="690" y="40" width="124" height="70" rx="8"/>
+        <text class="t-title" style="font-size:13px" x="752" y="70" text-anchor="middle">Recomendación</text>
+        <text class="t-body" style="font-size:11px" x="752" y="90" text-anchor="middle">+ Caja de prueba</text>
+
+        <rect class="node-hub" x="858" y="40" width="124" height="70" rx="8"/>
+        <text class="t-title on-acc" style="font-size:13px" x="920" y="70" text-anchor="middle">Paga y agenda</text>
+        <text class="t-body on-acc" style="font-size:11px" x="920" y="90" text-anchor="middle">fecha fija de entrega</text>
+
+        <path class="edge" d="M142 75 L182 75" marker-end="url(#a5)"/>
+        <text class="t-lab" x="164" y="68" text-anchor="middle">escribe</text>
+        <path class="edge" d="M310 75 L350 75" marker-end="url(#a5)"/>
+        <text class="t-lab" x="332" y="68" text-anchor="middle">acepta</text>
+        <path class="edge" d="M478 75 L518 75" marker-end="url(#a5)"/>
+        <text class="t-lab" x="500" y="68" text-anchor="middle">sí</text>
+        <path class="edge" d="M646 75 L686 75" marker-end="url(#a5)"/>
+        <text class="t-lab" x="668" y="68" text-anchor="middle">tutor</text>
+        <path class="edge" d="M814 75 L854 75" marker-end="url(#a5)"/>
+        <text class="t-lab" x="836" y="68" text-anchor="middle">sí</text>
+
+        <path class="edge" d="M416 110 L416 186" marker-end="url(#a5)"/>
+        <text class="t-lab" x="424" y="152">no</text>
+        <rect class="node" x="354" y="190" width="124" height="60" rx="8"/>
+        <text class="t-title" style="font-size:13px" x="416" y="215" text-anchor="middle">Aliado cercano</text>
+        <text class="t-body" style="font-size:11px" x="416" y="234" text-anchor="middle">o envío programado</text>
+
+        <path class="edge" d="M584 110 L584 186" marker-end="url(#a5)"/>
+        <text class="t-lab" x="592" y="152">criadero</text>
+        <rect class="node" x="522" y="190" width="124" height="60" rx="8"/>
+        <text class="t-title" style="font-size:13px" x="584" y="215" text-anchor="middle">Programa Criador</text>
+        <text class="t-body" style="font-size:11px" x="584" y="234" text-anchor="middle">lo atiende Omar</text>
+
+        <path class="edge" d="M920 110 L920 186" marker-end="url(#a5)"/>
+        <text class="t-lab" x="928" y="152">no decide</text>
+        <rect class="node" x="858" y="190" width="124" height="60" rx="8"/>
+        <text class="t-title" style="font-size:13px" x="920" y="215" text-anchor="middle">Seguimiento</text>
+        <text class="t-body" style="font-size:11px" x="920" y="234" text-anchor="middle">a las 24 h y 72 h</text>
+
+        <path class="edge" d="M858 220 L752 220 L752 114" marker-end="url(#a5)"/>
+        <text class="t-lab" x="760" y="170">vuelve</text>
+      </svg>
+    </div>
+    <figcaption>Seis pasos en la línea principal y tres desvíos. Las cajas punteadas son decisiones. Cada chat queda con una etiqueta de etapa, así se sabe en qué paso se pierden las ventas.</figcaption>
+  </figure>
+
+  <div class="stack">
+    <h3>Guiones listos para usar</h3>
+    <p class="small">Los corchetes se reemplazan en cada chat. Las porciones y la pauta de cambio de alimento salen de la guía confirmada por la empresa (BL-041); no se inventan cantidades.</p>
+  </div>
+  <div class="scripts">
+    <article class="script">
+      <header><div><b>1 · Bienvenida y calificación</b><small>Respuesta al primer mensaje</small></div><button class="copy" type="button" data-target="sc1">Copiar</button></header>
+<pre id="sc1">¡Hola! Soy [nombre], de Canívoros. Gracias por escribirnos.
+Para recomendarte bien te hago tres preguntas rápidas:
+1. ¿En qué barrio o municipio estás?
+2. ¿Cuántos perros tienes, qué edad tienen y cuánto pesan más o menos?
+3. ¿Qué comen hoy?
+Usamos tus datos para atender tu pedido y, si nos autorizas, para avisarte cuándo reponer. Política de datos: [enlace]</pre>
+    </article>
+    <article class="script">
+      <header><div><b>2 · Recomendación y oferta</b><small>Después de calificar</small></div><button class="copy" type="button" data-target="sc2">Copiar</button></header>
+<pre id="sc2">Gracias, [nombre]. Para [perro], de [peso] kg, te recomiendo empezar con la Caja de prueba: [contenido] por [precio].
+Es alimento horneado, hecho en Sopó con [pollo / cerdo / salmón], y viene listo para servir.
+Tenemos entrega en [zona] el [día]. ¿Te la separo?</pre>
+    </article>
+    <article class="script">
+      <header><div><b>3 · Seguimiento</b><small>24 horas sin respuesta</small></div><button class="copy" type="button" data-target="sc3">Copiar</button></header>
+<pre id="sc3">Hola, [nombre]. ¿Te quedó alguna duda sobre la Caja de prueba para [perro]?
+Esta semana entregamos en [zona] el [día]. Si quieres te guardo un cupo en esa ruta.</pre>
+    </article>
+    <article class="script">
+      <header><div><b>4 · Check-in de activación</b><small>Día 3 después de la entrega</small></div><button class="copy" type="button" data-target="sc4">Copiar</button></header>
+<pre id="sc4">Hola, [nombre]. ¿Cómo le ha ido a [perro] con Canívoros estos primeros días?
+Recuerda hacer el cambio poco a poco: [pauta de transición de la guía].
+Si notas algo, cuéntanos. Si [perro] tiene alguna condición de salud, consulta con su veterinario.</pre>
+    </article>
+    <article class="script">
+      <header><div><b>5 · Recordatorio de reposición</b><small>Solo a quien lo autorizó</small></div><button class="copy" type="button" data-target="sc5">Copiar</button></header>
+<pre id="sc5">Hola, [nombre]. Por el pedido del [fecha], a [perro] le queda comida para unos [n] días.
+¿Te programamos la entrega del [día]? Responde SÍ y lo dejamos listo.
+Si prefieres no recibir estos avisos, responde BAJA.</pre>
+    </article>
+    <article class="script">
+      <header><div><b>6 · Invitación a criadero</b><small>La envía Omar</small></div><button class="copy" type="button" data-target="sc6">Copiar</button></header>
+<pre id="sc6">Hola, [nombre]. Soy Omar, de Canívoros. Vi tu trabajo con [raza] en [exposición o club].
+Alimentamos perros de exposición y de trabajo, y tenemos un programa para criaderos: pedido programado desde 40 kg, entrega en fecha fija y un kit para cada cachorro que entregas.
+¿Te muestro las condiciones?</pre>
+    </article>
+  </div>
+
+  <div class="stack">
+    <h3>Objeciones frecuentes y cómo responderlas</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Lo que dice</th><th>Qué hay detrás</th><th>Respuesta</th></tr></thead>
+        <tbody>
+          <tr><td>“Está caro”</td><td>Compara el precio del paquete, no el costo por día</td><td>Calcular el costo diario con la ración confirmada para su perro y ofrecer la Caja de prueba. No dar descuentos permanentes.</td></tr>
+          <tr><td>“¿Es comida cruda o BARF?”</td><td>Miedo a la manipulación y a la seguridad</td><td>No. Es horneado y viene listo para servir; esa es la respuesta oficial de la marca.</td></tr>
+          <tr><td>“Mi perro es delicado del estómago”</td><td>Miedo a que el cambio le caiga mal</td><td>Cambio gradual con la guía y check-in el día 3. Si hay una condición clínica, primero el veterinario. No prometer resultados.</td></tr>
+          <tr><td>“¿Cuánto le doy?”</td><td>No sabe calcular la porción</td><td>Usar la guía de raciones confirmada (BL-041). Sin guía confirmada, no se dan cantidades.</td></tr>
+          <tr><td>“Se me daña después de abierto”</td><td>Paquete grande para un perro pequeño o un gato</td><td>Instrucciones de conservación de la etiqueta y, cuando exista, una presentación menor (la empresa propuso 200 a 350 g).</td></tr>
+          <tr><td>“No me llega”</td><td>Zona sin ruta</td><td>Aliado más cercano o envío programado en el próximo día de ruta. Registrar la zona para decidir nuevas rutas.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. MENSAJE ============ -->
+<section class="block" id="mensaje">
+  <div class="sec-head">
+    <div class="bib" aria-hidden="true"><span>Nº</span><b>6</b></div>
+    <div class="stack">
+      <h2>Mensaje y contenido</h2>
+      <p>La idea central sale de la historia real de la marca: una familia que cría perros de competencia y decidió hacer su propio alimento. Propuesta de concepto para probar: <strong>“Lo que comen los campeones, horneado en Sopó.”</strong> Se usa solo con autorización de los dueños de cada perro que aparezca.</p>
+    </div>
+  </div>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Pilar</th><th>Qué mostramos</th><th>Formato</th><th>Etapa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>De la pista a tu casa</strong></td><td>Omar con King, Juanito, Skadi y Dino: rutina, entrenamiento, qué comen y por qué</td><td>Reels, TikTok, lives desde exposiciones</td><td>Alcance</td></tr>
+        <tr><td><strong>Hecho en Sopó</strong></td><td>La planta, el horneado, el equipo de cinco personas, la materia prima que llega cada semana</td><td>Video corto de proceso, historias</td><td>Alcance e interés</td></tr>
+        <tr><td><strong>La prueba del plato</strong></td><td>Perros de clientes comiendo y el cambio de alimento día a día, presentado como experiencia individual y con permiso</td><td>Contenido de clientes, testimonios en video</td><td>Interés y prueba</td></tr>
+        <tr><td><strong>Tutor que sabe</strong></td><td>Cómo leer una etiqueta, cómo hacer el cambio, cómo conservar el alimento</td><td>Carruseles, guía descargable por WhatsApp</td><td>Interés y activación</td></tr>
+        <tr><td><strong>Criadero aliado</strong></td><td>Perfiles de criaderos que alimentan con Canívoros y sus camadas</td><td>Entrevista corta, publicación conjunta</td><td>Motor 1 y referidos</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="stack">
+    <h3>Qué podemos decir hoy en un anuncio</h3>
+    <p class="small prose">La revisión de afirmaciones (BL-016) va antes de cualquier pauta. Una agencia seria no pone en un anuncio algo que la ficha técnica no respalda.</p>
+  </div>
+  <div class="claims">
+    <div class="claim ok">
+      <h4><span class="dot"></span>Usar ya</h4>
+      <ul>
+        <li>Alimento horneado, listo para servir</li>
+        <li>Con pollo, salmón o cerdo</li>
+        <li>Hecho en Sopó, Cundinamarca</li>
+        <li>No es crudo ni dieta BARF</li>
+        <li>Lo usan criadores de perros de exposición, con autorización de cada uno</li>
+      </ul>
+    </div>
+    <div class="claim wait">
+      <h4><span class="dot"></span>Usar cuando haya soporte</h4>
+      <ul>
+        <li>Registro ICA, con su número</li>
+        <li>Sin conservantes ni colorantes, según la ficha técnica</li>
+        <li>Beneficios de digestión, pelaje o defensas</li>
+        <li>Comparaciones de proteína, grasa y humedad frente a otras marcas</li>
+      </ul>
+    </div>
+    <div class="claim no">
+      <h4><span class="dot"></span>No usar</h4>
+      <ul>
+        <li>“Sin subproductos”: la materia prima incluye cabezas de pollo, barriga de salmón y vísceras</li>
+        <li>“El mejor alimento” o “la mejor calidad”</li>
+        <li>Promesas de resultados de salud</li>
+      </ul>
+    </div>
+  </div>
+  <p class="small prose">Una oportunidad: en lugar de esconder la materia prima, la marca puede contar que aprovecha partes nutritivas del animal, con lenguaje claro y apoyo técnico. Es una decisión de los dueños y conviene probarla en entrevistas antes de llevarla a un anuncio.</p>
+</section>
+
+<!-- ============ 7. MEDICIÓN ============ -->
+<section class="block" id="medicion">
+  <div class="sec-head">
+    <div class="bib" aria-hidden="true"><span>Nº</span><b>7</b></div>
+    <div class="stack">
+      <h2>Medición: saber de dónde viene cada kilo</h2>
+      <p>La métrica norte propuesta es <strong>kilos recurrentes por semana</strong>: kilos entregados a clientes con dos o más compras. Junta adquisición y retención en un solo número y no se infla con descuentos de una sola vez.</p>
+    </div>
+  </div>
+
+  <div class="stack">
+    <h3>Código de origen en cada conversación</h3>
+    <p class="small prose">Cada anuncio, QR, publicación o criadero tiene un enlace de WhatsApp con un mensaje precargado. El código queda en el primer mensaje y se copia al registro del cliente en Odoo. Así se separa el origen (dónde conoció la marca) del canal de cierre (WhatsApp casi siempre).</p>
+    <div class="code-anatomy" aria-label="Ejemplo de código de origen: CV, AD, HORN, NORTE">
+      <div><b>CV-</b><span>Canívoros</span></div>
+      <div><b>AD-</b><span>Fuente: AD anuncio, IG orgánico, QR aliado, REF referido, CRI criadero</span></div>
+      <div><b>HORN-</b><span>Pieza o variante: HORN horneado, FACIL facilidad de uso</span></div>
+      <div><b>NORTE</b><span>Microzona o nombre del aliado</span></div>
+    </div>
+    <p class="small">Ejemplo de enlace: <span class="mono">wa.me/57XXXXXXXXXX?text=Hola%20Canívoros%20(CV-AD-HORN-NORTE)</span>. El número se define al elegir el WhatsApp comercial único: hoy hay tres publicados.</p>
+  </div>
+
+  <div class="stack">
+    <h3>Etiquetas de etapa en WhatsApp Business</h3>
+    <div class="pills">
+      <span class="p">Nuevo</span><i>→</i><span class="p">Calificado</span><i>→</i><span class="p">Oferta enviada</span><i>→</i><span class="p">Pagado</span><i>→</i><span class="p">Entregado</span><i>→</i><span class="p">Recompra</span><i>→</i><span class="p">Plan Manada</span>
+      <span class="p lost">Perdido: con motivo</span>
+    </div>
+  </div>
+
+  <div class="stack">
+    <h3>Tablero semanal</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Indicador</th><th>Cómo se calcula</th><th>Para decidir</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Kilos recurrentes por semana</strong></td><td>Kilos entregados a clientes con 2 o más compras</td><td>Métrica norte: si el sistema crece</td></tr>
+          <tr><td>Conversaciones nuevas por origen</td><td>Chats con código, agrupados por fuente</td><td>Qué fuente alimentar y cuál cortar</td></tr>
+          <tr><td>% calificado y % de cierre</td><td>Calificados ÷ chats; compras ÷ calificados, de la misma cohorte</td><td>Si el problema es el tráfico, la oferta o la atención</td></tr>
+          <tr><td>CAC por motor</td><td>Gasto de captación del motor ÷ clientes nuevos que compraron</td><td>Dónde rinde más cada peso</td></tr>
+          <tr><td>Recompra a 30 y 60 días</td><td>Clientes con 2ª compra ÷ clientes que ya cumplieron la ventana</td><td>Si el lado derecho funciona</td></tr>
+          <tr><td>% de clientes en Plan Manada</td><td>Clientes con pedido fijo ÷ clientes activos</td><td>Qué tan predecible es la producción</td></tr>
+          <tr><td>Contribución después de captación</td><td>Ventas netas − costos variables − gasto comercial</td><td>Escalar, ajustar o parar (sección 9)</td></tr>
+          <tr><td>Entregas a tiempo y completas</td><td>Pedidos a tiempo ÷ entregados; meta operativa propuesta 95 %</td><td>Si la operación aguanta más volumen</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. CALCULADORA ============ -->
+<section class="block" id="calculadora">
+  <div class="sec-head">
+    <div class="bib" aria-hidden="true"><span>Nº</span><b>8</b></div>
+    <div class="stack">
+      <h2>Calculadora del embudo</h2>
+      <p>Para decidir cuánto invertir en cada motor. Cambie los valores por los reales a medida que el tablero los entregue: el resultado muestra cuánto cuesta un cliente y cuánta recompra hace falta para recuperarlo.</p>
+    </div>
+  </div>
+
+  <div class="calc">
+    <div class="calc-in">
+      <div class="seg-ctl" role="group" aria-label="Escenario">
+        <button type="button" data-preset="tutor" aria-pressed="true">Tutor</button>
+        <button type="button" data-preset="criador" aria-pressed="false">Criador</button>
+        <button type="button" data-preset="aliado" aria-pressed="false">Aliado</button>
+      </div>
+      <p class="calc-note">Valores de ejemplo para discutir, no son datos de Canívoros. El margen de contribución real sale de BL-025.</p>
+      <div class="fields">
+        <div class="field"><label for="in-budget">Inversión de captación al mes (COP)</label><input id="in-budget" type="number" min="0" step="50000"></div>
+        <div class="field"><label for="in-cpc">Costo por contacto: chat, visita o muestra (COP)</label><input id="in-cpc" type="number" min="1" step="500"></div>
+        <div class="field"><label for="in-qual">% de contactos calificados</label><input id="in-qual" type="number" min="0" max="100" step="1"></div>
+        <div class="field"><label for="in-close">% de calificados que compran</label><input id="in-close" type="number" min="0" max="100" step="1"></div>
+        <div class="field"><label for="in-ticket">Valor del pedido (COP)</label><input id="in-ticket" type="number" min="0" step="1000"></div>
+        <div class="field"><label for="in-margin">Margen de contribución (%)</label><input id="in-margin" type="number" min="0" max="100" step="1"></div>
+        <div class="field"><label for="in-rep">% que vuelve a pedir cada ciclo</label><input id="in-rep" type="number" min="0" max="99" step="1"></div>
+        <div class="field"><label for="in-cycles">Ciclos de pedido en 12 meses</label><input id="in-cycles" type="number" min="1" max="52" step="1"></div>
+      </div>
+    </div>
+    <div class="calc-out" aria-live="polite">
+      <div class="kpis">
+        <div class="kpi"><span>Clientes nuevos al mes</span><b id="o-cust">–</b></div>
+        <div class="kpi"><span>Costo por cliente (CAC)</span><b id="o-cac">–</b></div>
+        <div class="kpi"><span>Contribución por pedido</span><b id="o-contrib">–</b></div>
+        <div class="kpi"><span>Pedidos esperados en 12 meses</span><b id="o-orders">–</b></div>
+        <div class="kpi"><span>Contribución por cliente en 12 meses</span><b id="o-ltv">–</b></div>
+        <div class="kpi hl"><span>Valor ÷ costo del cliente</span><b id="o-ratio">–</b></div>
+      </div>
+      <div class="flow" id="o-flow"></div>
+      <div class="readout" id="o-read"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. PLAN ============ -->
+<section class="block" id="plan">
+  <div class="sec-head">
+    <div class="bib" aria-hidden="true"><span>Nº</span><b>9</b></div>
+    <div class="stack">
+      <h2>Plan de 90 días</h2>
+      <p>Primero los cimientos, después el motor que ya tiene tracción y al final el que hay que construir. Cada fase se conecta con tareas del backlog. Diciembre trae festivos: la producción y las rutas se planean con anticipación.</p>
+    </div>
+  </div>
+
+  <div class="scroll">
+    <div class="gantt" role="table" aria-label="Cronograma de cuatro fases en trece semanas, del 3 de noviembre de 2026 al 1 de febrero de 2027">
+      <div class="ph" role="cell"><b>Fase</b></div>
+      <div class="wk">3 nov</div><div class="wk">10</div><div class="wk">17</div><div class="wk">24</div><div class="wk">1 dic</div><div class="wk">8</div><div class="wk">15</div><div class="wk">22</div><div class="wk">29</div><div class="wk">5 ene</div><div class="wk">12</div><div class="wk">19</div><div class="wk">26</div>
+
+      <div class="ph"><b>0 · Cimientos</b><small>Número único, precios (BL-005), línea base (BL-004), permisos (BL-058), afirmaciones (BL-016), etiquetas y códigos</small></div>
+      <div class="run" style="grid-column: span 2"><i></i></div><div class="cell" style="grid-column: span 11"></div>
+
+      <div class="ph"><b>1 · Motor criador y aliados</b><small>Programa Criador con el top 10 (BL-043), kit por camada, 10 tiendas con QR (BL-012)</small></div>
+      <div class="cell" style="grid-column: span 2"></div><div class="run" style="grid-column: span 4"><i></i></div><div class="cell" style="grid-column: span 7"></div>
+
+      <div class="ph"><b>2 · Motor tutor</b><small>Contenido de Omar (BL-019), anuncios horneado vs facilidad (BL-020), Caja de prueba (BL-023), reposición (BL-022)</small></div>
+      <div class="cell" style="grid-column: span 4"></div><div class="run" style="grid-column: span 6"><i></i></div><div class="cell" style="grid-column: span 3"></div>
+
+      <div class="ph last"><b>3 · Escalar lo que funcione</b><small>Referidos, Plan Manada formal, decisión de nuevas zonas, piloto Gatívoros (BL-026)</small></div>
+      <div class="cell last" style="grid-column: span 10"></div><div class="run soft last" style="grid-column: span 3"><i></i></div>
+    </div>
+  </div>
+
+  <div class="stack">
+    <h3>Experimentos priorizados</h3>
+    <p class="small prose">Puntaje ICE: impacto, confianza y facilidad de 1 a 10, promediados. Son puntajes propuestos para discutir con el equipo, no mediciones. Cada experimento registra su hipótesis y su criterio de decisión antes de empezar (BL-044).</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Experimento</th><th>Motor</th><th class="num">I</th><th class="num">C</th><th class="num">F</th><th class="num">ICE</th><th>Señal de éxito</th></tr></thead>
+        <tbody>
+          <tr><td>Programa Criador con los 10 clientes de más kilos</td><td>1</td><td class="num">9</td><td class="num">7</td><td class="num">8</td><td class="num"><strong>8,0</strong></td><td>Pedidos programados firmados para 2 meses</td></tr>
+          <tr><td>Recordatorio de reposición con permiso</td><td>2 y 3</td><td class="num">7</td><td class="num">7</td><td class="num">9</td><td class="num"><strong>7,7</strong></td><td>Más recompra a 30 días que el grupo sin aviso</td></tr>
+          <tr><td>Kit con QR para cada camada</td><td>1 → 2</td><td class="num">8</td><td class="num">6</td><td class="num">7</td><td class="num"><strong>7,0</strong></td><td>Tutores nuevos con código CRI que compran</td></tr>
+          <tr><td>Código de referido después de la 2ª compra</td><td>2</td><td class="num">6</td><td class="num">5</td><td class="num">7</td><td class="num"><strong>6,0</strong></td><td>Clientes nuevos con código REF</td></tr>
+          <tr><td>10 tiendas de alimento natural con exhibidor y QR</td><td>3</td><td class="num">7</td><td class="num">5</td><td class="num">6</td><td class="num"><strong>6,0</strong></td><td>Al menos una reposición por tienda en 4 semanas</td></tr>
+          <tr><td>Caja de prueba frente a pedido normal</td><td>2</td><td class="num">6</td><td class="num">5</td><td class="num">5</td><td class="num"><strong>5,3</strong></td><td>Más primeras compras sin bajar la recompra</td></tr>
+          <tr><td>Anuncios: horneado frente a facilidad de uso</td><td>2</td><td class="num">6</td><td class="num">4</td><td class="num">6</td><td class="num"><strong>5,3</strong></td><td>Menor costo por cliente calificado</td></tr>
+          <tr><td>Gatívoros para gatitos en veterinarias</td><td>3</td><td class="num">5</td><td class="num">3</td><td class="num">4</td><td class="num"><strong>4,0</strong></td><td>Aceptación y recompra; desperdicio registrado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="stack">
+    <h3>Reglas para decidir al día 90</h3>
+    <div class="rules">
+      <article class="card">
+        <span class="tag">Escalar</span>
+        <p>Contribución acumulada positiva después de captación en las cohortes evaluadas, recompra observada, capacidad de producción disponible y entregas a tiempo cerca del 95 %.</p>
+      </article>
+      <article class="card">
+        <span class="tag neutral">Ajustar</span>
+        <p>Muchos chats y pocas compras, compras sin repetición, margen insuficiente o entrega muy cara. Se registra el motivo antes de cambiar la oferta.</p>
+      </article>
+      <article class="card">
+        <span class="tag neutral">Parar</span>
+        <p>Cada pedido aumenta la pérdida y no hay señales de recuperar el costo del cliente dentro del plazo que fije la gerencia según su caja.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="sources">
+  <p><strong>Fuentes del repositorio:</strong> ventas_canivoros_2026.xlsx (jul–oct 2026), erp.md (catálogo, precios y flujo de pedidos informados), CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md, CANIVOROS-REFERENCIA-EMPRESA.md y backlog BL-001 a BL-058.</p>
+  <p><strong>Documento de trabajo:</strong> <span class="mono">embudos/E01-canivoros-tres-motores-recompra/embudo.md</span> es la fuente de verdad; las cuentas del Motor 2 están en <span class="mono">numeros.md</span>. Todo es borrador hasta que Andrés lo apruebe.</p>
+  <p><strong>Supuestos:</strong> libra = 500 g; nombres de cliente unificados a mano; “núcleos” se dejó como categoría aparte porque el Excel no indica el tipo de cliente. Los precios, el concepto creativo y los puntajes son propuestas a validar con la empresa.</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  /* ---------- Gráfico de mezcla de ingresos ---------- */
+  var data = [
+    { m: "Jul", v: [5586000, 1613500, 959000, 2760000] },
+    { m: "Ago", v: [4371000, 2424000, 950000, 580000] },
+    { m: "Sep", v: [6497600, 1526000, 1684000, 2662500] }
+  ];
+  var names = ["Criadores", "Tiendas y almacenes", "Cliente final", "Núcleos, orejas y otros"];
+  var vars = ["--s1", "--s2", "--s3", "--s4"];
+  var MAX = 13000000;
+  var fmtM = function (n) { return (n / 1e6).toLocaleString("es-CO", { minimumFractionDigits: 1, maximumFractionDigits: 2 }) + " M"; };
+  var fmtCOP = function (n) { return (n < 0 ? "−$ " : "$ ") + Math.abs(Math.round(n)).toLocaleString("es-CO"); };
+
+  var bars = document.getElementById("bars");
+  var tbody = document.getElementById("mix-table");
+  var tip = document.getElementById("tip");
+  var chart = document.getElementById("mix-chart");
+
+  data.forEach(function (row) {
+    var total = row.v.reduce(function (a, b) { return a + b; }, 0);
+    var lab = document.createElement("div"); lab.className = "m"; lab.textContent = row.m;
+    var track = document.createElement("div"); track.className = "bar-track";
+    var grid = document.createElement("div"); grid.className = "grid-lines";
+    [4, 8, 12].forEach(function (t) { var i = document.createElement("i"); i.style.left = (t * 1e6 / MAX * 100) + "%"; grid.appendChild(i); });
+    track.appendChild(grid);
+    var bar = document.createElement("div"); bar.className = "bar"; bar.style.width = (total / MAX * 100) + "%"; bar.style.position = "relative";
+    row.v.forEach(function (val, k) {
+      var s = document.createElement("div"); s.className = "seg"; s.tabIndex = 0;
+      s.style.flex = val + " 1 0"; s.style.background = "var(" + vars[k] + ")";
+      var pct = Math.round(val / total * 100);
+      var txt = row.m + " · " + names[k] + ": " + fmtM(val) + " (" + pct + " %)";
+      s.setAttribute("aria-label", txt);
+      var show = function () {
+        tip.textContent = txt; tip.hidden = false;
+        var r = s.getBoundingClientRect(), c = chart.getBoundingClientRect();
+        var x = r.left - c.left + r.width / 2 - tip.offsetWidth / 2;
+        x = Math.max(8, Math.min(x, c.width - tip.offsetWidth - 8));
+        tip.style.left = x + "px"; tip.style.top = (r.top - c.top - tip.offsetHeight - 8) + "px";
+      };
+      s.addEventListener("mouseenter", show); s.addEventListener("focus", show);
+      s.addEventListener("mouseleave", function () { tip.hidden = true; });
+      s.addEventListener("blur", function () { tip.hidden = true; });
+      bar.appendChild(s);
+    });
+    track.appendChild(bar);
+    var tot = document.createElement("span"); tot.className = "bar-total"; tot.textContent = fmtM(total);
+    tot.style.left = (total / MAX * 100) + "%";
+    track.appendChild(tot);
+    bars.appendChild(lab); bars.appendChild(track);
+
+    var tr = document.createElement("tr");
+    tr.innerHTML = "<td>" + row.m + "</td>" + row.v.map(function (x) { return '<td class="num">' + fmtCOP(x) + "</td>"; }).join("") + '<td class="num"><strong>' + fmtCOP(total) + "</strong></td>";
+    tbody.appendChild(tr);
+  });
+  var axis = document.getElementById("axis");
+  [0, 4, 8, 12].forEach(function (t) { var s = document.createElement("span"); s.style.left = (t * 1e6 / MAX * 100) + "%"; s.textContent = t === 0 ? "0" : t + " M"; axis.appendChild(s); });
+
+  /* ---------- Copiar guiones ---------- */
+  document.querySelectorAll("button.copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var el = document.getElementById(btn.getAttribute("data-target"));
+      var text = el.textContent;
+      var done = function () { btn.textContent = "Copiado"; setTimeout(function () { btn.textContent = "Copiar"; }, 1600); };
+      var fallback = function () {
+        var range = document.createRange(); range.selectNodeContents(el);
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        btn.textContent = "Texto seleccionado";
+        setTimeout(function () { btn.textContent = "Copiar"; }, 2000);
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done, fallback); }
+        else { fallback(); }
+      } catch (e) { fallback(); }
+    });
+  });
+
+  /* ---------- Calculadora ---------- */
+  var presets = {
+    tutor:   { budget: 1500000, cpc: 6000,  qual: 60, close: 25, ticket: 60000,  margin: 35, rep: 60, cycles: 12 },
+    criador: { budget: 600000,  cpc: 30000, qual: 50, close: 30, ticket: 248000, margin: 25, rep: 80, cycles: 12 },
+    aliado:  { budget: 800000,  cpc: 40000, qual: 50, close: 40, ticket: 350000, margin: 20, rep: 70, cycles: 24 }
+  };
+  var keys = ["budget", "cpc", "qual", "close", "ticket", "margin", "rep", "cycles"];
+  var inputs = {}; keys.forEach(function (k) { inputs[k] = document.getElementById("in-" + k); });
+  var num = function (k) { var v = parseFloat(inputs[k].value); return isFinite(v) ? v : 0; };
+  var fmtInt = function (n) { return Math.round(n).toLocaleString("es-CO"); };
+  var fmt1 = function (n) { return n.toLocaleString("es-CO", { minimumFractionDigits: 1, maximumFractionDigits: 1 }); };
+  var expOrders = function (r, n) { return r >= 1 ? n : (1 - Math.pow(r, n)) / (1 - r); };
+
+  function compute() {
+    var budget = num("budget"), cpc = Math.max(1, num("cpc"));
+    var qual = Math.min(100, Math.max(0, num("qual"))) / 100, close = Math.min(100, Math.max(0, num("close"))) / 100;
+    var ticket = num("ticket"), margin = Math.min(100, Math.max(0, num("margin"))) / 100;
+    var r = Math.min(0.99, Math.max(0, num("rep") / 100)), n = Math.max(1, Math.round(num("cycles")));
+    var contacts = budget / cpc, qualified = contacts * qual, customers = qualified * close;
+    var cac = customers > 0 ? budget / customers : 0;
+    var contrib = ticket * margin;
+    var orders = expOrders(r, n);
+    var ltv = contrib * orders;
+    var ratio = cac > 0 ? ltv / cac : 0;
+
+    document.getElementById("o-cust").textContent = fmt1(customers);
+    document.getElementById("o-cac").textContent = cac > 0 ? fmtCOP(cac) : "–";
+    document.getElementById("o-contrib").textContent = fmtCOP(contrib);
+    document.getElementById("o-orders").textContent = fmt1(orders);
+    document.getElementById("o-ltv").textContent = fmtCOP(ltv);
+    document.getElementById("o-ratio").textContent = cac > 0 ? fmt1(ratio) + "×" : "–";
+
+    var rows = [
+      ["Contactos", contacts, false],
+      ["Calificados", qualified, false],
+      ["Primera compra", customers, false],
+      ["Siguen en el pedido 2", customers * r, true],
+      ["Siguen en el pedido 3", customers * Math.pow(r, 2), true],
+      ["Siguen en el pedido 6", customers * Math.pow(r, 5), true]
+    ];
+    var flow = document.getElementById("o-flow"); flow.innerHTML = "";
+    rows.forEach(function (row) {
+      var d = document.createElement("div"); d.className = "flow-row" + (row[2] ? " post" : "");
+      var w = contacts > 0 ? Math.max(0.6, row[1] / contacts * 100) : 0;
+      d.innerHTML = '<span class="lbl">' + row[0] + '</span><span class="track"><span class="fill" style="width:' + w + '%"></span></span><span class="v">' + (row[1] >= 10 ? fmtInt(row[1]) : fmt1(row[1])) + "</span>";
+      flow.appendChild(d);
+    });
+
+    var read = document.getElementById("o-read");
+    if (customers <= 0 || contrib <= 0) {
+      read.textContent = "Con estos valores no entran clientes o el pedido no deja contribución. Revise el costo por contacto, las tasas o el margen.";
+      return;
+    }
+    var payback = Math.ceil(cac / contrib);
+    var month1 = customers * contrib - budget;
+    var ltvUp = contrib * expOrders(Math.min(0.99, r + 0.1), n);
+    var msg = "La primera compra deja " + fmtCOP(contrib) + " por cliente y adquirirlo cuesta " + fmtCOP(cac) + ". ";
+    if (payback <= 1) { msg += "El costo se recupera desde el primer pedido. "; }
+    else if (payback <= orders) { msg += "Se recupera en el pedido " + payback + ": la rentabilidad depende de que esa recompra ocurra. "; }
+    else { msg += "Se necesitarían " + payback + " pedidos para recuperarlo y en 12 meses se esperan " + fmt1(orders) + ": así este motor pierde dinero. "; }
+    msg += "Resultado del primer mes: " + fmtCOP(month1) + ". Si la recompra sube 10 puntos, cada cliente vale " + fmtCOP(ltvUp) + " en 12 meses.";
+    read.textContent = msg;
+  }
+
+  function load(name) {
+    var p = presets[name];
+    keys.forEach(function (k) { inputs[k].value = p[k]; });
+    document.querySelectorAll(".seg-ctl button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-preset") === name)); });
+    compute();
+  }
+  document.querySelectorAll(".seg-ctl button").forEach(function (b) {
+    b.addEventListener("click", function () { load(b.getAttribute("data-preset")); });
+  });
+  keys.forEach(function (k) { inputs[k].addEventListener("input", compute); });
+  load("tutor");
+})();
+</script>
