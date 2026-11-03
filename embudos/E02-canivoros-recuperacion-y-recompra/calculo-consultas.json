@@ -1,0 +1,42 @@
+{
+  "moneda": "COP",
+  "modo": "volumen",
+  "costo_medios": {},
+  "economia": {
+    "precio": null,
+    "costo_variable": null,
+    "compras_por_cliente": 1,
+    "horizonte": "14 días; sin asumir otra recompra",
+    "otros_costos_adquisicion": null
+  },
+  "_notas": {
+    "base_real": "desconocido; volumen hipotético",
+    "dinero": "desconocido; costo_medios vacío evita presentar trabajo gratuito",
+    "pauta_nueva_propuesta_COP": 0,
+    "recompra": "medir aparte a 30 días con cohortes maduras"
+  },
+  "nombre": "E02 A · Consultas sin compra · escenario supuesto",
+  "volumen_inicial": 10,
+  "etapas": [
+    {
+      "nombre": "Consultas elegibles contactadas",
+      "fuente": "supuesto"
+    },
+    {
+      "nombre": "Personas que responden",
+      "tasa": 0.5,
+      "fuente": "supuesto"
+    },
+    {
+      "nombre": "Personas con cotización válida",
+      "tasa": 0.8,
+      "fuente": "supuesto"
+    },
+    {
+      "nombre": "Primeros compradores con pedido pagado y entregado",
+      "tasa": 0.4,
+      "fuente": "supuesto"
+    }
+  ]
+}
+
