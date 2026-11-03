@@ -1,13 +1,29 @@
 ---
 name: encontrar-prospectos
-description: Encuentra, verifica y prioriza negocios de Bogotá que puedan comprar y volver a comprar Canívoros (pet shops, tiendas de alimento natural o BARF, veterinarias con punto de venta, criaderos, adiestramiento, guarderías, hoteles y peluquerías caninas), por lotes de máximo 10, con fuente y fecha por dato, nivel A/B/C, registro en prospectos/REGISTRO.md y borradores de mensaje sin enviar. Úsala siempre que se pida buscar, encontrar, armar, verificar, depurar o priorizar prospectos, clientes potenciales, leads, aliados, distribuidores o puntos de venta para Canívoros; cuando se pregunte "¿qué tiendas venden BARF en Suba?", "¿qué criaderos podrían comprarnos?" o "¿a quién le escribimos primero?"; al trabajar prospectos_bogota.xlsx, REGISTRO.md, un lote de prospectos o las tareas BL-010, BL-012 o BL-043, aunque no se diga la palabra "prospecto".
+description: Encuentra, verifica y prioriza negocios de Bogotá que puedan comprar y volver a comprar Canívoros (pet shops, tiendas de alimento natural o BARF, veterinarias con punto de venta, criaderos, adiestramiento, guarderías, hoteles y peluquerías caninas), por lotes de máximo 10, con fuente y fecha por dato, nivel A/B/C y borradores de mensaje sin enviar, todo en un solo archivo con fecha, prospectos/prospectos-AAAA-MM-DD.md, más su .csv. Úsala siempre que se pida buscar, encontrar, armar, verificar, depurar o priorizar prospectos, clientes potenciales, leads, aliados, distribuidores o puntos de venta para Canívoros; cuando se pregunte "¿qué tiendas venden BARF en Suba?", "¿qué criaderos podrían comprarnos?" o "¿a quién le escribimos primero?"; al trabajar prospectos_bogota.xlsx, el archivo prospectos-AAAA-MM-DD.md o .csv, un lote de prospectos o las tareas BL-010, BL-012 o BL-043, aunque no se diga la palabra "prospecto".
 ---
 
 # Encontrar prospectos
 
 Esta skill ejecuta la guía del equipo en `prospectos/AGENTS.md`. **Léela primero, junto con `AGENTS.md` de la raíz y `prospectos/CLAUDE.md`: mandan sobre esta skill.** Si algo de aquí las contradice, gana la guía; si la guía cambió, síguela y avisa de la diferencia.
 
-Lo que la skill agrega a la guía: el procedimiento de un lote de principio a fin, las plantillas de `REGISTRO.md` y del archivo de lote, y un script que revisa el registro y detecta duplicados, fuentes faltantes y coincidencias con clientes actuales.
+Lo que la skill agrega a la guía: el procedimiento de un lote de principio a fin, la plantilla del archivo de prospectos y un script que prepara el archivo del día, genera el CSV, revisa el registro y detecta duplicados, fuentes faltantes y coincidencias con clientes actuales.
+
+## Archivos de salida: siempre con fecha, siempre .md y .csv
+
+Todo lo que produce la skill va en **un solo par de archivos con la fecha del día** en `prospectos/`:
+
+| Archivo | Qué tiene |
+|---|---|
+| `prospectos-AAAA-MM-DD.md` | Todo: resumen general, cómo se verificó, la tabla del registro y un bloque `## Lote N` por lote (resumen, búsquedas, notas, fichas A y borradores B) |
+| `prospectos-AAAA-MM-DD.csv` | La misma tabla del registro, una fila por negocio, para abrir en Excel o Google Sheets |
+
+Reglas:
+
+- **Siempre con fecha.** Ningún archivo de resultados sin fecha (`REGISTRO.md`, `lote.md`, `prospectos.md`). La fecha es la del día en que se trabaja (AAAA-MM-DD).
+- **Siempre los dos formatos.** Cada vez que cambia el `.md`, regenera el `.csv` con `registro.py csv`. El `.csv` no se edita a mano: el `.md` manda.
+- **Un solo par en la carpeta.** Si se trabaja otro día, `registro.py preparar prospectos` renombra el par a la fecha de hoy y ahí se agrega lo nuevo. No dejes copias de días anteriores: el historial queda en git.
+- `registro.py revisar` marca como bloqueante un archivo sin fecha, un `.csv` que falta o un `.csv` que no coincide con el `.md`.
 
 El objetivo es una lista **corta, real y contactable**. La lista de 134 prospectos de Bogotá se armó con IA y quedó llena de campos desconocidos (BL-010). Diez negocios verificados valen más que cien supuestos: cada dato falso cuesta una llamada perdida y le resta credibilidad a quien llama.
 
@@ -28,10 +44,18 @@ Si no dicen tipo o zona, empieza por tiendas de mascotas y de alimento natural e
 
 ## 2. Revisar lo que ya existe
 
-Los resultados se guardan en la carpeta `prospectos/`, junto a la guía. Si `prospectos/REGISTRO.md` no existe, copia `assets/REGISTRO.md` ahí. Luego ejecuta, desde la raíz del repositorio:
+Los resultados se guardan en la carpeta `prospectos/`, junto a la guía. Primero deja listo el archivo de hoy, desde la raíz del repositorio:
 
 ```bash
-python3 .claude/skills/encontrar-prospectos/scripts/registro.py revisar prospectos/REGISTRO.md --excluir ventas_canivoros_2026.xlsx
+python3 .claude/skills/encontrar-prospectos/scripts/registro.py preparar prospectos
+```
+
+Imprime la ruta del archivo de hoy (`prospectos/prospectos-AAAA-MM-DD.md`). Si no había ninguno, lo crea desde `assets/prospectos.md` con su `.csv`. Si el más reciente es de otro día, lo renombra a la fecha de hoy. Si avisa de archivos del formato anterior (`REGISTRO.md`, `lote-*.md`) o de varios archivos con fecha, unifícalos en el de hoy y bórralos. En los comandos siguientes, `prospectos/prospectos-AAAA-MM-DD.md` es esa ruta.
+
+Luego revisa lo que ya existe:
+
+```bash
+python3 .claude/skills/encontrar-prospectos/scripts/registro.py revisar prospectos/prospectos-AAAA-MM-DD.md --excluir ventas_canivoros_2026.xlsx
 ```
 
 Te da el siguiente ID libre, lo que ya está registrado (para no repetirlo) y los problemas pendientes.
@@ -39,16 +63,16 @@ Te da el siguiente ID libre, lo que ya está registrado (para no repetirlo) y lo
 Para traer una lista externa (CSV o XLSX) al registro:
 
 ```bash
-python3 .claude/skills/encontrar-prospectos/scripts/registro.py importar prospectos_bogota.xlsx --registro prospectos/REGISTRO.md --excluir ventas_canivoros_2026.xlsx
+python3 .claude/skills/encontrar-prospectos/scripts/registro.py importar prospectos_bogota.xlsx --registro prospectos/prospectos-AAAA-MM-DD.md --excluir ventas_canivoros_2026.xlsx
 ```
 
-Sin `--escribir` solo muestra las filas que agregaría. Con `--escribir` las agrega como nivel C, estado `por verificar` y fuente marcada (V). Omite duplicados del registro, distribuidores publicados y coincidencias con clientes del Excel de ventas. Una lista importada no está verificada: después hay que verificarla por lotes.
+Sin `--escribir` solo muestra las filas que agregaría. Con `--escribir` las agrega como nivel C, estado `por verificar` y fuente marcada (V), y actualiza el `.csv`. Omite duplicados del registro, distribuidores publicados y coincidencias con clientes del Excel de ventas. Una lista importada no está verificada: después hay que verificarla por lotes.
 
 ## 3. Buscar
 
 Lee `references/busquedas.md`: tiene las localidades, consultas listas para copiar por tipo de negocio, las fuentes de la guía y cómo leer cada una.
 
-- Usa WebSearch y WebFetch (o la herramienta de lectura web disponible). Anota cada búsqueda en el archivo del lote: fecha, fuente, consulta y resultados útiles.
+- Usa WebSearch y WebFetch (o la herramienta de lectura web disponible). Anota cada búsqueda en la tabla "Búsquedas hechas" del bloque del lote: fecha, fuente, consulta y resultados útiles.
 - Junta unos 15 o 20 candidatos para quedarte con 10: muchos se caen al verificar (cerrados, solo accesorios, duplicados, fuera de la zona).
 - La mejor pista para tiendas son las páginas "dónde comprar" de marcas naturales: esas tiendas ya venden natural.
 - Anota la URL de cada dato en el momento en que lo encuentras. Reconstruir fuentes después casi nunca funciona.
@@ -64,15 +88,22 @@ Sigue el paso 3 de la guía (existe y opera, datos comerciales, encaje, tamaño)
 
 ## 5. Registrar y priorizar
 
-Agrega cada negocio revisado a `REGISTRO.md` con el siguiente ID libre (`P001`, `P002`…; nunca se reutilizan) y asígnale nivel según la tabla de la guía:
+Agrega cada negocio revisado a la tabla "Registro" de `prospectos-AAAA-MM-DD.md` con el siguiente ID libre (`P001`, `P002`…; nunca se reutilizan) y asígnale nivel según la tabla de la guía:
 
 - **A**: verificado, atiende perros y ya trabaja con alimento natural o maneja mucho volumen.
 - **B**: verificado y atiende perros, sin señales claras de alimento natural.
 - **C**: datos incompletos o poco encaje.
 
-Registra también los descartados (cerrados, duplicados, solo gatos, personas sin negocio) con estado `descartado: <motivo>` y nivel `—`, para no volver a revisarlos. **Excepción:** si un candidato coincide con un cliente del Excel de ventas, no escribas su nombre en ningún archivo; anota en el lote solo que hubo una coincidencia.
+Registra también los descartados (cerrados, duplicados, solo gatos, personas sin negocio) con estado `descartado: <motivo>` y nivel `—`, para no volver a revisarlos. **Excepción:** si un candidato coincide con un cliente del Excel de ventas, no escribas su nombre en ningún archivo (ni en el `.md` ni en el `.csv`); anota en las notas del lote solo que hubo una coincidencia.
 
-Después vuelve a ejecutar `registro.py revisar` y corrige lo que marque como bloqueante: duplicados, A o B sin verificar, verificados sin URL o sin fecha, verificaciones de más de 90 días, coincidencias con distribuidores o clientes. Las coincidencias son **posibles**, no seguras: si confirmas que no es cliente, escribe `no es cliente` en la columna Notas y el script deja de marcarla.
+Después genera el `.csv` y vuelve a revisar:
+
+```bash
+python3 .claude/skills/encontrar-prospectos/scripts/registro.py csv prospectos/prospectos-AAAA-MM-DD.md
+python3 .claude/skills/encontrar-prospectos/scripts/registro.py revisar prospectos/prospectos-AAAA-MM-DD.md --excluir ventas_canivoros_2026.xlsx
+```
+
+Corrige lo que marque como bloqueante: archivo sin fecha, `.csv` que falta o no coincide, duplicados, A o B sin verificar, verificados sin URL o sin fecha, verificaciones de más de 90 días, coincidencias con distribuidores o clientes. Si cambias el `.md`, vuelve a generar el `.csv`. Las coincidencias son **posibles**, no seguras: si confirmas que no es cliente, escribe `no es cliente` en la columna Notas y el script deja de marcarla.
 
 ## 6. Preparar el abordaje
 
@@ -82,7 +113,9 @@ Los borradores no llevan precios, condiciones, beneficios de salud, "sin subprod
 
 ## 7. Cerrar el lote
 
-Guarda el lote en `prospectos/lote-AAAA-MM-DD.md` con la plantilla `assets/lote.md` (si ya hay uno ese día, agrega `-2`, `-3`). Responde en el chat con el resumen de 5 líneas que pide `prospectos/CLAUDE.md`:
+Agrega el lote al mismo `prospectos-AAAA-MM-DD.md`, como un bloque `## Lote N · AAAA-MM-DD · <tipo> · <zona> (P0xx–P0yy)` debajo del registro, con la estructura de `assets/prospectos.md` (resumen, búsquedas, notas, fichas A, borradores B). No crees archivos de lote aparte. Actualiza el "Resumen general" del inicio (totales, mejores y decisiones pendientes), regenera el `.csv` y corre `revisar` hasta que no queden bloqueantes.
+
+Responde en el chat con el resumen de 5 líneas que pide `prospectos/CLAUDE.md`:
 
 ```markdown
 1. Revisados: N negocios de <tipo> en <localidad> (P0xx–P0yy).
@@ -92,7 +125,7 @@ Guarda el lote en `prospectos/lote-AAAA-MM-DD.md` con la plantilla `assets/lote.
 5. Debe decidir Andrés: <aprobaciones de contacto, dudas de clientes actuales, avisos de volumen grande>.
 ```
 
-Agrega al final la ruta de los dos archivos y los supuestos que hiciste (tipo, zona). No hagas commit ni push de los resultados salvo que te lo pidan.
+Agrega al final la ruta de los dos archivos (`.md` y `.csv`) y los supuestos que hiciste (tipo, zona). No hagas commit ni push de los resultados salvo que te lo pidan.
 
 ## Parecidos a los mejores clientes
 
@@ -103,6 +136,7 @@ Si un prospecto podría pedir volúmenes muy grandes, avísalo en la línea 5 de
 ## Errores frecuentes
 
 - Entregar muchos nombres sin canal ni fuente. Mejor 10 verificados y las búsquedas para el siguiente lote.
+- Guardar resultados en archivos sin fecha, en archivos de lote sueltos o solo en `.md`: todo va en `prospectos-AAAA-MM-DD.md` y su `.csv`.
 - Tomar el barrio o el estrato como prueba de demanda. El encaje se demuestra con lo que vende el negocio y su actividad reciente.
 - Registrar a un distribuidor o cliente actual como prospecto, o a una tienda que ya compra a un aliado, sin avisar.
 - Incluir negocios solo de gatos: la guía los descarta.

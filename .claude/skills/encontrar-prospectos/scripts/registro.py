@@ -1,16 +1,30 @@
 #!/usr/bin/env python3
-"""Revisa e importa el registro de prospectos (prospectos/REGISTRO.md).
+"""Prepara, revisa, exporta e importa el archivo de prospectos.
+
+Los resultados viven en un solo par de archivos con fecha en prospectos/:
+prospectos-AAAA-MM-DD.md (todo: resumen, registro, lotes, fichas y
+borradores) y prospectos-AAAA-MM-DD.csv (la tabla del registro).
 
 Subcomandos:
-  revisar REGISTRO.md [--excluir ventas.xlsx ...] [--hoy AAAA-MM-DD]
+  preparar CARPETA [--hoy AAAA-MM-DD]
+      Deja listo el archivo de hoy y imprime su ruta. Si no hay ninguno, lo
+      crea desde assets/prospectos.md. Si el más reciente es de otro día, lo
+      renombra (con su .csv) a la fecha de hoy.
+
+  csv PROSPECTOS.md
+      Escribe PROSPECTOS.csv (mismo nombre) con la tabla del registro.
+
+  revisar PROSPECTOS.md [--excluir ventas.xlsx ...] [--hoy AAAA-MM-DD]
       Valida la tabla: IDs, celdas vacías, niveles y estados, fuentes y fechas,
       duplicados, distribuidores publicados y posibles clientes actuales.
+      También exige nombre con fecha y un .csv al día.
       Imprime un informe en Markdown con el siguiente ID libre.
 
-  importar LISTA.csv|xlsx --registro REGISTRO.md [--excluir ...] [--hoja H] [--escribir]
+  importar LISTA.csv|xlsx --registro PROSPECTOS.md [--excluir ...] [--hoja H] [--escribir]
       Convierte una lista externa en filas del registro (nivel C, estado
       "por verificar", fuente marcada (V)). Omite duplicados, distribuidores
       publicados y clientes actuales. Sin --escribir solo muestra las filas.
+      Con --escribir también actualiza el .csv.
 
 Los nombres de clientes del Excel de ventas nunca se imprimen ni se escriben:
 solo se informa que hubo una coincidencia. Solo usa la biblioteca estándar;
@@ -31,7 +45,8 @@ from pathlib import Path
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 DISTRIBUIDORES = SKILL_DIR / "assets" / "distribuidores_publicados.txt"
-PLANTILLA_REGISTRO = SKILL_DIR / "assets" / "REGISTRO.md"
+PLANTILLA_REGISTRO = SKILL_DIR / "assets" / "prospectos.md"
+PATRON_ARCHIVO = re.compile(r"^prospectos-(\d{4}-\d{2}-\d{2})\.md$")
 
 COLUMNAS = [
     "ID", "Nombre", "Tipo", "Localidad", "Web o redes", "Canal público",
@@ -176,7 +191,12 @@ def es_separador(linea: str) -> bool:
 
 
 class Registro:
-    """La primera tabla Markdown del archivo cuyo encabezado incluye ID y Nombre."""
+    """La tabla del registro dentro del archivo Markdown.
+
+    El archivo único tiene otras tablas (búsquedas, precios). Se toma la primera
+    con las columnas del registro (ID, Nombre, Estado y Fuentes); si no hay,
+    la primera con ID y Nombre.
+    """
 
     def __init__(self, ruta: Path):
         self.ruta = ruta
@@ -184,22 +204,26 @@ class Registro:
         self.encabezado: list[str] = []
         self.filas: list[dict] = []
         self.fin_tabla = None  # índice de línea después de la última fila
+        candidatas = []
         for i in range(len(self.lineas) - 1):
             if self.lineas[i].lstrip().startswith("|") and es_separador(self.lineas[i + 1]):
-                encabezado = dividir_fila(self.lineas[i])
-                claves = {clave_encabezado(h) for h in encabezado}
+                claves = {clave_encabezado(h) for h in dividir_fila(self.lineas[i])}
                 if {"id", "nombre"} <= claves:
-                    self.encabezado = encabezado
-                    j = i + 2
-                    while j < len(self.lineas) and self.lineas[j].lstrip().startswith("|"):
-                        valores = dividir_fila(self.lineas[j])
-                        valores += [""] * (len(encabezado) - len(valores))
-                        fila = {self._canonica(h): v for h, v in zip(encabezado, valores)}
-                        fila["_linea"] = j + 1
-                        self.filas.append(fila)
-                        j += 1
-                    self.fin_tabla = j
-                    break
+                    candidatas.append((not {"estado", "fuentes"} <= claves, i))
+        if not candidatas:
+            return
+        i = min(candidatas)[1]
+        encabezado = dividir_fila(self.lineas[i])
+        self.encabezado = encabezado
+        j = i + 2
+        while j < len(self.lineas) and self.lineas[j].lstrip().startswith("|"):
+            valores = dividir_fila(self.lineas[j])
+            valores += [""] * (len(encabezado) - len(valores))
+            fila = {self._canonica(h): v for h, v in zip(encabezado, valores)}
+            fila["_linea"] = j + 1
+            self.filas.append(fila)
+            j += 1
+        self.fin_tabla = j
 
     @staticmethod
     def _canonica(encabezado: str) -> str:
@@ -225,6 +249,73 @@ class Registro:
 def fila_markdown(valores: list[str]) -> str:
     limpios = [str(v).replace("|", "\\|").replace("\n", " ").strip() for v in valores]
     return "| " + " | ".join(limpios) + " |"
+
+
+# ---------------------------------------------------------------- archivo con fecha y CSV
+
+def ruta_csv(md: Path) -> Path:
+    return md.with_suffix(".csv")
+
+
+def texto_csv(registro: Registro) -> str:
+    """La tabla del registro como CSV (coma, UTF-8), con las columnas en orden fijo."""
+    salida = io.StringIO()
+    escritor = csv.writer(salida, lineterminator="\n")
+    escritor.writerow(COLUMNAS)
+    for f in registro.filas:
+        escritor.writerow([f.get(c, "") for c in COLUMNAS])
+    return salida.getvalue()
+
+
+def escribir_csv(registro: Registro) -> Path:
+    destino = ruta_csv(registro.ruta)
+    # utf-8-sig: Excel abre bien las tildes.
+    destino.write_text(texto_csv(registro), encoding="utf-8-sig")
+    return destino
+
+
+def archivos_con_fecha(carpeta: Path) -> list[tuple[str, Path]]:
+    return sorted((m.group(1), p) for p in carpeta.glob("prospectos-*.md") if (m := PATRON_ARCHIVO.match(p.name)))
+
+
+def preparar(carpeta: Path, hoy: dt.date) -> str:
+    carpeta.mkdir(parents=True, exist_ok=True)
+    fecha = hoy.isoformat()
+    destino = carpeta / f"prospectos-{fecha}.md"
+    existentes = archivos_con_fecha(carpeta)
+    lineas = []
+    if not existentes:
+        texto = PLANTILLA_REGISTRO.read_text(encoding="utf-8").replace("AAAA-MM-DD", fecha)
+        destino.write_text(texto, encoding="utf-8")
+        escribir_csv(Registro(destino))
+        lineas.append(f"Creado {destino} desde la plantilla, con su .csv.")
+        viejos = [p.name for p in (carpeta / "REGISTRO.md",) if p.exists()] + sorted(p.name for p in carpeta.glob("lote-*.md"))
+        if viejos:
+            lineas.append(f"Hay archivos del formato anterior ({', '.join(viejos)}): unifícalos en {destino.name} y bórralos.")
+    else:
+        ultima, origen = existentes[-1]
+        if ultima > fecha:
+            return f"El archivo más reciente ({origen.name}) tiene una fecha posterior a hoy ({fecha}). Revisa la fecha antes de seguir."
+        if ultima < fecha:
+            texto = origen.read_text(encoding="utf-8").splitlines()
+            for i, linea in enumerate(texto):
+                if linea.startswith("# "):
+                    texto[i] = linea.replace(ultima, fecha)
+                    break
+            destino.write_text("\n".join(texto) + "\n", encoding="utf-8")
+            origen.unlink()
+            csv_viejo = ruta_csv(origen)
+            if csv_viejo.exists():
+                csv_viejo.unlink()
+            escribir_csv(Registro(destino))
+            lineas.append(f"Renombrado {origen.name} → {destino.name} (y su .csv). El historial queda en git.")
+        else:
+            lineas.append(f"Ya existe el archivo de hoy: {destino}.")
+        otros = [p.name for f, p in existentes[:-1]]
+        if otros:
+            lineas.append(f"Quedan archivos de prospectos más viejos ({', '.join(otros)}): unifícalos en {destino.name} y bórralos.")
+    lineas.append(str(destino))
+    return "\n".join(lineas)
 
 
 # ---------------------------------------------------------------- exclusiones
@@ -319,12 +410,32 @@ def estado_de(fila: dict) -> str:
     return " ".join(palabras(fila.get("Estado", "")))
 
 
+def revisar_archivos(registro: Registro, hoy: dt.date, bloqueantes: list[str], avisos: list[str]) -> None:
+    """El archivo lleva fecha, es el único de la carpeta y tiene su .csv al día."""
+    nombre = registro.ruta.name
+    m = PATRON_ARCHIVO.match(nombre)
+    if not m:
+        bloqueantes.append(f"{nombre}: el archivo no lleva fecha; usa prospectos-AAAA-MM-DD.md (`registro.py preparar {registro.ruta.parent}`).")
+    else:
+        if m.group(1) != hoy.isoformat():
+            avisos.append(f"{nombre}: es del {m.group(1)}; si hoy agregas datos, ejecuta antes `registro.py preparar {registro.ruta.parent}`.")
+        otros = [p.name for _, p in archivos_con_fecha(registro.ruta.parent) if p.resolve() != registro.ruta.resolve()]
+        if otros:
+            avisos.append(f"Hay otros archivos de prospectos en la carpeta ({', '.join(otros)}): debe quedar uno solo, el más reciente.")
+    destino = ruta_csv(registro.ruta)
+    if not destino.exists():
+        bloqueantes.append(f"Falta {destino.name}: ejecuta `registro.py csv {registro.ruta}`.")
+    elif destino.read_text(encoding="utf-8-sig") != texto_csv(registro):
+        bloqueantes.append(f"{destino.name} no coincide con la tabla del .md: ejecuta otra vez `registro.py csv {registro.ruta}`.")
+
+
 def revisar(registro: Registro, exclusiones: Exclusiones, hoy: dt.date) -> str:
     if not registro.encabezado:
-        return f"No encontré la tabla del registro en {registro.ruta}. Copia la plantilla assets/REGISTRO.md."
+        return f"No encontré la tabla del registro en {registro.ruta}. Crea el archivo con `registro.py preparar prospectos`."
 
     bloqueantes: list[str] = []
     avisos: list[str] = []
+    revisar_archivos(registro, hoy, bloqueantes, avisos)
     faltan_columnas = [c for c in COLUMNAS if c not in OPCIONALES and c not in {Registro._canonica(h) for h in registro.encabezado}]
     if faltan_columnas:
         avisos.append(f"Faltan columnas en la tabla: {', '.join(faltan_columnas)}.")
@@ -465,7 +576,7 @@ def leer_lista(ruta: Path, hoja: str | None) -> list[dict]:
 
 def importar(lista: Path, registro: Registro, exclusiones: Exclusiones, hoja: str | None, escribir: bool) -> str:
     if not registro.encabezado:
-        return f"No encontré la tabla del registro en {registro.ruta}. Copia la plantilla assets/REGISTRO.md."
+        return f"No encontré la tabla del registro en {registro.ruta}. Crea el archivo con `registro.py preparar prospectos`."
     datos = leer_lista(lista, hoja)
     vistos: dict[tuple, str] = {}
     for f in registro.filas:
@@ -516,6 +627,7 @@ def importar(lista: Path, registro: Registro, exclusiones: Exclusiones, hoja: st
 
     if escribir and nuevas:
         registro.agregar(nuevas)
+        escribir_csv(Registro(registro.ruta))
 
     lineas = [
         f"## Importación de {lista.name}",
@@ -526,7 +638,7 @@ def importar(lista: Path, registro: Registro, exclusiones: Exclusiones, hoja: st
         f"- Omitidas por distribuidor publicado: {len(distribuidores)}" + (f" ({'; '.join(distribuidores)})" if distribuidores else ""),
         f"- Omitidas por coincidir con un cliente del Excel de ventas: {clientes} (sin nombres)",
         f"- Sin nombre: {len(sin_nombre)}" + (f" (filas {', '.join(map(str, sin_nombre[:15]))})" if sin_nombre else ""),
-        "- " + ("Filas agregadas a " + str(registro.ruta) if escribir else "Vista previa: agrega --escribir para guardarlas en el registro."),
+        "- " + (f"Filas agregadas a {registro.ruta} y a {ruta_csv(registro.ruta).name}" if escribir else "Vista previa: agrega --escribir para guardarlas en el registro."),
     ]
     if nuevas and not escribir:
         columnas = [Registro._canonica(h) for h in registro.encabezado]
@@ -547,6 +659,13 @@ def main(argv: list[str] | None = None) -> int:
     comun.add_argument("--sin-distribuidores", action="store_true",
                        help="No comparar con assets/distribuidores_publicados.txt")
 
+    p_pre = sub.add_parser("preparar", help="Deja listo el archivo de hoy (prospectos-AAAA-MM-DD.md y .csv)")
+    p_pre.add_argument("carpeta", type=Path)
+    p_pre.add_argument("--hoy", type=dt.date.fromisoformat, default=dt.date.today())
+
+    p_csv = sub.add_parser("csv", help="Escribe el .csv con la tabla del registro")
+    p_csv.add_argument("registro", type=Path)
+
     p_rev = sub.add_parser("revisar", parents=[comun], help="Valida el registro")
     p_rev.add_argument("registro", type=Path)
     p_rev.add_argument("--hoy", type=dt.date.fromisoformat, default=dt.date.today())
@@ -555,23 +674,32 @@ def main(argv: list[str] | None = None) -> int:
     p_imp.add_argument("lista", type=Path)
     p_imp.add_argument("--registro", type=Path, required=True)
     p_imp.add_argument("--hoja", help="Hoja del XLSX (por defecto la primera)")
-    p_imp.add_argument("--escribir", action="store_true", help="Agregar las filas al registro")
+    p_imp.add_argument("--escribir", action="store_true", help="Agregar las filas al registro y al .csv")
 
     args = parser.parse_args(argv)
-    exclusiones = Exclusiones(args.excluir, usar_distribuidores=not args.sin_distribuidores)
 
+    if args.comando == "preparar":
+        print(preparar(args.carpeta, args.hoy))
+        return 0
+    if args.comando == "csv":
+        if not args.registro.exists():
+            parser.error(f"no existe {args.registro}")
+        registro = Registro(args.registro)
+        if not registro.encabezado:
+            parser.error(f"{args.registro} no tiene la tabla del registro")
+        print(f"Escrito {escribir_csv(registro)} ({len(registro.filas)} filas).")
+        return 0
+
+    exclusiones = Exclusiones(args.excluir, usar_distribuidores=not args.sin_distribuidores)
     if args.comando == "revisar":
         if not args.registro.exists():
-            parser.error(f"no existe {args.registro}; copia {PLANTILLA_REGISTRO}")
+            parser.error(f"no existe {args.registro}; créalo con `registro.py preparar prospectos`")
         print(revisar(Registro(args.registro), exclusiones, args.hoy))
     else:
         if not args.lista.exists():
             parser.error(f"no existe {args.lista}")
         if not args.registro.exists():
-            if not args.escribir:
-                parser.error(f"no existe {args.registro}; copia {PLANTILLA_REGISTRO} o usa --escribir para crearlo")
-            args.registro.parent.mkdir(parents=True, exist_ok=True)
-            args.registro.write_text(PLANTILLA_REGISTRO.read_text(encoding="utf-8"), encoding="utf-8")
+            parser.error(f"no existe {args.registro}; créalo con `registro.py preparar prospectos`")
         print(importar(args.lista, Registro(args.registro), exclusiones, args.hoja, args.escribir))
     return 0
 

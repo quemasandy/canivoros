@@ -33,7 +33,7 @@ Responsables, fechas y esfuerzos del backlog son **propuestas**, no compromisos.
 | [QFD.pdf](QFD.pdf) | Material de referencia sobre QFD (despliegue de la función de calidad) |
 | `ventas_canivoros_2026.xlsx` | Registro de ventas jul–oct 2026 por cliente, fecha y producto (sin precios) |
 | [backlog/](backlog/README.md) | Backlog BL-001 a BL-058 y sus consolidados |
-| [.claude/skills/encontrar-prospectos/](.claude/skills/encontrar-prospectos/SKILL.md) | Skill de Claude Code `/encontrar-prospectos`: ejecuta la guía de `prospectos/AGENTS.md` por lotes, con plantillas de registro y lote, y un script que revisa `prospectos/REGISTRO.md` e importa listas. Guarda los resultados en `prospectos/` |
+| [.claude/skills/encontrar-prospectos/](.claude/skills/encontrar-prospectos/SKILL.md) | Skill de Claude Code `/encontrar-prospectos`: ejecuta la guía de `prospectos/AGENTS.md` por lotes, con una plantilla y un script que prepara el archivo del día, genera el CSV, revisa el registro e importa listas. Guarda todo en `prospectos/prospectos-AAAA-MM-DD.md` y su `.csv`, siempre con fecha |
 | [embudos/](embudos/AGENTS.md) | Embudos de venta en borrador: guía (`AGENTS.md`), registro `EMBUDOS.md` y una carpeta por embudo (`E01-…/`) con el documento, las entradas y la salida de la calculadora |
 | [.claude/skills/embudos-de-venta/](.claude/skills/embudos-de-venta/SKILL.md) | Skill de Claude Code `/embudos-de-venta`: diseña, calcula y audita embudos de venta. Crea la carpeta de cada embudo con `nuevo_embudo.py`, hace las cuentas con `calcular_embudo.py` y guarda los resultados en `embudos/` |
 
