@@ -70,6 +70,22 @@ Ningún documento del repo debe presentar como dato algo que todavía es hipóte
 
 - [`embudos-de-venta`](.claude/skills/embudos-de-venta/SKILL.md): diseña, calcula y audita embudos de venta (WhatsApp, recompra, e-commerce, B2B, servicios). Guarda cada embudo en `embudos/E01-…/` y lo registra en `embudos/EMBUDOS.md`. Claude Code la usa sola cuando se le pide un embudo o funnel en este repositorio. Los números que produce son supuestos hasta que se midan.
 
+## Skills de Codex
+
+Codex encuentra las tres skills en `.agents/skills/`. Cada carpeta es un enlace simbólico a su versión en `.claude/skills/`, así ambos agentes usan las mismas instrucciones, scripts, referencias y plantillas.
+
+| Skill | Para qué sirve | Ejemplo en Codex |
+|---|---|---|
+| [`analisis-competencia`](.claude/skills/analisis-competencia/SKILL.md) | Compara competidores, precios, ofertas y posicionamiento con evidencia | `$analisis-competencia compara las alternativas de Canívoros en Bogotá` |
+| [`embudos-de-venta`](.claude/skills/embudos-de-venta/SKILL.md) | Diseña, calcula y audita embudos de adquisición y recompra | `$embudos-de-venta diseña un embudo de WhatsApp y recompra para Canívoros` |
+| [`encontrar-prospectos`](.claude/skills/encontrar-prospectos/SKILL.md) | Busca y verifica posibles distribuidores por lotes de hasta 10 negocios | `$encontrar-prospectos busca 10 tiendas de alimento natural en Usaquén` |
+
+Abre Codex dentro del repositorio, en una rama que incluya estos cambios. Puedes pedir una skill con `$nombre` o dejar que Codex la elija según el pedido. Las reglas de `AGENTS.md` y las guías de cada carpeta siguen aplicando; los resultados se guardan en `competencia/`, `embudos/` y `prospectos/`.
+
+Los enlaces requieren un checkout que admita enlaces simbólicos. En Windows, habilita el soporte de enlaces simbólicos antes de clonar (por ejemplo, con el Modo de desarrollador y `git clone -c core.symlinks=true <url>`). Si Git materializa el enlace como un archivo de texto, Codex no encontrará la skill.
+
+Para actualizar una skill, edita su carpeta original en `.claude/skills/`. Para agregar otra, crea su carpeta allí y un enlace del mismo nombre en `.agents/skills/`.
+
 ## Cómo contribuir
 
 - **Ramas:** el trabajo se hace en `backlog` (o en una rama derivada como `docs/...`) del fork `quemasandy/canivoros` y se propone por PR hacia `develop` de `segodimor2d2/canivoros`.
