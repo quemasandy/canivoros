@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: auditar-tienda-online
+expected_outcome: |
+  Una auditoría que calcula la conversión por etapa (visita→carrito 1,1 %, carrito→compra 36 %,
+  global 0,4 %), la economía unitaria (CAC 62.500 COP vs. contribución por pedido cercana a
+  42.000 COP), concluye que la primera compra pierde dinero, identifica visita→carrito como la
+  fuga principal y prioriza acciones concretas, incluida la recompra.

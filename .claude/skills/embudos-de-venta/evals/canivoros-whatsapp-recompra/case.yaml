@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: canivoros-whatsapp-recompra
+expected_outcome: |
+  Un documento Markdown con un embudo conversacional por WhatsApp más un embudo de recompra
+  para Canívoros: mapa de etapas con diagrama, textos de WhatsApp listos para usar, cálculo
+  de leads y presupuesto necesarios para 60 clientes, economía unitaria con el margen marcado
+  como supuesto, recordatorio de reposición con permiso y plan de lanzamiento con experimentos.

@@ -63,6 +63,10 @@ Los consolidados se generan a partir de los `BL-*.md`: si se edita una tarea, ha
 
 Ningún documento del repo debe presentar como dato algo que todavía es hipótesis.
 
+## Skills de Claude Code
+
+- [`embudos-de-venta`](.claude/skills/embudos-de-venta/SKILL.md): diseña, calcula y audita embudos de venta (WhatsApp, recompra, e-commerce, B2B, servicios). Incluye la calculadora `scripts/calcular_embudo.py`. Claude Code la usa sola cuando se le pide un embudo o funnel dentro de este repositorio. Los números que produce son supuestos hasta que se midan.
+
 ## Cómo contribuir
 
 - **Ramas:** el trabajo se hace en `backlog` (o en una rama derivada como `docs/...`) del fork `quemasandy/canivoros` y se propone por PR hacia `develop` de `segodimor2d2/canivoros`.
