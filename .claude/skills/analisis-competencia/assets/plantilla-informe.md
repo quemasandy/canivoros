@@ -1,113 +1,87 @@
-# Análisis de competencia: {{TEMA}}
+# Informe de competencia · {{FECHA}}
 
-{{FECHA}} · Responsable: [nombre] · Versión 1
+Responsable: [nombre] · Uso interno: no publicar.
 
-> **Estado:** exploratorio. Muestra: [n] alternativas, [n] entrevistas a compradores, [n] a distribuidores, [n] reseñas. Sirve para descubrir patrones; no es representativa de [zona/mercado].
+> **Evidencia:** (E) visto en una fuente, con URL y fecha · (D) lo dice la marca · (H) interpretación · (V) dudoso o sin fecha. Lo que no se sabe: `desconocido`.
 >
-> **Cómo leer este informe:** cada hallazgo indica su base y su certeza (alta, media o baja). «Declarado» es lo que afirma una marca; «observado» es lo que vimos, compramos o medimos; «hipótesis» es nuestra interpretación. «Desconocido» significa que no hay dato, no que valga cero.
+> **Alcance:** muestra exploratoria de [n] marcas, [n] reseñas y [n] entrevistas. Sirve para descubrir patrones; no es representativa de Bogotá.
 
 <!-- Borra las secciones que no uses en lugar de rellenarlas. -->
 
-## 1. Decisión y alcance
+## 1. Pregunta
 
+- **Pregunta:**
 - **Decisión que alimenta:**
-- **Preguntas que responde:**
-  1.
-  2.
 - **Segmento y mascota:**
 - **Zona:**
 - **Canal:**
-- **Periodo de levantamiento:**
+- **Periodo de captura:**
 - **Fuera del alcance:**
 
-## 2. Resumen
+## 2. Resumen de hallazgos (máximo 5)
 
-| # | Hallazgo | Base | Certeza | Implicación para la decisión |
-|---|---|---|---|---|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
+| # | Qué vimos (fuente, fecha, evidencia) | Qué significa | Qué recomendamos probar |
+|---|---|---|---|
+| 1 | | | |
+| 2 | | | |
+| 3 | | | |
 
-**Recomendación:** [qué decidir o qué probar primero, y por qué].
+## 3. Tabla comparativa
 
-## 3. Alternativas analizadas
+| ID | Marca | Tipo | Formato y conservación | Precio/kg | Costo diario 10 kg | Costo diario 25 kg | Dónde se consigue | Entrega | Promesa | Reseñas |
+|---|---|---|---|---|---|---|---|---|---|---|
+| C01 | | | | | | | | | | |
 
-| Alternativa | Grupo estratégico | Tipo (directa, indirecta, alternativa actual) | Por qué se incluyó | Fuentes |
-|---|---|---|---|---|
-| | | | | |
+### Precios y cuentas
 
-## 4. Precio y oferta
+<!-- Pega aquí la salida de: competencia.py precios competencia/observaciones.csv -->
 
-<!-- Pega aquí la salida de: competencia.py precios observaciones.csv --propia "..." -->
+## 4. Mensajes
 
-**Lectura:** [bandas de precio por grupo, dónde se ubica la marca propia, qué explica las diferencias].
-
-**Costo diario:** [solo con raciones documentadas para el mismo perfil; si no hay, dilo].
-
-## 5. Matriz de perfil competitivo
-
-<!-- Pega aquí la salida de: competencia.py matriz matriz.csv --propia "..." -->
-
-**Origen de los pesos:** [entrevistas, ranking de criterios o propuesta provisional].
-
-**Lectura:** [factores que deciden, brechas prioritarias, robustez].
-
-## 6. Posicionamiento y mensajes
-
-| Marca | Promesa principal | Prueba que ofrece | Tipo de afirmación | Público al que habla | Tono |
-|---|---|---|---|---|---|
-| | | | | | |
-
-**Espacios libres:** [posiciones o necesidades que nadie ocupa de forma creíble].
-
-## 7. Voz del cliente y reseñas
-
-<!-- Pega aquí la salida de: competencia.py resenas resenas.csv -->
-
-**Lectura:** [patrones por marca, problemas comunes a la categoría y qué significan para nosotros].
-
-## 8. Canales, cobertura y experiencia de compra
-
-| Marca | Canales | Cobertura en la zona | Tiempo y costo de entrega | Experiencia de compra (compra de prueba) |
+| Marca | Promesa principal | Prueba que ofrece | Tipo de afirmación | Evidencia |
 |---|---|---|---|---|
 | | | | | |
 
-## 9. Síntesis
+**Promesas que repiten todos:**
 
-### FODA competitivo
+**Promesas que nadie usa:**
 
-| | Oportunidades (con evidencia) | Amenazas (con evidencia) |
-|---|---|---|
-| **Fortalezas** | FO: | FA: |
-| **Debilidades** | DO: | DA: |
+## 5. Reseñas
 
-### Brechas
+<!-- Pega aquí la salida de: competencia.py resenas competencia/resenas.csv -->
 
-| Factor | Situación actual | Referencia | Brecha | Evidencia | Acción |
-|---|---|---|---|---|---|
-| | | | | | |
+**Qué valoran y qué critican los compradores:**
 
-## 10. Pruebas comerciales propuestas
+## 6. Cobertura en Bogotá
+
+| Zona | Marcas presentes | Entrega disponible | Vacíos |
+|---|---|---|---|
+| | | | |
+
+## 7. Matriz de perfil competitivo
+
+<!-- Pega aquí la salida de: competencia.py matriz competencia/matriz.csv -->
+
+**Origen de los pesos:** [entrevistas o propuesta (H)].
+
+## 8. Recomendaciones y pruebas
 
 | Hallazgo (evidencia) | Hipótesis | Prueba | Métrica | Criterio de decisión | Límite de gasto o tiempo |
 |---|---|---|---|---|---|
 | | | | | | |
 
-## 11. Vacíos de información y próximos pasos
+## 9. Qué no se pudo verificar
 
-| Dato que falta | Por qué importa | Cómo obtenerlo | Responsable | Fecha |
-|---|---|---|---|---|
-| | | | | |
-
-## 12. Fuentes
-
-| # | Fuente | Tipo | Fecha de consulta o levantamiento |
+| Dato | Por qué importa | Cómo obtenerlo | Necesita aprobación de Andrés |
 |---|---|---|---|
-| 1 | | | |
+| | | | |
 
-## Anexo: método y limitaciones
+## 10. Qué debe decidir Andrés
 
-- **Selección de alternativas:**
-- **Instrumentos usados:** (guiones, protocolo de compra de prueba, criterios de codificación de reseñas)
-- **Limitaciones:** tamaño de muestra, sesgos de selección, datos declarados no verificados, vigencia de precios.
-- **Archivos:** `observaciones.csv`, `matriz.csv`, `resenas.csv`, `precios-normalizados.csv`.
+-
+
+## 11. Fuentes
+
+| # | Fuente (URL o descripción) | Fecha de consulta | Estado |
+|---|---|---|---|
+| 1 | | | verificada / No verificado |

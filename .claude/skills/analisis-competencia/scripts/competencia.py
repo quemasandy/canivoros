@@ -3,7 +3,7 @@
 """Herramientas de la skill «analisis-competencia».
 
 Subcomandos
-  iniciar  Crea la carpeta de un análisis con las plantillas.
+  iniciar  Prepara la carpeta competencia/ con las plantillas y el informe del día.
   precios  Precio por kg, por kg de materia seca y costo diario, con avisos.
   matriz   Matriz de perfil competitivo con cobertura de evidencia y sensibilidad.
   resenas  Temas y sentimientos de reseñas por marca: patrones vs. menciones aisladas.
@@ -14,7 +14,7 @@ en UTF-8 o Windows-1252, y números en formato colombiano (45.900 · 1,5) o
 internacional (45,900 · 1.5).
 
 Ejemplos
-  python3 competencia.py iniciar competencia/2026-11-03-precios-bogota
+  python3 competencia.py iniciar competencia
   python3 competencia.py precios observaciones.csv --propia "Canívoros" --hoy 2026-11-03
   python3 competencia.py matriz matriz.csv --propia "Canívoros"
   python3 competencia.py resenas resenas.csv --min-patron 3
@@ -28,14 +28,21 @@ import re
 import statistics
 import sys
 import unicodedata
+from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 from urllib.parse import urlparse
 
 SKILL_DIR = Path(__file__).resolve().parent.parent
 ASSETS = SKILL_DIR / "assets"
 
-TIPOS_EVIDENCIA = ("observado", "declarado", "terceros", "estimado", "hipotesis")
-CERTEZAS = ("alta", "media", "baja")
+# Marcas de evidencia de competencia/AGENTS.md: (E) visto en una fuente, (D) lo dice la marca,
+# (H) interpretación, (V) dudoso o sin fecha. Se aceptan también las palabras completas.
+EVIDENCIAS = {
+    "e": "E", "visto": "E", "observado": "E", "evidencia": "E",
+    "d": "D", "declarado": "D",
+    "h": "H", "hipotesis": "H", "interpretacion": "H",
+    "v": "V", "dudoso": "V", "sin_fecha": "V", "no_verificado": "V",
+}
 VACIOS = {"", "na", "n_a", "nd", "n_d", "desconocido", "sin_dato", "no_aplica", "null", "none"}
 
 ALIAS_PRECIOS = {
@@ -45,7 +52,8 @@ ALIAS_PRECIOS = {
     "precio": "precio_regular",
     "promocion": "precio_promocion",
     "precio_promo": "precio_promocion",
-    "nivel_de_certeza": "certeza",
+    "tipo_evidencia": "evidencia",
+    "tipo": "categoria",
     "url": "fuente",
     "humedad": "humedad_pct",
     "racion": "racion_g_dia",
@@ -207,6 +215,8 @@ def fmt_num(x, decimales=0):
     """Formato es-CO: miles con punto y decimales con coma."""
     if x is None:
         return "desconocido"
+    # Redondeo comercial (mitad hacia arriba) para que las cuentas coincidan con las hechas a mano.
+    x = float(Decimal(repr(x)).quantize(Decimal(1).scaleb(-decimales), rounding=ROUND_HALF_UP))
     s = f"{x:,.{decimales}f}"
     return s.replace(",", "§").replace(".", ",").replace("§", ".")
 
@@ -278,20 +288,19 @@ def cmd_iniciar(a):
     destino = Path(a.carpeta)
     destino.mkdir(parents=True, exist_ok=True)
     hoy = fecha_referencia(a.hoy)
-    tema = re.sub(r"^\d{4}-\d{2}-\d{2}-?", "", destino.name).replace("-", " ").strip() or "competencia"
     plan = [
+        ("COMPETENCIA.md", "COMPETENCIA.md"),
         ("observaciones.csv", "observaciones.csv"),
         ("matriz.csv", "matriz.csv"),
         ("resenas.csv", "resenas.csv"),
-        ("plantilla-informe.md", "informe.md"),
+        ("plantilla-informe.md", f"informe-{hoy.isoformat()}.md"),
     ]
     for origen, nombre in plan:
         objetivo = destino / nombre
         if objetivo.exists():
             print(f"Se conserva (ya existe): {objetivo}")
             continue
-        contenido = (ASSETS / origen).read_text(encoding="utf-8")
-        contenido = contenido.replace("{{FECHA}}", hoy.isoformat()).replace("{{TEMA}}", tema)
+        contenido = (ASSETS / origen).read_text(encoding="utf-8").replace("{{FECHA}}", hoy.isoformat())
         objetivo.write_text(contenido, encoding="utf-8")
         print(f"Creado: {objetivo}")
 
@@ -300,19 +309,35 @@ def cmd_iniciar(a):
 # precios
 # --------------------------------------------------------------------------- #
 
+def leer_raciones(r, claves):
+    """Devuelve [(perfil, gramos)] desde racion_10kg_g, racion_25kg_g… y racion_g_dia + perfil_racion."""
+    raciones = []
+    for col in claves:
+        m = re.match(r"^racion_(\d+(?:_\d+)?)_?kg(?:_g)?$", col)
+        if m:
+            gramos = parse_numero(r.get(col))
+            if gramos:
+                raciones.append((f"perro de {m.group(1).replace('_', ',')} kg", gramos))
+    gramos = parse_numero(r.get("racion_g_dia"))
+    if gramos:
+        raciones.append(((r.get("perfil_racion") or "").strip(), gramos))
+    return raciones
+
+
 def cmd_precios(a):
     claves, filas, delim = leer_tabla(a.csv, ALIAS_PRECIOS)
     exigir_columnas(claves, ["competidor", "producto", "peso_g", "precio_regular", "fecha", "fuente"],
                     "observaciones.csv")
     hoy = fecha_referencia(a.hoy)
     propia = norm_key(a.propia) if a.propia else None
+    hay_ids = "id_competidor" in claves
     avisos, items, vistos = [], [], {}
 
     for linea, r in filas:
         etiqueta = f"{r.get('competidor') or '¿?'} · {r.get('producto') or '¿?'}"
         av = []
-
         bloqueos = []  # motivos por los que la fila no entra en comparaciones
+
         peso, aviso_peso = parse_peso_g(r.get("peso_g"), a.libra_g)
         if aviso_peso:
             av.append(aviso_peso)
@@ -344,42 +369,45 @@ def cmd_precios(a):
 
         if es_vacio(r.get("fuente")):
             bloqueos.append("sin fuente")
-        av = bloqueos + av
 
-        tipo = norm_key(r.get("tipo_evidencia", ""))
-        if "tipo_evidencia" in claves:
-            if not tipo:
-                av.append("sin tipo_evidencia")
-            elif tipo not in TIPOS_EVIDENCIA:
-                av.append(f"tipo_evidencia «{r.get('tipo_evidencia')}» no válido (usa: {', '.join(TIPOS_EVIDENCIA)})")
-        certeza = norm_key(r.get("certeza", ""))
-        if certeza and certeza not in CERTEZAS:
-            av.append(f"certeza «{r.get('certeza')}» no válida (usa: {', '.join(CERTEZAS)})")
+        evidencia = None
+        if "evidencia" in claves:
+            crudo = (r.get("evidencia") or "").strip().strip("()")
+            evidencia = EVIDENCIAS.get(norm_key(crudo))
+            if not crudo:
+                av.append("sin marca de evidencia (E, D, H o V)")
+            elif evidencia is None:
+                av.append(f"evidencia «{r.get('evidencia')}» no válida (usa E, D, H o V)")
+            elif evidencia == "V":
+                bloqueos.append("marcado (V): dato dudoso o sin fecha")
+            elif evidencia == "H":
+                bloqueos.append("marcado (H): es una interpretación, no un precio visto")
 
         humedad = parse_numero(r.get("humedad_pct"))
         if humedad is not None and not (0 <= humedad < 100):
             av.append("humedad fuera de rango 0–100: se ignora")
             humedad = None
 
-        racion = parse_numero(r.get("racion_g_dia"))
+        raciones = leer_raciones(r, claves)
         fuente_racion = (r.get("fuente_racion") or "").strip()
-        perfil = (r.get("perfil_racion") or "").strip()
-        racion_valida = racion is not None and racion > 0 and bool(fuente_racion) and bool(perfil)
-        if racion is not None and not fuente_racion:
+        if raciones and not fuente_racion:
             av.append("ración sin fuente: no se calcula costo diario")
-        elif racion is not None and not perfil:
-            av.append("ración sin perfil de mascota: no se calcula costo diario")
+            raciones = []
+        if any(not perfil for perfil, _ in raciones):
+            av.append("ración sin perfil de mascota: no se calcula su costo diario")
+            raciones = [(perfil, g) for perfil, g in raciones if perfil]
 
+        av = bloqueos + av
         if r.get("__desfase__"):
             # Columnas corridas: los demás valores no son confiables; solo se informa la causa.
             av = bloqueos = [r["__desfase__"]]
             peso = precio = promo = humedad = None
-            racion_valida = False
+            raciones = []
 
         pkg = precio / peso * 1000 if (precio is not None and peso) else None
         pkg_promo = promo / peso * 1000 if (promo is not None and peso) else None
         pkg_ms = pkg / (1 - humedad / 100) if (pkg is not None and humedad is not None) else None
-        costo_dia = pkg * racion / 1000 if (pkg is not None and racion_valida) else None
+        costos = [(perfil, g, pkg * g / 1000) for perfil, g in raciones] if pkg is not None else []
 
         clave_dup = (norm_key(r.get("competidor")), norm_key(r.get("producto")), peso,
                      norm_key(r.get("canal")), norm_key(r.get("vendedor")), fecha)
@@ -388,10 +416,13 @@ def cmd_precios(a):
         else:
             vistos[clave_dup] = linea
 
+        marca = (r.get("competidor") or "").strip()
+        if hay_ids and (r.get("id_competidor") or "").strip():
+            marca = f"{r['id_competidor'].strip()} · {marca}"
         items.append({
-            "linea": linea, "fila": r, "peso": peso, "precio": precio, "promo": promo,
-            "pkg": pkg, "pkg_promo": pkg_promo, "pkg_ms": pkg_ms, "costo_dia": costo_dia,
-            "racion": racion if racion_valida else None, "perfil": perfil, "fuente_racion": fuente_racion,
+            "linea": linea, "fila": r, "marca": marca, "peso": peso, "precio": precio, "promo": promo,
+            "pkg": pkg, "pkg_promo": pkg_promo, "pkg_ms": pkg_ms, "humedad": humedad,
+            "costos": costos, "fuente_racion": fuente_racion, "evidencia": evidencia,
             "fecha": fecha, "moneda": (r.get("moneda") or "").strip().upper(),
             "propia": bool(propia) and norm_key(r.get("competidor")) == propia,
             "avisos": av, "comparable": not bloqueos and pkg is not None,
@@ -400,6 +431,8 @@ def cmd_precios(a):
             avisos.append((linea, etiqueta, m + (" (fila fuera de las comparaciones)" if m in bloqueos else "")))
 
     monedas = sorted({i["moneda"] for i in items if i["moneda"]})
+    comparables = [i for i in items if i["comparable"]]
+    excluidas = [i for i in items if not i["comparable"]]
     generales = []
     if len(monedas) > 1:
         generales.append(f"Hay varias monedas ({', '.join(monedas)}): el script no convierte; compara solo dentro de cada moneda.")
@@ -407,9 +440,16 @@ def cmd_precios(a):
         generales.append("Hay filas sin moneda: se asume que todas usan la misma.")
     if propia and not any(i["propia"] for i in items):
         generales.append(f"No hay filas de la marca propia «{a.propia}»: no se puede ubicar frente a la competencia.")
+    fechas_comp = [i["fecha"] for i in comparables if i["fecha"]]
+    if fechas_comp and (max(fechas_comp) - min(fechas_comp)).days > 7:
+        generales.append(f"Los precios comparados abarcan {(max(fechas_comp) - min(fechas_comp)).days} días "
+                         f"({min(fechas_comp).isoformat()} a {max(fechas_comp).isoformat()}): "
+                         "conviene capturarlos en la misma semana.")
 
-    salida = [f"# Comparación de precios",
-              ""]
+    def nombre(i):
+        return f"**{md(i['marca'])}**" if i["propia"] else md(i["marca"])
+
+    salida = ["# Comparación de precios", ""]
     fechas = [i["fecha"] for i in items if i["fecha"]]
     competidores = {norm_key(i["fila"].get("competidor")) for i in items}
     salida.append(
@@ -418,28 +458,26 @@ def cmd_precios(a):
         f"Moneda: {', '.join(monedas) if monedas else 'no indicada'}"
     )
     salida.append("")
+    salida.append("Evidencia: (E) visto en una fuente con URL y fecha · (D) lo dice la marca · "
+                  "(H) interpretación · (V) dudoso o sin fecha.")
+    salida.append("")
 
-    hay_promo = any(i["pkg_promo"] is not None for i in items)
-    hay_ms = any(i["pkg_ms"] is not None for i in items)
-    comparables = [i for i in items if i["comparable"]]
-    excluidas = [i for i in items if not i["comparable"]]
+    hay_promo = any(i["pkg_promo"] is not None for i in comparables)
+    hay_ms = any(i["pkg_ms"] is not None for i in comparables)
     orden = sorted(comparables, key=lambda i: (i["moneda"], i["pkg"]))
 
-    encabezados = ["#", "Marca", "Producto", "Categoría", "Peso", "Precio regular", "Precio/kg"]
+    encabezados = ["#", "Marca", "Producto", "Tipo", "Peso", "Precio regular", "Precio/kg"]
     if hay_promo:
         encabezados.append("Precio/kg promo")
     if hay_ms:
         encabezados.append("Precio/kg materia seca*")
-    encabezados += ["Canal · vendedor", "Fecha", "Fuente", "Evidencia · certeza", "Avisos"]
+    encabezados += ["Canal · vendedor", "Fecha", "Fuente", "Evidencia", "Avisos"]
     filas_md = []
     for n, i in enumerate(orden, 1):
         r = i["fila"]
-        marca = md(r.get("competidor"))
-        if i["propia"]:
-            marca = f"**{marca}**"
         canal = " · ".join(x for x in (md(r.get("canal")), md(r.get("vendedor"))) if x) or "—"
-        evid = " · ".join(x for x in (md(r.get("tipo_evidencia")), md(r.get("certeza"))) if x) or "—"
-        fila = [n, marca, md(r.get("producto")), md(r.get("categoria")) or "—", fmt_peso(i["peso"]),
+        evid = f"({i['evidencia']})" if i["evidencia"] else (md(r.get("evidencia")) or "—")
+        fila = [n, nombre(i), md(r.get("producto")), md(r.get("categoria")) or "—", fmt_peso(i["peso"]),
                 fmt_dinero(i["precio"]), fmt_dinero(i["pkg"])]
         if hay_promo:
             fila.append(fmt_dinero(i["pkg_promo"]) if i["pkg_promo"] is not None else "—")
@@ -459,32 +497,32 @@ def cmd_precios(a):
         salida.append("")
         salida.append("### Filas fuera de la comparación")
         salida.append("")
-        salida.append("Les falta peso, precio, fecha o fuente, o tienen un dato sospechoso. "
+        salida.append("Les falta peso, precio, fecha o fuente, están marcadas (V) o (H), o tienen un dato sospechoso. "
                       "Complétalas o corrígelas y vuelve a correr el script; no se rellenan con supuestos.")
         salida.append("")
         salida.append(tabla_md(
             ["Línea", "Marca", "Producto", "Peso", "Precio regular", "Motivo"],
-            [[i["linea"], md(i["fila"].get("competidor")), md(i["fila"].get("producto")), fmt_peso(i["peso"]),
+            [[i["linea"], md(i["marca"]), md(i["fila"].get("producto")), fmt_peso(i["peso"]),
               fmt_dinero(i["precio"]), md("; ".join(i["avisos"]) or "sin precio por kg")] for i in excluidas]))
     salida.append("")
 
-    # Resumen por categoría (sin la marca propia)
+    # Resumen por tipo (sin la marca propia)
     grupos = {}
     for i in comparables:
         if i["propia"]:
             continue
-        clave = (i["moneda"], (i["fila"].get("categoria") or "sin categoría").strip())
+        clave = (i["moneda"], (i["fila"].get("categoria") or "sin tipo").strip())
         grupos.setdefault(clave, []).append(i["pkg"])
     if grupos:
-        salida.append("## Resumen por categoría" + (" (sin la marca propia)" if propia else ""))
+        salida.append("## Resumen por tipo" + (" (sin la marca propia)" if propia else ""))
         salida.append("")
         filas_cat = []
         for (moneda, cat), valores in sorted(grupos.items(), key=lambda kv: statistics.median(kv[1])):
             filas_cat.append([md(cat) + (f" ({moneda})" if len(monedas) > 1 else ""), len(valores),
                               fmt_dinero(min(valores)), fmt_dinero(statistics.median(valores)), fmt_dinero(max(valores))])
-        salida.append(tabla_md(["Categoría", "n", "Mínimo/kg", "Mediana/kg", "Máximo/kg"], filas_cat))
+        salida.append(tabla_md(["Tipo", "n", "Mínimo/kg", "Mediana/kg", "Máximo/kg"], filas_cat))
         salida.append("")
-        salida.append("Con pocas filas por categoría, la mediana describe la muestra levantada, no el mercado.")
+        salida.append("Con pocas filas por tipo, la mediana describe la muestra levantada, no el mercado.")
         salida.append("")
 
     # Posición de la marca propia
@@ -493,12 +531,11 @@ def cmd_precios(a):
         salida.append(f"## Posición de {md(propias[0]['fila'].get('competidor'))}")
         salida.append("")
         for p in propias:
-            mismos = [i for i in comparables if i["moneda"] == p["moneda"]]
-            orden_pkg = sorted(mismos, key=lambda i: i["pkg"])
-            puesto = orden_pkg.index(p) + 1
+            mismos = sorted((i for i in comparables if i["moneda"] == p["moneda"]), key=lambda i: i["pkg"])
+            puesto = next(n for n, i in enumerate(mismos, 1) if i is p)
             texto = (f"- **{md(p['fila'].get('producto'))}** ({fmt_peso(p['peso'])}): {fmt_dinero(p['pkg'])}/kg, "
-                     f"puesto {puesto} de {len(orden_pkg)} (1 = más barato por kg)")
-            cat = (p["fila"].get("categoria") or "sin categoría").strip()
+                     f"puesto {puesto} de {len(mismos)} (1 = más barato por kg)")
+            cat = (p["fila"].get("categoria") or "sin tipo").strip()
             pares = grupos.get((p["moneda"], cat), [])
             if pares:
                 mediana = statistics.median(pares)
@@ -511,28 +548,44 @@ def cmd_precios(a):
     # Costo diario
     salida.append("## Costo diario (solo con ración documentada)")
     salida.append("")
-    con_racion = [i for i in comparables if i["costo_dia"] is not None]
-    if not con_racion:
+    perfiles = {}
+    for i in comparables:
+        for perfil, gramos, costo in i["costos"]:
+            perfiles.setdefault(perfil, []).append((i, gramos, costo))
+    if not perfiles:
         salida.append("No hay raciones documentadas con fuente y perfil de mascota: no se calcula costo diario. "
                       "El precio por kg no equivale al costo de alimentar, porque cada producto tiene su propia ración.")
         salida.append("")
     else:
-        perfiles = {}
-        for i in con_racion:
-            perfiles.setdefault(i["perfil"], []).append(i)
         for perfil, lista in perfiles.items():
-            salida.append(f"### Perfil: {md(perfil)}")
+            salida.append(f"### {md(perfil[0].upper() + perfil[1:])}")
             salida.append("")
-            lista.sort(key=lambda i: i["costo_dia"])
+            lista.sort(key=lambda t: t[2])
             salida.append(tabla_md(
                 ["Marca", "Producto", "Ración g/día", "Fuente de la ración", "Costo diario", "Costo 30 días"],
-                [[("**%s**" % md(i["fila"].get("competidor"))) if i["propia"] else md(i["fila"].get("competidor")),
-                  md(i["fila"].get("producto")), fmt_num(i["racion"], 0), md(fuente_corta(i["fuente_racion"])),
-                  fmt_dinero(i["costo_dia"]), fmt_dinero(i["costo_dia"] * 30)] for i in lista]))
+                [[nombre(i), md(i["fila"].get("producto")), fmt_num(g, 0), md(fuente_corta(i["fuente_racion"])),
+                  fmt_dinero(c), fmt_dinero(c * 30)] for i, g, c in lista]))
             salida.append("")
         if len(perfiles) > 1:
             salida.append("Compara costos diarios solo dentro de un mismo perfil de mascota.")
             salida.append("")
+
+    # Cuentas
+    if orden:
+        salida.append("## Cuentas")
+        salida.append("")
+        for i in orden:
+            partes = [f"{fmt_dinero(i['precio'])} ÷ ({fmt_num(i['peso'], 0)} g ÷ 1.000) = {fmt_dinero(i['pkg'])}/kg"]
+            if i["pkg_promo"] is not None:
+                partes.append(f"promo {fmt_dinero(i['promo'])} ÷ ({fmt_num(i['peso'], 0)} g ÷ 1.000) = "
+                              f"{fmt_dinero(i['pkg_promo'])}/kg")
+            if i["pkg_ms"] is not None:
+                partes.append(f"materia seca {fmt_dinero(i['pkg'])} ÷ (1 − {fmt_num(i['humedad'], 1)} %) = "
+                              f"{fmt_dinero(i['pkg_ms'])}/kg")
+            for perfil, g, c in i["costos"]:
+                partes.append(f"{perfil}: {fmt_num(g, 0)} g × {fmt_dinero(i['pkg'])}/kg ÷ 1.000 = {fmt_dinero(c)}/día")
+            salida.append(f"- {md(i['marca'])} · {md(i['fila'].get('producto'))}: " + "; ".join(partes))
+        salida.append("")
 
     # Avisos
     salida.append("## Avisos")
@@ -556,15 +609,18 @@ def cmd_precios(a):
             return s.replace(".", dec)
 
         columnas = [k for k in claves if k]
-        extra = ["peso_g_normalizado", "precio_kg_regular", "precio_kg_promocion",
-                 "precio_kg_materia_seca", "costo_diario", "avisos"]
+        nombres_perfiles = sorted({perfil for i in items for perfil, _, _ in i["costos"]})
+        extra = (["peso_g_normalizado", "precio_kg_regular", "precio_kg_promocion", "precio_kg_materia_seca"]
+                 + [f"costo_diario_{norm_key(perfil)}" for perfil in nombres_perfiles] + ["comparable", "avisos"])
         with open(a.salida, "w", encoding="utf-8", newline="") as fh:
             w = csv.writer(fh, delimiter=delim)
             w.writerow(columnas + extra)
             for i in items:
-                w.writerow([i["fila"].get(k, "") for k in columnas] + [
-                    num_csv(i["peso"]), num_csv(i["pkg"]), num_csv(i["pkg_promo"]),
-                    num_csv(i["pkg_ms"]), num_csv(i["costo_dia"]), " | ".join(i["avisos"])])
+                por_perfil = {perfil: c for perfil, _, c in i["costos"]}
+                w.writerow([i["fila"].get(k, "") for k in columnas]
+                           + [num_csv(i["peso"]), num_csv(i["pkg"]), num_csv(i["pkg_promo"]), num_csv(i["pkg_ms"])]
+                           + [num_csv(por_perfil.get(perfil)) for perfil in nombres_perfiles]
+                           + ["sí" if i["comparable"] else "no", " | ".join(i["avisos"])])
         print(f"(CSV normalizado en {a.salida})", file=sys.stderr)
 
 
@@ -907,8 +963,9 @@ def main(argv=None):
         formatter_class=argparse.RawDescriptionHelpFormatter, epilog=__doc__)
     sub = p.add_subparsers(dest="comando", required=True)
 
-    s = sub.add_parser("iniciar", help="crea la carpeta de un análisis con las plantillas")
-    s.add_argument("carpeta", help="p. ej. competencia/2026-11-03-precios-bogota")
+    s = sub.add_parser("iniciar", help="prepara la carpeta competencia/ con las plantillas y el informe del día")
+    s.add_argument("carpeta", nargs="?", default="competencia",
+                   help="carpeta de resultados (por defecto, competencia)")
     s.add_argument("--hoy", help="fecha del informe (AAAA-MM-DD); por defecto, hoy")
     s.set_defaults(func=cmd_iniciar)
 

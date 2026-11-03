@@ -4,4 +4,4 @@ focus: trace
 weight: 1
 ---
 
-The proposed set of alternatives is grouped (for example horneados, secos premium, BARF) and includes at least one non-commercial alternative such as homemade food or staying with the usual kibble.
+The proposed set of competitors is grouped by type (direct, BARF/precooked, premium kibble, homemade alternative) and includes the homemade alternative; example brands are presented as unverified.

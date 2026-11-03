@@ -1,1 +1,1 @@
-competidor,producto,categoria,presentacion,peso_g,precio_regular,precio_promocion,moneda,canal,vendedor,zona,fecha,fuente,tipo_evidencia,certeza,disponibilidad,costo_envio,tiempo_entrega,mensaje_principal,humedad_pct,racion_g_dia,perfil_racion,fuente_racion,observacion
+id_competidor,competidor,tipo,producto,formato,conservacion,peso_g,precio_regular,precio_promocion,moneda,canal,vendedor,zona,fecha,fuente,evidencia,disponibilidad,costo_envio,pedido_minimo,tiempo_entrega,promesa,humedad_pct,racion_10kg_g,racion_25kg_g,fuente_racion,observacion

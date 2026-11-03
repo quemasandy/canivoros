@@ -91,7 +91,7 @@ Máximo 5 hallazgos en el resumen.
 
 ## Dónde guardar los resultados
 
-En `../resultados/competencia/` (créala si no existe):
+En esta carpeta, `competencia/`:
 
 - `COMPETENCIA.md`: tabla de marcas con ID `C01`, `C02`… (no se reutilizan).
 - `informe-AAAA-MM-DD.md`: pregunta, resumen de hallazgos, tabla comparativa, recomendaciones, qué no se pudo verificar y lista de fuentes.

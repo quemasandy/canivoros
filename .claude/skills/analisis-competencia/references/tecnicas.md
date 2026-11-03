@@ -29,11 +29,12 @@ Cómo aplicar cada técnica: para qué sirve, pasos, resultado y errores comunes
 **Pasos**
 1. Por alternativa, registra en `observaciones.csv` cada presentación relevante: peso, precio regular, promoción vigente, canal, vendedor, zona, fecha y fuente.
 2. Registra también lo que afecta al costo total: costo de envío, pedido mínimo, tiempo de entrega y disponibilidad.
-3. Si la etiqueta declara humedad (análisis garantizado), anótala en `humedad_pct`. Si la marca publica una guía de ración, anota la ración para un perfil concreto (p. ej., «perro adulto 10 kg, actividad moderada») y su fuente.
-4. Corre `competencia.py precios`. Compara precio por kg dentro de cada grupo estratégico, no entre grupos con humedades muy distintas.
-5. Usa el costo diario como comparación principal cuando haya raciones documentadas para el mismo perfil; el precio por kg de materia seca es un apoyo cuando no las hay.
+3. Si la etiqueta declara humedad (análisis garantizado), anótala en `humedad_pct`. Si la marca publica una guía de ración, anota los gramos por día para un perro de 10 kg y uno de 25 kg (`racion_10kg_g`, `racion_25kg_g`) y su fuente.
+4. Captura todos los precios de la comparación en la misma semana.
+5. Corre `competencia.py precios`. Compara precio por kg dentro de cada tipo, no entre tipos con humedades muy distintas. La sección «Cuentas» muestra cada cálculo para incluirlo en el informe.
+6. Usa el costo diario como comparación principal cuando haya raciones publicadas para el mismo perfil; el precio por kg de materia seca es un apoyo cuando no las hay.
 
-**Resultado:** tabla de precio por kg con fecha y fuente, bandas por grupo, posición de la marca propia y, si hay raciones, costo diario y mensual.
+**Resultado:** tabla de precio por kg con fecha, fuente y marca de evidencia, bandas por tipo, cuentas visibles y, si hay raciones, costo diario y mensual para perros de 10 y 25 kg.
 
 **Errores comunes**
 - Comparar precio por kg de un producto húmedo (chorizo, hamburguesa, BARF) con croquetas secas como si fueran equivalentes.
@@ -41,6 +42,7 @@ Cómo aplicar cada técnica: para qué sirve, pasos, resultado y errores comunes
 - Mezclar precio regular y precio en promoción.
 - Tomar el precio de un revendedor de marketplace como precio de la marca.
 - Convertir «libra» a gramos sin confirmar la equivalencia.
+- Ubicar a Canívoros con precios que la empresa no ha confirmado (BL-005).
 
 ## 2. Benchmarking competitivo
 
@@ -49,7 +51,7 @@ Cómo aplicar cada técnica: para qué sirve, pasos, resultado y errores comunes
 **Pasos**
 1. Define 6–10 criterios observables ligados a la decisión: precio por kg, presentaciones, canales, tiempo y costo de entrega, atención (tiempo de respuesta), empaque, información en etiqueta, garantías, programa de recompra o suscripción.
 2. Mide cada criterio con el mismo método para todos: misma fecha aproximada, misma zona y mismo tipo de fuente.
-3. Registra cómo se midió («compra de prueba del 2026-11-05», «web oficial consultada el 2026-11-03»).
+3. Registra cómo se midió y con qué marca de evidencia («web oficial consultada el 2026-11-03 (D)», «compra de prueba aprobada del 2026-11-05 (E)»).
 4. Señala quién lo hace mejor en cada criterio y qué práctica concreta lo explica.
 
 **Resultado:** tabla de criterios por competidor y una lista de prácticas que vale la pena adaptar o superar.
@@ -75,7 +77,7 @@ Cómo aplicar cada técnica: para qué sirve, pasos, resultado y errores comunes
 **Pasos**
 1. Elige 5–10 factores clave de éxito desde el punto de vista del comprador (disponibilidad, confianza, relación precio-valor, aceptación de la mascota, facilidad de compra y entrega, atención, información del producto). Para canales, haz una matriz aparte desde el punto de vista del distribuidor (rotación, margen, condiciones y apoyo comercial).
 2. Asigna pesos que sumen 1. Lo ideal es derivarlos de entrevistas: pide a cada comprador que ordene los criterios por importancia y promedia las posiciones. Si los propones tú, márcalos como provisionales.
-3. Puntúa cada competidor de 1 a 4 en cada factor (1 = debilidad mayor, 2 = debilidad menor, 3 = fortaleza menor, 4 = fortaleza mayor) y escribe la evidencia en la misma fila. Sin evidencia, deja la celda vacía.
+3. Puntúa cada competidor de 1 a 4 en cada factor (1 = debilidad mayor, 2 = debilidad menor, 3 = fortaleza menor, 4 = fortaleza mayor) y escribe la evidencia, con su marca (E), (D), (H) o (V), en la misma fila. Sin evidencia, deja la celda vacía.
 4. Corre `competencia.py matriz` (formato largo: una fila por factor y competidor).
 5. Lee primero las brechas por factor y después el total. Revisa la sección «Robustez».
 
@@ -90,7 +92,7 @@ Cómo aplicar cada técnica: para qué sirve, pasos, resultado y errores comunes
 **Pasos**
 1. Elige dos ejes que los compradores mencionen espontáneamente, por ejemplo precio percibido y confianza, o naturalidad y conveniencia. Evita ejes que solo le importen a la marca.
 2. **Mapa perceptual (preferido):** en entrevistas o encuestas, pide a cada persona que califique de 1 a 5 solo las marcas que conoce en cada eje. Promedia y anota el n de cada marca.
-3. **Mapa declarado (alternativa de escritorio):** ubica las marcas según lo que comunican (precio publicado, promesas). Rotúlalo como «posicionamiento declarado», no como percepción.
+3. **Mapa declarado (alternativa de escritorio):** ubica las marcas según lo que comunican (precio publicado, promesas). Rotúlalo como «posicionamiento declarado (D)», no como percepción.
 4. Grafica las marcas, con el tamaño del punto según el número de respuestas si lo tienes. Si hace falta un gráfico, usa la skill de visualización de datos disponible; una tabla con las coordenadas también sirve.
 5. Busca zonas vacías y pregúntate si están vacías porque nadie las atendió o porque nadie las quiere.
 
@@ -120,7 +122,7 @@ Cómo aplicar cada técnica: para qué sirve, pasos, resultado y errores comunes
 3. Describe cada grupo: público, propuesta, canales y barreras para moverse a otro grupo.
 4. Ubica la marca propia y define su grupo de referencia.
 
-**Grupos de partida para Canívoros:** horneados o naturales, secos premium o super premium, crudos o BARF, comida casera, masivos de supermercado y venta directa por redes.
+**Tipos de partida para Canívoros** (de `competencia/AGENTS.md`): directo (natural cocido u horneado), BARF y precocido, concentrado premium y alternativa casera. Dentro de cada tipo pueden aparecer subgrupos, por ejemplo venta directa por redes frente a tiendas.
 
 ## 8. Análisis de reseñas
 
@@ -155,10 +157,10 @@ Cómo aplicar cada técnica: para qué sirve, pasos, resultado y errores comunes
 
 **Pasos**
 1. En cada consulta que no termina en compra, registra fecha, canal, etapa alcanzada, motivo (lista fija: precio, presentación, disponibilidad, entrega, desconfianza, la mascota no lo aceptó, sin respuesta a tiempo, otro) y la alternativa elegida si la persona la menciona.
-2. Pregunta con respeto y sin insistir: «¿Qué decidiste comprar finalmente? ¿Qué te hizo elegirlo?».
+2. Quien atiende puede preguntar con respeto y sin insistir: «¿Qué decidiste comprar finalmente? ¿Qué te hizo elegirlo?».
 3. Revisa los motivos cada mes y crúzalos con el canal y la zona.
 
-**Resultado:** motivos de pérdida con su frecuencia y los competidores que ganan esas ventas. Requiere un campo de motivo de pérdida en el sistema comercial (ver `erp.md` y BL-011).
+**Resultado:** motivos de pérdida con su frecuencia y los competidores que ganan esas ventas. Se apoya en la auditoría de consultas de WhatsApp (BL-059), en la recuperación de clientes (BL-060) y en un campo de motivo de pérdida en el sistema comercial (BL-011).
 
 ## 11. Cinco fuerzas de Porter
 

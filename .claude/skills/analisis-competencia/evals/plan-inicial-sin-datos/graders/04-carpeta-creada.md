@@ -4,4 +4,4 @@ focus: trace
 weight: 1
 ---
 
-An analysis folder was created under competencia/ containing at least observaciones.csv and informe.md.
+competencia/ was created with at least COMPETENCIA.md, observaciones.csv and an informe-AAAA-MM-DD.md.

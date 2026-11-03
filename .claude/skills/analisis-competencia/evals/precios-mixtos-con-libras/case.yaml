@@ -1,8 +1,9 @@
 schema_version: "1.1"
 name: precios-mixtos-con-libras
 expected_outcome: |
-  Una tabla de precio por kg con fecha y fuente de cada dato, con Canívoros a 28.000 por kg.
-  No convierte la libra en silencio, marca como poco confiable el precio sin fecha que dio
-  el distribuidor y explica que sin raciones documentadas no se puede saber cuál sale más
-  barato para alimentar, ni compararse sin considerar la humedad de cada producto.
-  Deja los archivos del análisis en una carpeta de competencia/.
+  Una tabla de precio por kg de los competidores, con fecha, fuente, marca de evidencia
+  (E, D, H o V) y las cuentas a la vista. Avisa que el precio de Canívoros no está
+  confirmado (BL-005) y trata cualquier comparación con él como provisional. No convierte
+  la libra en silencio, marca como (V) el precio sin fecha del distribuidor y explica que
+  sin raciones publicadas no se puede saber cuál sale más barato para alimentar ni
+  compararse sin considerar la humedad. Deja los archivos en competencia/.
