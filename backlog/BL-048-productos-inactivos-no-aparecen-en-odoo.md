@@ -17,7 +17,7 @@ acceptance_criteria:
 - Todos los productos del catálogo confirmado se ven y se pueden vender en Odoo
 sources:
 - chat 27/10 ('como los productos no están activos no aparecen')
-order: 20
+order: 24
 ---
 
 # BL-048 · Productos inactivos no aparecen en Odoo

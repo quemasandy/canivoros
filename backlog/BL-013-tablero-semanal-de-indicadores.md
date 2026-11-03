@@ -19,7 +19,7 @@ acceptance_criteria:
 - Indicadores definidos como en el plan Bogotá
 sources:
 - 'plan Bogotá: Tablero para tomar decisiones'
-order: 19
+order: 23
 ---
 
 # BL-013 · Tablero semanal de indicadores

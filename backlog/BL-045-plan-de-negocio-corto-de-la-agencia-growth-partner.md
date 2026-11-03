@@ -21,7 +21,7 @@ acceptance_criteria:
 sources:
 - GuiaDesenvolverProdutosServicosES.md
 - pasos_sysmkt.md (Que sabemos hacer bien)
-order: 53
+order: 56
 ---
 
 # BL-045 · Plan de negocio corto de la agencia Growth Partner

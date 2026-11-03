@@ -19,7 +19,7 @@ acceptance_criteria:
 sources:
 - CANIVOROS-REFERENCIA-EMPRESA.md (Uso y conservación)
 - 'CANIVOROS-PLAN-CRECIMIENTO-BOGOTA.md (Experimento 4: sin inventar dosis)'
-order: 30
+order: 34
 ---
 
 # BL-041 · Confirmar la guía de raciones por peso de perro

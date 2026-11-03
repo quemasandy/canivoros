@@ -8,18 +8,21 @@ status: Backlog
 assignee: Andrés (propuesta)
 effort: M
 impact: Alto
-sprint: Semana 5 (30 nov–6 dic)
+sprint: Semana 7 (14–20 dic)
 labels:
 - ventas
 - growth-partner
 - experimento
 dependencies:
 - BL-017
+- BL-021
+- BL-061
 acceptance_criteria:
 - 5 ofertas hechas
 - 'Resultado registrado: llamada sí/no, pago sí/no, objeción principal'
+- Se ofrece con al menos un resultado medido de Canívoros (BL-061) frente a la línea base
 sources: []
-order: 43
+order: 55
 ---
 
 # BL-018 · Ofrecer el diagnóstico a 5 pymes
@@ -31,3 +34,5 @@ Ver fuentes.
 
 ## Supuestos
 Existen al menos 5 pymes contactables dispuestas a escuchar la oferta (por validar).
+
+Ajuste 31/10/2026: se mueve a semana 7 y depende del caso Canívoros medido (BL-061, BL-021).

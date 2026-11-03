@@ -21,7 +21,7 @@ acceptance_criteria:
 sources:
 - problemas.md
 - erp.md §6
-order: 27
+order: 31
 ---
 
 # BL-025 · Costo y rentabilidad por producto

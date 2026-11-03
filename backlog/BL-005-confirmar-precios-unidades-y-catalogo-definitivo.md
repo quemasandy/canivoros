@@ -2,7 +2,7 @@
 key: BL-005
 issue_type: Tarea
 summary: Confirmar precios, unidades y catálogo definitivo
-description: 'Resolver con la prima o Sara Ramírez los 5 puntos de erp.md §9: precios y unidades por producto y canal, catálogo y presentaciones, regla de venta mínima (40 kg vs paquetes de 1,5 kg), programa de facturación usado y responsables de registrar.'
+description: 'Resolver con la prima o Sara Ramírez los 5 puntos de erp.md §9: precios y unidades por producto y canal, catálogo y presentaciones, regla de venta mínima (40 kg vs paquetes de 1,5 kg), programa de facturación usado y responsables de registrar. Es la entrada para convertir la línea base de BL-004 de kilos a COP.'
 priority: High
 status: Backlog
 assignee: Sebastián (propuesta)
@@ -18,14 +18,19 @@ acceptance_criteria:
 - Lista de precios por producto y canal (cliente, distribuidor, criador)
 - Unidades unificadas (kg o lb)
 - Catálogo cargado igual en Odoo
+- Cada precio indica unidad (kg o lb), canal y si está confirmado (sí/no)
+- Precios entregados a BL-004 para la conversión a COP
 sources:
 - 'develop: erp.md §3 y §9'
 order: 5
+hechos:
+- El precio de cerdo a distribuidor fue corregido a 3.500 COP; la unidad está por confirmar.
+hipotesis: []
 ---
 
 # BL-005 · Confirmar precios, unidades y catálogo definitivo
 
-Resolver con la prima o Sara Ramírez los 5 puntos de erp.md §9: precios y unidades por producto y canal, catálogo y presentaciones, regla de venta mínima (40 kg vs paquetes de 1,5 kg), programa de facturación usado y responsables de registrar.
+Resolver con la prima o Sara Ramírez los 5 puntos de erp.md §9: precios y unidades por producto y canal, catálogo y presentaciones, regla de venta mínima (40 kg vs paquetes de 1,5 kg), programa de facturación usado y responsables de registrar. Es la entrada para convertir la línea base de BL-004 de kilos a COP.
 
 ## Hechos
 El precio de cerdo a distribuidor ya fue corregido a 3.500 COP (problemas.md).

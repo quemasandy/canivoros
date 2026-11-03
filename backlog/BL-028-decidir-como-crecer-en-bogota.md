@@ -20,7 +20,7 @@ acceptance_criteria:
 - Siguiente ciclo de 6 semanas planeado
 sources:
 - 'plan Bogotá: Reglas para ampliar, ajustar o detener'
-order: 50
+order: 51
 ---
 
 # BL-028 · Decidir cómo crecer en Bogotá

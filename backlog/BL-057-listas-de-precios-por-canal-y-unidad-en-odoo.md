@@ -19,7 +19,7 @@ acceptance_criteria:
 sources:
 - chat audio 29/10 (precios por libra, kilo y tipo de cliente)
 - ventas_canivoros_2026.xlsx
-order: 16
+order: 21
 ---
 
 # BL-057 · Listas de precios por canal y unidad en Odoo
