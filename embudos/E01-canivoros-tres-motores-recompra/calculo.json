@@ -1,0 +1,34 @@
+{
+  "_ayuda": "Escenario del Motor 2 (tutores, B2C) para una prueba de un mes con anuncios de clic a WhatsApp. Todas las tasas son supuestos hasta tener 2–4 semanas de medición. Precio y costo variable quedan en null porque no están confirmados (BL-005, BL-025); el reporte calcula volúmenes y deja el dinero pendiente. compras_por_cliente = 2,5 equivale a que 60 % vuelva a pedir cada mes durante 12 meses (supuesto).",
+  "nombre": "E01 · Canívoros tres motores y recompra · Motor 2 (tutores)",
+  "moneda": "COP",
+  "modo": "volumen",
+  "volumen_inicial": 250,
+  "etapas": [
+    {
+      "nombre": "Conversaciones iniciadas",
+      "fuente": "supuesto"
+    },
+    {
+      "nombre": "Leads calificados",
+      "tasa": 0.6,
+      "fuente": "supuesto"
+    },
+    {
+      "nombre": "Primera compra (Caja de prueba)",
+      "tasa": 0.25,
+      "fuente": "supuesto"
+    }
+  ],
+  "costo_medios": {
+    "etapa": "Conversaciones iniciadas",
+    "por_unidad": 6000
+  },
+  "economia": {
+    "precio": null,
+    "costo_variable": null,
+    "compras_por_cliente": 2.5,
+    "horizonte": "12 meses",
+    "otros_costos_adquisicion": 0
+  }
+}

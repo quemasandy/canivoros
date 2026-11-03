@@ -1,0 +1,8 @@
+schema_version: "1.1"
+name: consultoria-alto-ticket
+expected_outcome: |
+  Un embudo B2B de servicios con el diagnóstico pagado como oferta de entrada y el retainer
+  como oferta principal: prospección o contenido de autoridad, calificación, llamada de
+  diagnóstico con guion, propuesta y seguimiento; metas calculadas hacia atrás desde 5 clientes;
+  manejo honesto de la falta de casos de éxito.
+  Los resultados quedan en la carpeta embudos/ y el embudo se registra en embudos/EMBUDOS.md.

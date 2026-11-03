@@ -91,10 +91,12 @@ Máximo 5 hallazgos en el resumen.
 
 ## Dónde guardar los resultados
 
-En `../resultados/competencia/` (créala si no existe):
+En esta carpeta, `competencia/`. **Todos los archivos llevan la fecha en el nombre y cada análisis genera siempre un `.md` y un `.csv`:**
 
-- `COMPETENCIA.md`: tabla de marcas con ID `C01`, `C02`… (no se reutilizan).
-- `informe-AAAA-MM-DD.md`: pregunta, resumen de hallazgos, tabla comparativa, recomendaciones, qué no se pudo verificar y lista de fuentes.
+- `competencia-AAAA-MM-DD.md`: el informe completo del día. Pregunta, resumen de hallazgos, registro de marcas con ID `C01`, `C02`… (no se reutilizan), tabla comparativa, recomendaciones, qué no se pudo verificar y lista de fuentes.
+- `competencia-AAAA-MM-DD.csv`: todos los datos del día en un solo archivo. La columna `registro` dice qué es cada fila: `marca`, `precio`, `matriz` o `resena`.
+
+No crees archivos sin fecha ni archivos sueltos por tipo de dato. Si el par del día ya existe, actualízalo. Un análisis nuevo parte del CSV fechado más reciente, para conservar los IDs y el histórico de precios.
 
 ## Límites
 

@@ -1,0 +1,38 @@
+registro,id_competidor,competidor,tipo,origen,producto,formato,conservacion,peso_g,precio_regular,precio_promocion,moneda,canal,vendedor,zona,donde_se_consigue,zonas_bogota,estado,fecha,fuente,url,evidencia,disponibilidad,costo_envio,pedido_minimo,tiempo_entrega,promesa,humedad_pct,racion_10kg_g,racion_25kg_g,fuente_racion,factor,peso,puntuacion,calificacion,temas,sentimiento,extracto,observacion
+marca,C00,Marca Propia,directo,Sopó,,chorizo y hamburguesa,congelado,,,,,,,,WhatsApp y tiendas aliadas,"Suba, Usaquén",verificada,2026-10-30,fuente de ejemplo (EJEMPLO),,,,,,,,,,,,,,,,,,,DATOS FICTICIOS
+marca,C01,Ejemplo A,directo,Bogotá,,croqueta horneada,seco,,,,,,,,tienda en línea propia,toda Bogotá,verificada,2026-10-30,fuente de ejemplo (EJEMPLO),,,,,,,,,,,,,,,,,,,DATOS FICTICIOS
+marca,C02,Ejemplo B,directo,Medellín,,croqueta,seco,,,,,,,,marketplace,toda Bogotá,por verificar,2026-10-30,fuente de ejemplo (EJEMPLO),,,,,,,,,,,,,,,,,,,DATOS FICTICIOS
+marca,C03,Ejemplo C,concentrado premium,importado,,croqueta,seco,,,,,,,,petshops,Chapinero,verificada,2026-10-30,fuente de ejemplo (EJEMPLO),,,,,,,,,,,,,,,,,,,DATOS FICTICIOS
+precio,C00,Marca Propia,directo,,Pollo y salmón (EJEMPLO),chorizo,congelado,500 g,14.000,,COP,WhatsApp,directo,Bogotá,,,,2026-10-28,lista de precios interna (EJEMPLO),,D,sí,,,,horneado con carne real,,,,,,,,,,,,DATOS FICTICIOS
+precio,C01,Ejemplo A,directo,,Croqueta horneada pollo,croqueta,seco,2 kg,62.900,55.900,COP,tienda en línea,Ejemplo A,Bogotá,,,,2026-10-30,https://www.ejemplo-a.test/pollo,,E,sí,8.000,,48 h,natural y horneado,10,120,250,guía de la etiqueta (EJEMPLO),,,,,,,,DATOS FICTICIOS
+precio,C02,Ejemplo B,directo,,Natural cordero,croqueta,seco,"1,5 kg",48.500,,COP,marketplace,Revendedor X,Bogotá,,,,2026-10-29,https://marketplace.test/item/123,,E,sí,0,,24 h,sin conservantes,9,,,,,,,,,,,DATOS FICTICIOS
+precio,C03,Ejemplo C,concentrado premium,,Adulto razas medianas,croqueta,seco,15 kg,289.000,259.000,COP,petshop,Tienda Y,Chapinero,,,,2026-10-25,visita a tienda,,E,sí,,,,nutrición científica,10,140,290,tabla del fabricante (EJEMPLO),,,,,,,,DATOS FICTICIOS
+precio,C04,Ejemplo D,BARF y precocido,,BARF res,porción,congelado,1 lb,12.000,,COP,Instagram,Ejemplo D,Suba,,,,2026-10-20,https://instagram.test/ejemplo-d,,D,bajo pedido,10.000,,,alimentación biológica,70,,,,,,,,,,,DATOS FICTICIOS
+precio,C05,Ejemplo E,concentrado premium,,Cachorro,croqueta,seco,3 kg,96.000,,COP,petshop,Tienda Z,Usaquén,,,,2026-07-15,visita a tienda,,E,sí,,,,,10,,,,,,,,,,,DATOS FICTICIOS
+precio,C06,Ejemplo F,directo,,Natural pavo,croqueta,seco,2,59.000,,COP,tienda en línea,Ejemplo F,Bogotá,,,,,https://ejemplo-f.test,,V,sí,,,,,,,,,,,,,,,,DATOS FICTICIOS
+matriz,,Marca Propia,,,,,,,,,,,,,,,,,visitas 2026-10,,2 puntos de venta verificados en la zona (EJEMPLO),,,,,,,,,,Disponibilidad en la zona,0.25,2,,,,,
+matriz,,Ejemplo A,,,,,,,,,,,,,,,,,visitas 2026-10,,presente en 9 de 12 tiendas visitadas (EJEMPLO),,,,,,,,,,Disponibilidad en la zona,0.25,4,,,,,
+matriz,,Ejemplo C,,,,,,,,,,,,,,,,,visitas 2026-10,,presente en 11 de 12 tiendas visitadas (EJEMPLO),,,,,,,,,,Disponibilidad en la zona,0.25,4,,,,,
+matriz,,Marca Propia,,,,,,,,,,,,,,,,,entrevistas,,8 de 15 compradores la asocian a criadores (EJEMPLO),,,,,,,,,,Confianza en la marca,0.20,3,,,,,
+matriz,,Ejemplo A,,,,,,,,,,,,,,,,,entrevistas,,menciones positivas en entrevistas (EJEMPLO),,,,,,,,,,Confianza en la marca,0.20,3,,,,,
+matriz,,Ejemplo C,,,,,,,,,,,,,,,,,entrevistas,,marca más recordada en entrevistas (EJEMPLO),,,,,,,,,,Confianza en la marca,0.20,4,,,,,
+matriz,,Marca Propia,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Relación precio-valor,0.20,3,,,,,
+matriz,,Ejemplo A,,,,,,,,,,,,,,,,,reseñas,,quejas de precio en 6 reseñas (EJEMPLO),,,,,,,,,,Relación precio-valor,0.20,2,,,,,
+matriz,,Ejemplo C,,,,,,,,,,,,,,,,,observaciones.csv,,precio/kg medio con promociones frecuentes (EJEMPLO),,,,,,,,,,Relación precio-valor,0.20,3,,,,,
+matriz,,Marca Propia,,,,,,,,,,,,,,,,,seguimiento,,6 de 6 compradores de prueba reportan aceptación (EJEMPLO),,,,,,,,,,Aceptación del perro,0.20,4,,,,,
+matriz,,Ejemplo A,,,,,,,,,,,,,,,,,reseñas,,reseñas mixtas sobre palatabilidad (EJEMPLO),,,,,,,,,,Aceptación del perro,0.20,3,,,,,
+matriz,,Ejemplo C,,,,,,,,,,,,,,,,,reseñas,,reseñas mayoritariamente positivas (EJEMPLO),,,,,,,,,,Aceptación del perro,0.20,3,,,,,
+matriz,,Marca Propia,,,,,,,,,,,,,,,,,compra de prueba,,respuesta por WhatsApp en 26 h en compra de prueba (EJEMPLO),,,,,,,,,,Facilidad de compra y entrega,0.15,2,,,,,
+matriz,,Ejemplo A,,,,,,,,,,,,,,,,,compra de prueba,,tienda en línea con entrega en 48 h (EJEMPLO),,,,,,,,,,Facilidad de compra y entrega,0.15,4,,,,,
+matriz,,Ejemplo C,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Facilidad de compra y entrega,0.15,,,,,,
+resena,,Ejemplo A,,,,,,,,,,,,,,,,2026-09-02,Google Maps,,,,,,,,,,,,,,,2,entrega|precio,negativo,Llegó tarde y está caro (EJEMPLO),
+resena,,Ejemplo A,,,,,,,,,,,,,,,,2026-09-10,Google Maps,,,,,,,,,,,,,,,5,aceptación,positivo,A mi perro le encanta (EJEMPLO),
+resena,,Ejemplo A,,,,,,,,,,,,,,,,2026-08-21,marketplace,,,,,,,,,,,,,,,1,entrega,negativo,No llegó en la fecha (EJEMPLO),
+resena,,Ejemplo A,,,,,,,,,,,,,,,,2026-10-01,marketplace,,,,,,,,,,,,,,,4,aceptación:positivo|precio:negativo,mixto,Le gusta pero subió el precio (EJEMPLO),
+resena,,Ejemplo A,,,,,,,,,,,,,,,,2026-10-11,Instagram,,,,,,,,,,,,,,,,entrega|atención,negativo,Nadie responde el WhatsApp (EJEMPLO),
+resena,,Ejemplo A,,,,,,,,,,,,,,,,2026-10-15,Google Maps,,,,,,,,,,,,,,,5,digestión,positivo,Heces más firmes (EJEMPLO),
+resena,,Ejemplo C,,,,,,,,,,,,,,,,2026-07-03,marketplace,,,,,,,,,,,,,,,4,precio,positivo,Buen precio en promoción (EJEMPLO),
+resena,,Ejemplo C,,,,,,,,,,,,,,,,2026-07-22,marketplace,,,,,,,,,,,,,,,2,entrega,negativo,Demoró una semana (EJEMPLO),
+resena,,Ejemplo C,,,,,,,,,,,,,,,,2026-08-30,Google Maps,,,,,,,,,,,,,,,1,entrega|empaque,negativo,Bolsa rota y tarde (EJEMPLO),
+resena,,Ejemplo C,,,,,,,,,,,,,,,,2025-06-01,Google Maps,,,,,,,,,,,,,,,2,entrega,negativo,Tarde otra vez (EJEMPLO),
+resena,,Ejemplo C,,,,,,,,,,,,,,,,2026-09-14,Google Maps,,,,,,,,,,,,,,,5,aceptación,positivo,Se lo come todo (EJEMPLO),

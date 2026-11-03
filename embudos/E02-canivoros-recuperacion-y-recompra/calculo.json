@@ -1,0 +1,42 @@
+{
+  "moneda": "COP",
+  "modo": "volumen",
+  "costo_medios": {},
+  "economia": {
+    "precio": null,
+    "costo_variable": null,
+    "compras_por_cliente": 1,
+    "horizonte": "14 días; sin asumir otra recompra",
+    "otros_costos_adquisicion": null
+  },
+  "_notas": {
+    "base_real": "desconocido; volumen hipotético",
+    "dinero": "desconocido; costo_medios vacío evita presentar trabajo gratuito",
+    "pauta_nueva_propuesta_COP": 0,
+    "recompra": "medir aparte a 30 días con cohortes maduras"
+  },
+  "nombre": "E02 B · Reactivación de clientes existentes · escenario supuesto",
+  "volumen_inicial": 20,
+  "etapas": [
+    {
+      "nombre": "Clientes elegibles contactados",
+      "fuente": "supuesto"
+    },
+    {
+      "nombre": "Clientes que responden",
+      "tasa": 0.5,
+      "fuente": "supuesto"
+    },
+    {
+      "nombre": "Clientes con cotización válida",
+      "tasa": 0.6,
+      "fuente": "supuesto"
+    },
+    {
+      "nombre": "Clientes reactivados con pedido pagado y entregado",
+      "tasa": 0.5,
+      "fuente": "supuesto"
+    }
+  ]
+}
+

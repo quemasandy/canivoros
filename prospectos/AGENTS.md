@@ -96,10 +96,16 @@ Para los **B**, solo el borrador. Los **C** quedan en la lista.
 
 ## Dónde guardar los resultados
 
-En `../resultados/prospectos/` (créala si no existe):
+En esta misma carpeta, `prospectos/`, en **un solo par de archivos con fecha** (AAAA-MM-DD es el día en que se trabaja):
 
-- `REGISTRO.md`: una fila por negocio con ID `P001`, `P002`… (no se reutilizan): nombre, tipo, localidad, web o redes, canal público, encaje, nivel A/B/C, estado y fuentes.
-- `lote-AAAA-MM-DD.md`: búsquedas hechas, negocios revisados, fichas de los A y B, y borradores.
+- `prospectos-AAAA-MM-DD.md`: todo en un archivo. Resumen general, cómo se verificó, el registro (una fila por negocio con ID `P001`, `P002`…, que no se reutilizan: nombre, tipo, localidad, web o redes, canal público, encaje, nivel A/B/C, estado, fuentes y fecha) y un bloque por lote con las búsquedas hechas, las fichas de los A y los borradores.
+- `prospectos-AAAA-MM-DD.csv`: la misma tabla del registro en CSV. Se genera desde el `.md`; no se edita a mano.
+
+Reglas:
+
+- Los archivos de resultados **siempre llevan fecha** y **siempre se entregan en `.md` y `.csv`**.
+- Un solo par en la carpeta. Si se trabaja otro día, el par se renombra a la fecha de hoy y se agrega lo nuevo. El historial queda en git.
+- No se crean archivos de lote aparte.
 
 ## Límites
 

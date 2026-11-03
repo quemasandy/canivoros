@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: matriz-agencia-growth-partner
+expected_outcome: |
+  Una matriz de perfil competitivo con factores vistos desde la pyme que contrata, pesos
+  marcados como provisionales porque no hay entrevistas, puntuaciones rotuladas como
+  hipótesis o celdas vacías sin evidencia, una lectura de robustez y los pasos para
+  conseguir evidencia. Queda guardada en el repositorio.
