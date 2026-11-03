@@ -1,0 +1,10 @@
+# Distribuidores publicados en canivoros.com (CANIVOROS-REFERENCIA-EMPRESA.md).
+# Son datos públicos: scripts/registro.py los compara con cada prospecto y los
+# nombra en sus alertas. Un nombre por línea. Actualizar cuando BL-035 confirme
+# cuáles siguen activos.
+Clínica Veterinaria Manimal
+Sankatin PetShop
+Malcriados PetShop
+Clínica Veterinaria Terranova
+Pets & Company
+Club Canes Centro de Entrenamiento Canino
