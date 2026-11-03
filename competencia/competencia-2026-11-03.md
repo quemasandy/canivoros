@@ -1,10 +1,12 @@
-# Informe de competencia · 2026-11-03
+# Competencia · 2026-11-03
 
 Responsable: borrador para Andrés (investigación de escritorio) · Uso interno: no publicar.
 
+Archivo de datos: `competencia-2026-11-03.csv` (columna `registro`: 45 filas `marca` y 40 filas `precio`). Este `.md` y ese `.csv` forman el análisis del día y reemplazan a los archivos sueltos anteriores (`COMPETENCIA.md`, `informe-2026-11-03.md`, `observaciones.csv`, `precios-normalizados.csv`, `matriz.csv` y `resenas.csv`).
+
 > **Evidencia:** (E) visto en una fuente, con URL y fecha · (D) lo dice la marca · (H) interpretación · (V) dudoso o sin fecha. Lo que no se sabe: `desconocido`.
 >
-> **Alcance:** muestra exploratoria de 45 marcas registradas en `COMPETENCIA.md` (38 encontradas con fuentes públicas y 7 candidatas sin resultados), 40 observaciones de precio en `observaciones.csv` (25 entran en la comparación), 0 reseñas y 0 entrevistas. Sirve para descubrir patrones; no es representativa de Bogotá.
+> **Alcance:** muestra exploratoria de 45 marcas registradas en la sección 3 (38 encontradas con fuentes públicas y 7 candidatas sin resultados), 40 observaciones de precio en el CSV del día (25 entran en la comparación), 0 reseñas y 0 entrevistas. Sirve para descubrir patrones; no es representativa de Bogotá.
 >
 > **Limitación importante:** la política de red de este entorno bloqueó la apertura de los sitios. Cada dato viene del extracto que el buscador devolvió de esa URL el 2026-11-03. En este informe, (E) significa «visto en ese extracto, con URL y fecha»; la página en sí queda «No verificado». Las fichas que el buscador fecha con más de un año, los rangos ambiguos y los precios atípicos se marcaron (V) y quedan fuera de la comparación.
 
@@ -22,15 +24,80 @@ Responsable: borrador para Andrés (investigación de escritorio) · Uso interno
 
 | # | Qué vimos (fuente, fecha, evidencia) | Qué significa | Qué recomendamos probar |
 |---|---|---|---|
-| 1 | Al menos cinco marcas con venta en Bogotá se presentan como horneadas: Pixie, Kanuto, VITA, Honesto y Kanu Pet Nativo Oven-Baked (E, D; 2026-11-03; ver C01–C05 en `COMPETENCIA.md`). | «Horneado» ya no distingue a Canívoros por sí solo (H). | En el experimento de mensajes (BL-020) agregar variantes con otro diferencial: origen en perros de competencia, formato hamburguesa o chorizo, producción en Sopó. |
+| 1 | Al menos cinco marcas con venta en Bogotá se presentan como horneadas: Pixie, Kanuto, VITA, Honesto y Kanu Pet Nativo Oven-Baked (E, D; 2026-11-03; ver C01–C05 en la sección 3). | «Horneado» ya no distingue a Canívoros por sí solo (H). | En el experimento de mensajes (BL-020) agregar variantes con otro diferencial: origen en perros de competencia, formato hamburguesa o chorizo, producción en Sopó. |
 | 2 | Pixie declara más de 40.000 clientes, 32 ciudades, más de 700 puntos de venta y unas 5 toneladas diarias (D; El Espectador). Se vende en Rappi, Puppis, Agrocampo, Kanu Pet y Animals Veterinaria (E). En Agrocampo, sus porciones de 500 g cuestan entre 23.630 y 31.590 COP/kg (E). | Pixie es la referencia con la que tenderos y compradores compararán a Canívoros (H). | En la prospección mayorista (BL-012), empezar por tiendas que ya venden Pixie y preguntar rotación, margen y quejas de esa marca. |
 | 3 | El alimento natural para perros cuesta desde unos 20.000 COP/kg: BARF de 20.000 a 24.000 (Bocado, GRUY), natural congelado de 21.250 a 35.800 (Pixie, Kanuto, Kanu Nativo Fresh) y húmedo estable de 43.600 a 52.800 (Dogo) (E; ver cuentas). Los empaques grandes bajan el precio por kg: Pixie 2 kg a 21.250 frente a 23.630–31.590 en 500 g (E). | Hay un piso de precio de la categoría natural en Bogotá. Dónde queda Canívoros es una pregunta abierta hasta confirmar sus precios (H). | Confirmar precios y unidades de Canívoros (BL-005) y volver a correr `competencia.py precios --propia "Canívoros"`. |
 | 4 | Casi todos los naturales se venden congelados o refrigerados (E, D). VITA cobra 39.900 de envío por un paquete de 2,4 kg (D, V). Puppis da envío gratis desde 160.000 y Animals Veterinaria desde 150.000 (E). Dogo es la excepción: estable a temperatura ambiente hasta abrirlo (D). | La cadena de frío encarece la entrega en toda la categoría. Si Canívoros resulta estable o con vida refrigerada larga, sería una ventaja logística; si requiere congelación, competirá en las mismas condiciones (H). | Documentar conservación y vida útil de Canívoros con ficha técnica. Después, probar entregas programadas por microzona (BL-014). |
 | 5 | Kanu Pet vende marca propia natural, Nativo Fresh y Nativo Oven-Baked (E). Gabrica lanzó Dogo en 2025 (E). Italcol tiene Chunky Menú Natural BARF, agotado al consultar (E). | Retailers y empresas grandes están entrando al segmento. Un retailer con marca propia puede no impulsar a Canívoros (H). | Priorizar petshops y veterinarias independientes que ya tengan congelador y clientes de alimento natural. Con Kanu Pet, preguntar condiciones antes de depender de ese canal. |
 
-## 3. Tabla comparativa
+## 3. Registro de marcas
 
-Costo diario: `desconocido` para todas las marcas, porque no se encontraron raciones publicadas para perros de 10 y 25 kg. Reseñas: no se levantaron todavía. El resto de las marcas está en `COMPETENCIA.md`.
+Salida de `python3 .claude/skills/analisis-competencia/scripts/competencia.py marcas competencia/competencia-2026-11-03.csv`.
+
+Primera revisión: 2026-11-03, solo investigación de escritorio. Los sitios de las marcas no se pudieron abrir por la política de red del entorno; los datos vienen de los extractos que devolvió el buscador. Por eso ninguna marca queda como `verificada` todavía: «por verificar (encontrada)» significa que hay fuentes públicas de que existe y vende en Bogotá, pero falta confirmarlo abriendo la página o en campo.
+
+Tipos: directo (natural cocido u horneado) · BARF y precocido · concentrado premium · alternativa casera. Se agrega «concentrado estándar (referencia)» para las marcas masivas que sirven de comparación.
+
+Marcas registradas: 45.
+
+| ID | Marca | Tipo | Origen | Formatos y conservación | Dónde se consigue | Zonas de Bogotá | Estado | Fuentes | Última revisión |
+|---|---|---|---|---|---|---|---|---|---|
+| C01 | Pixie | directo | Bogotá (Pixie S.A.S., 2014) | Porciones húmedas horneadas de 200 g a 3,5 kg; congelado. Línea gatos, tortas y galletas | Rappi, Puppis, Agrocampo, Kanu Pet, Animals Veterinaria; más de 700 puntos (D) | Toda la ciudad por apps y retailers (E) | por verificar (encontrada) | agrocampo.com.co, puppis.com.co, rappi.com.co, animalsveterinaria.com, elespectador.com | 2026-11-03 |
+| C02 | Kanuto | directo | Medellín | Porciones horneadas de 500 g (pollo, res, pescado) y kéfir; congelado al vacío | Web propia, Instagram; despacha a todo Colombia (D) | desconocido | por verificar (encontrada) | kanuto.com.co, instagram.com/kanuto___ | 2026-11-03 |
+| C03 | VITA Alimento Vital | directo | Bogotá y Medellín (plantas) | Lingotes horneados de 200 g en paquetes de 2,4 y 5 kg; refrigerado 10 días o congelado 6 meses (D) | Web propia con domicilio; recogida en planta (D) | Bogotá en 24 h; municipios a 40 km lunes, miércoles y viernes (D) | por verificar (encontrada) | vitaalimentovital.com, bluradio.com | 2026-11-03 |
+| C04 | Kanu Pet · Nativo | directo (Nativo Fresh) y concentrado premium (Nativo Oven-Baked) | Marca propia del retailer Kanu Pet | Nativo Fresh: porciones cocidas de 500 g (perros) y 175 g (gatos), congelado. Nativo Oven-Baked: croqueta horneada seca | kanu.pet, Kanu Aliados, Addi | Bogotá y Medellín (D) | por verificar (encontrada) | kanu.pet, kanualiados.com, marketplace.addi.com | 2026-11-03 |
+| C05 | Honesto | directo | desconocido | «Dieta BARF horneada» de 500 g y BARF crudo para gatos; congelado | Web propia | Entrega en Bogotá, Medellín y Cali (D) | por verificar (encontrada) | tiendahonesto.com | 2026-11-03 |
+| C06 | Bigdog (Dogsy Pet Food) | directo | Bogotá (Dogsy, 2016) | Dieta cocida al vapor en paquetes de 5, 10 y 15 kg (500 g por unidad); BARF; Dogsy Cat 250 g; helados. Congelado | Web propia; vehículos refrigerados en Bogotá y Medellín (D) | Bogotá; envío 10.000 (D) | por verificar (encontrada) | dogsy.com.co, bogota.dogsy.com.co, agronegocios.co | 2026-11-03 |
+| C07 | Bocado | BARF y precocido | Bogotá | Cajas de 4 kg (16 × 250 g): 1 receta cocida y 4 crudas; congelado a −18 °C hasta 12 meses (D) | Web propia | Bogotá; envíos nacionales (D) | por verificar (encontrada) | bocadopetfood.com | 2026-11-03 |
+| C08 | Barf y Alimento | directo | desconocido | Cocido personalizado de 2 kg y BARF a medida | Web propia | desconocido | por verificar (encontrada) | barfyalimento.com | 2026-11-03 |
+| C09 | Dogo (Gabrica) | directo | desconocido (Gabrica S.A.S.) | Albóndigas cocidas al vapor de 50, 150 y 500 g; más de 65 % de humedad; ambiente, refrigerar al abrir (D). Lanzado en 2025 | Ceba, Lares, Agroventas, Animal Center, Petit Paws | Animal Center y Ceba entregan en Bogotá (D) | por verificar (encontrada) | ceba.com.co, animalcenter.pet, agroventas.co, petitpaws.com.co, americaretail-malls.com | 2026-11-03 |
+| C10 | KIKO Holistic | directo | Colombia | Húmedo natural en pouch de 400 g; snacks deshidratados y liofilizados | Farmatodo | Nacional, entrega 4–5 días (D) | por verificar (encontrada) | farmatodo.com.co | 2026-11-03 |
+| C11 | Masvital | directo | desconocido | Alimento natural para perros y gatos | Web propia con domicilio | Bogotá, Cali, Bucaramanga (D) | por verificar (encontrada) | masvital.pet | 2026-11-03 |
+| C12 | Hello Dog Colombia | directo | Bogotá | Comida fresca y natural para perros | Web propia con domicilio | Todo Bogotá (D) | por verificar (encontrada) | hellodogcolombia.com | 2026-11-03 |
+| C13 | Snouts | BARF y precocido | Medellín | Dieta natural cruda congelada; snacks | Web propia | Medellín, Bogotá, Cali y nacional (D) | por verificar (encontrada) | snouts.com.co, americaretail-malls.com | 2026-11-03 |
+| C14 | Pet Gourmet | directo | Colombia | Panadería canina y alimento natural; primera reconocida por el ICA como productora de alimentos para animales en 2013 (Agronegocios) | Tiendas propias y comercio electrónico | desconocido | por verificar (encontrada) | agronegocios.co, semana.com, petfoodindustry.com | 2026-11-03 |
+| C15 | Petlikatessen | directo | Bogotá | Alimento natural, café y panadería canina | Local propio | desconocido | por verificar (encontrada) | gust.com | 2026-11-03 |
+| C16 | Ecocat (Dogtoo y Biodieta) | directo (Dogtoo) y BARF y precocido (Biodieta) | desconocido | Dogtoo: húmedo natural de 250 a 1.000 g. Biodieta: crudo de ~1 kg para gatos | Web propia | desconocido | por verificar (encontrada) | ecocat.com.co | 2026-11-03 |
+| C17 | GRUY | BARF y precocido | Bogotá | BARF de 125 y 250 g; congelado. Declara licencia ICA (D) | Web propia | Bogotá (D) | por verificar (encontrada) | gruy.com.co | 2026-11-03 |
+| C18 | Whole Barf | BARF y precocido | desconocido | BARF crudo con 70 % de humedad (D) | Puppis | Bogotá, Medellín, Barranquilla (D) | por verificar (encontrada) | puppis.com.co, eltiempo.com (contenido comercial) | 2026-11-03 |
+| C19 | Barf Orígenes | BARF y precocido | desconocido | Menús crudos congelados para perros y gatos | Laika | Bogotá (E) | por verificar (encontrada) | laika.com.co | 2026-11-03 |
+| C20 | Peluditos Barf | BARF y precocido | Bogotá | BARF crudo; gatos 100 g | Web propia, Agrocampo | Bogotá (D) | por verificar (encontrada) | peluditosbarf.com.co, agrocampo.com.co | 2026-11-03 |
+| C21 | Fortiz Pets | BARF y precocido | Bogotá | BARF por libra, mínimo 6 libras | Sitio Wix | Bogotá; envío 3.000–5.000 (D) | por verificar (encontrada) | fortizpets.wixsite.com | 2026-11-03 |
+| C22 | Nutrihuellas Barf | BARF y precocido | Bogotá | BARF crudo | Web propia | Solo Bogotá (D) | por verificar (encontrada) | documento de preguntas frecuentes de la tienda | 2026-11-03 |
+| C23 | Pet&Co BARF | BARF y precocido | Bogotá | BARF crudo; declara registro ICA (D) | Web propia | Bogotá | por verificar (encontrada) | petandcobarf.com | 2026-11-03 |
+| C24 | Mr. Barf | BARF y precocido | Cali | BARF para perros y gatos | Web propia | desconocido | por verificar | gust.com, mrbarf.com | 2026-11-03 |
+| C25 | Pet Natural Food | BARF y precocido | desconocido | BARF | desconocido | desconocido | por verificar | agronegocios.co | 2026-11-03 |
+| C26 | Chunky Menú Natural (Italcol) | BARF y precocido | Colombia (Italcol) | BARF crudo en cajas de 10 × 300 g; agotado al consultar | Alimento Animal | desconocido | por verificar | alimentoanimal.com.co | 2026-11-03 |
+| C27 | Corleone BARF Premium | BARF y precocido | desconocido | BARF | Facebook | desconocido | por verificar | facebook.com | 2026-11-03 |
+| C28 | BeBarf | BARF y precocido | desconocido | Menú mixto de 1 kg (D) | Web propia | desconocido | por verificar | bebarf.com | 2026-11-03 |
+| C29 | Nupec | concentrado premium | México (importado) | Croqueta; seco | Farmatodo, Falabella | Nacional | por verificar (encontrada) | farmatodo.com.co, falabella.com.co | 2026-11-03 |
+| C30 | Agility Gold | concentrado premium | Colombia | Croqueta; seco | Falabella y otros | Nacional | por verificar (encontrada) | falabella.com.co, farmatodo.com.co | 2026-11-03 |
+| C31 | Hill's Science Diet | concentrado premium | Importado | Croqueta; seco | Falabella y otros | Nacional | por verificar (encontrada) | las2orillas.co | 2026-11-03 |
+| C32 | Pro Plan | concentrado premium | Importado (Purina) | Croqueta; seco | Farmatodo y otros | Nacional | por verificar | farmatodo.com.co (sin precio visible) | 2026-11-03 |
+| C33 | Royal Canin | concentrado premium | Importado | Croqueta; seco | Mercado Libre y otros | Nacional | por verificar | mercadolibre.com.co (sin precio visible) | 2026-11-03 |
+| C34 | Taste of the Wild | concentrado premium | Importado | Croqueta; seco | desconocido | desconocido | por verificar | Sin precio en Colombia en la búsqueda | 2026-11-03 |
+| C35 | Acana y Orijen | concentrado premium | Importado | Croqueta; seco | desconocido | desconocido | por verificar | Sin precio en Colombia en la búsqueda | 2026-11-03 |
+| C36 | Dog Chow | concentrado estándar (referencia) | Purina | Croqueta; seco | Todos los canales | Nacional | por verificar (encontrada) | falabella.com.co, homecenter.com.co, farmatodo.com.co | 2026-11-03 |
+| C37 | Chunky | concentrado estándar (referencia) | Colombia (Italcol) | Croqueta; seco | Todos los canales | Nacional | por verificar (encontrada) | falabella.com.co, alkosto.com | 2026-11-03 |
+| C38 | Comida casera y carne de carnicería | alternativa casera | desconocido | Cocinar en casa o comprar carne y vísceras | Carnicerías y plazas de mercado | desconocido | por verificar | Sin levantamiento todavía | 2026-11-03 |
+| C39 | Vital Doggy | BARF y precocido | desconocido | desconocido | desconocido | desconocido | por verificar | Candidata de `AGENTS.md`; sin resultados en búsqueda web del 2026-11-03 | 2026-11-03 |
+| C40 | Rawf | BARF y precocido | desconocido | desconocido | desconocido | desconocido | por verificar | Candidata de `AGENTS.md`; sin resultados en búsqueda web del 2026-11-03 | 2026-11-03 |
+| C41 | KENKO Barf | BARF y precocido | desconocido | desconocido | desconocido | desconocido | por verificar | Candidata de `AGENTS.md`; sin resultados en búsqueda web del 2026-11-03 | 2026-11-03 |
+| C42 | 4DOGS | BARF y precocido | desconocido | desconocido | desconocido | desconocido | por verificar | Candidata de `AGENTS.md`; sin resultados en búsqueda web del 2026-11-03 | 2026-11-03 |
+| C43 | Barftender | BARF y precocido | desconocido | desconocido | desconocido | desconocido | por verificar | Candidata de `AGENTS.md`; sin resultados en búsqueda web del 2026-11-03 | 2026-11-03 |
+| C44 | Santo Barf | BARF y precocido | desconocido | desconocido | desconocido | desconocido | por verificar | Candidata de `AGENTS.md`; sin resultados en búsqueda web del 2026-11-03 | 2026-11-03 |
+| C45 | Bitute | BARF y precocido | desconocido | desconocido | desconocido | desconocido | por verificar | Candidata de `AGENTS.md`; sin resultados en búsqueda web del 2026-11-03 | 2026-11-03 |
+
+Notas:
+
+- C09: en dogorealfood.com aparece un «Dogo Res x 800 g BARF» congelado, vendido en Cali y Bogotá, con licencia ICA. No se sabe si es la misma marca que el Dogo de Gabrica (V).
+- C12: un cliente del registro de ventas 2026 tiene un nombre parecido. Confirmar internamente si es la misma empresa y si revende o reetiqueta producto de Canívoros (H).
+
+Estado: `por verificar`, `verificada` (existe y se vende en Bogotá), `descartada` (con el motivo en Fuentes) o `No verificado` (la página pide login o bloquea). Los IDs no se reutilizan.
+
+## 4. Tabla comparativa
+
+Costo diario: `desconocido` para todas las marcas, porque no se encontraron raciones publicadas para perros de 10 y 25 kg. Reseñas: no se levantaron todavía. El resto de las marcas está en la sección 3.
 
 | ID | Marca | Tipo | Formato y conservación | Precio/kg (filas E) | Costo diario 10 kg | Costo diario 25 kg | Dónde se consigue | Entrega | Promesa | Reseñas |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -50,7 +117,7 @@ Comparar por kg entre grupos tiene un límite: un concentrado seco tiene poca hu
 
 ### Precios y cuentas
 
-Salida de `python3 .claude/skills/analisis-competencia/scripts/competencia.py precios competencia/observaciones.csv --hoy 2026-11-03 --libra-g 453.6`. Se usó `--libra-g 453.6` porque las dos filas en libras son de una bolsa importada (Hill's, 4,5 lb) y de Fortiz Pets; ambas están marcadas (V) y quedan fuera de la comparación. Ninguna fila de Canívoros entra en el archivo.
+Salida de `python3 .claude/skills/analisis-competencia/scripts/competencia.py precios competencia/competencia-2026-11-03.csv --hoy 2026-11-03 --libra-g 453.6` (filas `registro=precio`). Los números de línea se refieren al CSV del día. Se usó `--libra-g 453.6` porque las dos filas en libras son de una bolsa importada (Hill's, 4,5 lb) y de Fortiz Pets; ambas están marcadas (V) y quedan fuera de la comparación. Ninguna fila de Canívoros entra en el archivo.
 
 #### Precio por kg (de menor a mayor)
 
@@ -90,21 +157,21 @@ Les falta peso, precio, fecha o fuente, están marcadas (V) o (H), o tienen un d
 
 | Línea | Marca | Producto | Peso | Precio regular | Motivo |
 |---|---|---|---|---|---|
-| 12 | C03 · VITA Alimento Vital | VITA Sensitive Salmón (12 lingotes de 200 g) | 2,4 kg | 73.500 | marcado (V): dato dudoso o sin fecha |
-| 13 | C03 · VITA Alimento Vital | VITA Sensitive Salmón (25 lingotes de 200 g) | 5 kg | 139.800 | marcado (V): dato dudoso o sin fecha |
-| 14 | C03 · VITA Alimento Vital | VITA Sensitive Pavo (12 lingotes de 200 g) | 2,4 kg | 74.700 | marcado (V): dato dudoso o sin fecha |
-| 20 | C05 · Honesto | Dieta BARF horneada pollo con verduras | 500 g | 35.000 | marcado (V): dato dudoso o sin fecha |
-| 21 | C06 · Bigdog (Dogsy Pet Food) | Bigdog Res Mix dieta cocida (10 x 500 g) | 5 kg | desconocido | marcado (V): dato dudoso o sin fecha; sin precio regular |
-| 22 | C06 · Bigdog (Dogsy Pet Food) | Dogsy Cat dieta cocida | 250 g | 6.000 | marcado (V): dato dudoso o sin fecha |
-| 24 | C08 · Barf y Alimento | Alimento cocido perros y gatos | 2 kg | 27.360 | marcado (V): dato dudoso o sin fecha |
-| 28 | C10 · KIKO Holistic | Húmedo natural monoproteico cerdo (pouch) | 400 g | 17.000 | marcado (V): dato dudoso o sin fecha |
-| 32 | C20 · Peluditos Barf | Barf Cat Gourmet | 100 g | 4.000 | marcado (V): dato dudoso o sin fecha |
-| 33 | C21 · Fortiz Pets | Dieta BARF | 453,6 g | 2.000 | marcado (V): dato dudoso o sin fecha |
-| 34 | C16 · Ecocat | Biodieta crudo original gatos (unas 32 porciones) | 1 kg | desconocido | marcado (V): dato dudoso o sin fecha; sin precio regular |
-| 38 | C31 · Hill's Science Diet | Small Paws adulto raza mini | 2,04 kg | desconocido | marcado (V): dato dudoso o sin fecha; sin precio regular |
-| 39 | C37 · Chunky | Pollo adultos | 9 kg | desconocido | sin precio regular |
-| 40 | C36 · Dog Chow | Triple proteína adultos | 8 kg | desconocido | sin precio regular |
-| 41 | C36 · Dog Chow | Adultos medianos y grandes | 22,7 kg | 358.850 | marcado (V): dato dudoso o sin fecha |
+| 57 | C03 · VITA Alimento Vital | VITA Sensitive Salmón (12 lingotes de 200 g) | 2,4 kg | 73.500 | marcado (V): dato dudoso o sin fecha |
+| 58 | C03 · VITA Alimento Vital | VITA Sensitive Salmón (25 lingotes de 200 g) | 5 kg | 139.800 | marcado (V): dato dudoso o sin fecha |
+| 59 | C03 · VITA Alimento Vital | VITA Sensitive Pavo (12 lingotes de 200 g) | 2,4 kg | 74.700 | marcado (V): dato dudoso o sin fecha |
+| 65 | C05 · Honesto | Dieta BARF horneada pollo con verduras | 500 g | 35.000 | marcado (V): dato dudoso o sin fecha |
+| 66 | C06 · Bigdog (Dogsy Pet Food) | Bigdog Res Mix dieta cocida (10 x 500 g) | 5 kg | desconocido | marcado (V): dato dudoso o sin fecha; sin precio regular |
+| 67 | C06 · Bigdog (Dogsy Pet Food) | Dogsy Cat dieta cocida | 250 g | 6.000 | marcado (V): dato dudoso o sin fecha |
+| 69 | C08 · Barf y Alimento | Alimento cocido perros y gatos | 2 kg | 27.360 | marcado (V): dato dudoso o sin fecha |
+| 73 | C10 · KIKO Holistic | Húmedo natural monoproteico cerdo (pouch) | 400 g | 17.000 | marcado (V): dato dudoso o sin fecha |
+| 77 | C20 · Peluditos Barf | Barf Cat Gourmet | 100 g | 4.000 | marcado (V): dato dudoso o sin fecha |
+| 78 | C21 · Fortiz Pets | Dieta BARF | 453,6 g | 2.000 | marcado (V): dato dudoso o sin fecha |
+| 79 | C16 · Ecocat | Biodieta crudo original gatos (unas 32 porciones) | 1 kg | desconocido | marcado (V): dato dudoso o sin fecha; sin precio regular |
+| 83 | C31 · Hill's Science Diet | Small Paws adulto raza mini | 2,04 kg | desconocido | marcado (V): dato dudoso o sin fecha; sin precio regular |
+| 84 | C37 · Chunky | Pollo adultos | 9 kg | desconocido | sin precio regular |
+| 85 | C36 · Dog Chow | Triple proteína adultos | 8 kg | desconocido | sin precio regular |
+| 86 | C36 · Dog Chow | Adultos medianos y grandes | 22,7 kg | 358.850 | marcado (V): dato dudoso o sin fecha |
 
 #### Resumen por tipo
 
@@ -148,10 +215,9 @@ No hay raciones documentadas con fuente y perfil de mascota: no se calcula costo
 - C04 · Kanu Pet · Nativo · Nativo Oven-Baked K-booster carne, cerdo y salmón: 119.900 ÷ (2.000 g ÷ 1.000) = 59.950/kg
 - C04 · Kanu Pet · Nativo · Nativo Fresh pollo para gato: 11.900 ÷ (175 g ÷ 1.000) = 68.000/kg
 
-
 Filas sin precio regular: Chunky 9 kg (133.956) y Dog Chow Triple Proteína 8 kg (143.271) solo muestran el precio con descuento, unos 14.900 y 17.900 COP/kg; se dejan como referencia (V) del concentrado estándar.
 
-## 4. Mensajes
+## 5. Mensajes
 
 | Marca | Promesa principal | Prueba que ofrece | Tipo de afirmación | Evidencia |
 |---|---|---|---|---|
@@ -168,7 +234,7 @@ Filas sin precio regular: Chunky 9 kg (133.956) y Dog Chow Triple Proteína 8 kg
 
 **Promesas que nadie usa en lo revisado (H):** origen en perros de competencia o de alto rendimiento; formato hamburguesa o chorizo; economía para perros grandes o criadores. La muestra es pequeña y no se revisaron redes ni anuncios, así que esto es una hipótesis.
 
-## 5. Cobertura en Bogotá
+## 6. Cobertura en Bogotá
 
 No se levantó cobertura por localidad. Lo observado es por canal:
 
@@ -178,7 +244,7 @@ No se levantó cobertura por localidad. Lo observado es por canal:
 | Calle 73 # 20-65 (Animals Veterinaria) | Pixie (E) | Bogotá y Sabana, gratis desde 150.000 (E) | desconocido |
 | Municipios a 40 km (Chía, Zipaquirá, Soacha) | VITA (D) | Lunes, miércoles y viernes (D) | desconocido |
 
-## 6. Gatos (Gatívoros)
+## 7. Gatos (Gatívoros)
 
 | Marca | Tipo | Presentación y precio | COP/kg | Evidencia |
 |---|---|---|---:|---|
@@ -190,7 +256,7 @@ No se levantó cobertura por localidad. Lo observado es por canal:
 
 Las marcas para gatos usan porciones de 100 a 250 g (E). Coincide con lo que dice la responsable de Canívoros en `erp.md`: 500 g es mucho para un gato y el producto pierde frescura al abrirlo. Apoya probar una presentación de 200 g (BL-023, BL-026) (H).
 
-## 7. Recomendaciones y pruebas
+## 8. Recomendaciones y pruebas
 
 | Hallazgo (evidencia) | Hipótesis | Prueba | Métrica | Criterio de decisión | Límite de gasto o tiempo |
 |---|---|---|---|---|---|
@@ -202,7 +268,7 @@ Las marcas para gatos usan porciones de 100 a 250 g (E). Coincide con lo que dic
 
 Registrar hipótesis y criterios antes de lanzar cada prueba (BL-044).
 
-## 8. Qué no se pudo verificar
+## 9. Qué no se pudo verificar
 
 | Dato | Por qué importa | Cómo obtenerlo | Necesita aprobación de Andrés |
 |---|---|---|---|
@@ -210,15 +276,15 @@ Registrar hipótesis y criterios antes de lanzar cada prueba (BL-044).
 | Precios y unidades confirmados de Canívoros | Sin ellos no se puede ubicar a Canívoros en la comparación | BL-005 | No |
 | Conservación y vida útil de Canívoros | Define si compite con los congelados o con los estables | Ficha técnica de la empresa | No |
 | Raciones de cada marca para perros de 10 y 25 kg | Sin raciones no hay costo diario | Etiquetas, fichas técnicas, compras de prueba | Sí, si se compra |
-| Reseñas (Google Maps, Mercado Libre, redes) | Qué valoran y critican los compradores | Levantar en `resenas.csv` y correr `competencia.py resenas` | No |
-| Matriz de perfil competitivo | Necesita pesos que salgan de los compradores | Entrevistas BL-006 y BL-007; `matriz.csv` | No |
+| Reseñas (Google Maps, Mercado Libre, redes) | Qué valoran y critican los compradores | Agregar filas `registro=resena` al CSV del día y correr `competencia.py resenas` | No |
+| Matriz de perfil competitivo | Necesita pesos que salgan de los compradores | Entrevistas BL-006 y BL-007; filas `registro=matriz` del CSV del día | No |
 | Precios de VITA, Bigdog, Barf y Alimento, Honesto y KIKO | Están marcados (V) y fuera de la comparación | Revisar la página actual | No |
 | Compras de prueba de Pixie, Kanuto, VITA, Bigdog, Bocado, Kanu Nativo Fresh y Dogo | Atención, entrega, empaque, etiqueta y ración reales | Protocolo de `references/levantamiento.md` de la skill | Sí |
 | Candidatas sin resultados (C39–C45) | Podrían ser competidores relevantes | Buscar en Instagram y Google Maps | No |
 | Cobertura por localidad | Alimenta el criterio de competidores de la matriz de microzonas | Google Maps y retailers por zona (BL-014) | No |
 | Cliente del registro de ventas con nombre parecido a Hello Dog (C12) | Podría ser a la vez cliente y competidor | Revisión interna | No |
 
-## 9. Qué debe decidir Andrés
+## 10. Qué debe decidir Andrés
 
 - Confirmar precios, unidades y conservación de Canívoros (BL-005) para autorizar la comparación con la marca propia.
 - Aprobar o no las compras de prueba de la sección 8 y su presupuesto.
@@ -226,9 +292,9 @@ Registrar hipótesis y criterios antes de lanzar cada prueba (BL-044).
 - Decidir si se habilita el acceso a los dominios de las marcas en el entorno de trabajo o si la verificación de las páginas se hace a mano.
 - Definir si Kanu Pet se trata como canal, como competidor o como ambos.
 
-## 10. Fuentes
+## 11. Fuentes
 
-Todas consultadas el 2026-11-03 mediante el buscador. Estado «No verificado»: la página no se pudo abrir desde este entorno. Las URL de cada precio están en `observaciones.csv`.
+Todas consultadas el 2026-11-03 mediante el buscador. Estado «No verificado»: la página no se pudo abrir desde este entorno. Las URL de cada precio están en `competencia-2026-11-03.csv`.
 
 | # | Fuente (URL o descripción) | Fecha de consulta | Estado |
 |---|---|---|---|

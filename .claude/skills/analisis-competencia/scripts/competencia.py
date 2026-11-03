@@ -3,10 +3,15 @@
 """Herramientas de la skill «analisis-competencia».
 
 Subcomandos
-  iniciar  Prepara la carpeta competencia/ con las plantillas y el informe del día.
-  precios  Precio por kg, por kg de materia seca y costo diario, con avisos.
-  matriz   Matriz de perfil competitivo con cobertura de evidencia y sensibilidad.
-  resenas  Temas y sentimientos de reseñas por marca: patrones vs. menciones aisladas.
+  iniciar  Crea el par del día en competencia/: competencia-AAAA-MM-DD.md y competencia-AAAA-MM-DD.csv.
+  marcas   Tabla Markdown del registro de marcas (filas registro=marca) para pegar en el .md.
+  precios  Precio por kg, por kg de materia seca y costo diario, con avisos (filas registro=precio).
+  matriz   Matriz de perfil competitivo con cobertura de evidencia y sensibilidad (filas registro=matriz).
+  resenas  Temas y sentimientos de reseñas por marca: patrones vs. menciones aisladas (filas registro=resena).
+
+Todos los datos de un análisis viven en un solo CSV con fecha, competencia-AAAA-MM-DD.csv.
+La columna «registro» indica el tipo de fila: marca, precio, matriz o resena. Cada subcomando
+lee solo sus filas. Un CSV sin columna «registro» se lee completo, como en versiones anteriores.
 
 Solo usa la biblioteca estándar de Python 3. Acepta CSV separados por coma,
 punto y coma o tabulador (Excel en español suele exportar con punto y coma),
@@ -14,10 +19,11 @@ en UTF-8 o Windows-1252, y números en formato colombiano (45.900 · 1,5) o
 internacional (45,900 · 1.5).
 
 Ejemplos
-  python3 competencia.py iniciar competencia
-  python3 competencia.py precios observaciones.csv --propia "Canívoros" --hoy 2026-11-03
-  python3 competencia.py matriz matriz.csv --propia "Canívoros"
-  python3 competencia.py resenas resenas.csv --min-patron 3
+  python3 competencia.py iniciar competencia --hoy 2026-11-03
+  python3 competencia.py marcas competencia/competencia-2026-11-03.csv
+  python3 competencia.py precios competencia/competencia-2026-11-03.csv --propia "Canívoros" --hoy 2026-11-03
+  python3 competencia.py matriz competencia/competencia-2026-11-03.csv --propia "Canívoros"
+  python3 competencia.py resenas competencia/competencia-2026-11-03.csv --min-patron 3
 """
 
 import argparse
@@ -44,6 +50,15 @@ EVIDENCIAS = {
     "v": "V", "dudoso": "V", "sin_fecha": "V", "no_verificado": "V",
 }
 VACIOS = {"", "na", "n_a", "nd", "n_d", "desconocido", "sin_dato", "no_aplica", "null", "none"}
+
+# Tipos de fila del CSV unificado (columna «registro»).
+REGISTROS = {
+    "marca": {"marca", "marcas", "competidor", "competidores"},
+    "precio": {"precio", "precios", "observacion", "observaciones"},
+    "matriz": {"matriz"},
+    "resena": {"resena", "resenas"},
+}
+PATRON_FECHADO = re.compile(r"^competencia-(\d{4}-\d{2}-\d{2})\.csv$")
 
 ALIAS_PRECIOS = {
     "marca": "competidor",
@@ -95,8 +110,11 @@ def es_vacio(valor):
     return v in ("", "-", "—", "?") or norm_key(v) in VACIOS
 
 
-def leer_tabla(ruta, alias):
-    """Lee un CSV y devuelve (columnas normalizadas, [(línea, fila)], delimitador)."""
+def leer_tabla(ruta, alias, tipo_registro=None):
+    """Lee un CSV y devuelve (columnas normalizadas, [(línea, fila)], delimitador).
+
+    Si el CSV tiene la columna «registro» y se indica un tipo, solo devuelve las filas de ese tipo.
+    """
     p = Path(ruta)
     if not p.exists():
         sys.exit(f"No existe el archivo: {ruta}")
@@ -129,6 +147,11 @@ def leer_tabla(ruta, alias):
                 f"con coma sin comillas (p. ej. 1,5 kg). Escríbelo entre comillas, con punto o en gramos"
             )
         filas.append((linea, fila))
+    if tipo_registro and "registro" in claves:
+        aceptados = REGISTROS[tipo_registro]
+        filas = [(n, f) for n, f in filas if norm_key(f.get("registro")) in aceptados]
+        if not filas:
+            sys.exit(f"{ruta} no tiene filas con registro={tipo_registro}.")
     return claves, filas, delim
 
 
@@ -137,8 +160,12 @@ def exigir_columnas(claves, requeridas, plantilla):
     if faltan:
         sys.exit(
             "Faltan columnas: " + ", ".join(faltan)
-            + f". Usa la plantilla assets/{plantilla} como referencia."
+            + f". Usa la plantilla assets/{plantilla} como referencia (columnas de las filas registro={plantilla_registro(plantilla)})."
         )
+
+
+def plantilla_registro(plantilla):
+    return {"precios": "precio", "matriz": "matriz", "resenas": "resena", "marcas": "marca"}.get(plantilla, "?")
 
 
 def parse_numero(valor):
@@ -285,24 +312,72 @@ def fecha_referencia(valor):
 # --------------------------------------------------------------------------- #
 
 def cmd_iniciar(a):
+    """Crea competencia-AAAA-MM-DD.md y competencia-AAAA-MM-DD.csv sin sobrescribir nada.
+
+    El CSV del día parte del CSV fechado más reciente de la carpeta, para conservar los IDs
+    de las marcas y el histórico de precios. Si no hay ninguno, parte de la plantilla vacía.
+    """
     destino = Path(a.carpeta)
     destino.mkdir(parents=True, exist_ok=True)
-    hoy = fecha_referencia(a.hoy)
-    plan = [
-        ("COMPETENCIA.md", "COMPETENCIA.md"),
-        ("observaciones.csv", "observaciones.csv"),
-        ("matriz.csv", "matriz.csv"),
-        ("resenas.csv", "resenas.csv"),
-        ("plantilla-informe.md", f"informe-{hoy.isoformat()}.md"),
-    ]
-    for origen, nombre in plan:
-        objetivo = destino / nombre
-        if objetivo.exists():
-            print(f"Se conserva (ya existe): {objetivo}")
-            continue
-        contenido = (ASSETS / origen).read_text(encoding="utf-8").replace("{{FECHA}}", hoy.isoformat())
-        objetivo.write_text(contenido, encoding="utf-8")
-        print(f"Creado: {objetivo}")
+    hoy = fecha_referencia(a.hoy).isoformat()
+    md_dia = destino / f"competencia-{hoy}.md"
+    csv_dia = destino / f"competencia-{hoy}.csv"
+
+    if csv_dia.exists():
+        print(f"Se conserva (ya existe): {csv_dia}")
+    else:
+        anteriores = sorted(
+            (m.group(1), f) for f in destino.iterdir()
+            if (m := PATRON_FECHADO.match(f.name)) and m.group(1) < hoy
+        )
+        if anteriores:
+            base = anteriores[-1][1]
+            csv_dia.write_bytes(base.read_bytes())
+            print(f"Creado: {csv_dia} (copia de {base.name}: conserva IDs e histórico)")
+        else:
+            csv_dia.write_text((ASSETS / "competencia.csv").read_text(encoding="utf-8"), encoding="utf-8")
+            print(f"Creado: {csv_dia}")
+
+    if md_dia.exists():
+        print(f"Se conserva (ya existe): {md_dia}")
+    else:
+        contenido = (ASSETS / "plantilla-informe.md").read_text(encoding="utf-8").replace("{{FECHA}}", hoy)
+        md_dia.write_text(contenido, encoding="utf-8")
+        print(f"Creado: {md_dia}")
+
+
+# --------------------------------------------------------------------------- #
+# marcas
+# --------------------------------------------------------------------------- #
+
+def cmd_marcas(a):
+    claves, filas, _ = leer_tabla(a.csv, {"marca": "competidor"}, tipo_registro="marca")
+    exigir_columnas(claves, ["id_competidor", "competidor"], "marcas")
+
+    def celda(r, *cols):
+        partes = [r.get(c, "").strip() for c in cols if not es_vacio(r.get(c))]
+        return md(" · ".join(partes)) if partes else "desconocido"
+
+    def orden(item):
+        m = re.match(r"^[A-Za-z]*(\d+)$", item[1].get("id_competidor", "").strip())
+        return (0, int(m.group(1))) if m else (1, item[1].get("id_competidor", ""))
+
+    encabezados = ["ID", "Marca", "Tipo", "Origen", "Formatos y conservación", "Dónde se consigue",
+                   "Zonas de Bogotá", "Estado", "Fuentes", "Última revisión"]
+    filas_md, notas = [], []
+    for _, r in sorted(filas, key=orden):
+        filas_md.append([
+            md(r.get("id_competidor")), md(r.get("competidor")), celda(r, "tipo"), celda(r, "origen"),
+            celda(r, "formato", "conservacion"), celda(r, "donde_se_consigue"), celda(r, "zonas_bogota"),
+            celda(r, "estado") if not es_vacio(r.get("estado")) else "por verificar",
+            celda(r, "fuente"), celda(r, "fecha"),
+        ])
+        if not es_vacio(r.get("observacion")):
+            notas.append(f"- {md(r.get('id_competidor'))}: {md(r.get('observacion'))}")
+    salida = [f"Marcas registradas: {len(filas_md)}.", "", tabla_md(encabezados, filas_md)]
+    if notas:
+        salida += ["", "Notas:", ""] + notas
+    escribir_salida("\n".join(salida), a.guardar)
 
 
 # --------------------------------------------------------------------------- #
@@ -325,9 +400,9 @@ def leer_raciones(r, claves):
 
 
 def cmd_precios(a):
-    claves, filas, delim = leer_tabla(a.csv, ALIAS_PRECIOS)
+    claves, filas, delim = leer_tabla(a.csv, ALIAS_PRECIOS, tipo_registro="precio")
     exigir_columnas(claves, ["competidor", "producto", "peso_g", "precio_regular", "fecha", "fuente"],
-                    "observaciones.csv")
+                    "precios")
     hoy = fecha_referencia(a.hoy)
     propia = norm_key(a.propia) if a.propia else None
     hay_ids = "id_competidor" in claves
@@ -629,8 +704,8 @@ def cmd_precios(a):
 # --------------------------------------------------------------------------- #
 
 def cmd_matriz(a):
-    claves, filas, _ = leer_tabla(a.csv, ALIAS_MATRIZ)
-    exigir_columnas(claves, ["factor", "peso", "competidor", "puntuacion"], "matriz.csv")
+    claves, filas, _ = leer_tabla(a.csv, ALIAS_MATRIZ, tipo_registro="matriz")
+    exigir_columnas(claves, ["factor", "peso", "competidor", "puntuacion"], "matriz")
     escala = a.escala
     propia = norm_key(a.propia) if a.propia else None
     factores, competidores, pesos, celdas, avisos = [], [], {}, {}, []
@@ -826,8 +901,8 @@ def parse_sentimiento(valor):
 
 
 def cmd_resenas(a):
-    claves, filas, _ = leer_tabla(a.csv, ALIAS_RESENAS)
-    exigir_columnas(claves, ["competidor", "temas", "sentimiento"], "resenas.csv")
+    claves, filas, _ = leer_tabla(a.csv, ALIAS_RESENAS, tipo_registro="resena")
+    exigir_columnas(claves, ["competidor", "temas", "sentimiento"], "resenas")
     hoy = fecha_referencia(a.hoy)
     propia = norm_key(a.propia) if a.propia else None
     avisos, marcas = [], {}
@@ -963,32 +1038,37 @@ def main(argv=None):
         formatter_class=argparse.RawDescriptionHelpFormatter, epilog=__doc__)
     sub = p.add_subparsers(dest="comando", required=True)
 
-    s = sub.add_parser("iniciar", help="prepara la carpeta competencia/ con las plantillas y el informe del día")
+    s = sub.add_parser("iniciar", help="crea competencia-AAAA-MM-DD.md y competencia-AAAA-MM-DD.csv en la carpeta")
     s.add_argument("carpeta", nargs="?", default="competencia",
                    help="carpeta de resultados (por defecto, competencia)")
-    s.add_argument("--hoy", help="fecha del informe (AAAA-MM-DD); por defecto, hoy")
+    s.add_argument("--hoy", help="fecha del análisis (AAAA-MM-DD); por defecto, hoy")
     s.set_defaults(func=cmd_iniciar)
 
+    s = sub.add_parser("marcas", help="tabla Markdown del registro de marcas (filas registro=marca)")
+    s.add_argument("csv", help="competencia-AAAA-MM-DD.csv")
+    s.add_argument("--guardar", help="ruta donde guardar la tabla en Markdown")
+    s.set_defaults(func=cmd_marcas)
+
     s = sub.add_parser("precios", help="precio por kg, materia seca y costo diario con avisos")
-    s.add_argument("csv", help="observaciones.csv")
+    s.add_argument("csv", help="competencia-AAAA-MM-DD.csv (filas registro=precio)")
     s.add_argument("--propia", help="nombre de la marca propia para ubicarla frente a las demás")
     s.add_argument("--hoy", help="fecha de referencia (AAAA-MM-DD); por defecto, hoy")
     s.add_argument("--max-dias", type=int, default=60, help="antigüedad máxima de un precio antes de avisar (60)")
     s.add_argument("--libra-g", type=float, default=None,
                    help="gramos por libra; sin este valor las filas en libras quedan sin precio por kg")
-    s.add_argument("--salida", help="ruta de un CSV con las columnas calculadas")
+    s.add_argument("--salida", help="ruta de un CSV con las columnas calculadas (si lo usas, ponle fecha al nombre)")
     s.add_argument("--guardar", help="ruta donde guardar el informe en Markdown")
     s.set_defaults(func=cmd_precios)
 
     s = sub.add_parser("matriz", help="matriz de perfil competitivo")
-    s.add_argument("csv", help="matriz.csv (formato largo: factor, peso, competidor, puntuacion, evidencia)")
+    s.add_argument("csv", help="competencia-AAAA-MM-DD.csv (filas registro=matriz: factor, peso, competidor, puntuacion, evidencia)")
     s.add_argument("--escala", type=int, default=4, help="puntuación máxima (4 por defecto; 5 si usas 1–5)")
     s.add_argument("--propia", help="nombre de la marca propia para calcular brechas")
     s.add_argument("--guardar", help="ruta donde guardar el informe en Markdown")
     s.set_defaults(func=cmd_matriz)
 
     s = sub.add_parser("resenas", help="temas y sentimientos de reseñas por marca")
-    s.add_argument("csv", help="resenas.csv")
+    s.add_argument("csv", help="competencia-AAAA-MM-DD.csv (filas registro=resena)")
     s.add_argument("--min-patron", type=int, default=3, help="menciones para considerar un patrón (3)")
     s.add_argument("--min-muestra", type=int, default=10, help="reseñas por marca por debajo de las cuales avisa (10)")
     s.add_argument("--max-dias", type=int, default=365, help="antigüedad a partir de la cual avisa (365)")

@@ -31,7 +31,7 @@ Levantar precio por kg, presentación, entrega y mensaje de Pixie, Kanuto, VITA,
 Ver fuentes.
 
 ## Avance (3 nov 2026)
-Primera investigación de escritorio en [competencia/informe-2026-11-03.md](../competencia/informe-2026-11-03.md): 45 marcas registradas en [COMPETENCIA.md](../competencia/COMPETENCIA.md) y 40 precios con fecha y fuente en [observaciones.csv](../competencia/observaciones.csv) (25 comparables por kg). Falta confirmar precios de Canívoros (BL-005), verificar las páginas, levantar raciones y reseñas, y decidir compras de prueba.
+Primera investigación de escritorio en [competencia/competencia-2026-11-03.md](../competencia/competencia-2026-11-03.md), con los datos en [competencia-2026-11-03.csv](../competencia/competencia-2026-11-03.csv): 45 marcas registradas y 40 precios con fecha y fuente (25 comparables por kg). Falta confirmar precios de Canívoros (BL-005), verificar las páginas, levantar raciones y reseñas, y decidir compras de prueba.
 
 ## Supuestos
 Responsable, plazo y esfuerzo son propuestas.

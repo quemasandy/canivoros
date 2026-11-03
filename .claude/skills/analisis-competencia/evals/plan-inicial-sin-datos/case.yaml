@@ -4,5 +4,5 @@ expected_outcome: |
   Un plan de arranque que define la pregunta y el alcance, parte de los tipos de competidor
   de competencia/AGENTS.md (incluida la alternativa casera) sin darlos por verificados,
   separa la investigación pública del trabajo de campo que necesita aprobación de Andrés,
-  crea competencia/ con COMPETENCIA.md, observaciones.csv y el informe del día,
+  crea en competencia/ el par del día con fecha (competencia-AAAA-MM-DD.md y .csv),
   y no presenta precios, ventas ni márgenes de competidores como hechos.

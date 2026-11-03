@@ -30,19 +30,38 @@ Cómo reunir y registrar datos de la competencia para poder compararlos y confia
 
 ## 2. Archivos y columnas
 
-Todo vive en `competencia/`.
+Todo vive en `competencia/`. **Cada análisis genera siempre dos archivos con la fecha en el nombre:**
 
-### `COMPETENCIA.md`
+- `competencia-AAAA-MM-DD.md`: el informe completo del día (pregunta, hallazgos, registro de marcas, tabla comparativa, cuentas, mensajes, reseñas, cobertura, matriz, pruebas, pendientes y fuentes).
+- `competencia-AAAA-MM-DD.csv`: todos los datos del día en un solo CSV. La columna `registro` dice qué es cada fila: `marca`, `precio`, `matriz` o `resena`. Cada fila llena solo las columnas de su tipo; las demás quedan vacías.
 
-Una fila por marca: ID (`C01`, `C02`…, nunca reutilizado), marca, tipo, origen, formatos y conservación, dónde se consigue, zonas de Bogotá, estado (`por verificar`, `verificada`, `descartada`, `No verificado`), fuentes y fecha de la última revisión.
+No crees otros archivos sin fecha. Si en el mismo día ya existe el par, actualízalo. El script `iniciar` crea el CSV del día como copia del CSV fechado más reciente, así se conservan los IDs y el histórico de precios con sus fechas.
 
-### `observaciones.csv` (una fila por presentación, canal y fecha)
+### Filas `registro=marca` (una por marca)
+
+| Columna | Contenido |
+|---|---|
+| `id_competidor` | `C01`, `C02`…, nunca reutilizado |
+| `competidor` | Marca |
+| `tipo` | directo, BARF y precocido, concentrado premium o alternativa casera |
+| `origen` | Ciudad donde se produce |
+| `formato`, `conservacion` | Formatos que vende y cómo se conservan |
+| `donde_se_consigue` | Tiendas, veterinarias, web, WhatsApp, apps |
+| `zonas_bogota` | Localidades o zonas de entrega |
+| `estado` | `por verificar`, `verificada`, `descartada` o `No verificado` |
+| `fuente` | Fuentes consultadas |
+| `fecha` | Última revisión (AAAA-MM-DD) |
+| `observacion` | Notas |
+
+`competencia.py marcas` convierte estas filas en la tabla del registro para el `.md`.
+
+### Filas `registro=precio` (una por presentación, canal y fecha)
 
 **Decimales con coma:** si el archivo se separa con comas, `1,5 kg` parte la fila. Escríbelo entre comillas (`"1,5 kg"`), con punto (`1.5 kg`) o en gramos (`1500 g`). El script detecta las filas desplazadas. Si generas el CSV con código, usa un escritor de CSV que ponga comillas automáticamente.
 
 | Columna | Contenido | Obligatoria |
 |---|---|---|
-| `id_competidor` | ID de `COMPETENCIA.md` | Recomendada |
+| `id_competidor` | ID de la fila `registro=marca` | Recomendada |
 | `competidor` | Marca. Puede incluir la marca propia, pero los precios de Canívoros solo se comparan cuando estén confirmados | Sí |
 | `tipo` | directo, BARF y precocido, concentrado premium o alternativa casera | Recomendada |
 | `producto` | Nombre del producto o receta | Sí |
@@ -71,11 +90,11 @@ Una fila por marca: ID (`C01`, `C02`…, nunca reutilizado), marca, tipo, origen
 
 Para otros perfiles o especies, el script también acepta `racion_<n>kg_g` (por ejemplo `racion_4kg_g`) o el par `racion_g_dia` + `perfil_racion` («gato adulto 4 kg»).
 
-### `matriz.csv` (formato largo: una fila por factor y competidor)
+### Filas `registro=matriz` (formato largo: una por factor y competidor)
 
 `factor`, `peso` (igual en todas las filas del factor; suman 1 o 100 %), `competidor`, `puntuacion` (1–4; vacía si no hay evidencia), `evidencia` (por qué esa nota, con su marca E/D/H/V), `fuente`.
 
-### `resenas.csv` (una fila por reseña)
+### Filas `registro=resena` (una por reseña)
 
 `competidor`, `fuente` (Google Maps, Mercado Libre, Instagram…), `fecha`, `calificacion` (si existe), `temas` (separados por `|`; usa `tema:negativo` para el sentimiento de un tema concreto), `sentimiento` (positivo, negativo, neutro o mixto), `extracto` (frase breve, sin nombre del autor), `url`.
 
@@ -107,7 +126,7 @@ Una compra de prueba documenta la experiencia completa de compra. **Requiere apr
 | Producto | Peso neto, lote, vencimiento, análisis garantizado, instrucciones |
 | Posventa | Seguimiento, recordatorio de recompra, respuesta a una pregunta |
 
-Después, registra los datos en `observaciones.csv` como (E) y guarda fotos y recibos.
+Después, registra los datos en el CSV del día (`registro=precio`) como (E) y guarda fotos y recibos.
 
 ## 5. Guion: entrevista a compradores
 

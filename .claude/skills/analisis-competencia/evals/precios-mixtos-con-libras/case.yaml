@@ -6,4 +6,4 @@ expected_outcome: |
   confirmado (BL-005) y trata cualquier comparación con él como provisional. No convierte
   la libra en silencio, marca como (V) el precio sin fecha del distribuidor y explica que
   sin raciones publicadas no se puede saber cuál sale más barato para alimentar ni
-  compararse sin considerar la humedad. Deja los archivos en competencia/.
+  compararse sin considerar la humedad. Deja en competencia/ el par del día con fecha (.md y .csv).

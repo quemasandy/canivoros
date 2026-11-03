@@ -13,7 +13,8 @@ Un catálogo de competidores sin decisión detrás no sirve. Cada hallazgo debe 
 
 En el repositorio de Canívoros, lee primero `AGENTS.md` y `competencia/AGENTS.md`. **Sus reglas mandan sobre esta skill.** Esta skill las respeta así:
 
-- Resultados en la carpeta `competencia/`, junto a su `AGENTS.md` (decisión del usuario): `COMPETENCIA.md` (marcas con ID `C01`, `C02`…, que no se reutilizan), `informe-AAAA-MM-DD.md` y los CSV de trabajo. No uses `resultados/competencia/`.
+- Resultados en la carpeta `competencia/`, junto a su `AGENTS.md` (decisión del usuario). No uses `resultados/competencia/`.
+- **Todos los archivos llevan la fecha en el nombre y cada análisis genera siempre un `.md` y un `.csv`** (decisión del usuario): `competencia-AAAA-MM-DD.md` con el informe completo y `competencia-AAAA-MM-DD.csv` con todos los datos. No crees archivos sin fecha ni archivos sueltos por tipo de dato. Si el par del día ya existe, actualízalo.
 - Marcas de evidencia: **(E)** visto en una fuente, con URL y fecha · **(D)** lo dice la marca de sí misma · **(H)** interpretación propia · **(V)** dato dudoso o sin fecha.
 - Lo que no se sabe se escribe `desconocido`.
 - No se comparan precios de Canívoros hasta que la empresa los confirme (BL-005).
@@ -41,7 +42,7 @@ El análisis respalda decisiones con dinero real. Si una suposición se cuela co
 ### 0. Reúne el contexto
 
 - Para Canívoros o Gatívoros, lee `references/contexto-canivoros.md` y `competencia/AGENTS.md`.
-- Revisa `competencia/`. Si ya hay análisis, actualízalo: conserva los IDs y las observaciones antiguas con su fecha. El histórico de precios también es información.
+- Revisa `competencia/`. Si ya hay análisis, parte del `competencia-AAAA-MM-DD.csv` más reciente: conserva los IDs y las observaciones antiguas con su fecha. El histórico de precios también es información.
 - Para otro cliente necesitas qué vende, a quién, dónde, por qué canales y a qué precio. Si falta, pregúntalo una vez y en concreto.
 
 ### 1. Define la pregunta y el alcance
@@ -66,20 +67,22 @@ Si la decisión no está clara, empieza por **benchmarking + matriz de perfil co
 
 1. Parte de la tabla de `competencia/AGENTS.md` (directo, BARF y precocido, concentrado premium, alternativa casera). Esos ejemplos **no están verificados**.
 2. Confirma que cada marca existe y se vende en Bogotá antes de incluirla. Agrega las que encuentres.
-3. Registra cada marca en `COMPETENCIA.md` con su ID, tipo, estado y fuentes.
+3. Registra cada marca como fila `registro=marca` del CSV del día, con su ID (`C01`, `C02`…, que no se reutilizan), tipo, estado y fuentes.
 4. Para comparar a fondo, elige 8–12 que el comprador objetivo realmente considere, al menos una por tipo. Anota por qué entra cada una.
 
 ### 3. Recolecta los datos
 
-Crea o completa la carpeta `competencia/`:
+Crea el par del día en `competencia/`:
 
 ```bash
-python3 .claude/skills/analisis-competencia/scripts/competencia.py iniciar
+python3 .claude/skills/analisis-competencia/scripts/competencia.py iniciar --hoy AAAA-MM-DD
 ```
 
-Agrega a `competencia/` los archivos `COMPETENCIA.md`, `observaciones.csv`, `matriz.csv`, `resenas.csv` e `informe-AAAA-MM-DD.md`. No sobrescribe lo que ya existe (tampoco `AGENTS.md` ni `CLAUDE.md`). Columnas y fuentes en `references/levantamiento.md`.
+Crea `competencia-AAAA-MM-DD.md` (desde `assets/plantilla-informe.md`) y `competencia-AAAA-MM-DD.csv`. El CSV parte del CSV fechado más reciente de la carpeta, o de `assets/competencia.csv` si no hay ninguno. No sobrescribe lo que ya existe (tampoco `AGENTS.md` ni `CLAUDE.md`).
 
-**Investigación de escritorio (la haces tú).** Usa WebSearch y WebFetch. Revisa la web y la tienda de cada marca, Rappi, Mercado Libre, Google Maps, redes sociales y las bibliotecas de anuncios de Meta y Google. Cada precio es una fila de `observaciones.csv` con URL, fecha y vendedor; en un marketplace el vendedor puede ser un revendedor. Copia peso y precio tal como aparecen («2 kg», «1 libra», «3 x 500 g»). Pon entre comillas los valores con coma decimal (`"1,5 kg"`).
+En el CSV, la columna `registro` dice qué es cada fila: `marca`, `precio`, `matriz` o `resena`. Cada fila llena solo las columnas de su tipo. Columnas y fuentes en `references/levantamiento.md`.
+
+**Investigación de escritorio (la haces tú).** Usa WebSearch y WebFetch. Revisa la web y la tienda de cada marca, Rappi, Mercado Libre, Google Maps, redes sociales y las bibliotecas de anuncios de Meta y Google. Cada precio es una fila `registro=precio` del CSV del día con URL, fecha y vendedor; en un marketplace el vendedor puede ser un revendedor. Copia peso y precio tal como aparecen («2 kg», «1 libra», «3 x 500 g»). Pon entre comillas los valores con coma decimal (`"1,5 kg"`).
 
 **Trabajo de campo (lo hace el equipo).** Entrevistas a compradores y distribuidores, visitas a tiendas y compras de prueba. Las compras de prueba requieren aprobación de Andrés. No simules sus resultados: prepara los guiones de `references/levantamiento.md` y deja la tarea como pendiente en el informe.
 
@@ -88,18 +91,20 @@ Agrega a `competencia/` los archivos `COMPETENCIA.md`, `observaciones.csv`, `mat
 Usa el script. Aplica siempre las mismas reglas y muestra las cuentas.
 
 ```bash
-# Precio por kg, materia seca y costo diario (perros de 10 y 25 kg), con la sección «Cuentas»
-python3 .claude/skills/analisis-competencia/scripts/competencia.py precios competencia/observaciones.csv \
-  --hoy AAAA-MM-DD --salida competencia/precios-normalizados.csv
+# Registro de marcas en Markdown (filas registro=marca)
+python3 .claude/skills/analisis-competencia/scripts/competencia.py marcas competencia/competencia-AAAA-MM-DD.csv
 
-# Matriz de perfil competitivo: cobertura de evidencia, sensibilidad a los pesos y brechas
-python3 .claude/skills/analisis-competencia/scripts/competencia.py matriz competencia/matriz.csv
+# Precio por kg, materia seca y costo diario (perros de 10 y 25 kg), con la sección «Cuentas» (filas registro=precio)
+python3 .claude/skills/analisis-competencia/scripts/competencia.py precios competencia/competencia-AAAA-MM-DD.csv --hoy AAAA-MM-DD
 
-# Reseñas: temas y sentimiento por marca; patrones frente a menciones aisladas
-python3 .claude/skills/analisis-competencia/scripts/competencia.py resenas competencia/resenas.csv --hoy AAAA-MM-DD
+# Matriz de perfil competitivo: cobertura de evidencia, sensibilidad a los pesos y brechas (filas registro=matriz)
+python3 .claude/skills/analisis-competencia/scripts/competencia.py matriz competencia/competencia-AAAA-MM-DD.csv
+
+# Reseñas: temas y sentimiento por marca; patrones frente a menciones aisladas (filas registro=resena)
+python3 .claude/skills/analisis-competencia/scripts/competencia.py resenas competencia/competencia-AAAA-MM-DD.csv --hoy AAAA-MM-DD
 ```
 
-Cada subcomando acepta `--guardar archivo.md` y `--help`. `--propia "Marca"` ubica a la marca propia frente a las demás; para Canívoros, úsalo solo con precios confirmados.
+Pega la salida de cada subcomando en su sección del `.md` del día. Cada subcomando acepta `--help`. No uses `--guardar` ni `--salida` para dejar archivos extra en `competencia/`: todo va en el par del día. `--propia "Marca"` ubica a la marca propia frente a las demás; para Canívoros, úsalo solo con precios confirmados.
 
 Atención a:
 
@@ -128,14 +133,16 @@ Registra hipótesis y criterio antes de lanzar la prueba (BL-044). Expresa los c
 
 ### 7. Entrega
 
-- Actualiza `COMPETENCIA.md` y escribe `informe-AAAA-MM-DD.md` desde `assets/plantilla-informe.md`: pregunta, resumen de hallazgos, tabla comparativa, recomendaciones, qué no se pudo verificar y fuentes. Borra las secciones que no uses.
+- Entrega siempre el par del día: `competencia-AAAA-MM-DD.csv` con todas las filas y `competencia-AAAA-MM-DD.md` desde `assets/plantilla-informe.md`: pregunta, resumen de hallazgos, registro de marcas, tabla comparativa, recomendaciones, qué no se pudo verificar y fuentes. Borra las secciones del `.md` que no uses.
+- Si encuentras en `competencia/` archivos de análisis sin fecha o sueltos (por ejemplo `COMPETENCIA.md`, `observaciones.csv`, `informe-….md`), pasa su contenido al par del día y avisa antes de borrarlos.
 - Los informes son internos. No publiques comparaciones con nombres de competidores.
 - En el chat, resume en 5 líneas: pregunta, hallazgos principales, qué quedó `desconocido` y qué debe decidir Andrés.
 
 ## Lista de verificación
 
+- [ ] Se generó el par del día: `competencia-AAAA-MM-DD.md` y `competencia-AAAA-MM-DD.csv`; no quedan archivos de análisis sin fecha.
 - [ ] La pregunta y el alcance están escritos al inicio.
-- [ ] Cada marca tiene ID en `COMPETENCIA.md` y estado de verificación.
+- [ ] Cada marca tiene su fila `registro=marca` con ID y estado de verificación.
 - [ ] Cada precio tiene fecha, fuente, vendedor y marca de evidencia; los precios comparados son de la misma semana.
 - [ ] Las cuentas de precio por kg y costo diario están a la vista.
 - [ ] El costo diario solo usa raciones publicadas para el mismo perfil.
@@ -149,5 +156,5 @@ Registra hipótesis y criterio antes de lanzar la prueba (BL-044). Expresa los c
 - `references/tecnicas.md`: cómo aplicar cada técnica (pasos, resultado y errores comunes). Léelo en los pasos 1 y 5.
 - `references/levantamiento.md`: columnas, marcas de evidencia, fuentes, guiones de entrevista, protocolo de compra de prueba y cuidados legales. Léelo en el paso 3.
 - `references/contexto-canivoros.md`: empresa, precios pendientes, candidatos y tareas del backlog. Léelo en el paso 0.
-- `assets/`: plantillas `COMPETENCIA.md`, `observaciones.csv`, `matriz.csv`, `resenas.csv` y `plantilla-informe.md`. En `assets/ejemplos/` hay datos ficticios para probar el script; nunca los uses como datos reales.
-- `scripts/competencia.py`: subcomandos `iniciar`, `precios`, `matriz` y `resenas`. Solo usa la biblioteca estándar de Python 3 y acepta CSV de Excel en español.
+- `assets/`: `competencia.csv` (encabezado del CSV unificado) y `plantilla-informe.md` (plantilla del `.md` del día). En `assets/ejemplos/ejemplo-competencia.csv` hay datos ficticios de los cuatro tipos de fila para probar el script; nunca los uses como datos reales.
+- `scripts/competencia.py`: subcomandos `iniciar`, `marcas`, `precios`, `matriz` y `resenas`. Solo usa la biblioteca estándar de Python 3 y acepta CSV de Excel en español. Lee el CSV unificado por la columna `registro`; un CSV sin esa columna se lee completo.

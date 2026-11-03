@@ -27,7 +27,7 @@ Cómo aplicar cada técnica: para qué sirve, pasos, resultado y errores comunes
 **Para qué:** saber cuánto paga el comprador por cada alternativa y cuánto le cuesta realmente alimentar a su mascota.
 
 **Pasos**
-1. Por alternativa, registra en `observaciones.csv` cada presentación relevante: peso, precio regular, promoción vigente, canal, vendedor, zona, fecha y fuente.
+1. Por alternativa, registra en `competencia-AAAA-MM-DD.csv` (filas `registro=precio`) cada presentación relevante: peso, precio regular, promoción vigente, canal, vendedor, zona, fecha y fuente.
 2. Registra también lo que afecta al costo total: costo de envío, pedido mínimo, tiempo de entrega y disponibilidad.
 3. Si la etiqueta declara humedad (análisis garantizado), anótala en `humedad_pct`. Si la marca publica una guía de ración, anota los gramos por día para un perro de 10 kg y uno de 25 kg (`racion_10kg_g`, `racion_25kg_g`) y su fuente.
 4. Captura todos los precios de la comparación en la misma semana.
