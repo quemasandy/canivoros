@@ -7,8 +7,8 @@ Creado: 2026-11-03 · **Estado: borrador** · Aprobación: Andrés.
 | Fuente | Uso |
 |---|---|
 | Video largo: https://youtu.be/BMMJTBtXmpA (18 min), con cuadros extraídos con ffmpeg y subtítulos en español | Fuente principal. Las marcas `mm:ss` de cada nodo son de este video |
-| Reel: https://www.instagram.com/reel/Dd2jJ0oPOxw/ | Versión corta |
-| Capturas de Andrés | Mandan donde sus textos son legibles y difieren del video (por decisión de Andrés) |
+| Reel: https://www.instagram.com/reel/Dd2jJ0oPOxw/ | Solo referencia; desde v4 no aporta nodos al diagrama (sección 7) |
+| Capturas de Andrés | Desde v4 solo como nota de diferencias: manda el video de YouTube (pedido de Andrés) |
 
 Reglas de lectura:
 
@@ -34,92 +34,134 @@ Reglas de Canívoros (no cambian la estructura):
 
 ```mermaid
 flowchart LR
-    %% ===== 1. Segmentación con Claude (03:10–05:25) =====
-    subgraph SEG["Segmentación Hiper Específica del ICP Ideal · 03:10"]
+    classDef pagina fill:#dbe4ff,stroke:#7b93d6,color:#1e2a4a,rx:20,ry:20
+    classDef rombo fill:#e3dcfb,stroke:#9b87e0,color:#2b2150
+    classDef amarillo fill:#fde68a,stroke:#d4a017,color:#3b2f00
+    classDef naranja fill:#f0a43a,stroke:#b8741a,color:#2b1600
+    classDef rosa fill:#f9c9cf,stroke:#d9808c,color:#4a1820
+    classDef verde fill:#c9ecd2,stroke:#5fae74,color:#123a1d
+    classDef verdeFuerte fill:#2ecc55,stroke:#1d8f3a,color:#ffffff
+    classDef azul fill:#5b8def,stroke:#3a66c4,color:#ffffff
+    classDef nota fill:#fffbe6,stroke:#e0c96b,color:#4a3d00,stroke-dasharray:3 3
+    classDef boton fill:#4f6bed,stroke:#3346b8,color:#ffffff
+
+    %% ===== Columna izquierda: creativos + segmentación (debajo, en el tablero) =====
+    subgraph SEG["Segmentación Hiper Específica del ICP Ideal (zona inferior del tablero · 03:10–05:25)"]
         direction TB
-        IN1["Nivel de sofisticación"]
-        IN2["Grabaciones de llamadas con clientes"]
-        IN3["Información del mejor cliente / ICP"]
-        IN4["Tu servicio"]
-        IN1 --> IN2 --> IN3 --> IN4
-        IN4 --> CL(["Claude"])
-        CL --> MA["Análisis de la Competencia · 03:40"]
-        CL --> MB["Perspectiva del ICP ideal: mapa de empatía"]
-        CL --> MC["Situación Actual del ICP, Situación Deseada y la Brecha Entre Ambas · 04:21"]
-        CL --> MD["Personalidad y Psicología del ICP"]
-        CL --> ME["Del ICP y del Mercado Objetivo:<br/>Nivel de Conciencia · Nivel de Sofisticación · 05:23"]
+        IN1["Nivel de sofisticación"]:::nota
+        IN2["Grabaciones de llamadas con clientes"]:::nota
+        IN3["Información del mejor cliente / ICP"]:::nota
+        IN4["Tu servicio"]:::nota
+        CL(["Claude"]):::boton
+        IN1 --- IN2 --- IN3 --- IN4 --> CL
+        CL --> MA["Análisis de la Competencia"]:::nota
+        CL --> MB["Perspectiva del ICP Ideal"]:::nota
+        CL --> MC["Situación Actual del ICP, Situación Deseada y la Brecha Entre Ambas"]:::nota
+        CL --> MD["Personalidad y Psicología del ICP"]:::nota
+        CL --> ME["Del ICP y del Mercado Objetivo:<br/>Nivel de Conciencia · Nivel de Sofisticación"]:::nota
     end
 
-    %% ===== 2. Anuncios (06:31) =====
-    CL --> AH(["Anuncios Híper Específicos · 06:31"])
-    AH --> AM(["Algoritmo avanzado de IA de Meta detecta el ICP · 06:31"])
+    %% ===== Fila principal =====
+    CR["Creativos de anuncios<br/>(columna de imágenes) · 06:31"]:::nota
+    CL --> AH
+    CR -.- AH
+    AH(["Anuncios Hiper Específicos · 06:31"]):::pagina --> AM(["Algoritmo avanzado de IA de Meta detecta el ICP · 06:31"]):::pagina
+    AM --> PV(["Página de Captación con VSL · 06:48"]):::pagina
+    FQ["Formulario de calificación"]:::nota -.- PV
+    PV --> EC{"¿Envío completado? · 07:50"}:::rombo
 
-    %% ===== 3. Captación (06:48–07:59) =====
-    AM --> PV(["Página de Captación con VSL · 06:48"])
-    AM -.-> PS(["Sin VSL · Página de Captación<br/>(solo reel / capturas)"])
-    FQ{{"Formulario de calificación"}} -.- PV
-    PV --> EC{"¿Envío completado? · 07:50"}
-    PS -.-> EC
-    EC -- Sí --> EF(["Enviar formulario · 07:50"])
-    EC -- No --> CF["Envío parcial → Configurar en formulario:<br/>Nombre, correo electrónico, número de teléfono · 07:59"]
-    CF --> LS["Llamada saliente → Equipo · 08:20"]
+    %% ----- Rama superior: envío parcial -----
+    subgraph SUP["Rama superior · envío parcial (07:59–08:34)"]
+        direction LR
+        CF["Configurar en formulario:<br/>Nombre, correo electrónico, número de teléfono"]:::naranja
+        LS["Llamada saliente → Equipo · 08:20"]:::amarillo
+        Q2{"¿Calificado?"}:::rombo
+        PF["Perdido – Para el futuro"]:::rosa
+        TR["Llamada de triaje · 08:29"]:::amarillo
+        Q3{"¿Calificado?"}:::rombo
+        LR2{"¿Llamada reservada? · 08:34"}:::rombo
+        SG["Seguimiento – Secuencias de nutrición de prospectos<br/>Herramienta de marketing por correo electrónico (e.j. Go High Level)"]:::naranja
+        CF --> LS --> Q2
+        Q2 -- No --> PF
+        Q2 -- No está seguro --> TR --> Q3
+        Q3 -- No --> PF
+        Q3 -- Sí --> LR2
+        LR2 -- No --> SG
+    end
+    EC -- "No (Envío parcial)" --> CF
+    EC -- Sí --> EF["Enviar formulario"]:::naranja
 
-    %% ===== 4. Calificación del formulario (09:18–11:23) =====
-    EF --> Q1{"¿Calificado? · 09:18"}
-    Q1 -- No --> BI>"Bajos ingresos mensuales o sin dinero para invertir · 10:07"]
-    BI --> NQ["Final no calificado – Redirigido a la página de destino<br/>con CTA al canal de YouTube · 10:07"]
-    NQ --> SN["Secuencia de nutrición de prospectos · 10:31<br/>Herramienta de email marketing (e.j. Go High Level)"]
-    SN -.-> F1["Fase 1: Crear conexión + autoridad + valor"]
-    F1 -.-> F2["Fase 2: Perspectivas profundas + cambio de creencias +<br/>llamadas a la acción para reservar una llamada"]
-    Q1 -- Sí --> PR(["Página de Reserva de Llamada · 11:06<br/>Calendario de GHL"])
-    PR --> LR1{"¿Llamada reservada? · 11:20"}
+    %% ----- Calificación -----
+    EF --> Q1{"¿Calificado? · 09:18"}:::rombo
+    subgraph NOQ["Rama inferior · no calificado (10:07–10:31)"]
+        direction TB
+        BI["Bajos ingresos mensuales o sin dinero para invertir"]:::nota
+        NQ["Final no calificado – Redirigido a la página de destino<br/>con CTA al canal de YouTube"]:::rosa
+        SN["Secuencia de nutrición de prospectos<br/>Herramienta de email marketing (e.j. Go High Level)"]:::naranja
+        F1["Fase 1: Crear conexión + autoridad + valor"]:::naranja
+        F2["Fase 2: Perspectivas profundas + cambio de creencias +<br/>llamadas a la acción para reservar una llamada"]:::naranja
+        BI -.- NQ --> SN --> F1 --> F2
+    end
+    Q1 -- No --> NQ
+    Q1 -- Sí --> PR(["Página de Reserva de Llamada · 11:06"]):::pagina
+    CG["Calendario de GHL"]:::nota -.- PR
+    PR --> LR1{"¿Llamada reservada? · 11:20"}:::rombo
     LR1 -- No --> LS
     LR1 -- Sí --> SS
-
-    %% ===== 5. Llamada saliente y triaje (08:20–08:34) =====
-    LS --> Q2{"¿Calificado? · 08:20"}
-    Q2 -- No --> PF["Perdido – Para el futuro · 08:20"]
-    Q2 -- No está seguro --> TR["Llamada de triaje · 08:20"]
-    Q2 -- Sí --> SS
-    TR --> Q3{"¿Calificado? · 08:29"}
-    Q3 -- No --> PF
-    Q3 -- Sí --> LR2{"¿Llamada reservada? · 08:34"}
+    Q2 -- "Sí (supuesto: destino tapado por la cámara)" --> SS
     LR2 -- Sí --> SS
-    LR2 -- No --> SG["Seguimiento – Secuencias de nutrición de prospectos · 08:34<br/>Herramienta de marketing por correo electrónico (e.j. Go High Level)"]
 
-    %% ===== 6. Llamada de SS reservada (13:26–14:24) =====
-    SS["Llamada de SS reservada · 13:26"] -- Flujo del Embudo --> PG(["Página de Gracias · 13:48"])
-    PG --> LE["Llamada Estratégica · 14:24<br/>Fundador o Closer"]
-    SS -. Comunicaciones internas .-> CC{"Canales de Contacto · 11:40"}
+    %% ===== Llamada de SS reservada =====
+    SS["Llamada de SS reservada · 13:26"]:::verde
+    SS -- Flujo del Embudo --> PG(["Página de Gracias · 13:48"]):::pagina
+    VG["Video que explica los siguientes pasos -> Generar confianza,<br/>mostrar la tarifa, casos de estudio, información del proceso"]:::nota -.- PG
 
-    %% Canal 1: Calendario
-    CC -- Calendario --> K1["Automatizado · Inmediatamente:<br/>Correo electrónico con invitación · 12:03"]
-    K1 --> K2["Automatizado · 24 horas antes de la llamada:<br/>Correo electrónico de recordatorio · 12:10"]
-    K2 --> K3["Automatizado · 12 horas antes de la llamada:<br/>Mensaje de texto de recordatorio · 12:15"]
+    subgraph COM["Comunicación (debajo de la fila principal · 11:40–13:26)"]
+        direction LR
+        CC{"Canales de Contacto"}:::rombo
+        K1["Automatizado · Inmediatamente<br/>Correo electrónico con invitación"]:::azul
+        K2["Automatizado · 24 horas antes de la llamada<br/>Correo electrónico de recordatorio"]:::azul
+        K3["Automatizado · 12 horas antes de la llamada<br/>Mensaje de texto de recordatorio"]:::azul
+        CP["Contacto Personalizado →<br/>Fundador o Equipo de Ventas"]:::amarillo
+        W1["Manual · Inmediatamente<br/>Mensaje de presentación en un grupo de WhatsApp (prospecto, setter, closer)"]:::amarillo
+        W1n["Asegúrate de que conozcan más sobre tu empresa."]:::nota
+        W2["Manual · 24 horas antes de la llamada<br/>Mensaje de recordatorio por WhatsApp"]:::amarillo
+        W2n["Confirmación de la llamada (si no responden al mensaje, los llaman)"]:::nota
+        HM["Herramienta de email marketing (e.j. Go High Level)"]:::nota
+        M1["Automatizado · 10 minutos después de la reserva<br/>Correo electrónico 1"]:::azul
+        M1n["Posicionamiento de autoridad sobre tu empresa y trayectoria"]:::nota
+        M2["Automatizado · 1–2 horas después de la reserva<br/>Correo electrónico 2"]:::azul
+        M2n["Casos de Éxito"]:::nota
+        M3["Automatizado · 3–4 horas después de la reserva<br/>Correo electrónico 3"]:::azul
+        M3n["Recordatorio sutil de la llamada integrado en un correo de valor y autoridad"]:::nota
+        NT3["Tiempo máximo recomendado entre la reserva de la llamada y la llamada en sí: 3 días"]:::nota
+        CC -- Calendario --> K1 --> K2 --> K3
+        CC --> CP --> W1 --> W2
+        W1 -.- W1n
+        W2 -.- W2n
+        CC --> HM --> M1 --> M2 --> M3
+        M1 -.- M1n
+        M2 -.- M2n
+        M3 -.- M3n
+    end
+    SS -- Comunicación --> CC
 
-    %% Canal 2: Contacto personalizado
-    CC -- "Contacto personalizado → Fundador o Equipo de Ventas" --> W1["Manual · Inmediatamente:<br/>Mensaje de presentación en un grupo de WhatsApp / iMessage o por correo electrónico · 12:15<br/>Nota: Asegúrate de que conozcan más sobre tu empresa"]
-    W1 --> W2["Manual · 24 horas antes de la llamada:<br/>Mensaje de recordatorio por WhatsApp o iMessage · 12:45<br/>Nota: Confirmación de la llamada (si no responden al mensaje, los llaman)"]
-
-    %% Canal 3: Email marketing
-    CC -- "Herramienta de email marketing (e.j. Go High Level)" --> M1["Automatizado · 10 minutos después de la reserva:<br/>Correo electrónico 1 · 12:55<br/>Posicionamiento de autoridad sobre tu empresa y trayectoria"]
-    M1 --> M2["Automatizado · 1–2 horas después de la reserva:<br/>Correo electrónico 2 · Casos de Éxito"]
-    M2 --> M3["Automatizado · 3–4 horas después de la reserva:<br/>Correo electrónico 3 · 13:20<br/>Recordatorio sutil de la llamada integrado en un correo electrónico de valor y autoridad"]
-    M3 -.-> LE
-    NT3>"Tiempo máximo recomendado entre la reserva de la llamada y la llamada en sí: 3 días · 13:26"] -.- CC
-
-    %% ===== 7. Cierre (14:24–16:40) =====
-    LE --> SP{"¿El lead se presenta a la llamada? · 14:24"}
-    SP -- No --> RP["Reprogramar"]
-    RP --> R1["3-5 seguimientos personales sencillos para reprogramar una llamada"]
-    R1 --> R2["Si aún no responden, los volvemos a incluir en el boletín<br/>para una nutrición a largo plazo + puntos de contacto<br/>Herramienta de email marketing (e.j. Go High Level) · 15:40"]
-    SP -- Sí --> OA{"¿Oferta Aceptada? · 14:24"}
-    OA -- No --> NL["Nutrición a Largo Plazo"]
-    NL --> N2["Vuélvelos a incluir en la campaña de email marketing.<br/>Esto puede depender mucho de cómo fue la llamada y de por qué la persona no compró.<br/>Herramienta de email marketing (e.j. Go High Level) · 16:00"]
-    OA -- Sí --> NC(["Negocio Cerrado"])
+    %% ===== Cierre (derecha) =====
+    PG --> LE["Llamada Estratégica · 14:24<br/>Fundador o Closer"]:::amarillo
+    LE --> SP{"¿El lead se presenta a la llamada?"}:::rombo
+    SP -- No --> RP["Reprogramar"]:::rosa
+    RP --> R1["3-5 seguimientos personales sencillos para reprogramar una llamada.<br/>Si aún no responden, los volvemos a incluir en el boletín para una<br/>nutrición a largo plazo + puntos de contacto.<br/>Herramienta de email marketing (e.j. Go High Level) · 15:40"]:::naranja
+    SP -- Sí --> OA{"¿Oferta Aceptada?"}:::rombo
+    OA -- No --> NL["Nutrición a Largo Plazo"]:::rosa
+    NL --> N2["Vuélvelos a incluir en la campaña de email marketing.<br/>Esto puede depender mucho de cómo fue la llamada y de por qué<br/>la persona no compró. Herramienta de email marketing (e.j. Go High Level) · 16:00"]:::naranja
+    OA -- Sí --> NC["Negocio Cerrado"]:::verdeFuerte
 ```
 
 Notas del mapa:
+
+- **v4, disposición fiel al tablero (vista amplia 00:20 y 17:20):** fila principal de izquierda a derecha (Anuncios → Algoritmo → Página con VSL → ¿Envío completado? → ¿Calificado? → Página de Reserva → ¿Llamada reservada? → Llamada de SS reservada → Página de Gracias → Llamada Estratégica → ¿Se presenta? → ¿Oferta Aceptada? → Negocio Cerrado); rama de envío parcial arriba; rama «no calificado» abajo; bloque «Comunicación» con los tres canales debajo de Llamada de SS reservada; cierre a la derecha.
+- Colores imitando las cajas del tablero: azul claro redondeado = páginas/anuncios; lila = rombos de decisión; amarillo = llamadas y acciones manuales; naranja = secuencias de nutrición/formulario; rosa = perdido/no calificado/reprogramar; azul fuerte = correos y mensajes automatizados; verde claro = Llamada de SS reservada; verde fuerte = Negocio Cerrado; crema punteado = notas.
+- En el tablero la zona de Claude está **debajo** de los creativos; mermaid la coloca a la izquierda (limitación del motor, no del contenido).
 
 - Las líneas punteadas son conexiones que se ven en el video pero sin una flecha clara, o elementos que solo están en una de las versiones (sección 7).
 - **Sí del ¿Calificado? después de la llamada saliente (08:20):** el cuadro muestra tres ramas separadas: «No» va hacia arriba, a Perdido – Para el futuro; «No está seguro» va a la derecha, a Llamada de triaje; «Sí» baja. Las tres etiquetas no se confunden.
@@ -134,7 +176,6 @@ Notas del mapa:
 | 3 | 06:31 | Anuncios Híper Específicos | Claude → Anuncios → Algoritmo | Meta | — | 4.1 |
 | 4 | 06:31 | Algoritmo avanzado de IA de Meta detecta el ICP | → Página de Captación con VSL | Meta | — | Presupuesto `desconocido` |
 | 5 | 06:48 | Página de Captación con VSL (encima: «Formulario de calificación») | → ¿Envío completado? | VSL | — | 4.2 |
-| 5b | reel | Sin VSL · Página de Captación | → formulario | — | — | Solo reel / capturas |
 | 6 | 07:50 | ¿Envío completado? | Sí → Enviar formulario · No → Envío parcial | Formulario | — | — |
 | 7 | 07:59 | Configurar en formulario: Nombre, correo electrónico, número de teléfono | → Llamada saliente → Equipo | Formulario | — | — |
 | 8 | 07:50 | Enviar formulario | → ¿Calificado? | — | — | — |
@@ -149,9 +190,9 @@ Notas del mapa:
 | 17 | 08:20 | Perdido – Para el futuro | Narración: entra a una campaña de email marketing con secuencias de nutrición | Email | — | `[[ ]]` |
 | 18 | 13:26 | Llamada de SS reservada | «Flujo del Embudo» → Página de Gracias · «Comunicaciones internas» → Canales de Contacto | — | — | — |
 | 19 | 13:48 | Página de Gracias. Nota: «Video que explica los siguientes pasos -> Generar confianza, mostrar la tarifa, casos de estudio, información del proceso» | → Llamada Estratégica | — | Inmediato | 4.3 |
-| 20 | 11:40–12:15 | Canales de Contacto → Calendario | Correo con invitación → correo de recordatorio → mensaje de texto de recordatorio | Calendario (reel/capturas: Calendly) | Inmediatamente · 24 h antes · 12 h antes | 4.4 |
+| 20 | 11:40–12:15 | Canales de Contacto → Calendario | Correo con invitación → correo de recordatorio → mensaje de texto de recordatorio | Calendario | Inmediatamente · 24 h antes · 12 h antes | 4.4 |
 | 21 | 12:15–12:45 | Canales de Contacto → Contacto personalizado → Fundador o Equipo de Ventas | Presentación → recordatorio | WhatsApp | Inmediatamente · 24 h antes | 4.5 |
-| 22 | 12:55–13:20 | Canales de Contacto → Herramienta de email marketing | Correo 1 → Correo 2 → Correo 3 | Email (e.j. Go High Level; reel: ActiveCampaign) | 10 min · 1–2 h · 3–4 h después de la reserva | 4.6 |
+| 22 | 12:55–13:20 | Canales de Contacto → Herramienta de email marketing | Correo 1 → Correo 2 → Correo 3 | Email (e.j. Go High Level) | 10 min · 1–2 h · 3–4 h después de la reserva | 4.6 |
 | 23 | 13:26 | Nota: Tiempo máximo recomendado entre la reserva de la llamada y la llamada en sí: 3 días | — | — | ≤ 3 días | — |
 | 24 | 14:24 | Llamada Estratégica (Fundador o Closer) | → ¿El lead se presenta a la llamada? | — | — | `[[cerrador]]` |
 | 25 | 14:24 | ¿El lead se presenta a la llamada? | No → Reprogramar · Sí → ¿Oferta Aceptada? | — | — | — |
@@ -439,7 +480,8 @@ Estado al 2026-11-03. Se revisaron cuadros del video largo y sus subtítulos.
 - [x] ¿El lead se presenta? Sí → ¿Oferta Aceptada? (sin caja de segunda llamada) (14:24)
 - [x] ¿Oferta Aceptada? No → Nutrición a Largo Plazo → «campaña de email marketing» · Sí → Negocio Cerrado (16:00)
 - [x] Cierre en dos llamadas según la narración (14:31)
-- [ ] Destino del Sí del ¿Calificado? de la llamada saliente: lo tapa la cámara del narrador. Lo dibujé hacia Llamada de SS reservada por la narración (11:23) y la línea que entra por arriba (13:26)
+- [x] Disposición, formas y colores del diagrama contrastados con la vista amplia del tablero (00:20, 17:20) — v4
+- [ ] Supuesto: destino del Sí del ¿Calificado? de la llamada saliente: lo tapa la cámara del narrador. Lo dibujé hacia Llamada de SS reservada por la narración (11:23) y la línea que entra por arriba (13:26)
 - [ ] Preguntas 6–8 del formulario: ilegibles en el video
 - [ ] Montos de la pregunta 10 y existencia de una quinta opción: ilegibles; el cuadro muestra 4 filas
 - [ ] Subpreguntas del mapa de empatía, detalle de los cuadrantes y descripciones de los niveles: ilegibles
@@ -452,12 +494,12 @@ Estado al 2026-11-03. Se revisaron cuadros del video largo y sus subtítulos.
 
 | Elemento | Reel / capturas de Andrés | Video largo | Qué se usa en E03 |
 |---|---|---|---|
-| Página sin VSL | «Sin VSL · Página de Captación» | No aparece (06:48) | Se incluye con línea punteada y la marca «solo reel» |
+| Página sin VSL | «Sin VSL · Página de Captación» | No aparece (06:48) | Eliminada del diagrama en v4 (solo nota) |
 | Configurar formulario | «Configurar en Typeform» | «Configurar en formulario» | Video largo |
-| Herramienta de email | ActiveCampaign | «Herramienta de email marketing [e.j. Go High Level]» | Video largo; ActiveCampaign queda anotado como variante |
-| Calendario | Calendly | «Calendario» y «Calendario de GHL» | Video largo; Calendly queda anotado como variante |
-| Presentación por WhatsApp | «…grupo de WhatsApp / iMessage o por correo electrónico» | «…grupo de WhatsApp (prospecto, setter, closer).» | Capturas (por decisión de Andrés); el texto del video largo va anotado |
-| Recordatorio 24 h | «…por WhatsApp o iMessage» | «…por WhatsApp» | Capturas |
+| Herramienta de email | ActiveCampaign | «Herramienta de email marketing [e.j. Go High Level]» | Video largo; ActiveCampaign solo como nota |
+| Calendario | Calendly | «Calendario» y «Calendario de GHL» | Video largo; Calendly solo como nota |
+| Presentación por WhatsApp | «…grupo de WhatsApp / iMessage o por correo electrónico» | «…grupo de WhatsApp (prospecto, setter, closer).» | Video largo (v4) |
+| Recordatorio 24 h | «…por WhatsApp o iMessage» | «…por WhatsApp» | Video largo (v4) |
 | Llamada Estratégica | «Fundador o Asesor Estratégico / Cerrador» | «Fundador o Closer» | Video largo |
 | Correo 2 | «Casos de Estudio» | «Casos de Éxito» | Video largo |
 | Nutrición si no se presenta | «boletín» | «boletín» (15:40) | Igual |
@@ -472,3 +514,4 @@ Estado al 2026-11-03. Se revisaron cuadros del video largo y sus subtítulos.
 | 2026-11-03 | Creación del borrador como clon del video | Pedido de Andrés |
 | 2026-11-03 | Reescrito contra la transcripción del reel | Andrés exige que sea idéntico |
 | 2026-11-03 | Reescrito contra el video largo de YouTube con cuadros y subtítulos: marcas de tiempo por nodo; nuevos nodos (Enviar formulario, Configurar en formulario, Bajos ingresos, Página de Reserva de Llamada, Seguimiento tras el triaje, Fase 1/2, Flujo del Embudo, Comunicaciones internas); preguntas completas de los marcos; preguntas 9 y 10; cierre en dos llamadas; tabla de diferencias entre versiones | Clon más exacto pedido por Andrés |
+| 2026-11-03 | v4: fiel a la versión de YouTube. Diagrama rehecho con la disposición del tablero (fila principal, rama superior, rama inferior, bloque Comunicación, cierre a la derecha), colores por tipo de caja y subgraphs; quitados Sin VSL, Calendly, ActiveCampaign e iMessage (solo nota en sección 7) | Andrés quiere que se parezca lo más posible al video de YouTube |
