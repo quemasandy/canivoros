@@ -1,0 +1,76 @@
+flowchart LR
+  classDef caja fill:#ffffff,stroke:#222,stroke-width:2px,color:#111,font-weight:bold
+  classDef verde fill:#3fd35a,stroke:#222,color:#111
+  classDef amarillo fill:#ffe033,stroke:#222,color:#111
+  classDef rojo fill:#f0505a,stroke:#222,color:#111
+  classDef nota fill:#ffe033,stroke:#222,color:#111,font-weight:bold
+  classDef rosa fill:#f9c9cc,stroke:#222,color:#111,font-weight:bold
+  classDef verdeclaro fill:#b6f5c4,stroke:#222,color:#111,font-weight:bold
+  classDef titulo fill:#ffffff,stroke:#ffffff,color:#111,font-size:18px
+
+  subgraph S30["$30/día"]
+    direction TB
+    P30["$30/día"]:::caja
+    C30["Campaña"]:::caja
+  P30 --> C30
+      J30_0["Conjunto"]:::caja
+  C30 --> J30_0
+    A30_0["Anuncio"]:::verde
+  J30_0 --> A30_0
+    A30_1["Anuncio"]:::amarillo
+  J30_0 --> A30_1
+    A30_2["Anuncio"]:::rojo
+  J30_0 --> A30_2
+  end
+  subgraph S100["$100/día"]
+    direction TB
+    P100["$100/día"]:::caja
+    C100["Campaña"]:::caja
+  P100 --> C100
+      J100_0["Conjunto"]:::caja
+      J100_1["Conjunto"]:::caja
+  C100 --> J100_0
+  C100 --> J100_1
+    A100_0["Anuncio"]:::verde
+  J100_0 --> A100_0
+    A100_1["Anuncio"]:::amarillo
+  J100_0 --> A100_1
+    A100_2["Anuncio"]:::verde
+  J100_1 --> A100_2
+    A100_3["Anuncio"]:::amarillo
+  J100_1 --> A100_3
+  end
+  subgraph S250["$250/día"]
+    direction TB
+    P250["$250/día"]:::caja
+    C250["Campaña"]:::caja
+  P250 --> C250
+      J250_0["Conjunto"]:::caja
+      J250_1["Conjunto"]:::caja
+      J250_2["Conjunto"]:::caja
+  C250 --> J250_0
+  C250 --> J250_1
+  C250 --> J250_2
+    A250_0["Anuncio"]:::verde
+  J250_0 --> A250_0
+    A250_1["Anuncio"]:::rojo
+  J250_0 --> A250_1
+    A250_2["Anuncio"]:::amarillo
+  J250_0 --> A250_2
+    A250_3["Anuncio"]:::verde
+  J250_1 --> A250_3
+    A250_4["Anuncio"]:::rojo
+  J250_1 --> A250_4
+    A250_5["Anuncio"]:::amarillo
+  J250_1 --> A250_5
+    A250_6["Anuncio"]:::verde
+  J250_2 --> A250_6
+    A250_7["Anuncio"]:::rojo
+  J250_2 --> A250_7
+    A250_8["Anuncio"]:::amarillo
+  J250_2 --> A250_8
+  end
+  S30 ~~~ S100
+  S100 ~~~ S250
+  J100_0 <==> J100_1
+  linkStyle 27 stroke:#f0505a,stroke-width:7px

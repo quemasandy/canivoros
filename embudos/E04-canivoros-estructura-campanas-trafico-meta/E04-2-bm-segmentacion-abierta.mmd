@@ -1,0 +1,63 @@
+flowchart TB
+  classDef caja fill:#ffffff,stroke:#222,stroke-width:2px,color:#111,font-weight:bold
+  classDef verde fill:#3fd35a,stroke:#222,color:#111
+  classDef amarillo fill:#ffe033,stroke:#222,color:#111
+  classDef rojo fill:#f0505a,stroke:#222,color:#111
+  classDef nota fill:#ffe033,stroke:#222,color:#111,font-weight:bold
+  classDef rosa fill:#f9c9cc,stroke:#222,color:#111,font-weight:bold
+  classDef verdeclaro fill:#b6f5c4,stroke:#222,color:#111,font-weight:bold
+  classDef titulo fill:#ffffff,stroke:#ffffff,color:#111,font-size:18px
+
+  T["<b>Business Manager</b><br/>(Segmentación Abierta)"]:::titulo --> CP["Cuenta<br/>Publicitaria"]:::caja
+  CP --> CT["Campaña de<br/>Tráfico"]:::caja
+  CT --> SG["Segmentación<br/>Abierta"]:::caja
+  SG --> P30["$30/día"]:::caja
+    V1["$10/día"]:::caja
+    V2["$10/día"]:::caja
+    V3["$10/día"]:::caja
+  P30 --> V1
+  P30 -- "Ángulo" --> V2
+  P30 --> V3
+  V1 --> D4["$120"]:::caja
+  V2 -- "Dia 4<br/>(Total)" --> D4
+  V3 --> D4
+  D4 --> SI["Si cumple los<br/>KPI's"]:::caja
+  D4 --> NO["No cumple los<br/>KPI's"]:::caja
+  NO --> AP["Apágalo"]:::caja
+  SI -- "Día 8" --> IG["Identifica el<br/>anuncio<br/>ganador"]:::caja
+  IG --> AP
+    W1["$10/día"]:::caja
+    W2["$10/día"]:::caja
+    W3["$10/día"]:::caja
+  IG --> W1
+  IG --> W2
+  IG --> W3
+  W2 --> DP["Distribuir el<br/>presupuesto<br/>al anuncio ganador"]:::caja
+  DP --> G30["$30/día"]:::caja
+    AN1["Anuncio 1"]:::rosa
+    AN2["Anuncio 2"]:::rosa
+    AN3["Anuncio 3"]:::verdeclaro
+  G30 --> AN3
+  G30 ~~~ AN1
+  G30 ~~~ AN2
+    S1["Anuncio<br/>3.1"]:::verdeclaro
+    S2["Anuncio<br/>3.2"]:::verdeclaro
+    S3["Anuncio<br/>3.3"]:::verdeclaro
+  AN3 --> S1
+  S1 --> Q1["$30/día"]:::nota
+  AN3 --> S2
+  S2 --> Q2["$30/día"]:::nota
+  AN3 --> S3
+  S3 --> Q3["$30/día"]:::nota
+  subgraph KN[" "]
+    direction TB
+    K1["CPV<br/>B2B = $0.05 - $0.25<br/>B2C = $0.02 - $0.10"]:::nota
+    K2["CPF<br/>B2B = $3 - $10<br/>B2C = $1 - $5"]:::nota
+    K3["25% seguidores<br/>calificados"]:::nota
+    K4["10%<br/>conversaciones<br/>califcadas"]:::nota
+    K1 ~~~ K2
+    K2 ~~~ K3
+    K3 ~~~ K4
+  end
+  style KN fill:none,stroke:none
+  P30 ~~~ KN
