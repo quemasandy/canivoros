@@ -80,6 +80,19 @@ Aporte de prospección outbound B2B para Canívoros, complementario al trabajo e
 3. ✅ Definir el número comercial principal para los mensajes
 4. ✅ Establecer umbrales de decisión para el piloto (con Andrés)
 5. ✅ Confirmar capacidad de producción antes de abordar criaderos de alto volumen
+6. ✅ **Integrar prospectos al registro canónico**: una vez aprobado el aporte, migrar los prospectos a `prospectos/prospectos-AAAA-MM-DD.md` usando IDs `P039`, `P040`... y generar el CSV con `registro.py csv`
+
+---
+
+## Nota sobre la estructura
+
+Este aporte se creó en `aportes/prospeccion-outbound/` según las instrucciones del encargo, que pedían crear archivos solo en esa carpeta sin modificar archivos existentes. Los IDs `PO-…` son temporales para este aporte.
+
+**Para usar estos prospectos en el flujo existente:**
+1. Migrar las filas a `prospectos/prospectos-AAAA-MM-DD.md` con IDs canónicos `P039`+
+2. Agregar la columna `Estado` según la guía de `prospectos/AGENTS.md`
+3. Regenerar el CSV con `registro.py csv`
+4. Verificar con `registro.py revisar` que no haya duplicados ni coincidencias con clientes
 
 ---
 

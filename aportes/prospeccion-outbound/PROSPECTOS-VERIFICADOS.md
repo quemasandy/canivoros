@@ -32,10 +32,10 @@ Lista de prospectos para prospección outbound B2B, complementaria al trabajo ex
 | PO-008 | Insignia Canina | adiestramiento | Suba, Bogotá | Cra 89 #156-89 | insigniacanina.com | info@insigniacanina.com | Centro 2.500 m²; adiestramiento profesional; certificación comportamiento (E) | A | https://insigniacanina.com/, 2026-11-11 | 2026-11-11 |
 | PO-009 | Centro Canino Bulldog | adiestramiento | Norte de Bogotá | Norte de Bogotá (dirección exacta no publicada) | voofla.com (perfil) | WhatsApp 305 371 4071 | +30 años experiencia; obediencia y protección personal (E) | B | https://www.voofla.com/CO/Bogotá/445981162262544/Centro-canino-Bulldog, 2026-11-11 | 2026-11-11 |
 | PO-010 | Club Canino Mi Hermano Mayor | adiestramiento + guardería | Norte de Bogotá | Bogotá Zona Norte (dirección exacta no publicada) | club-canino-mi-hermano-mayor.ueniweb.com | WhatsApp 305 711 9944 | Adiestramiento positivo; guardería sin guacal; personalizado (E) | B | https://club-canino-mi-hermano-mayor.ueniweb.com/, 2026-11-11 | 2026-11-11 |
-| PO-011 | Rivendell Land | criadero | Bogotá | Bogotá (visitas con cita) | sandralievanopi@yahoo.com | WhatsApp 317 320 4162 | Criadero ACCC; Golden Retriever, Springer Spaniel, Terranova; +10 años (E) | A | https://accc.com.co/cachorros/algunos-criaderos, 2026-11-11 | 2026-11-11 |
-| PO-012 | AG Golden Age | criadero | Bogotá | Bogotá (visitas con cita) | aggoldenage@gmail.com | WhatsApp 300 303 2925 | Criadero ACCC; Golden Retriever y Dachshund; atención personalizada (E) | B | https://accc.com.co/cachorros/algunos-criaderos, 2026-11-11 | 2026-11-11 |
-| PO-013 | El Zagal de Río Frío | criadero | Cundinamarca | Cundinamarca (visitas con cita) | elzagal2@gmail.com | WhatsApp 305 238 4968 | Criadero ACCC; Golden, Pastor Alemán, Border Collie, Mastín Napolitano y más (E) | B | https://accc.com.co/cachorros/algunos-criaderos, 2026-11-11 | 2026-11-11 |
-| PO-014 | Diamond Bull Colombia | criadero | Bogotá | Bogotá (visitas con cita) | diamond-bull.com | WhatsApp 311 551 8370 | Criadero ACCC; Bulldog Inglés (E) | B | https://accc.com.co/cachorros/algunos-criaderos, https://diamond-bull.com, 2026-11-11 | 2026-11-11 |
+| PO-011 | Rivendell Land | criadero | Bogotá | Bogotá (visitas con cita) | sandralievanopi@yahoo.com | WhatsApp 317 320 4162 | Aparece en listado ACCC (no verificado por ACCC); Golden Retriever, Springer Spaniel, Terranova; +10 años (E) | A | https://accc.com.co/cachorros/algunos-criaderos, 2026-11-11 | 2026-11-11 |
+| PO-012 | AG Golden Age | criadero | Bogotá | Bogotá (visitas con cita) | aggoldenage@gmail.com | WhatsApp 300 303 2925 | Aparece en listado ACCC (no verificado por ACCC); Golden Retriever y Dachshund; atención personalizada (E) | B | https://accc.com.co/cachorros/algunos-criaderos, 2026-11-11 | 2026-11-11 |
+| PO-013 | El Zagal de Río Frío | criadero | Cundinamarca | Cundinamarca (visitas con cita) | elzagal2@gmail.com | WhatsApp 305 238 4968 | Aparece en listado ACCC (no verificado por ACCC); Golden, Pastor Alemán, Border Collie, Mastín Napolitano y más (E) | B | https://accc.com.co/cachorros/algunos-criaderos, 2026-11-11 | 2026-11-11 |
+| PO-014 | Diamond Bull Colombia | criadero | Bogotá | Bogotá (visitas con cita) | diamond-bull.com | WhatsApp 311 551 8370 | Aparece en listado ACCC (no verificado por ACCC); Bulldog Inglés (E) | B | https://accc.com.co/cachorros/algunos-criaderos, https://diamond-bull.com, 2026-11-11 | 2026-11-11 |
 | PO-015 | RK Puppies | criadero | Cerca de Bogotá | Cerca de Bogotá (visitas con cita) | desconocido | desconocido | Criadero +15 años; Shiba, Corgi, Akita, Border Collie, Bulldog Francés; envíos nacionales (E) | C | https://colombia.com.co/top-10-criaderos-perros-bogota-colombia-2026/, 2026-11-11 | 2026-11-11 |
 | PO-016 | Huellas & Café | café pet-friendly | Usaquén, Bogotá | Calle 116 #9-76 | visitbogota.co (perfil) | WhatsApp 324 896 3941 | Café de origen pet-friendly; snacks para mascotas; patio interior (E) | B | https://visitbogota.co/es/que-hacer-en-bogota/gastronomia/restaurantes/huellas-cafe, 2026-11-11 | 2026-11-11 |
 | PO-017 | Le Coco Café Usaquén | café pet-friendly | Usaquén, Bogotá | Calle 119 #5-76 | @lecococafe.bog | desconocido | Café con platos en menú para perros; admite mascotas (E) | B | https://www.las2orillas.co/cinco-restaurantes-pet-friendly-en-bogota-para-pasar-un-rato-agradable-con-su-mascota/, 2026-11-11 | 2026-11-11 |
@@ -178,7 +178,7 @@ Lista de prospectos para prospección outbound B2B, complementaria al trabajo ex
 ### PO-011 · Rivendell Land (A)
 
 **Por qué es buen prospecto:**
-1. Criadero certificado ACCC con más de una década de experiencia (E) — https://accc.com.co/cachorros/algunos-criaderos
+1. Aparece en el listado de criaderos de ACCC con más de una década de experiencia (E) — https://accc.com.co/cachorros/algunos-criaderos (nota: ACCC no verifica los criaderos anunciados)
 2. Cría razas grandes: Golden Retriever, Terranova, English Springer Spaniel (E)
 3. Reconocido en guías de mejores criaderos de Bogotá 2026 (E)
 
@@ -211,7 +211,7 @@ Los borradores siguen las reglas de `prospectos/AGENTS.md`: sin precios, sin con
 
 ### PO-012 · AG Golden Age (B)
 
-> Hola, AG Golden Age. Les escribe [nombre], de Canívoros. Venimos del mundo de los perros de competencia y hacemos en Sopó alimento horneado con pollo, salmón o cerdo. Vi que crían Golden Retriever y Dachshund con certificación ACCC. ¿Cuántos perros manejan actualmente? Si les interesa, les cuento cómo le vendemos a criaderos. [número comercial por definir]
+> Hola, AG Golden Age. Les escribe [nombre], de Canívoros. Venimos del mundo de los perros de competencia y hacemos en Sopó alimento horneado con pollo, salmón o cerdo. Vi que crían Golden Retriever y Dachshund. ¿Cuántos perros manejan actualmente? Si les interesa, les cuento cómo le vendemos a criaderos. [número comercial por definir]
 
 ### PO-013 · El Zagal de Río Frío (B)
 
@@ -219,7 +219,7 @@ Los borradores siguen las reglas de `prospectos/AGENTS.md`: sin precios, sin con
 
 ### PO-014 · Diamond Bull Colombia (B)
 
-> Hola, Diamond Bull Colombia. Les escribe [nombre], de Canívoros. Venimos del mundo de los perros de competencia y hacemos en Sopó alimento horneado con pollo, salmón o cerdo. Vi que crían Bulldog Inglés con certificación ACCC. ¿Les interesaría conocer nuestro producto para sus perros o para recomendar a quienes compran cachorro? [número comercial por definir]
+> Hola, Diamond Bull Colombia. Les escribe [nombre], de Canívoros. Venimos del mundo de los perros de competencia y hacemos en Sopó alimento horneado con pollo, salmón o cerdo. Vi que crían Bulldog Inglés. ¿Les interesaría conocer nuestro producto para sus perros o para recomendar a quienes compran cachorro? [número comercial por definir]
 
 ### PO-016 · Huellas & Café (B)
 

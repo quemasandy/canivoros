@@ -50,7 +50,7 @@ Estas métricas miden la ejecución del proceso de prospección, no el resultado
 | **Tasa de verificación** | Verificados / Identificados | Solo informa calidad de las fuentes |
 | **Contactados** | Prospectos a los que se envió mensaje | Contar estado `contactado` o posterior |
 | **Tasa de contacto** | Contactados / Verificados aprobados | Solo informa velocidad de ejecución |
-| **Seguimientos enviados** | Mensajes de seguimiento 1 o 2 | Contar estados `seguimiento 1` y `seguimiento 2` |
+| **Seguimientos enviados** | Mensajes de seguimiento 1 o 2 | Contar registros con `fecha_seguimiento_1` o `fecha_seguimiento_2` no vacías |
 
 ### Actividad semanal sugerida (para seguimiento)
 
@@ -119,6 +119,8 @@ Agregar a la tabla del registro de prospectos:
 |-------|------|-------------|
 | `fecha_contacto` | Fecha | Día del primer mensaje |
 | `canal_contacto` | Texto | WhatsApp / Instagram / Correo |
+| `fecha_seguimiento_1` | Fecha | Día del primer seguimiento (si se envió) |
+| `fecha_seguimiento_2` | Fecha | Día del segundo seguimiento (si se envió) |
 | `fecha_respuesta` | Fecha | Día de la primera respuesta (si hubo) |
 | `tipo_respuesta` | Texto | interesado / no interesado / no ahora / sin respuesta |
 | `fecha_reunion` | Fecha | Día de la reunión o entrega de muestra |
@@ -127,6 +129,8 @@ Agregar a la tabla del registro de prospectos:
 | `fecha_segundo_pedido` | Fecha | Día del segundo pedido |
 | `kg_segundo_pedido` | Número | Kilos del segundo pedido |
 | `notas_comerciales` | Texto | Observaciones del proceso |
+
+**Nota importante:** Registrar las fechas de cada seguimiento como eventos históricos, no solo el estado actual. Esto permite calcular la actividad semanal correctamente aunque el prospecto avance en el embudo.
 
 ### Herramienta sugerida
 
