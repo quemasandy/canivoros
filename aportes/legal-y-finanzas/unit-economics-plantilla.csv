@@ -1,0 +1,12 @@
+producto,canal,presentacion_g,precio_cobrado_P_cop,precio_incluye_iva_si_no,tasa_iva,precio_confirmado_si_no,fuente_precio,ingreso_neto_N,descuento_D,ingredientes_I,empaque_etiqueta_E,mano_obra_variable_M,cadena_frio_F,entrega_L,medio_pago,pct_pasarela,fijo_pasarela_cop,comision_pago_C,devoluciones_merma_R,tarifa_simple,simple_S,CM1_contribucion_antes_captacion,CAC,CM2_primer_pedido,recompra_r_medida,pedidos_esperados_n,payback_pedidos,notas
+Chorizo pollo y salmón,cliente final,500,14000,dato pendiente,0.05,no,erp.md §5.1 (relato),=P/(1+tasa_iva),desconocido,desconocido,desconocido,desconocido,desconocido,desconocido,Wompi link,0.0265,700,=(P*pct+fijo)*1.19,desconocido,dato pendiente (régimen),=N*tarifa_simple,=N-D-(I+E+M+F+L+C+R+S),desconocido,=CM1-CAC,desconocido,desconocido,=CAC/CM1,ejemplo de fila; reemplazar fórmulas por valores en la hoja
+Chorizo pollo y salmón,distribuidor,500,9800,dato pendiente,0.05,no,erp.md §5.1 (relato),,,,,,,,transferencia,0,0,,,,,,,,,,,
+Hamburguesa pollo,cliente final,500,5000,dato pendiente,0.05,no,erp.md §5.1 (relato),,,,,,,,,,,,,,,,,,,,,
+Hamburguesa pollo,distribuidor,500,3500,dato pendiente,0.05,no,erp.md §5.1 (relato),,,,,,,,,,,,,,,,,,,,,
+Hamburguesa cerdo,cliente final,500,5000,dato pendiente,0.05,no,erp.md §5.1 (relato),,,,,,,,,,,,,,,,,,,,,
+Hamburguesa cerdo,distribuidor,500,dato pendiente (35.000 vs 3.500),dato pendiente,0.05,no,erp.md §5.1 / BL-005,,,,,,,,,,,,,,,,,,,,,
+Ternera,cliente final,500,6000,dato pendiente,0.05,no,erp.md §5.1 (relato),,,,,,,,,,,,,,,,,,,,,
+Ternera,distribuidor,500,4500,dato pendiente,0.05,no,erp.md §5.1 (relato),,,,,,,,,,,,,,,,,,,,,
+Gatívoros salmón y cerdo,cliente final,500,16000,dato pendiente,0.05,no,erp.md §5.1 (relato),,,,,,,,,,,,,,,,,,,,,
+Gatívoros salmón y cerdo,distribuidor,500,11200,dato pendiente,0.05,no,erp.md §5.1 (relato),,,,,,,,,,,,,,,,,,,,,
+Hamburguesa cerdo o pollo (volumen),criador (mín. 40 kg),1500,6200 por kg,dato pendiente,0.05,no,erp.md §5.2 (relato),,,,,,,,,,,,,,,,,,,,,
