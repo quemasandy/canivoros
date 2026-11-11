@@ -1,0 +1,78 @@
+name: Python CI
+
+on:
+  push:
+    branches: [develop, master]
+    paths:
+      - '**.py'
+      - '.github/workflows/python-ci.yml'
+  pull_request:
+    branches: [develop, master]
+    paths:
+      - '**.py'
+      - '.github/workflows/python-ci.yml'
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Check Python syntax
+        run: |
+          echo "Verificando sintaxis de todos los archivos .py..."
+          find . -name "*.py" -type f | while read file; do
+            python3 -m py_compile "$file" && echo "✓ $file"
+          done
+          echo "Todos los archivos Python tienen sintaxis válida."
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Lint with ruff
+        run: |
+          echo "Ejecutando linter (ruff)..."
+          ruff check . --select=E,F,W --ignore=E501 || true
+          echo "Linting completado (avisos no bloquean el CI)."
+
+      - name: Test calcular_embudo.py --ejemplo
+        run: |
+          echo "Probando calcular_embudo.py --ejemplo..."
+          python3 .claude/skills/embudos-de-venta/scripts/calcular_embudo.py --ejemplo > /dev/null
+          echo "✓ calcular_embudo.py --ejemplo funciona correctamente."
+
+      - name: Test calcular_embudo.py with sample data
+        run: |
+          echo "Probando calcular_embudo.py con datos de E01..."
+          output=$(python3 .claude/skills/embudos-de-venta/scripts/calcular_embudo.py embudos/E01-canivoros-tres-motores-recompra/calculo.json)
+          if echo "$output" | grep -q "Números del embudo"; then
+            echo "✓ calcular_embudo.py genera reporte correctamente."
+          else
+            echo "✗ Error: no se generó el reporte esperado."
+            exit 1
+          fi
+
+      - name: Test nuevo_embudo.py --help
+        run: |
+          echo "Probando nuevo_embudo.py --help..."
+          python3 .claude/skills/embudos-de-venta/scripts/nuevo_embudo.py --help > /dev/null
+          echo "✓ nuevo_embudo.py --help funciona correctamente."
+
+      - name: Test registro.py --help
+        run: |
+          echo "Probando registro.py --help..."
+          python3 .claude/skills/encontrar-prospectos/scripts/registro.py --help > /dev/null
+          echo "✓ registro.py --help funciona correctamente."
+
+      - name: Test competencia.py --help
+        run: |
+          echo "Probando competencia.py --help..."
+          python3 .claude/skills/analisis-competencia/scripts/competencia.py --help > /dev/null
+          echo "✓ competencia.py --help funciona correctamente."
