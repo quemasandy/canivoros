@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1060" viewBox="0 0 1800 1060"><rect width="1800" height="1060" fill="#FBF6EC"/>
 <text x="60" y="90" style="font-family:Fredoka;font-weight:700;font-size:54px" fill="#2B2320">Paleta Canívoros &amp; Gatívoros</text>
-<text x="60" y="135" style="font-family:Nunito;font-size:24px" fill="#804607">v1 · 10 nov 2026 · Núcleo extraído del logo oficial (canivoros.com). Soporte y acentos: propuesta.</text>
+<text x="60" y="135" style="font-family:Nunito;font-size:24px" fill="#804607">v1.0 · 10 nov 2026 · Núcleo extraído del logo oficial (canivoros.com). Soporte y acentos: propuesta.</text>
 <text x="60" y="184" style="font-family:Fredoka;font-weight:600;font-size:28px" fill="#2B2320">Núcleo (logo real)</text>
 <rect x="60" y="200" width="402" height="230" rx="18" fill="#C18C36" />
 <text x="80" y="368" style="font-family:Fredoka;font-weight:600;font-size:30px" fill="#2B2320">Oro Canívoros</text>
@@ -39,5 +39,5 @@
 <text x="1100" y="962" style="font-family:Nunito;font-weight:700;font-size:22px" fill="#FFFFFF">#8A2C3B  ·  Hamburguesas</text>
 <rect x="1420" y="790" width="316" height="200" rx="18" fill="#9EC9E2" />
 <text x="1440" y="928" style="font-family:Fredoka;font-weight:600;font-size:30px" fill="#2B2320">Gatívoros</text>
-<text x="1440" y="962" style="font-family:Nunito;font-weight:700;font-size:22px" fill="#2B2320">#9EC9E2  ·  Salmón y Cerdo</text>
+<text x="1440" y="962" style="font-family:Nunito;font-weight:700;font-size:22px" fill="#2B2320">#9EC9E2  ·  Receta por confirmar</text>
 </svg>

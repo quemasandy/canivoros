@@ -1,10 +1,28 @@
 # Branding Canívoros & Gatívoros
 
-Versión 1 · 10 nov 2026 · **Borrador de trabajo para Andrés.** No está aprobado por la empresa. No publicar, imprimir ni enviar a terceros sin revisión.
+Versión 1.0 · 10 nov 2026 · **Borrador de trabajo para Andrés.** No está aprobado por la empresa. No publicar, imprimir ni enviar a terceros sin revisión.
 
 ![Lámina resumen](assets/lamina-branding.png)
 
-## Índice
+## Manual de marca para agentes de IA (nuevo)
+
+La carpeta [`manual/`](manual/) es el **manual de identidad en texto**, escrito para que otros agentes de IA (y personas) generen piezas sin inventar. Si choca con 01–06, **manda el manual**. Empieza por [`manual/00-indice-y-como-usar-con-ia.md`](manual/00-indice-y-como-usar-con-ia.md).
+
+| Archivo | Qué tiene |
+|---|---|
+| [00-indice-y-como-usar-con-ia.md](manual/00-indice-y-como-usar-con-ia.md) | Orden de lectura, jerarquía de reglas, 10 reglas que nunca se rompen, cómo citar el manual en un prompt |
+| [01-plataforma-estrategia-y-mensajes.md](manual/01-plataforma-estrategia-y-mensajes.md) | Plataforma, **registro de claims**, fichas de producto, alternativas, cuña única, arquitectura, pilares, casa de mensajes, contradicciones resueltas |
+| [02-identidad-verbal.md](manual/02-identidad-verbal.md) | Voz, trato por canal, longitudes, emojis, reglas, palabras prohibidas, glosario, boilerplates, 10 ejemplos |
+| [03-logo.md](manual/03-logo.md) | Descripción exacta del logo, versiones, área de seguridad, tamaños mínimos, usos incorrectos |
+| [04-color.md](manual/04-color.md) | HEX, RGB, CMYK aproximado, 60/30/10, combinaciones y contraste WCAG |
+| [05-tipografia.md](manual/05-tipografia.md) | Fredoka y Nunito, jerarquía, interlineado, alternativas de sistema |
+| [06-elementos-graficos.md](manual/06-elementos-graficos.md) | Formas, patrones, texturas, íconos, ilustración, grillas y márgenes |
+| [07-fotografia-y-video.md](manual/07-fotografia-y-video.md) | Estilo, luz, encuadre, sujetos, qué evitar, prompts base y prompt negativo |
+| [08-aplicaciones.md](manual/08-aplicaciones.md) | Empaque, etiqueta, redes, WhatsApp, web, punto de venta, volantes, uniforme, vehículo, stickers, tarjetas |
+| [09-gobierno-de-marca.md](manual/09-gobierno-de-marca.md) | Quién aprueba, checklist antes de publicar, versiones, nombres de archivo, entregables pendientes |
+| [10-plantilla-brief-agente-ia.md](manual/10-plantilla-brief-agente-ia.md) | Plantilla de brief para agentes de IA, con ejemplo lleno |
+
+## Índice de los documentos de trabajo
 
 | Archivo | Qué tiene | Para quién |
 |---|---|---|
@@ -20,10 +38,11 @@ Versión 1 · 10 nov 2026 · **Borrador de trabajo para Andrés.** No está apro
 
 ## Cómo usarlo
 
-1. **Antes de escribir algo**, lee la tabla «Qué sí decir y qué no decir» de `02` y la lista de mensajes prohibidos de `03`.
-2. **Antes de diseñar**, usa la paleta y las reglas de logo de `04`, y el color de acento del producto en `05`.
-3. **Antes de publicar**, pasa la prueba de 4 preguntas de `02` §6 y pide visto bueno a Andrés.
-4. **Para medir**, usa los taglines como variantes del experimento BL-020.
+1. **Antes de escribir algo**, revisa el registro de claims de `manual/01` §2 y las reglas verbales de `manual/02`.
+2. **Antes de diseñar**, usa `manual/03` a `manual/08`. El logo nunca se genera con IA.
+3. **Antes de publicar**, pasa el checklist de `manual/09` §2 y pide visto bueno a Andrés.
+4. **Para encargar una pieza a otro agente**, usa la plantilla de `manual/10`.
+5. **Para medir**, usa los taglines de `03` como variantes del experimento BL-020.
 
 ## Cómo se marcan los datos
 
@@ -41,15 +60,30 @@ Versión 1 · 10 nov 2026 · **Borrador de trabajo para Andrés.** No está apro
 - `ventas_canivoros_2026.xlsx`: **solo los nombres de las columnas** para la lista de productos. No se usaron cifras.
 - Catálogo de Odoo (captura del chat con Sebastián, 27/10/2026).
 - canivoros.com (logo, fotos, CSS), consultado el 10/11/2026.
-- Instagram: **no se pudo leer sin sesión** (@canivoros_col ni @friskiesbr). Se usaron el extracto público del buscador, un espejo público de la página de Facebook de Canívoros, purina.com.br y prensa de marketing. Detalle en `06`.
+- Instagram: no iniciamos sesión. @friskiesbr no se pudo leer; el perfil de Canívoros se leyó en parte (Market Researcher). Se usaron también el extracto del buscador, un espejo público de la página de Facebook, purina.com.br y prensa de marketing. Detalle en `06`.
+- Listado público de registros ICA (mayo de 2026), revisado el 10/11/2026.
+
+### Aportes de especialistas integrados
+
+- Revisión Copy Humanizer, 10 nov 2026 (voz, trato por canal, reglas y ejemplos).
+- Revisión Product Marketer, 10 nov 2026 (estructura de estrategia y mensajes, cuña única, pilares, arquitectura, bloqueantes) y sus contradicciones señaladas sobre 01–06.
+- Fact-check Researchy, 9 nov 2026, PR #7 (números ICA, claims prohibidos y no verificables).
+- Revisión Market Researcher, 10 nov 2026 (paletas, tipografías y claims de la competencia; correcciones a `06`).
+- Competitor Watch, PR #9 (VITA y Pixie como prioridades, evidencia mínima por pieza, hipótesis de posicionamiento).
+- Auditoría de claims del sitio, Product Marketer, PR #18.
+- Base legal de Legal y Finanzas, PR #13 (Res. ICA 61252/2020 y Ley 1480 de 2011).
 
 ## Qué falta validar con la dueña
 
-1. Catálogo definitivo: receta de Gatívoros (salmón y cerdo, o salmón y pollo), forma de la ternera, qué son «núcleos» y «orejas», y cuál es el «nuevo producto 100 % pollo» (BL-005).
-2. Conservación real de cada producto (congelado, refrigerado o ambiente) y vida útil.
-3. Número de registro ICA por producto y ficha técnica (proteína, grasa, humedad).
+1. Catálogo definitivo: receta de Gatívoros (salmón y cerdo, o salmón y pollo; bloqueada en público hasta confirmar), forma de la ternera, qué son «núcleos» y «orejas» (fuera de la marca hasta definirlos) y cuál es el «nuevo producto 100 % pollo» (BL-005).
+2. **Bloqueante 2:** conservación real de cada producto (congelado, refrigerado o ambiente) y vida útil.
+2b. **Bloqueante 1:** que los perros de la familia comen el producto (sostiene la cuña «hecho por criadores»).
+3. Qué producto ampara cada registro ICA del listado (22065AL CANIVOROS, 24065AL GATIVOROS, 24713AL CANIVOROS CERDO; titular persona natural) y ficha técnica (proteína, grasa, humedad).
 4. Reemplazo del mensaje «sin subproductos» (BL-016).
-5. Claims del sitio: horneado que «elimina bacterias», digestión, sistema inmune, limpieza dental, «100 % natural», «libre de granos», «super premium», «alimento completo» (BL-016).
+5. Claims: la lista única está en el registro de `manual/01` §2 (42 claims del sitio auditados en PR #18). Prohibidos en todos los canales públicos, entre otros: «elimina bacterias», digestión, sistema inmune, «limpia los dientes», longevidad, taurina como beneficio, «100 % natural», «100 % carne real», «ingredientes 100 % reales», «ingredientes premium certificados», «super premium», «referentes colombianos», «Cada punto de venta garantiza producto fresco», «carnívoro» para perros (BL-016).
 6. Permiso para usar perros de competencia, testimonios y fotos de clientes (BL-058).
 7. Archivo vectorial del logo y si el magenta sigue vigente.
 8. Precios y niveles de línea antes de separar «Selección» y «Diaria» (BL-005).
+9. Un solo WhatsApp y una dirección oficial para todas las piezas.
+10. Títulos de los perros de la familia (solo está verificado Black Dino de Hamlet: nacido en EE. UU., ChCo).
+11. Decisiones de Andrés: palabra «BAJA», propuesta de valor (volumen o consumidor final) e hipótesis H-POS-1 (`manual/01` §18).

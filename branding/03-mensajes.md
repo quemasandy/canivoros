@@ -1,87 +1,90 @@
 # 03 · Mensajes
 
-Versión 1 · 10 nov 2026 · Todo lo marcado **[Propuesta]** es un borrador para probar (BL-020). Nada de esto está aprobado por la empresa ni publicado.
+Versión 1.0 · 10 nov 2026 · Todo lo marcado **[Propuesta]** es un borrador para probar (BL-020). Nada está aprobado por la empresa ni publicado. Ajustado con la revisión Product Marketer (10 nov 2026), la revisión Copy Humanizer (10 nov 2026) y el fact-check Researchy (9 nov 2026, PR #7). La lista completa y la única válida de claims es el registro de `manual/01-plataforma-estrategia-y-mensajes.md` §2; la casa de mensajes completa está en ese mismo documento (§9 a §15).
 
-## 1. Lema y taglines
+## 1. Lema y tagline
 
-**Lema vigente [Hecho]:** «Cuídalo cada día, ámalo toda la vida.» Se mantiene como firma emocional de la empresa.
+Son dos cosas distintas y **nunca van en la misma línea**.
 
-**Taglines candidatos [Propuesta]:**
+- **Lema vigente [Hecho]:** «Cuídalo cada día, ámalo toda la vida.» Es la firma emocional: cierre de video, dorso del empaque, pie del sitio.
+- **Tagline [Propuesta]:** frase corta de posicionamiento, junto al logo.
 
-| # | Tagline | Territorio | Riesgo |
+| # | Tagline | Uso | Estado |
 |---|---|---|---|
-| T1 | **Comida de verdad, hecha por criadores.** | Origen | Bajo. Recomendado como principal |
-| T2 | Carne que se reconoce. Horneada en Sopó. | Producto | Bajo. «Horneado» no es único, por eso va con Sopó |
-| T3 | Para el carnívoro que tienes en casa. | Nombre de marca | Bajo. Juega con el nombre |
-| T4 | Todo lo natural, sin lo crudo. | Frente a BARF | Medio: no decir «más seguro» sin respaldo |
-| T5 | Así comen los perros de un criador. | Origen | Medio: confirmar que los perros de la familia comen el producto |
-| G1 | **Gatívoros. Para el pequeño carnívoro de la casa.** | Gatos | Bajo |
-| G2 | Desde gatito, comida de verdad. | Gatitos (BL-026) | Bajo. Solo si hay porción adecuada |
+| T1 | **Hecho por criadores.** | Principal, junto al logo | **Bloqueante 1:** confirmar que los perros de la familia comen el producto |
+| T2 | Carne que se reconoce. Hecha en Sopó. | Alternativa de producto | Permitido |
+| T3 | Para el pequeño carnívoro de la casa. | **Solo Gatívoros** | Permitido (el ángulo carnívoro es solo para gatos) |
 
-**Recomendación:** probar T1 (origen) contra T2 (producto). Es la misma pregunta que el experimento «horneado vs facilidad» (BL-020), con un tercer brazo de **origen en criadores**, que es lo que la competencia no tiene.
+Retirados: «Comida de verdad, hecha por criadores» (ataca implícitamente al concentrado y pelea el territorio «comida real» que ya usa la categoría), «Para el carnívoro que tienes en casa» (impreciso para perros, fact-check Researchy), «Todo lo natural, sin lo crudo» («natural» no está validado) y «Desde gatito, comida de verdad».
 
 ## 2. Mensaje central
 
-> **Canívoros es comida natural horneada, hecha en Sopó por una familia de criadores de perros de competencia. Carne de verdad, lista para servir.**
+> **Canívoros es carne horneada para perros, hecha en Sopó por una familia de criadores de perros de competencia.** [Propuesta · horneado y origen A VALIDAR]
 
-Versión de 10 palabras: «Comida de verdad para perros, hecha por criadores en Sopó.»
+Versión corta: «Hecho por criadores. Hecho en Sopó.»
 
 ## 3. Mensajes por segmento
 
-### Dueños de perros (cliente final)
+### Tutores de perros (cliente final, tú)
 
 | Motivación | Mensaje [Propuesta] | Prueba | CTA |
 |---|---|---|---|
-| Comida de verdad | «Tu perro es carnívoro. Su comida también debería serlo.» | Foto del producto real, proteína visible | «Escríbenos y te recomendamos según su peso.» |
-| Sin complicarse | «Nada crudo, nada que cocinar. Abres y sirves.» | Video de 10 s sirviendo | «Pide tu primer paquete por WhatsApp.» |
-| Perro mañoso | «Si a tu perro le cuesta comer, prueba con algo que huela a carne.» | Testimonio con permiso | «Empieza con un paquete.» |
+| Origen | «En la casa de un criador, esto es lo que se sirve. Ahora también en la tuya.» `[A VALIDAR: bloqueante 1]` | Omar y la planta (fotos reales) | «Escríbenos y te recomendamos según su peso.» |
+| Producto | «Carne que se reconoce: pollo y salmón, cerdo, pollo, ternera.» | Foto del producto real, proteína visible | «Pide tu primer paquete por WhatsApp.» |
+| Sin complicarse | «Nada crudo, nada que cocinar. Abres y sirves.» `[A VALIDAR: bloqueante 2, conservación]` | Video de 10 s sirviendo | «Pide tu primer paquete por WhatsApp.» |
+| Perro mañoso | «Si tu perro es mañoso para comer, prueba con un paquete y me cuentas.» | Testimonio con permiso | «Empieza con un paquete.» |
 
-### Criadores y clientes de volumen
-
-| Mensaje [Propuesta] | Prueba | CTA |
-|---|---|---|
-| «De criador a criador: la comida que hacemos para nuestros perros, por volumen.» | Perros de competencia publicados por la marca; trato con Omar | «Hablemos de tu pedido del mes.» |
-| «Pedido programado: tú nos dices cada cuánto y nosotros lo tenemos listo.» | Solo si BL-043 valida la condición | «Agenda tu entrega.» |
-
-Condiciones de volumen (mínimos, precio por kilo): **no se publican** hasta que BL-005 las confirme.
-
-### Tiendas especializadas (petshops)
+### Criadores (Programa Criadores, usted)
 
 | Mensaje [Propuesta] | Prueba | CTA |
 |---|---|---|
-| «Un natural horneado de Sopó, con fábrica cerca y reposición directa.» | Tiempo de reposición real (a medir) | «Te dejamos muestras y material para tu mostrador.» |
-| «Tus clientes de Pixie o BARF buscan opciones. Esta tiene historia.» | Encaje con tiendas que ya venden natural (`prospectos/`) | «Pedido inicial controlado.» |
+| «De criador a criador: la comida que hacemos para nuestros perros.» `[A VALIDAR: bloqueante 1]` | Perros de competencia publicados por la marca; trato con Omar | «Hablemos de su pedido del mes.» |
+| «Pedido programado: usted nos dice cada cuánto y lo tenemos listo.» | Solo si BL-043 valida la condición | «Agendemos su entrega.» |
 
-### Veterinarias
+El volumen es un **programa comercial**, no un producto. Condiciones (mínimos, precio por kilo) **no se publican** hasta que BL-005 las confirme.
+
+### Tiendas especializadas (usted)
 
 | Mensaje [Propuesta] | Prueba | CTA |
 |---|---|---|
-| «Alimento natural horneado de origen animal. Te dejamos la ficha técnica.» | **Ficha técnica y registro ICA (pendientes)** | «¿Te dejamos muestras para pacientes?» |
+| «Carne horneada de Sopó, con fábrica cerca y reposición directa.» `[A VALIDAR: horneado, tiempos]` | Tiempo de reposición real (a medir) | «Le dejamos muestras y material para su mostrador.» |
+| «Una marca con historia de criadores para sus clientes que buscan otra opción.» | Encaje con tiendas que ya venden horneados o BARF (`prospectos/`) | «Pedido inicial controlado.» |
+
+### Veterinarias (usted)
+
+| Mensaje [Propuesta] | Prueba | CTA |
+|---|---|---|
+| «Alimento horneado de origen animal. Le dejamos la ficha técnica.» | **Ficha técnica y mapeo del registro ICA (pendientes)** | «¿Le dejamos muestras?» |
 | Gatívoros: «Para recomendar en la primera consulta del gatito.» | Piloto BL-026 | «Probemos con 2 o 3 clínicas.» |
 
-Con veterinarias **no se usa ningún beneficio de salud** hasta tener ficha técnica y análisis. Es el público que más rápido detecta una exageración.
+Con veterinarias **no se usa ningún beneficio de salud**. Es el público que más rápido detecta una exageración.
 
 ## 4. Objeciones y respuestas
 
 | Objeción | Respuesta [Propuesta] | Nota |
 |---|---|---|
-| «Es más caro que el concentrado.» | «Es otro tipo de comida: carne horneada, no croqueta. Te ayudo a calcular cuánto te sale al mes según el peso de tu perro.» | El cálculo solo con guía de raciones confirmada (BL-041). No inventar dosis |
-| «¿Es crudo? Me da miedo el BARF.» | «No. Es horneado y llega listo para servir.» | Declaración de la marca |
-| «¿Cómo lo guardo?» | «Te digo exactamente cómo según el producto.» | **Pendiente:** conservación por producto. Hoy el sitio dice «lugar fresco y seco» y eso hay que confirmarlo para chorizos y hamburguesas |
-| «¿Tiene registro ICA?» | «Sí, aquí está el número: [número].» | **No responder sin el número** |
-| «Mi perro no lo va a comer.» | «Empieza con un paquete y cuéntanos. Si no le gusta, te ayudamos a ajustar.» | No prometer devolución si no existe esa política |
-| «¿Lleva subproductos?» | «Usamos partes reales del animal, como cabeza de pollo o barriga de salmón, que nutren y que normalmente se desperdician.» | Transparencia. Redacción final **a validar con la dueña** y con la ficha |
-| «No lo consigo cerca.» | «Te lo llevamos. ¿En qué barrio estás?» | Según cobertura real de entregas |
-| «¿Sirve para mi gato?» | «Para gatos tenemos Gatívoros, de salmón y cerdo.» | Confirmar receta: el sitio dice salmón y pollo y Odoo dice salmón y cerdo |
-| (Tienda) «No tengo espacio en congelador.» | «Cuéntanos qué espacio tienes y vemos qué presentación te sirve.» | Depende de la conservación real |
-| (Tienda) «¿Qué margen me deja?» | «Te paso la lista de distribuidor.» | Sin cifras hasta BL-005 |
+| «Es más caro que el concentrado.» | «Es otro tipo de comida: carne horneada, no croqueta. Te ayudo a calcular cuánto te sale al mes según el peso de tu perro.» | Solo con guía de raciones confirmada (BL-041) |
+| «¿Es crudo? Me da miedo el BARF.» | «No. Es horneado.» | Declaración de la marca, a validar por producto. «Listo para servir» espera el bloqueante 2 |
+| «¿Cómo lo guardo?» | «Te digo exactamente cómo según el producto.» | **Bloqueante 2:** conservación por producto |
+| «¿Tiene registro ICA?» | «Sí, este es el número: [número del producto].» | Hay tres números en el listado ICA (22065AL, 24065AL, 24713AL); falta saber cuál ampara cada producto |
+| «Mi perro no lo va a comer.» | «Empieza con un paquete y cuéntanos.» | No prometer devolución si no existe esa política |
+| «¿Lleva subproductos?» | «Usamos partes del animal como cabeza de pollo o barriga de salmón. Le paso la ficha con la composición.» | Sin beneficios. Redacción final **a validar con la dueña** y con la ficha |
+| «No lo consigo cerca.» | «¿En qué barrio estás? Te cuento cómo te llega.» | No prometer entrega sin cobertura confirmada |
+| «¿Sirve para mi gato?» | «Para gatos tenemos Gatívoros, de la casa Canívoros. Viene en chorizos de 500 g. Te confirmo la receta.» | Receta bloqueada: el sitio dice salmón y pollo, Odoo dice salmón y cerdo (BL-005) |
+| (Tienda) «No tengo espacio en congelador.» | «Cuénteme qué espacio tiene y vemos qué le sirve.» | Depende de la conservación real |
+| (Tienda) «¿Qué margen me deja?» | «Le paso la lista de distribuidor.» | Sin cifras hasta BL-005 |
 
-## 5. Mensajes prohibidos hasta tener respaldo
+## 5. Mensajes prohibidos
+
+En **todos** los canales públicos (no solo en anuncios pagados), hasta tener respaldo o para siempre según el registro:
 
 - «Sin subproductos.»
-- «Elimina bacterias», «mejor digestión», «fortalece el sistema inmune», «limpia los dientes», «heces menos olorosas», «salud articular, cerebral, ocular».
-- «100 % natural», «libre de granos», «alimento completo y balanceado», «super premium» en anuncios pagados.
-- «Certificación ICA vigente» sin número.
-- Cualquier comparación con nombre de un competidor.
+- Beneficios de salud: «elimina bacterias», «mejor digestión», «sistema inmune», «limpia los dientes», «heces menos olorosas», «salud articular, cerebral, ocular», «longevidad».
+- «100 % natural», «100 % carne real», «ingredientes 100 % reales», «libre de granos», «super premium», «ingredientes premium certificados», «referentes colombianos».
+- «Certificación ICA vigente» o «certificado ICA».
+- «Carnívoro» aplicado a perros.
+- «Comida de verdad» o cualquier frase que ataque al concentrado.
+- Títulos de perros sin prueba (solo está verificado Black Dino de Hamlet: nacido en EE. UU., ChCo).
+- Comparaciones con nombre de un competidor.
 
-Todos vienen del sitio actual y están marcados **a validar con la dueña / registro ICA** (BL-016).
+Base legal: Res. ICA 61252/2020 art. 27.1 (la etiqueta no puede ser falsa, equívoca ni engañosa) y Ley 1480 de 2011 arts. 29–30 (aporte de Legal y Finanzas, PR #13).

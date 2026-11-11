@@ -2,6 +2,8 @@
 
 Versión 1 · 10 nov 2026 · Basada en el logo real publicado en canivoros.com. La paleta de soporte, los acentos por producto y la tipografía son **[Propuesta]**.
 
+> **v1.0 (10 nov 2026):** la versión completa para agentes está en `manual/03-logo.md`, `manual/04-color.md`, `manual/05-tipografia.md`, `manual/06-elementos-graficos.md` y `manual/07-fotografia-y-video.md`, que mandan si hay diferencias. La revisión Market Researcher (10 nov 2026) confirmó que la categoría usa verde o rojo y tipografía redondeada: el **oro** es nuestro código propio y no se usa verde ni rojo como color dominante. El logo nunca se genera con IA.
+
 ## 1. El logo actual (lo que existe)
 
 Fuente: `https://canivoros.com/wp-content/uploads/2025/10/cropped-Canivoros-gativoros.png` y `cropped-icono-270x270.png`, descargados el 10/11/2026. Copia de referencia en `assets/referencia/`.
@@ -47,10 +49,10 @@ Sirven para distinguir sabores en empaque y posts. Pollo y cerdo siguen el códi
 | Hamburguesas de Pollo | Azul pollo | `#2F5DA8` | Blanco (6,5:1) |
 | Hamburguesas de Cerdo | Verde salvia | `#5E7F3A` | Blanco (4,6:1) |
 | Hamburguesas de Ternera | Vino | `#8A2C3B` | Blanco (8,4:1) |
-| Gatívoros Salmón y Cerdo | Azul cielo (del sitio) | `#9EC9E2` | Carbón (8,7:1) |
-| Volumen criadores / Núcleos / Orejas | Tostado | `#804607` | Blanco (7,5:1) |
+| Gatívoros · [receta por confirmar] | Azul cielo (del sitio) | `#9EC9E2` | Carbón (8,7:1) |
+| Programa Criadores (material comercial; núcleos y orejas fuera) | Tostado | `#804607` | Blanco (7,5:1) |
 
-Proporción sugerida en una pieza: **60 % hueso, 25 % oro, 10 % carbón o azul noche, 5 % acento del producto.**
+Proporción en una pieza (regla 60/30/10): **60 % hueso (o plata en Gatívoros), 30 % oro, 10 % carbón o azul noche, con máximo 5 % del acento del producto dentro de ese 10 %.** Detalle en `manual/04-color.md` §2.
 
 Archivos: `assets/paleta.svg` y `assets/paleta.png`.
 
@@ -74,7 +76,7 @@ Jerarquía:
 
 - **Usar siempre el archivo original.** No redibujar ni cambiar las letras. Pedir a la empresa el **vector original** (AI, SVG o PDF): solo tenemos PNG del sitio.
 - **Espacio libre:** alrededor del logo, al menos la altura del corazón (o de la cabeza del gato).
-- **Tamaño mínimo:** 30 mm de ancho impreso / 160 px en pantalla. En el ícono de 32 px las letras no se leen; para favicon y foto de perfil usar solo la salchicha con el corazón **[Propuesta: pedir esa versión al diseñador]**.
+- **Tamaño mínimo:** 30 mm de ancho impreso / 160 px en pantalla. En el ícono de 32 px las letras no se leen; para favicon y foto de perfil usar el **isotipo** (solo la salchicha con el corazón; mínimo 8 mm / 24 px) **[Propuesta: pedir esa versión al diseñador sobre el vector]**.
 - **Fondos permitidos:** hueso, blanco, azul noche, fotos con zona limpia. **No** sobre fondos oro (se pierde) ni sobre fotos con mucho detalle.
 - **Versiones:** 1) oro sobre claro (principal); 2) oro sobre azul noche; 3) una tinta tostado para sellos y facturas; 4) blanco sobre foto oscura.
 - **No hacer:** estirar, rotar, cambiar colores (incluido el magenta), poner sombras, separar la salchicha de las letras, juntar los logos de Canívoros y Gatívoros más cerca que su espacio libre.

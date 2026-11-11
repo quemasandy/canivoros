@@ -1,98 +1,86 @@
 # 02 · Personalidad y voz
 
-Versión 1 · 10 nov 2026 · Propuesta. Las frases de ejemplo son borradores para revisar; ninguna está aprobada ni publicada.
+Versión 1.0 · 10 nov 2026 · Propuesta. Corregida con la **revisión Copy Humanizer, 10 nov 2026** (tuteo y usted por canal, error «Márcia» en la regla 7, «natural» suelto a validar, reglas, palabras prohibidas, longitudes, emojis y diez ejemplos) y con las contradicciones que señaló Product Marketer. La versión completa para agentes está en `manual/02-identidad-verbal.md`, que manda si hay diferencias.
 
 ## 1. Arquetipo
 
-**Principal: el Cuidador** (cuida, acompaña, protege). Ya está en la promesa actual: «Cuídalo cada día, ámalo toda la vida» **[Hecho: lema del sitio]**.
-
-**Secundario: el Sabio práctico, versión criador.** Sabe de perros porque los cría, y lo explica sin hablar como laboratorio.
-
-Imagen guía: **el criador vecino que te recibe en la finca, te cuenta qué comen sus perros y te deja su WhatsApp.** No es un veterinario dando clase ni una multinacional con mascota animada.
+**Principal: el Cuidador.** Ya está en el lema vigente: «Cuídalo cada día, ámalo toda la vida» **[Hecho]**.
+**Secundario: el Sabio práctico, versión criador.** Imagen guía: **el criador vecino que te recibe, te pregunta por tu perro, te dice lo que sabe y lo que no.**
 
 | Somos | No somos |
 |---|---|
-| Cercanos, como un vecino que sabe | Confianzudos ni infantiles |
-| Orgullosos del origen | Arrogantes («el mejor del mercado») |
+| Cercanos | Confianzudos («parce», «mi rey», «mi amor») |
+| Orgullosos del origen | Arrogantes («el mejor», «único») |
 | Claros y concretos | Técnicos ni científicos de mentira |
 | Cálidos | Cursis ni llenos de diminutivos |
-| Honestos con lo que no sabemos | Exagerados con beneficios de salud |
+| Honestos: «no sé, ya le confirmo» | Exagerados con beneficios |
 
-## 2. Tono por situación
+## 2. Trato y tono por canal
 
-| Situación | Tono | Ejemplo corto |
-|---|---|---|
-| Primer contacto en WhatsApp | Cálido, rápido, una pregunta a la vez | «¡Hola! Soy Omar, de Canívoros. ¿Cómo se llama tu perro y cuánto pesa?» |
-| Explicar el producto | Claro, con hechos | «Es carne horneada en Sopó. Llega lista para servir.» |
-| Objeción de precio | Respetuoso, sin presión | «Entiendo. Te cuento qué incluye y tú decides con calma.» |
-| Problema o queja | Responsable, sin excusas | «Tienes razón, eso no debió pasar. Lo resolvemos hoy.» |
-| Contenido en Instagram | Orgulloso y con humor suave | «Él no sabe de etiquetas. Tú sí.» |
-| Empaque | Directo, pocas palabras | «Pollo y salmón. Horneado en Sopó.» |
-| Criadores y tiendas | De colega a colega | «Te cuento cómo lo manejan otros criadores.» |
+| Canal | Trato | Tono | Longitud | Emojis |
+|---|---|---|---|---|
+| Instagram | Tú | Orgulloso, humor suave | Titular máx. 8 palabras; pie máx. 4 líneas antes de «ver más» | Máx. 3 |
+| Empaque | Tú | Directo | Frente máx. 6 palabras + peso; reverso máx. 2 frases | Ninguno |
+| WhatsApp con cliente final | Abre con tú; pasa a usted si el cliente escribe así | Cálido, una pregunta por mensaje | 1 a 3 líneas | Máx. 1 (🐾 🐶 🐱); nunca corazones con clientes nuevos |
+| Criadores, tiendas, veterinarias | Usted | Sobrio, de colega a colega | 1 idea por mensaje | Ninguno o 1 |
+
+El trato por canal está **pendiente de validar con Omar**.
 
 ## 3. Reglas de escritura
 
-1. **Frases cortas.** Una idea por frase.
-2. **Tutea.** «Tu perro», «tu gato». En B2B, tutea también salvo que el otro use usted.
-3. **El perro o el gato por su nombre** cuando lo sabemos.
-4. **Verbos concretos:** hornear, servir, guardar, probar. Evita «potenciar», «optimizar», «revolucionar».
-5. **Un emoji como máximo** por mensaje de WhatsApp. En Instagram, hasta tres. En empaque, ninguno.
-6. **Nada de texto de inteligencia artificial pegado sin revisar.** Una publicación en Facebook del 1/11/2026 incluyó por error la frase «¡Claro! Te propongo una versión más cálida…» **[Hecho: visto en un espejo público de la página de Facebook]**. Cada texto lo relee una persona antes de publicar.
-7. **Español de Colombia**, sin modismos de otros países. «Tutor» o «dueño», no «Márcia» ni «papá perruno» todo el tiempo.
+1. Una idea por frase, máximo unas 15 palabras.
+2. Verbos concretos: hornear, servir, guardar, probar, pedir, llevar.
+3. El nombre del perro o del gato cuando lo sabemos.
+4. Una pregunta por mensaje en WhatsApp.
+5. Signos de apertura siempre (¡ ¿). Nada de «!!», «??» ni MAYÚSCULAS sostenidas.
+6. Diminutivos: máximo uno por mensaje y nunca para nombrar al animal.
+7. **Español de Colombia**, con expresiones naturales («con gusto», «listo», «le cuento», «ya se lo confirmo»). Sin modismos de otros países («mola», «chido», «guau» alargado, «colega»). Para la persona responsable del animal: «tutor» en textos de marca; nada de «perrhijo», «peludito», ni «papá perruno» o «mamá gatuna» repetidos.
+8. Quién habla: Omar en primera persona en WhatsApp; «nosotros» en redes, empaque y web.
+9. Nada de texto de IA pegado sin revisar (una publicación de Facebook del 1/11/2026 dejó «¡Claro! Te propongo una versión más cálida…»).
+10. Nada que ataque al concentrado, ni siquiera implícito («comida de verdad», «tu perro es carnívoro, su comida también debería serlo»), y con veterinarias, nunca.
 
 ## 4. Qué sí decir y qué no decir
 
-| ✅ Sí decir | ❌ No decir (o solo con respaldo) | Por qué |
+La lista única de claims es el registro de `manual/01-plataforma-estrategia-y-mensajes.md` §2 (incluye el fact-check Researchy, 9 nov 2026, PR #7, y la auditoría de claims de Product Marketer, PR #18).
+
+| ✅ Sí decir | ⏳ Solo tras validar (pendiente) | ❌ No decir |
 |---|---|---|
-| «Carne de pollo, salmón, cerdo o ternera» | «Sin subproductos» | La materia prima incluye subproductos (`erp.md`; BL-016) |
-| «Horneado en Sopó» | «El horneado elimina bacterias» | Afirmación técnica: **a validar con la dueña / registro ICA** |
-| «Listo para servir» | «Mejora la digestión», «fortalece el sistema inmune» | Beneficio de salud: **a validar con la dueña / registro ICA** |
-| «Hecho por criadores de perros de competencia» | «El alimento de los campeones» como promesa de resultados | Implica que el alimento hizo campeón al perro |
-| «Nos lo cuentan nuestros clientes: …» (con permiso) | «Resultados garantizados» | Los testimonios son experiencias individuales |
-| «Tiene registro ICA» (solo con número a la mano) | «Certificación ICA vigente» sin número | El contenido revisado no trae número ni fecha |
-| «Para perros de todas las edades» (si la ficha lo respalda) | «Alimento completo y balanceado» | Falta ficha técnica (`erp.md` §12) |
-| «Comida que se ve como comida» | «El concentrado es veneno», «tres veces mejor» | Ataque sin evidencia; riesgo legal y de confianza |
-| «100 % pollo» (si la receta lo confirma) | «100 % natural» | Depende de la receta y de la norma: **a validar** |
+| «Hecho en Sopó» | «Horneado» por producto | «Sin subproductos» |
+| «Pollo y salmón», «cerdo»… (proteína del catálogo) | **«Hecho por criadores de perros de competencia»** (bloqueante) | «100 % natural», «100 % carne real», «ingredientes 100 % reales» |
+| «Para perros» / «para gatos» | «Listo para servir» (bloqueante: conservación) | «Natural» suelto, mientras no se valide |
+| «500 g» | «No es crudo ni BARF» | Beneficios de salud: digestión, heces, pelaje, defensas, energía, longevidad |
+| «Te atiende Omar» | «Registro ICA n.º [número]» (falta saber qué producto ampara cada número) | «Limpia los dientes», «elimina bacterias» |
+| «Con salmón», «con pollo» (como ingrediente) | «Con carne real como ingrediente principal» (con etiqueta) | «Certificación ICA vigente», «certificado ICA» |
+| | Testimonios (con permiso, como experiencias) | «Super premium», «el mejor», «referentes», en **ningún** canal público |
+| | | «Carnívoro» para perros (solo para gatos) |
+| | | Comparaciones con nombre de competidor |
 
 ## 5. Frases de ejemplo
 
-Todas son **propuestas**. Las que mencionan beneficios de salud no están incluidas a propósito.
+Fuente: revisión Copy Humanizer, 10 nov 2026, con el ajuste del recordatorio por la contradicción 1 de Product Marketer.
 
-### WhatsApp
+**WhatsApp**
+- Bienvenida: «¡Hola! Soy Omar, de Canívoros 🐾 ¿Cómo se llama tu perro y cuánto pesa?» (usted: «¡Hola! Le habla Omar, de Canívoros 🐾 ¿Cómo se llama su perro y cuánto pesa?»)
+- Producto: «Es carne horneada en nuestra planta de Sopó. No es cruda ni BARF: abre y sirve. ¿Le cuento cómo se guarda?» `[A VALIDAR: horneado, no crudo, listo para servir]`
+- Reposición (solo con permiso, BL-058): «Hola, [nombre]. Me pidió que le escribiera hoy para el pedido de [perro]. ¿Se lo dejo listo para esta semana?» La fecha sale de lo que eligió el cliente o de su intervalo real, **nunca de una ración estimada** (no hay guía de raciones, BL-041).
+- Precio: «Entiendo. Es otro tipo de comida: carne horneada, no croqueta. Si quiere, le calculo cuánto le sale al mes según el peso de [perro].» (solo con guía de raciones)
+- Perro mañoso: «Si tu perro es mañoso para comer, prueba con un paquete y me cuentas.»
+- Salida: «Si prefiere que no le escriba, me dice y listo.»
 
-**Bienvenida (nuevo contacto):**
-> ¡Hola! Soy Omar, de Canívoros 🐾. ¿Cómo se llama tu perro y cuánto pesa? Así te recomiendo bien.
-
-**Explicar el producto:**
-> Canívoros es carne de verdad horneada en nuestra planta de Sopó. No es crudo ni BARF: llega listo para servir. ¿Quieres que te cuente cómo se guarda?
-
-**Recomendar producto:**
-> Para [nombre], te sugiero empezar con [producto]. Si le gusta, armamos la cantidad del mes.
-
-**Recordatorio de reposición (solo a quien lo autorizó, BL-058):**
-> Hola, [nombre]. Por lo que llevaste, a [perro] le debe quedar poquito. ¿Te preparo el siguiente pedido para esta semana?
-
-**Pasar a una persona:**
-> Esto lo resuelve mejor Omar en persona. Te escribe en un rato.
-
-### Instagram
-
+**Instagram**
 - «Él no lee etiquetas. Tú sí.»
-- «De la planta en Sopó al plato de tu perro.»
-- «Así comen los perros de un criador. Así puede comer el tuyo.»
-- «Carne que se reconoce. Horneada. Lista para servir.»
+- «En la casa de un criador, esto es lo que se sirve. Ahora también en la tuya.» `[A VALIDAR: bloqueante 1]`
+- «Lunes en Sopó. Llega la carne, prendemos el horno y empieza la semana 🐾» (solo si describe el proceso real)
 - Gatívoros: «Para el pequeño carnívoro de la casa.»
-- Detrás de cámaras: «Lunes en Sopó: llega la carne, prendemos el horno.» (Solo si describe el proceso real; confirmar con la empresa.)
 
-### Empaque
-
-- Frente: «Canívoros · Pollo y Salmón · Chorizos · Horneado en Sopó · 500 g»
-- Reverso, bloque de voz: «Somos una familia de criadores. Hacemos la comida que les damos a nuestros perros.»
-- Instrucción: «Guárdalo como indica la etiqueta y sírvelo según su peso. ¿Dudas? Escríbenos.» (La conservación real va según la ficha técnica.)
+**Empaque**
+- Frente: «Canívoros / Chorizos de pollo y salmón / Horneados en Sopó / 500 g» `[A VALIDAR: horneado]`
+- Reverso: «Somos una familia de criadores en Sopó. Esta es la comida que horneamos para nuestros propios perros.» `[A VALIDAR: bloqueante 1]`
+- Instrucción: «Consérvalo [condición de la ficha técnica]. Sirve según el peso de tu perro (tabla al lado). ¿Dudas? Escríbenos al [WhatsApp].»
 
 ## 6. Prueba rápida antes de publicar
 
 1. ¿Lo diría Omar en voz alta a un cliente?
-2. ¿Cada dato tiene fuente? ¿Cada beneficio de salud está validado?
-3. ¿Se entiende en 3 segundos?
-4. ¿Suena a persona y no a anuncio genérico?
+2. ¿Cada afirmación está permitida en el registro de claims, o va marcada `[A VALIDAR]`?
+3. ¿Respeta el trato, la longitud y los emojis del canal?
+4. ¿Suena a persona y no a anuncio genérico ni a texto de IA?
